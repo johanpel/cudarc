@@ -4,7 +4,10 @@ use super::sys;
 use crate::driver;
 
 pub mod activity;
+pub mod device;
+pub mod pm;
 pub mod profiler_host;
+pub mod profiling;
 
 /// Wrapper around an erroneous `CUptiResult`. See
 /// NVIDIA's [CUDA Runtime API](https://docs.nvidia.com/cupti/api/group__CUPTI__RESULT__API.html?highlight=CUptiResult#_CPPv411CUptiResult)
@@ -66,32 +69,6 @@ pub unsafe fn compute_capability_supported(
     support: *mut core::ffi::c_int,
 ) -> Result<(), CuptiError> {
     unsafe { sys::cuptiComputeCapabilitySupported(major, minor, support) }.result()
-}
-
-/// Check support for a compute device.
-///
-/// See [cuptiDeviceSupported()](https://docs.nvidia.com/cupti/api/group__CUPTI__ACTIVITY__API.html#group__cupti__activity__api_1ga2493c952b9ceccf953ade5a6816fefdb).
-///
-/// # Safety
-/// Support must exist.
-pub unsafe fn device_supported(
-    dev: driver::sys::CUdevice,
-    support: *mut core::ffi::c_int,
-) -> Result<(), CuptiError> {
-    unsafe { sys::cuptiDeviceSupported(dev, support) }.result()
-}
-
-/// Query the virtualization mode of the device.
-///
-/// See [cuptiDeviceVirtualizationMode()](https://docs.nvidia.com/cupti/api/group__CUPTI__ACTIVITY__API.html#group__cupti__activity__api_1ga395c59b62aeac395e38ced9d40677c76).
-///
-/// # Safety
-/// Mode must exist.
-pub unsafe fn device_virtualization_mode(
-    dev: driver::sys::CUdevice,
-    mode: *mut sys::CUpti_DeviceVirtualizationMode,
-) -> Result<(), CuptiError> {
-    unsafe { sys::cuptiDeviceVirtualizationMode(dev, mode) }.result()
 }
 
 /// Enable or disable all callbacks in all domains.
