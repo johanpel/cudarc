@@ -4980,6 +4980,20 @@ pub enum CUpti_MetricPropertyID {
     CUPTI_METRIC_PROPERTY_GPU_CPU_NVLINK_BANDWIDTH = 15,
 }
 #[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+#[repr(u32)]
+#[derive(Debug, Copy, Clone, Hash, PartialOrd, Ord, PartialEq, Eq)]
+pub enum CUpti_MetricType {
+    CUPTI_METRIC_TYPE_COUNTER = 0,
+    CUPTI_METRIC_TYPE_RATIO = 1,
+    CUPTI_METRIC_TYPE_THROUGHPUT = 2,
+    CUPTI_METRIC_TYPE__COUNT = 3,
+}
+#[cfg(any(
     feature = "cuda-11040",
     feature = "cuda-11050",
     feature = "cuda-11060",
@@ -5136,6 +5150,123 @@ pub enum CUpti_PcieGen {
     CUPTI_PCIE_GEN_GEN5 = 5,
     CUPTI_PCIE_GEN_GEN6 = 6,
     CUPTI_PCIE_GEN_FORCE_INT = 2147483647,
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+#[repr(u32)]
+#[derive(Debug, Copy, Clone, Hash, PartialOrd, Ord, PartialEq, Eq)]
+pub enum CUpti_PmSampling_DecodeStopReason {
+    CUPTI_PM_SAMPLING_DECODE_STOP_REASON_OTHER = 0,
+    CUPTI_PM_SAMPLING_DECODE_STOP_REASON_COUNTER_DATA_FULL = 1,
+    CUPTI_PM_SAMPLING_DECODE_STOP_REASON_END_OF_RECORDS = 2,
+    CUPTI_PM_SAMPLING_DECODE_STOP_REASON_COUNT = 3,
+}
+#[cfg(any(feature = "cuda-12080", feature = "cuda-12090", feature = "cuda-13000"))]
+#[repr(u32)]
+#[derive(Debug, Copy, Clone, Hash, PartialOrd, Ord, PartialEq, Eq)]
+pub enum CUpti_PmSampling_HardwareBuffer_AppendMode {
+    CUPTI_PM_SAMPLING_HARDWARE_BUFFER_APPEND_MODE_KEEP_OLDEST = 0,
+    CUPTI_PM_SAMPLING_HARDWARE_BUFFER_APPEND_MODE_KEEP_LATEST = 1,
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+#[repr(u32)]
+#[derive(Debug, Copy, Clone, Hash, PartialOrd, Ord, PartialEq, Eq)]
+pub enum CUpti_PmSampling_TriggerMode {
+    CUPTI_PM_SAMPLING_TRIGGER_MODE_GPU_SYSCLK_INTERVAL = 0,
+    CUPTI_PM_SAMPLING_TRIGGER_MODE_GPU_TIME_INTERVAL = 1,
+    CUPTI_PM_SAMPLING_TRIGGER_MODE_COUNT = 2,
+}
+#[repr(u32)]
+#[derive(Debug, Copy, Clone, Hash, PartialOrd, Ord, PartialEq, Eq)]
+pub enum CUpti_ProfilerRange {
+    CUPTI_Range_INVALID = 0,
+    CUPTI_AutoRange = 1,
+    CUPTI_UserRange = 2,
+    CUPTI_Range_COUNT = 3,
+}
+#[repr(u32)]
+#[derive(Debug, Copy, Clone, Hash, PartialOrd, Ord, PartialEq, Eq)]
+pub enum CUpti_ProfilerReplayMode {
+    CUPTI_Replay_INVALID = 0,
+    CUPTI_ApplicationReplay = 1,
+    CUPTI_KernelReplay = 2,
+    CUPTI_UserReplay = 3,
+    CUPTI_Replay_COUNT = 4,
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+#[repr(u32)]
+#[derive(Debug, Copy, Clone, Hash, PartialOrd, Ord, PartialEq, Eq)]
+pub enum CUpti_ProfilerType {
+    CUPTI_PROFILER_TYPE_RANGE_PROFILER = 0,
+    CUPTI_PROFILER_TYPE_PM_SAMPLING = 1,
+    CUPTI_PROFILER_TYPE_PROFILER_INVALID = 2,
+}
+#[cfg(any(
+    feature = "cuda-12020",
+    feature = "cuda-12030",
+    feature = "cuda-12040",
+    feature = "cuda-12050"
+))]
+#[repr(u32)]
+#[derive(Debug, Copy, Clone, Hash, PartialOrd, Ord, PartialEq, Eq)]
+pub enum CUpti_Profiler_API {
+    CUPTI_PROFILER_RANGE_PROFILING = 0,
+    CUPTI_PROFILER_PC_SAMPLING = 1,
+    CUPTI_PROFILER_SASS_METRICS = 2,
+    CUPTI_PROFILER_UNKNOWN = 3,
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+#[repr(u32)]
+#[derive(Debug, Copy, Clone, Hash, PartialOrd, Ord, PartialEq, Eq)]
+pub enum CUpti_Profiler_API {
+    CUPTI_PROFILER_RANGE_PROFILING = 0,
+    CUPTI_PROFILER_PC_SAMPLING = 1,
+    CUPTI_PROFILER_SASS_METRICS = 2,
+    CUPTI_PROFILER_PM_SAMPLING = 3,
+    CUPTI_PROFILER_UNKNOWN = 4,
+}
+#[cfg(any(
+    feature = "cuda-11050",
+    feature = "cuda-11060",
+    feature = "cuda-11070",
+    feature = "cuda-11080",
+    feature = "cuda-12000",
+    feature = "cuda-12010",
+    feature = "cuda-12020",
+    feature = "cuda-12030",
+    feature = "cuda-12040",
+    feature = "cuda-12050",
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+#[repr(u32)]
+#[derive(Debug, Copy, Clone, Hash, PartialOrd, Ord, PartialEq, Eq)]
+pub enum CUpti_Profiler_Support_Level {
+    CUPTI_PROFILER_CONFIGURATION_UNKNOWN = 0,
+    CUPTI_PROFILER_CONFIGURATION_UNSUPPORTED = 1,
+    CUPTI_PROFILER_CONFIGURATION_DISABLED = 2,
+    CUPTI_PROFILER_CONFIGURATION_SUPPORTED = 3,
 }
 #[repr(u32)]
 #[derive(Debug, Copy, Clone, Hash, PartialOrd, Ord, PartialEq, Eq)]
@@ -23648,6 +23779,14 @@ pub struct CUpti_CallbackData {
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone, Hash, PartialOrd, Ord, PartialEq, Eq)]
+pub struct CUpti_Device_GetChipName_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+    pub deviceIndex: usize,
+    pub pChipName: *const ::core::ffi::c_char,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialOrd, Ord, PartialEq, Eq)]
 pub struct CUpti_EventGroupSet {
     pub numEventGroups: u32,
     pub eventGroups: *mut CUpti_EventGroup,
@@ -23712,6 +23851,637 @@ pub struct CUpti_NvtxExtPayloadAttr {
     pub structSize: u32,
     pub type_: u32,
     pub attributes: *mut ::core::ffi::c_void,
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialOrd, Ord, PartialEq, Eq)]
+pub struct CUpti_PmSampling_CounterDataImage_Initialize_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+    pub pPmSamplingObject: *mut CUpti_PmSampling_Object,
+    pub counterDataSize: usize,
+    pub pCounterData: *mut u8,
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialOrd, Ord, PartialEq, Eq)]
+pub struct CUpti_PmSampling_CounterData_GetSampleInfo_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+    pub pPmSamplingObject: *mut CUpti_PmSampling_Object,
+    pub pCounterDataImage: *const u8,
+    pub counterDataImageSize: usize,
+    pub sampleIndex: usize,
+    pub startTimestamp: u64,
+    pub endTimestamp: u64,
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialOrd, Ord, PartialEq, Eq)]
+pub struct CUpti_PmSampling_DecodeData_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+    pub pPmSamplingObject: *mut CUpti_PmSampling_Object,
+    pub pCounterDataImage: *mut u8,
+    pub counterDataImageSize: usize,
+    pub decodeStopReason: CUpti_PmSampling_DecodeStopReason,
+    pub overflow: u8,
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialOrd, Ord, PartialEq, Eq)]
+pub struct CUpti_PmSampling_Disable_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+    pub pPmSamplingObject: *mut CUpti_PmSampling_Object,
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialOrd, Ord, PartialEq, Eq)]
+pub struct CUpti_PmSampling_Enable_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+    pub deviceIndex: usize,
+    pub pPmSamplingObject: *mut CUpti_PmSampling_Object,
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialOrd, Ord, PartialEq, Eq)]
+pub struct CUpti_PmSampling_GetCounterAvailability_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+    pub deviceIndex: usize,
+    pub counterAvailabilityImageSize: usize,
+    pub pCounterAvailabilityImage: *mut u8,
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialOrd, Ord, PartialEq, Eq)]
+pub struct CUpti_PmSampling_GetCounterDataInfo_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+    pub pCounterDataImage: *const u8,
+    pub counterDataImageSize: usize,
+    pub numTotalSamples: usize,
+    pub numPopulatedSamples: usize,
+    pub numCompletedSamples: usize,
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialOrd, Ord, PartialEq, Eq)]
+pub struct CUpti_PmSampling_GetCounterDataSize_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+    pub pPmSamplingObject: *mut CUpti_PmSampling_Object,
+    pub pMetricNames: *mut *const ::core::ffi::c_char,
+    pub numMetrics: usize,
+    pub maxSamples: u32,
+    pub counterDataSize: usize,
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct CUpti_PmSampling_Object {
+    _unused: [u8; 0],
+}
+#[cfg(any(feature = "cuda-12060"))]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialOrd, Ord, PartialEq, Eq)]
+pub struct CUpti_PmSampling_SetConfig_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+    pub pPmSamplingObject: *mut CUpti_PmSampling_Object,
+    pub configSize: usize,
+    pub pConfig: *const u8,
+    pub hardwareBufferSize: usize,
+    pub samplingInterval: u64,
+    pub triggerMode: CUpti_PmSampling_TriggerMode,
+}
+#[cfg(any(feature = "cuda-12080", feature = "cuda-12090", feature = "cuda-13000"))]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialOrd, Ord, PartialEq, Eq)]
+pub struct CUpti_PmSampling_SetConfig_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+    pub pPmSamplingObject: *mut CUpti_PmSampling_Object,
+    pub configSize: usize,
+    pub pConfig: *const u8,
+    pub hardwareBufferSize: usize,
+    pub samplingInterval: u64,
+    pub triggerMode: CUpti_PmSampling_TriggerMode,
+    pub hwBufferAppendMode: CUpti_PmSampling_HardwareBuffer_AppendMode,
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialOrd, Ord, PartialEq, Eq)]
+pub struct CUpti_PmSampling_Start_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+    pub pPmSamplingObject: *mut CUpti_PmSampling_Object,
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialOrd, Ord, PartialEq, Eq)]
+pub struct CUpti_PmSampling_Stop_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+    pub pPmSamplingObject: *mut CUpti_PmSampling_Object,
+}
+#[repr(C)]
+pub struct CUpti_Profiler_BeginPass_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+    pub ctx: CUcontext,
+}
+#[repr(C)]
+pub struct CUpti_Profiler_BeginSession_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+    pub ctx: CUcontext,
+    pub counterDataImageSize: usize,
+    pub pCounterDataImage: *mut u8,
+    pub counterDataScratchBufferSize: usize,
+    pub pCounterDataScratchBuffer: *mut u8,
+    pub bDumpCounterDataInFile: u8,
+    pub pCounterDataFilePath: *const ::core::ffi::c_char,
+    pub range: CUpti_ProfilerRange,
+    pub replayMode: CUpti_ProfilerReplayMode,
+    pub maxRangesPerPass: usize,
+    pub maxLaunchesPerPass: usize,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialOrd, Ord, PartialEq, Eq)]
+pub struct CUpti_Profiler_CounterDataImageOptions {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+    pub pCounterDataPrefix: *const u8,
+    pub counterDataPrefixSize: usize,
+    pub maxNumRanges: u32,
+    pub maxNumRangeTreeNodes: u32,
+    pub maxRangeNameLength: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialOrd, Ord, PartialEq, Eq)]
+pub struct CUpti_Profiler_CounterDataImage_CalculateScratchBufferSize_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+    pub counterDataImageSize: usize,
+    pub pCounterDataImage: *mut u8,
+    pub counterDataScratchBufferSize: usize,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialOrd, Ord, PartialEq, Eq)]
+pub struct CUpti_Profiler_CounterDataImage_CalculateSize_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+    pub sizeofCounterDataImageOptions: usize,
+    pub pOptions: *const CUpti_Profiler_CounterDataImageOptions,
+    pub counterDataImageSize: usize,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialOrd, Ord, PartialEq, Eq)]
+pub struct CUpti_Profiler_CounterDataImage_InitializeScratchBuffer_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+    pub counterDataImageSize: usize,
+    pub pCounterDataImage: *mut u8,
+    pub counterDataScratchBufferSize: usize,
+    pub pCounterDataScratchBuffer: *mut u8,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialOrd, Ord, PartialEq, Eq)]
+pub struct CUpti_Profiler_CounterDataImage_Initialize_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+    pub sizeofCounterDataImageOptions: usize,
+    pub pOptions: *const CUpti_Profiler_CounterDataImageOptions,
+    pub counterDataImageSize: usize,
+    pub pCounterDataImage: *mut u8,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialOrd, Ord, PartialEq, Eq)]
+pub struct CUpti_Profiler_DeInitialize_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+}
+#[cfg(any(
+    feature = "cuda-11050",
+    feature = "cuda-11060",
+    feature = "cuda-11070",
+    feature = "cuda-11080",
+    feature = "cuda-12000"
+))]
+#[repr(C)]
+pub struct CUpti_Profiler_DeviceSupported_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+    pub cuDevice: CUdevice,
+    pub isSupported: CUpti_Profiler_Support_Level,
+    pub architecture: CUpti_Profiler_Support_Level,
+    pub sli: CUpti_Profiler_Support_Level,
+    pub vGpu: CUpti_Profiler_Support_Level,
+    pub confidentialCompute: CUpti_Profiler_Support_Level,
+    pub cmp: CUpti_Profiler_Support_Level,
+}
+#[cfg(any(feature = "cuda-12010"))]
+#[repr(C)]
+pub struct CUpti_Profiler_DeviceSupported_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+    pub cuDevice: CUdevice,
+    pub isSupported: CUpti_Profiler_Support_Level,
+    pub architecture: CUpti_Profiler_Support_Level,
+    pub sli: CUpti_Profiler_Support_Level,
+    pub vGpu: CUpti_Profiler_Support_Level,
+    pub confidentialCompute: CUpti_Profiler_Support_Level,
+    pub cmp: CUpti_Profiler_Support_Level,
+    pub wsl: CUpti_Profiler_Support_Level,
+}
+#[cfg(any(
+    feature = "cuda-12020",
+    feature = "cuda-12030",
+    feature = "cuda-12040",
+    feature = "cuda-12050",
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+#[repr(C)]
+pub struct CUpti_Profiler_DeviceSupported_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+    pub cuDevice: CUdevice,
+    pub isSupported: CUpti_Profiler_Support_Level,
+    pub architecture: CUpti_Profiler_Support_Level,
+    pub sli: CUpti_Profiler_Support_Level,
+    pub vGpu: CUpti_Profiler_Support_Level,
+    pub confidentialCompute: CUpti_Profiler_Support_Level,
+    pub cmp: CUpti_Profiler_Support_Level,
+    pub wsl: CUpti_Profiler_Support_Level,
+    pub api: CUpti_Profiler_API,
+}
+#[repr(C)]
+pub struct CUpti_Profiler_DisableProfiling_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+    pub ctx: CUcontext,
+}
+#[repr(C)]
+pub struct CUpti_Profiler_EnableProfiling_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+    pub ctx: CUcontext,
+}
+#[repr(C)]
+pub struct CUpti_Profiler_EndPass_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+    pub ctx: CUcontext,
+    pub targetNestingLevel: u16,
+    pub passIndex: usize,
+    pub allPassesSubmitted: u8,
+}
+#[repr(C)]
+pub struct CUpti_Profiler_EndSession_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+    pub ctx: CUcontext,
+}
+#[repr(C)]
+pub struct CUpti_Profiler_FlushCounterData_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+    pub ctx: CUcontext,
+    pub numRangesDropped: usize,
+    pub numTraceBytesDropped: usize,
+}
+#[repr(C)]
+pub struct CUpti_Profiler_GetCounterAvailability_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+    pub ctx: CUcontext,
+    pub counterAvailabilityImageSize: usize,
+    pub pCounterAvailabilityImage: *mut u8,
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialOrd, Ord, PartialEq, Eq)]
+pub struct CUpti_Profiler_Host_ConfigAddMetrics_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+    pub pHostObject: *mut CUpti_Profiler_Host_Object,
+    pub ppMetricNames: *mut *const ::core::ffi::c_char,
+    pub numMetrics: usize,
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialOrd, Ord, PartialEq, Eq)]
+pub struct CUpti_Profiler_Host_Deinitialize_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+    pub pHostObject: *mut CUpti_Profiler_Host_Object,
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialOrd, Ord, PartialEq, Eq)]
+pub struct CUpti_Profiler_Host_EvaluateToGpuValues_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+    pub pHostObject: *mut CUpti_Profiler_Host_Object,
+    pub pCounterDataImage: *const u8,
+    pub counterDataImageSize: usize,
+    pub rangeIndex: usize,
+    pub ppMetricNames: *mut *const ::core::ffi::c_char,
+    pub numMetrics: usize,
+    pub pMetricValues: *mut f64,
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialOrd, Ord, PartialEq, Eq)]
+pub struct CUpti_Profiler_Host_GetBaseMetrics_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+    pub pHostObject: *mut CUpti_Profiler_Host_Object,
+    pub metricType: CUpti_MetricType,
+    pub ppMetricNames: *mut *const ::core::ffi::c_char,
+    pub numMetrics: usize,
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialOrd, Ord, PartialEq, Eq)]
+pub struct CUpti_Profiler_Host_GetConfigImageSize_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+    pub pHostObject: *mut CUpti_Profiler_Host_Object,
+    pub configImageSize: usize,
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialOrd, Ord, PartialEq, Eq)]
+pub struct CUpti_Profiler_Host_GetConfigImage_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+    pub pHostObject: *mut CUpti_Profiler_Host_Object,
+    pub configImageSize: usize,
+    pub pConfigImage: *mut u8,
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialOrd, Ord, PartialEq, Eq)]
+pub struct CUpti_Profiler_Host_GetMaxNumHardwareMetricsPerPass_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+    pub profilerType: CUpti_ProfilerType,
+    pub pChipName: *const ::core::ffi::c_char,
+    pub pCounterAvailabilityImage: *mut u8,
+    pub maxMetricsPerPass: usize,
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialOrd, Ord, PartialEq, Eq)]
+pub struct CUpti_Profiler_Host_GetMetricProperties_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+    pub pHostObject: *mut CUpti_Profiler_Host_Object,
+    pub pMetricName: *const ::core::ffi::c_char,
+    pub pDescription: *const ::core::ffi::c_char,
+    pub pHwUnit: *const ::core::ffi::c_char,
+    pub pDimUnit: *const ::core::ffi::c_char,
+    pub metricType: CUpti_MetricType,
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialOrd, Ord, PartialEq, Eq)]
+pub struct CUpti_Profiler_Host_GetNumOfPasses_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+    pub configImageSize: usize,
+    pub pConfigImage: *mut u8,
+    pub numOfPasses: usize,
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialOrd, Ord, PartialEq, Eq)]
+pub struct CUpti_Profiler_Host_GetRangeName_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+    pub pCounterDataImage: *const u8,
+    pub counterDataImageSize: usize,
+    pub rangeIndex: usize,
+    pub delimiter: *const ::core::ffi::c_char,
+    pub pRangeName: *const ::core::ffi::c_char,
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialOrd, Ord, PartialEq, Eq)]
+pub struct CUpti_Profiler_Host_GetSubMetrics_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+    pub pHostObject: *mut CUpti_Profiler_Host_Object,
+    pub metricType: CUpti_MetricType,
+    pub pMetricName: *const ::core::ffi::c_char,
+    pub numOfSubmetrics: usize,
+    pub ppSubMetrics: *mut *const ::core::ffi::c_char,
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialOrd, Ord, PartialEq, Eq)]
+pub struct CUpti_Profiler_Host_GetSupportedChips_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+    pub numChips: usize,
+    pub ppChipNames: *const *const ::core::ffi::c_char,
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialOrd, Ord, PartialEq, Eq)]
+pub struct CUpti_Profiler_Host_Initialize_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+    pub profilerType: CUpti_ProfilerType,
+    pub pChipName: *const ::core::ffi::c_char,
+    pub pCounterAvailabilityImage: *const u8,
+    pub pHostObject: *mut CUpti_Profiler_Host_Object,
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct CUpti_Profiler_Host_Object {
+    _unused: [u8; 0],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialOrd, Ord, PartialEq, Eq)]
+pub struct CUpti_Profiler_Initialize_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+}
+#[repr(C)]
+pub struct CUpti_Profiler_IsPassCollected_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+    pub ctx: CUcontext,
+    pub numRangesDropped: usize,
+    pub numTraceBytesDropped: usize,
+    pub onePassCollected: u8,
+    pub allPassesCollected: u8,
+}
+#[repr(C)]
+pub struct CUpti_Profiler_PopRange_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+    pub ctx: CUcontext,
+}
+#[repr(C)]
+pub struct CUpti_Profiler_PushRange_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+    pub ctx: CUcontext,
+    pub pRangeName: *const ::core::ffi::c_char,
+    pub rangeNameLength: usize,
+}
+#[repr(C)]
+pub struct CUpti_Profiler_SetConfig_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+    pub ctx: CUcontext,
+    pub pConfig: *const u8,
+    pub configSize: usize,
+    pub minNestingLevel: u16,
+    pub numNestingLevels: u16,
+    pub passIndex: usize,
+    pub targetNestingLevel: u16,
+}
+#[repr(C)]
+pub struct CUpti_Profiler_UnsetConfig_Params {
+    pub structSize: usize,
+    pub pPriv: *mut ::core::ffi::c_void,
+    pub ctx: CUcontext,
 }
 #[repr(C)]
 pub struct CUpti_ResourceData {
@@ -35700,6 +36470,15 @@ impl Default for CUpti_CallbackData {
         }
     }
 }
+impl Default for CUpti_Device_GetChipName_Params {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 impl Default for CUpti_EventGroupSet {
     fn default() -> Self {
         let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
@@ -35756,6 +36535,571 @@ impl Default for CUpti_NvtxData {
 }
 #[cfg(any(feature = "cuda-13000"))]
 impl Default for CUpti_NvtxExtPayloadAttr {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+impl Default for CUpti_PmSampling_CounterDataImage_Initialize_Params {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+impl Default for CUpti_PmSampling_CounterData_GetSampleInfo_Params {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+impl Default for CUpti_PmSampling_DecodeData_Params {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+impl Default for CUpti_PmSampling_Disable_Params {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+impl Default for CUpti_PmSampling_Enable_Params {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+impl Default for CUpti_PmSampling_GetCounterAvailability_Params {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+impl Default for CUpti_PmSampling_GetCounterDataInfo_Params {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+impl Default for CUpti_PmSampling_GetCounterDataSize_Params {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+impl Default for CUpti_PmSampling_SetConfig_Params {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+impl Default for CUpti_PmSampling_Start_Params {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+impl Default for CUpti_PmSampling_Stop_Params {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+impl Default for CUpti_Profiler_BeginPass_Params {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+impl Default for CUpti_Profiler_BeginSession_Params {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+impl Default for CUpti_Profiler_CounterDataImageOptions {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+impl Default for CUpti_Profiler_CounterDataImage_CalculateScratchBufferSize_Params {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+impl Default for CUpti_Profiler_CounterDataImage_CalculateSize_Params {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+impl Default for CUpti_Profiler_CounterDataImage_InitializeScratchBuffer_Params {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+impl Default for CUpti_Profiler_CounterDataImage_Initialize_Params {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+impl Default for CUpti_Profiler_DeInitialize_Params {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[cfg(any(
+    feature = "cuda-11050",
+    feature = "cuda-11060",
+    feature = "cuda-11070",
+    feature = "cuda-11080",
+    feature = "cuda-12000",
+    feature = "cuda-12010",
+    feature = "cuda-12020",
+    feature = "cuda-12030",
+    feature = "cuda-12040",
+    feature = "cuda-12050",
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+impl Default for CUpti_Profiler_DeviceSupported_Params {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+impl Default for CUpti_Profiler_DisableProfiling_Params {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+impl Default for CUpti_Profiler_EnableProfiling_Params {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+impl Default for CUpti_Profiler_EndPass_Params {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+impl Default for CUpti_Profiler_EndSession_Params {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+impl Default for CUpti_Profiler_FlushCounterData_Params {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+impl Default for CUpti_Profiler_GetCounterAvailability_Params {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+impl Default for CUpti_Profiler_Host_ConfigAddMetrics_Params {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+impl Default for CUpti_Profiler_Host_Deinitialize_Params {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+impl Default for CUpti_Profiler_Host_EvaluateToGpuValues_Params {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+impl Default for CUpti_Profiler_Host_GetBaseMetrics_Params {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+impl Default for CUpti_Profiler_Host_GetConfigImageSize_Params {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+impl Default for CUpti_Profiler_Host_GetConfigImage_Params {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+impl Default for CUpti_Profiler_Host_GetMaxNumHardwareMetricsPerPass_Params {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+impl Default for CUpti_Profiler_Host_GetMetricProperties_Params {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+impl Default for CUpti_Profiler_Host_GetNumOfPasses_Params {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+impl Default for CUpti_Profiler_Host_GetRangeName_Params {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+impl Default for CUpti_Profiler_Host_GetSubMetrics_Params {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+impl Default for CUpti_Profiler_Host_GetSupportedChips_Params {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[cfg(any(
+    feature = "cuda-12060",
+    feature = "cuda-12080",
+    feature = "cuda-12090",
+    feature = "cuda-13000"
+))]
+impl Default for CUpti_Profiler_Host_Initialize_Params {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+impl Default for CUpti_Profiler_Initialize_Params {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+impl Default for CUpti_Profiler_IsPassCollected_Params {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+impl Default for CUpti_Profiler_PopRange_Params {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+impl Default for CUpti_Profiler_PushRange_Params {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+impl Default for CUpti_Profiler_SetConfig_Params {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+impl Default for CUpti_Profiler_UnsetConfig_Params {
     fn default() -> Self {
         let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
         unsafe {
@@ -47945,6 +49289,7 @@ extern "C" {
         valueSize: *mut usize,
         value: *mut ::core::ffi::c_void,
     ) -> CUptiResult;
+    pub fn cuptiDeviceGetChipName(pParams: *mut CUpti_Device_GetChipName_Params) -> CUptiResult;
     pub fn cuptiDeviceGetEventDomainAttribute(
         device: CUdevice,
         eventDomain: CUpti_EventDomainID,
@@ -48197,6 +49542,274 @@ extern "C" {
         propValueArray: *mut u64,
         metricValue: *mut CUpti_MetricValue,
     ) -> CUptiResult;
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub fn cuptiPmSamplingCounterDataGetSampleInfo(
+        pParams: *mut CUpti_PmSampling_CounterData_GetSampleInfo_Params,
+    ) -> CUptiResult;
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub fn cuptiPmSamplingCounterDataImageInitialize(
+        pParams: *mut CUpti_PmSampling_CounterDataImage_Initialize_Params,
+    ) -> CUptiResult;
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub fn cuptiPmSamplingDecodeData(
+        pParams: *mut CUpti_PmSampling_DecodeData_Params,
+    ) -> CUptiResult;
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub fn cuptiPmSamplingDisable(pParams: *mut CUpti_PmSampling_Disable_Params) -> CUptiResult;
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub fn cuptiPmSamplingEnable(pParams: *mut CUpti_PmSampling_Enable_Params) -> CUptiResult;
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub fn cuptiPmSamplingGetCounterAvailability(
+        pParams: *mut CUpti_PmSampling_GetCounterAvailability_Params,
+    ) -> CUptiResult;
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub fn cuptiPmSamplingGetCounterDataInfo(
+        pParams: *mut CUpti_PmSampling_GetCounterDataInfo_Params,
+    ) -> CUptiResult;
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub fn cuptiPmSamplingGetCounterDataSize(
+        pParams: *mut CUpti_PmSampling_GetCounterDataSize_Params,
+    ) -> CUptiResult;
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub fn cuptiPmSamplingSetConfig(pParams: *mut CUpti_PmSampling_SetConfig_Params)
+        -> CUptiResult;
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub fn cuptiPmSamplingStart(pParams: *mut CUpti_PmSampling_Start_Params) -> CUptiResult;
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub fn cuptiPmSamplingStop(pParams: *mut CUpti_PmSampling_Stop_Params) -> CUptiResult;
+    pub fn cuptiProfilerBeginPass(pParams: *mut CUpti_Profiler_BeginPass_Params) -> CUptiResult;
+    pub fn cuptiProfilerBeginSession(
+        pParams: *mut CUpti_Profiler_BeginSession_Params,
+    ) -> CUptiResult;
+    pub fn cuptiProfilerCounterDataImageCalculateScratchBufferSize(
+        pParams: *mut CUpti_Profiler_CounterDataImage_CalculateScratchBufferSize_Params,
+    ) -> CUptiResult;
+    pub fn cuptiProfilerCounterDataImageCalculateSize(
+        pParams: *mut CUpti_Profiler_CounterDataImage_CalculateSize_Params,
+    ) -> CUptiResult;
+    pub fn cuptiProfilerCounterDataImageInitialize(
+        pParams: *mut CUpti_Profiler_CounterDataImage_Initialize_Params,
+    ) -> CUptiResult;
+    pub fn cuptiProfilerCounterDataImageInitializeScratchBuffer(
+        pParams: *mut CUpti_Profiler_CounterDataImage_InitializeScratchBuffer_Params,
+    ) -> CUptiResult;
+    pub fn cuptiProfilerDeInitialize(
+        pParams: *mut CUpti_Profiler_DeInitialize_Params,
+    ) -> CUptiResult;
+    #[cfg(any(
+        feature = "cuda-11050",
+        feature = "cuda-11060",
+        feature = "cuda-11070",
+        feature = "cuda-11080",
+        feature = "cuda-12000",
+        feature = "cuda-12010",
+        feature = "cuda-12020",
+        feature = "cuda-12030",
+        feature = "cuda-12040",
+        feature = "cuda-12050",
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub fn cuptiProfilerDeviceSupported(
+        pParams: *mut CUpti_Profiler_DeviceSupported_Params,
+    ) -> CUptiResult;
+    pub fn cuptiProfilerDisableProfiling(
+        pParams: *mut CUpti_Profiler_DisableProfiling_Params,
+    ) -> CUptiResult;
+    pub fn cuptiProfilerEnableProfiling(
+        pParams: *mut CUpti_Profiler_EnableProfiling_Params,
+    ) -> CUptiResult;
+    pub fn cuptiProfilerEndPass(pParams: *mut CUpti_Profiler_EndPass_Params) -> CUptiResult;
+    pub fn cuptiProfilerEndSession(pParams: *mut CUpti_Profiler_EndSession_Params) -> CUptiResult;
+    pub fn cuptiProfilerFlushCounterData(
+        pParams: *mut CUpti_Profiler_FlushCounterData_Params,
+    ) -> CUptiResult;
+    pub fn cuptiProfilerGetCounterAvailability(
+        pParams: *mut CUpti_Profiler_GetCounterAvailability_Params,
+    ) -> CUptiResult;
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub fn cuptiProfilerHostConfigAddMetrics(
+        pParams: *mut CUpti_Profiler_Host_ConfigAddMetrics_Params,
+    ) -> CUptiResult;
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub fn cuptiProfilerHostDeinitialize(
+        pParams: *mut CUpti_Profiler_Host_Deinitialize_Params,
+    ) -> CUptiResult;
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub fn cuptiProfilerHostEvaluateToGpuValues(
+        pParams: *mut CUpti_Profiler_Host_EvaluateToGpuValues_Params,
+    ) -> CUptiResult;
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub fn cuptiProfilerHostGetBaseMetrics(
+        pParams: *mut CUpti_Profiler_Host_GetBaseMetrics_Params,
+    ) -> CUptiResult;
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub fn cuptiProfilerHostGetConfigImage(
+        pParams: *mut CUpti_Profiler_Host_GetConfigImage_Params,
+    ) -> CUptiResult;
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub fn cuptiProfilerHostGetConfigImageSize(
+        pParams: *mut CUpti_Profiler_Host_GetConfigImageSize_Params,
+    ) -> CUptiResult;
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub fn cuptiProfilerHostGetMaxNumHardwareMetricsPerPass(
+        pParams: *mut CUpti_Profiler_Host_GetMaxNumHardwareMetricsPerPass_Params,
+    ) -> CUptiResult;
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub fn cuptiProfilerHostGetMetricProperties(
+        pParams: *mut CUpti_Profiler_Host_GetMetricProperties_Params,
+    ) -> CUptiResult;
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub fn cuptiProfilerHostGetNumOfPasses(
+        pParams: *mut CUpti_Profiler_Host_GetNumOfPasses_Params,
+    ) -> CUptiResult;
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub fn cuptiProfilerHostGetRangeName(
+        pParams: *mut CUpti_Profiler_Host_GetRangeName_Params,
+    ) -> CUptiResult;
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub fn cuptiProfilerHostGetSubMetrics(
+        pParams: *mut CUpti_Profiler_Host_GetSubMetrics_Params,
+    ) -> CUptiResult;
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub fn cuptiProfilerHostGetSupportedChips(
+        pParams: *mut CUpti_Profiler_Host_GetSupportedChips_Params,
+    ) -> CUptiResult;
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub fn cuptiProfilerHostInitialize(
+        pParams: *mut CUpti_Profiler_Host_Initialize_Params,
+    ) -> CUptiResult;
+    pub fn cuptiProfilerInitialize(pParams: *mut CUpti_Profiler_Initialize_Params) -> CUptiResult;
+    pub fn cuptiProfilerIsPassCollected(
+        pParams: *mut CUpti_Profiler_IsPassCollected_Params,
+    ) -> CUptiResult;
+    pub fn cuptiProfilerPopRange(pParams: *mut CUpti_Profiler_PopRange_Params) -> CUptiResult;
+    pub fn cuptiProfilerPushRange(pParams: *mut CUpti_Profiler_PushRange_Params) -> CUptiResult;
+    pub fn cuptiProfilerSetConfig(pParams: *mut CUpti_Profiler_SetConfig_Params) -> CUptiResult;
+    pub fn cuptiProfilerUnsetConfig(pParams: *mut CUpti_Profiler_UnsetConfig_Params)
+        -> CUptiResult;
     pub fn cuptiSetEventCollectionMode(
         context: CUcontext,
         mode: CUpti_EventCollectionMode,
@@ -48432,6 +50045,11 @@ mod loaded {
         value: *mut ::core::ffi::c_void,
     ) -> CUptiResult {
         (culib().cuptiDeviceGetAttribute)(device, attrib, valueSize, value)
+    }
+    pub unsafe fn cuptiDeviceGetChipName(
+        pParams: *mut CUpti_Device_GetChipName_Params,
+    ) -> CUptiResult {
+        (culib().cuptiDeviceGetChipName)(pParams)
     }
     pub unsafe fn cuptiDeviceGetEventDomainAttribute(
         device: CUdevice,
@@ -48876,6 +50494,380 @@ mod loaded {
             metricValue,
         )
     }
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub unsafe fn cuptiPmSamplingCounterDataGetSampleInfo(
+        pParams: *mut CUpti_PmSampling_CounterData_GetSampleInfo_Params,
+    ) -> CUptiResult {
+        (culib().cuptiPmSamplingCounterDataGetSampleInfo)(pParams)
+    }
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub unsafe fn cuptiPmSamplingCounterDataImageInitialize(
+        pParams: *mut CUpti_PmSampling_CounterDataImage_Initialize_Params,
+    ) -> CUptiResult {
+        (culib().cuptiPmSamplingCounterDataImageInitialize)(pParams)
+    }
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub unsafe fn cuptiPmSamplingDecodeData(
+        pParams: *mut CUpti_PmSampling_DecodeData_Params,
+    ) -> CUptiResult {
+        (culib().cuptiPmSamplingDecodeData)(pParams)
+    }
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub unsafe fn cuptiPmSamplingDisable(
+        pParams: *mut CUpti_PmSampling_Disable_Params,
+    ) -> CUptiResult {
+        (culib().cuptiPmSamplingDisable)(pParams)
+    }
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub unsafe fn cuptiPmSamplingEnable(
+        pParams: *mut CUpti_PmSampling_Enable_Params,
+    ) -> CUptiResult {
+        (culib().cuptiPmSamplingEnable)(pParams)
+    }
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub unsafe fn cuptiPmSamplingGetCounterAvailability(
+        pParams: *mut CUpti_PmSampling_GetCounterAvailability_Params,
+    ) -> CUptiResult {
+        (culib().cuptiPmSamplingGetCounterAvailability)(pParams)
+    }
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub unsafe fn cuptiPmSamplingGetCounterDataInfo(
+        pParams: *mut CUpti_PmSampling_GetCounterDataInfo_Params,
+    ) -> CUptiResult {
+        (culib().cuptiPmSamplingGetCounterDataInfo)(pParams)
+    }
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub unsafe fn cuptiPmSamplingGetCounterDataSize(
+        pParams: *mut CUpti_PmSampling_GetCounterDataSize_Params,
+    ) -> CUptiResult {
+        (culib().cuptiPmSamplingGetCounterDataSize)(pParams)
+    }
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub unsafe fn cuptiPmSamplingSetConfig(
+        pParams: *mut CUpti_PmSampling_SetConfig_Params,
+    ) -> CUptiResult {
+        (culib().cuptiPmSamplingSetConfig)(pParams)
+    }
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub unsafe fn cuptiPmSamplingStart(pParams: *mut CUpti_PmSampling_Start_Params) -> CUptiResult {
+        (culib().cuptiPmSamplingStart)(pParams)
+    }
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub unsafe fn cuptiPmSamplingStop(pParams: *mut CUpti_PmSampling_Stop_Params) -> CUptiResult {
+        (culib().cuptiPmSamplingStop)(pParams)
+    }
+    pub unsafe fn cuptiProfilerBeginPass(
+        pParams: *mut CUpti_Profiler_BeginPass_Params,
+    ) -> CUptiResult {
+        (culib().cuptiProfilerBeginPass)(pParams)
+    }
+    pub unsafe fn cuptiProfilerBeginSession(
+        pParams: *mut CUpti_Profiler_BeginSession_Params,
+    ) -> CUptiResult {
+        (culib().cuptiProfilerBeginSession)(pParams)
+    }
+    pub unsafe fn cuptiProfilerCounterDataImageCalculateScratchBufferSize(
+        pParams: *mut CUpti_Profiler_CounterDataImage_CalculateScratchBufferSize_Params,
+    ) -> CUptiResult {
+        (culib().cuptiProfilerCounterDataImageCalculateScratchBufferSize)(pParams)
+    }
+    pub unsafe fn cuptiProfilerCounterDataImageCalculateSize(
+        pParams: *mut CUpti_Profiler_CounterDataImage_CalculateSize_Params,
+    ) -> CUptiResult {
+        (culib().cuptiProfilerCounterDataImageCalculateSize)(pParams)
+    }
+    pub unsafe fn cuptiProfilerCounterDataImageInitialize(
+        pParams: *mut CUpti_Profiler_CounterDataImage_Initialize_Params,
+    ) -> CUptiResult {
+        (culib().cuptiProfilerCounterDataImageInitialize)(pParams)
+    }
+    pub unsafe fn cuptiProfilerCounterDataImageInitializeScratchBuffer(
+        pParams: *mut CUpti_Profiler_CounterDataImage_InitializeScratchBuffer_Params,
+    ) -> CUptiResult {
+        (culib().cuptiProfilerCounterDataImageInitializeScratchBuffer)(pParams)
+    }
+    pub unsafe fn cuptiProfilerDeInitialize(
+        pParams: *mut CUpti_Profiler_DeInitialize_Params,
+    ) -> CUptiResult {
+        (culib().cuptiProfilerDeInitialize)(pParams)
+    }
+    #[cfg(any(
+        feature = "cuda-11050",
+        feature = "cuda-11060",
+        feature = "cuda-11070",
+        feature = "cuda-11080",
+        feature = "cuda-12000",
+        feature = "cuda-12010",
+        feature = "cuda-12020",
+        feature = "cuda-12030",
+        feature = "cuda-12040",
+        feature = "cuda-12050",
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub unsafe fn cuptiProfilerDeviceSupported(
+        pParams: *mut CUpti_Profiler_DeviceSupported_Params,
+    ) -> CUptiResult {
+        (culib().cuptiProfilerDeviceSupported)(pParams)
+    }
+    pub unsafe fn cuptiProfilerDisableProfiling(
+        pParams: *mut CUpti_Profiler_DisableProfiling_Params,
+    ) -> CUptiResult {
+        (culib().cuptiProfilerDisableProfiling)(pParams)
+    }
+    pub unsafe fn cuptiProfilerEnableProfiling(
+        pParams: *mut CUpti_Profiler_EnableProfiling_Params,
+    ) -> CUptiResult {
+        (culib().cuptiProfilerEnableProfiling)(pParams)
+    }
+    pub unsafe fn cuptiProfilerEndPass(pParams: *mut CUpti_Profiler_EndPass_Params) -> CUptiResult {
+        (culib().cuptiProfilerEndPass)(pParams)
+    }
+    pub unsafe fn cuptiProfilerEndSession(
+        pParams: *mut CUpti_Profiler_EndSession_Params,
+    ) -> CUptiResult {
+        (culib().cuptiProfilerEndSession)(pParams)
+    }
+    pub unsafe fn cuptiProfilerFlushCounterData(
+        pParams: *mut CUpti_Profiler_FlushCounterData_Params,
+    ) -> CUptiResult {
+        (culib().cuptiProfilerFlushCounterData)(pParams)
+    }
+    pub unsafe fn cuptiProfilerGetCounterAvailability(
+        pParams: *mut CUpti_Profiler_GetCounterAvailability_Params,
+    ) -> CUptiResult {
+        (culib().cuptiProfilerGetCounterAvailability)(pParams)
+    }
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub unsafe fn cuptiProfilerHostConfigAddMetrics(
+        pParams: *mut CUpti_Profiler_Host_ConfigAddMetrics_Params,
+    ) -> CUptiResult {
+        (culib().cuptiProfilerHostConfigAddMetrics)(pParams)
+    }
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub unsafe fn cuptiProfilerHostDeinitialize(
+        pParams: *mut CUpti_Profiler_Host_Deinitialize_Params,
+    ) -> CUptiResult {
+        (culib().cuptiProfilerHostDeinitialize)(pParams)
+    }
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub unsafe fn cuptiProfilerHostEvaluateToGpuValues(
+        pParams: *mut CUpti_Profiler_Host_EvaluateToGpuValues_Params,
+    ) -> CUptiResult {
+        (culib().cuptiProfilerHostEvaluateToGpuValues)(pParams)
+    }
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub unsafe fn cuptiProfilerHostGetBaseMetrics(
+        pParams: *mut CUpti_Profiler_Host_GetBaseMetrics_Params,
+    ) -> CUptiResult {
+        (culib().cuptiProfilerHostGetBaseMetrics)(pParams)
+    }
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub unsafe fn cuptiProfilerHostGetConfigImage(
+        pParams: *mut CUpti_Profiler_Host_GetConfigImage_Params,
+    ) -> CUptiResult {
+        (culib().cuptiProfilerHostGetConfigImage)(pParams)
+    }
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub unsafe fn cuptiProfilerHostGetConfigImageSize(
+        pParams: *mut CUpti_Profiler_Host_GetConfigImageSize_Params,
+    ) -> CUptiResult {
+        (culib().cuptiProfilerHostGetConfigImageSize)(pParams)
+    }
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub unsafe fn cuptiProfilerHostGetMaxNumHardwareMetricsPerPass(
+        pParams: *mut CUpti_Profiler_Host_GetMaxNumHardwareMetricsPerPass_Params,
+    ) -> CUptiResult {
+        (culib().cuptiProfilerHostGetMaxNumHardwareMetricsPerPass)(pParams)
+    }
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub unsafe fn cuptiProfilerHostGetMetricProperties(
+        pParams: *mut CUpti_Profiler_Host_GetMetricProperties_Params,
+    ) -> CUptiResult {
+        (culib().cuptiProfilerHostGetMetricProperties)(pParams)
+    }
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub unsafe fn cuptiProfilerHostGetNumOfPasses(
+        pParams: *mut CUpti_Profiler_Host_GetNumOfPasses_Params,
+    ) -> CUptiResult {
+        (culib().cuptiProfilerHostGetNumOfPasses)(pParams)
+    }
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub unsafe fn cuptiProfilerHostGetRangeName(
+        pParams: *mut CUpti_Profiler_Host_GetRangeName_Params,
+    ) -> CUptiResult {
+        (culib().cuptiProfilerHostGetRangeName)(pParams)
+    }
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub unsafe fn cuptiProfilerHostGetSubMetrics(
+        pParams: *mut CUpti_Profiler_Host_GetSubMetrics_Params,
+    ) -> CUptiResult {
+        (culib().cuptiProfilerHostGetSubMetrics)(pParams)
+    }
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub unsafe fn cuptiProfilerHostGetSupportedChips(
+        pParams: *mut CUpti_Profiler_Host_GetSupportedChips_Params,
+    ) -> CUptiResult {
+        (culib().cuptiProfilerHostGetSupportedChips)(pParams)
+    }
+    #[cfg(any(
+        feature = "cuda-12060",
+        feature = "cuda-12080",
+        feature = "cuda-12090",
+        feature = "cuda-13000"
+    ))]
+    pub unsafe fn cuptiProfilerHostInitialize(
+        pParams: *mut CUpti_Profiler_Host_Initialize_Params,
+    ) -> CUptiResult {
+        (culib().cuptiProfilerHostInitialize)(pParams)
+    }
+    pub unsafe fn cuptiProfilerInitialize(
+        pParams: *mut CUpti_Profiler_Initialize_Params,
+    ) -> CUptiResult {
+        (culib().cuptiProfilerInitialize)(pParams)
+    }
+    pub unsafe fn cuptiProfilerIsPassCollected(
+        pParams: *mut CUpti_Profiler_IsPassCollected_Params,
+    ) -> CUptiResult {
+        (culib().cuptiProfilerIsPassCollected)(pParams)
+    }
+    pub unsafe fn cuptiProfilerPopRange(
+        pParams: *mut CUpti_Profiler_PopRange_Params,
+    ) -> CUptiResult {
+        (culib().cuptiProfilerPopRange)(pParams)
+    }
+    pub unsafe fn cuptiProfilerPushRange(
+        pParams: *mut CUpti_Profiler_PushRange_Params,
+    ) -> CUptiResult {
+        (culib().cuptiProfilerPushRange)(pParams)
+    }
+    pub unsafe fn cuptiProfilerSetConfig(
+        pParams: *mut CUpti_Profiler_SetConfig_Params,
+    ) -> CUptiResult {
+        (culib().cuptiProfilerSetConfig)(pParams)
+    }
+    pub unsafe fn cuptiProfilerUnsetConfig(
+        pParams: *mut CUpti_Profiler_UnsetConfig_Params,
+    ) -> CUptiResult {
+        (culib().cuptiProfilerUnsetConfig)(pParams)
+    }
     pub unsafe fn cuptiSetEventCollectionMode(
         context: CUcontext,
         mode: CUpti_EventCollectionMode,
@@ -49059,6 +51051,8 @@ mod loaded {
             valueSize: *mut usize,
             value: *mut ::core::ffi::c_void,
         ) -> CUptiResult,
+        pub cuptiDeviceGetChipName:
+            unsafe extern "C" fn(pParams: *mut CUpti_Device_GetChipName_Params) -> CUptiResult,
         pub cuptiDeviceGetEventDomainAttribute: unsafe extern "C" fn(
             device: CUdevice,
             eventDomain: CUpti_EventDomainID,
@@ -49327,6 +51321,286 @@ mod loaded {
             propValueArray: *mut u64,
             metricValue: *mut CUpti_MetricValue,
         ) -> CUptiResult,
+        #[cfg(any(
+            feature = "cuda-12060",
+            feature = "cuda-12080",
+            feature = "cuda-12090",
+            feature = "cuda-13000"
+        ))]
+        pub cuptiPmSamplingCounterDataGetSampleInfo: unsafe extern "C" fn(
+            pParams: *mut CUpti_PmSampling_CounterData_GetSampleInfo_Params,
+        ) -> CUptiResult,
+        #[cfg(any(
+            feature = "cuda-12060",
+            feature = "cuda-12080",
+            feature = "cuda-12090",
+            feature = "cuda-13000"
+        ))]
+        pub cuptiPmSamplingCounterDataImageInitialize: unsafe extern "C" fn(
+            pParams: *mut CUpti_PmSampling_CounterDataImage_Initialize_Params,
+        ) -> CUptiResult,
+        #[cfg(any(
+            feature = "cuda-12060",
+            feature = "cuda-12080",
+            feature = "cuda-12090",
+            feature = "cuda-13000"
+        ))]
+        pub cuptiPmSamplingDecodeData:
+            unsafe extern "C" fn(pParams: *mut CUpti_PmSampling_DecodeData_Params) -> CUptiResult,
+        #[cfg(any(
+            feature = "cuda-12060",
+            feature = "cuda-12080",
+            feature = "cuda-12090",
+            feature = "cuda-13000"
+        ))]
+        pub cuptiPmSamplingDisable:
+            unsafe extern "C" fn(pParams: *mut CUpti_PmSampling_Disable_Params) -> CUptiResult,
+        #[cfg(any(
+            feature = "cuda-12060",
+            feature = "cuda-12080",
+            feature = "cuda-12090",
+            feature = "cuda-13000"
+        ))]
+        pub cuptiPmSamplingEnable:
+            unsafe extern "C" fn(pParams: *mut CUpti_PmSampling_Enable_Params) -> CUptiResult,
+        #[cfg(any(
+            feature = "cuda-12060",
+            feature = "cuda-12080",
+            feature = "cuda-12090",
+            feature = "cuda-13000"
+        ))]
+        pub cuptiPmSamplingGetCounterAvailability: unsafe extern "C" fn(
+            pParams: *mut CUpti_PmSampling_GetCounterAvailability_Params,
+        ) -> CUptiResult,
+        #[cfg(any(
+            feature = "cuda-12060",
+            feature = "cuda-12080",
+            feature = "cuda-12090",
+            feature = "cuda-13000"
+        ))]
+        pub cuptiPmSamplingGetCounterDataInfo: unsafe extern "C" fn(
+            pParams: *mut CUpti_PmSampling_GetCounterDataInfo_Params,
+        ) -> CUptiResult,
+        #[cfg(any(
+            feature = "cuda-12060",
+            feature = "cuda-12080",
+            feature = "cuda-12090",
+            feature = "cuda-13000"
+        ))]
+        pub cuptiPmSamplingGetCounterDataSize: unsafe extern "C" fn(
+            pParams: *mut CUpti_PmSampling_GetCounterDataSize_Params,
+        ) -> CUptiResult,
+        #[cfg(any(
+            feature = "cuda-12060",
+            feature = "cuda-12080",
+            feature = "cuda-12090",
+            feature = "cuda-13000"
+        ))]
+        pub cuptiPmSamplingSetConfig:
+            unsafe extern "C" fn(pParams: *mut CUpti_PmSampling_SetConfig_Params) -> CUptiResult,
+        #[cfg(any(
+            feature = "cuda-12060",
+            feature = "cuda-12080",
+            feature = "cuda-12090",
+            feature = "cuda-13000"
+        ))]
+        pub cuptiPmSamplingStart:
+            unsafe extern "C" fn(pParams: *mut CUpti_PmSampling_Start_Params) -> CUptiResult,
+        #[cfg(any(
+            feature = "cuda-12060",
+            feature = "cuda-12080",
+            feature = "cuda-12090",
+            feature = "cuda-13000"
+        ))]
+        pub cuptiPmSamplingStop:
+            unsafe extern "C" fn(pParams: *mut CUpti_PmSampling_Stop_Params) -> CUptiResult,
+        pub cuptiProfilerBeginPass:
+            unsafe extern "C" fn(pParams: *mut CUpti_Profiler_BeginPass_Params) -> CUptiResult,
+        pub cuptiProfilerBeginSession:
+            unsafe extern "C" fn(pParams: *mut CUpti_Profiler_BeginSession_Params) -> CUptiResult,
+        pub cuptiProfilerCounterDataImageCalculateScratchBufferSize:
+            unsafe extern "C" fn(
+                pParams: *mut CUpti_Profiler_CounterDataImage_CalculateScratchBufferSize_Params,
+            ) -> CUptiResult,
+        pub cuptiProfilerCounterDataImageCalculateSize: unsafe extern "C" fn(
+            pParams: *mut CUpti_Profiler_CounterDataImage_CalculateSize_Params,
+        )
+            -> CUptiResult,
+        pub cuptiProfilerCounterDataImageInitialize: unsafe extern "C" fn(
+            pParams: *mut CUpti_Profiler_CounterDataImage_Initialize_Params,
+        ) -> CUptiResult,
+        pub cuptiProfilerCounterDataImageInitializeScratchBuffer:
+            unsafe extern "C" fn(
+                pParams: *mut CUpti_Profiler_CounterDataImage_InitializeScratchBuffer_Params,
+            ) -> CUptiResult,
+        pub cuptiProfilerDeInitialize:
+            unsafe extern "C" fn(pParams: *mut CUpti_Profiler_DeInitialize_Params) -> CUptiResult,
+        #[cfg(any(
+            feature = "cuda-11050",
+            feature = "cuda-11060",
+            feature = "cuda-11070",
+            feature = "cuda-11080",
+            feature = "cuda-12000",
+            feature = "cuda-12010",
+            feature = "cuda-12020",
+            feature = "cuda-12030",
+            feature = "cuda-12040",
+            feature = "cuda-12050",
+            feature = "cuda-12060",
+            feature = "cuda-12080",
+            feature = "cuda-12090",
+            feature = "cuda-13000"
+        ))]
+        pub cuptiProfilerDeviceSupported: unsafe extern "C" fn(
+            pParams: *mut CUpti_Profiler_DeviceSupported_Params,
+        ) -> CUptiResult,
+        pub cuptiProfilerDisableProfiling: unsafe extern "C" fn(
+            pParams: *mut CUpti_Profiler_DisableProfiling_Params,
+        ) -> CUptiResult,
+        pub cuptiProfilerEnableProfiling: unsafe extern "C" fn(
+            pParams: *mut CUpti_Profiler_EnableProfiling_Params,
+        ) -> CUptiResult,
+        pub cuptiProfilerEndPass:
+            unsafe extern "C" fn(pParams: *mut CUpti_Profiler_EndPass_Params) -> CUptiResult,
+        pub cuptiProfilerEndSession:
+            unsafe extern "C" fn(pParams: *mut CUpti_Profiler_EndSession_Params) -> CUptiResult,
+        pub cuptiProfilerFlushCounterData: unsafe extern "C" fn(
+            pParams: *mut CUpti_Profiler_FlushCounterData_Params,
+        ) -> CUptiResult,
+        pub cuptiProfilerGetCounterAvailability: unsafe extern "C" fn(
+            pParams: *mut CUpti_Profiler_GetCounterAvailability_Params,
+        ) -> CUptiResult,
+        #[cfg(any(
+            feature = "cuda-12060",
+            feature = "cuda-12080",
+            feature = "cuda-12090",
+            feature = "cuda-13000"
+        ))]
+        pub cuptiProfilerHostConfigAddMetrics: unsafe extern "C" fn(
+            pParams: *mut CUpti_Profiler_Host_ConfigAddMetrics_Params,
+        ) -> CUptiResult,
+        #[cfg(any(
+            feature = "cuda-12060",
+            feature = "cuda-12080",
+            feature = "cuda-12090",
+            feature = "cuda-13000"
+        ))]
+        pub cuptiProfilerHostDeinitialize: unsafe extern "C" fn(
+            pParams: *mut CUpti_Profiler_Host_Deinitialize_Params,
+        ) -> CUptiResult,
+        #[cfg(any(
+            feature = "cuda-12060",
+            feature = "cuda-12080",
+            feature = "cuda-12090",
+            feature = "cuda-13000"
+        ))]
+        pub cuptiProfilerHostEvaluateToGpuValues: unsafe extern "C" fn(
+            pParams: *mut CUpti_Profiler_Host_EvaluateToGpuValues_Params,
+        ) -> CUptiResult,
+        #[cfg(any(
+            feature = "cuda-12060",
+            feature = "cuda-12080",
+            feature = "cuda-12090",
+            feature = "cuda-13000"
+        ))]
+        pub cuptiProfilerHostGetBaseMetrics: unsafe extern "C" fn(
+            pParams: *mut CUpti_Profiler_Host_GetBaseMetrics_Params,
+        ) -> CUptiResult,
+        #[cfg(any(
+            feature = "cuda-12060",
+            feature = "cuda-12080",
+            feature = "cuda-12090",
+            feature = "cuda-13000"
+        ))]
+        pub cuptiProfilerHostGetConfigImage: unsafe extern "C" fn(
+            pParams: *mut CUpti_Profiler_Host_GetConfigImage_Params,
+        ) -> CUptiResult,
+        #[cfg(any(
+            feature = "cuda-12060",
+            feature = "cuda-12080",
+            feature = "cuda-12090",
+            feature = "cuda-13000"
+        ))]
+        pub cuptiProfilerHostGetConfigImageSize: unsafe extern "C" fn(
+            pParams: *mut CUpti_Profiler_Host_GetConfigImageSize_Params,
+        ) -> CUptiResult,
+        #[cfg(any(
+            feature = "cuda-12060",
+            feature = "cuda-12080",
+            feature = "cuda-12090",
+            feature = "cuda-13000"
+        ))]
+        pub cuptiProfilerHostGetMaxNumHardwareMetricsPerPass: unsafe extern "C" fn(
+            pParams: *mut CUpti_Profiler_Host_GetMaxNumHardwareMetricsPerPass_Params,
+        )
+            -> CUptiResult,
+        #[cfg(any(
+            feature = "cuda-12060",
+            feature = "cuda-12080",
+            feature = "cuda-12090",
+            feature = "cuda-13000"
+        ))]
+        pub cuptiProfilerHostGetMetricProperties: unsafe extern "C" fn(
+            pParams: *mut CUpti_Profiler_Host_GetMetricProperties_Params,
+        ) -> CUptiResult,
+        #[cfg(any(
+            feature = "cuda-12060",
+            feature = "cuda-12080",
+            feature = "cuda-12090",
+            feature = "cuda-13000"
+        ))]
+        pub cuptiProfilerHostGetNumOfPasses: unsafe extern "C" fn(
+            pParams: *mut CUpti_Profiler_Host_GetNumOfPasses_Params,
+        ) -> CUptiResult,
+        #[cfg(any(
+            feature = "cuda-12060",
+            feature = "cuda-12080",
+            feature = "cuda-12090",
+            feature = "cuda-13000"
+        ))]
+        pub cuptiProfilerHostGetRangeName: unsafe extern "C" fn(
+            pParams: *mut CUpti_Profiler_Host_GetRangeName_Params,
+        ) -> CUptiResult,
+        #[cfg(any(
+            feature = "cuda-12060",
+            feature = "cuda-12080",
+            feature = "cuda-12090",
+            feature = "cuda-13000"
+        ))]
+        pub cuptiProfilerHostGetSubMetrics: unsafe extern "C" fn(
+            pParams: *mut CUpti_Profiler_Host_GetSubMetrics_Params,
+        ) -> CUptiResult,
+        #[cfg(any(
+            feature = "cuda-12060",
+            feature = "cuda-12080",
+            feature = "cuda-12090",
+            feature = "cuda-13000"
+        ))]
+        pub cuptiProfilerHostGetSupportedChips: unsafe extern "C" fn(
+            pParams: *mut CUpti_Profiler_Host_GetSupportedChips_Params,
+        ) -> CUptiResult,
+        #[cfg(any(
+            feature = "cuda-12060",
+            feature = "cuda-12080",
+            feature = "cuda-12090",
+            feature = "cuda-13000"
+        ))]
+        pub cuptiProfilerHostInitialize: unsafe extern "C" fn(
+            pParams: *mut CUpti_Profiler_Host_Initialize_Params,
+        ) -> CUptiResult,
+        pub cuptiProfilerInitialize:
+            unsafe extern "C" fn(pParams: *mut CUpti_Profiler_Initialize_Params) -> CUptiResult,
+        pub cuptiProfilerIsPassCollected: unsafe extern "C" fn(
+            pParams: *mut CUpti_Profiler_IsPassCollected_Params,
+        ) -> CUptiResult,
+        pub cuptiProfilerPopRange:
+            unsafe extern "C" fn(pParams: *mut CUpti_Profiler_PopRange_Params) -> CUptiResult,
+        pub cuptiProfilerPushRange:
+            unsafe extern "C" fn(pParams: *mut CUpti_Profiler_PushRange_Params) -> CUptiResult,
+        pub cuptiProfilerSetConfig:
+            unsafe extern "C" fn(pParams: *mut CUpti_Profiler_SetConfig_Params) -> CUptiResult,
+        pub cuptiProfilerUnsetConfig:
+            unsafe extern "C" fn(pParams: *mut CUpti_Profiler_UnsetConfig_Params) -> CUptiResult,
         pub cuptiSetEventCollectionMode: unsafe extern "C" fn(
             context: CUcontext,
             mode: CUpti_EventCollectionMode,
@@ -49548,6 +51822,10 @@ mod loaded {
                 .expect("Expected symbol in library");
             let cuptiDeviceGetAttribute = __library
                 .get(b"cuptiDeviceGetAttribute\0")
+                .map(|sym| *sym)
+                .expect("Expected symbol in library");
+            let cuptiDeviceGetChipName = __library
+                .get(b"cuptiDeviceGetChipName\0")
                 .map(|sym| *sym)
                 .expect("Expected symbol in library");
             let cuptiDeviceGetEventDomainAttribute = __library
@@ -49834,6 +52112,342 @@ mod loaded {
                 .get(b"cuptiMetricGetValue2\0")
                 .map(|sym| *sym)
                 .expect("Expected symbol in library");
+            #[cfg(any(
+                feature = "cuda-12060",
+                feature = "cuda-12080",
+                feature = "cuda-12090",
+                feature = "cuda-13000"
+            ))]
+            let cuptiPmSamplingCounterDataGetSampleInfo = __library
+                .get(b"cuptiPmSamplingCounterDataGetSampleInfo\0")
+                .map(|sym| *sym)
+                .expect("Expected symbol in library");
+            #[cfg(any(
+                feature = "cuda-12060",
+                feature = "cuda-12080",
+                feature = "cuda-12090",
+                feature = "cuda-13000"
+            ))]
+            let cuptiPmSamplingCounterDataImageInitialize = __library
+                .get(b"cuptiPmSamplingCounterDataImageInitialize\0")
+                .map(|sym| *sym)
+                .expect("Expected symbol in library");
+            #[cfg(any(
+                feature = "cuda-12060",
+                feature = "cuda-12080",
+                feature = "cuda-12090",
+                feature = "cuda-13000"
+            ))]
+            let cuptiPmSamplingDecodeData = __library
+                .get(b"cuptiPmSamplingDecodeData\0")
+                .map(|sym| *sym)
+                .expect("Expected symbol in library");
+            #[cfg(any(
+                feature = "cuda-12060",
+                feature = "cuda-12080",
+                feature = "cuda-12090",
+                feature = "cuda-13000"
+            ))]
+            let cuptiPmSamplingDisable = __library
+                .get(b"cuptiPmSamplingDisable\0")
+                .map(|sym| *sym)
+                .expect("Expected symbol in library");
+            #[cfg(any(
+                feature = "cuda-12060",
+                feature = "cuda-12080",
+                feature = "cuda-12090",
+                feature = "cuda-13000"
+            ))]
+            let cuptiPmSamplingEnable = __library
+                .get(b"cuptiPmSamplingEnable\0")
+                .map(|sym| *sym)
+                .expect("Expected symbol in library");
+            #[cfg(any(
+                feature = "cuda-12060",
+                feature = "cuda-12080",
+                feature = "cuda-12090",
+                feature = "cuda-13000"
+            ))]
+            let cuptiPmSamplingGetCounterAvailability = __library
+                .get(b"cuptiPmSamplingGetCounterAvailability\0")
+                .map(|sym| *sym)
+                .expect("Expected symbol in library");
+            #[cfg(any(
+                feature = "cuda-12060",
+                feature = "cuda-12080",
+                feature = "cuda-12090",
+                feature = "cuda-13000"
+            ))]
+            let cuptiPmSamplingGetCounterDataInfo = __library
+                .get(b"cuptiPmSamplingGetCounterDataInfo\0")
+                .map(|sym| *sym)
+                .expect("Expected symbol in library");
+            #[cfg(any(
+                feature = "cuda-12060",
+                feature = "cuda-12080",
+                feature = "cuda-12090",
+                feature = "cuda-13000"
+            ))]
+            let cuptiPmSamplingGetCounterDataSize = __library
+                .get(b"cuptiPmSamplingGetCounterDataSize\0")
+                .map(|sym| *sym)
+                .expect("Expected symbol in library");
+            #[cfg(any(
+                feature = "cuda-12060",
+                feature = "cuda-12080",
+                feature = "cuda-12090",
+                feature = "cuda-13000"
+            ))]
+            let cuptiPmSamplingSetConfig = __library
+                .get(b"cuptiPmSamplingSetConfig\0")
+                .map(|sym| *sym)
+                .expect("Expected symbol in library");
+            #[cfg(any(
+                feature = "cuda-12060",
+                feature = "cuda-12080",
+                feature = "cuda-12090",
+                feature = "cuda-13000"
+            ))]
+            let cuptiPmSamplingStart = __library
+                .get(b"cuptiPmSamplingStart\0")
+                .map(|sym| *sym)
+                .expect("Expected symbol in library");
+            #[cfg(any(
+                feature = "cuda-12060",
+                feature = "cuda-12080",
+                feature = "cuda-12090",
+                feature = "cuda-13000"
+            ))]
+            let cuptiPmSamplingStop = __library
+                .get(b"cuptiPmSamplingStop\0")
+                .map(|sym| *sym)
+                .expect("Expected symbol in library");
+            let cuptiProfilerBeginPass = __library
+                .get(b"cuptiProfilerBeginPass\0")
+                .map(|sym| *sym)
+                .expect("Expected symbol in library");
+            let cuptiProfilerBeginSession = __library
+                .get(b"cuptiProfilerBeginSession\0")
+                .map(|sym| *sym)
+                .expect("Expected symbol in library");
+            let cuptiProfilerCounterDataImageCalculateScratchBufferSize = __library
+                .get(b"cuptiProfilerCounterDataImageCalculateScratchBufferSize\0")
+                .map(|sym| *sym)
+                .expect("Expected symbol in library");
+            let cuptiProfilerCounterDataImageCalculateSize = __library
+                .get(b"cuptiProfilerCounterDataImageCalculateSize\0")
+                .map(|sym| *sym)
+                .expect("Expected symbol in library");
+            let cuptiProfilerCounterDataImageInitialize = __library
+                .get(b"cuptiProfilerCounterDataImageInitialize\0")
+                .map(|sym| *sym)
+                .expect("Expected symbol in library");
+            let cuptiProfilerCounterDataImageInitializeScratchBuffer = __library
+                .get(b"cuptiProfilerCounterDataImageInitializeScratchBuffer\0")
+                .map(|sym| *sym)
+                .expect("Expected symbol in library");
+            let cuptiProfilerDeInitialize = __library
+                .get(b"cuptiProfilerDeInitialize\0")
+                .map(|sym| *sym)
+                .expect("Expected symbol in library");
+            #[cfg(any(
+                feature = "cuda-11050",
+                feature = "cuda-11060",
+                feature = "cuda-11070",
+                feature = "cuda-11080",
+                feature = "cuda-12000",
+                feature = "cuda-12010",
+                feature = "cuda-12020",
+                feature = "cuda-12030",
+                feature = "cuda-12040",
+                feature = "cuda-12050",
+                feature = "cuda-12060",
+                feature = "cuda-12080",
+                feature = "cuda-12090",
+                feature = "cuda-13000"
+            ))]
+            let cuptiProfilerDeviceSupported = __library
+                .get(b"cuptiProfilerDeviceSupported\0")
+                .map(|sym| *sym)
+                .expect("Expected symbol in library");
+            let cuptiProfilerDisableProfiling = __library
+                .get(b"cuptiProfilerDisableProfiling\0")
+                .map(|sym| *sym)
+                .expect("Expected symbol in library");
+            let cuptiProfilerEnableProfiling = __library
+                .get(b"cuptiProfilerEnableProfiling\0")
+                .map(|sym| *sym)
+                .expect("Expected symbol in library");
+            let cuptiProfilerEndPass = __library
+                .get(b"cuptiProfilerEndPass\0")
+                .map(|sym| *sym)
+                .expect("Expected symbol in library");
+            let cuptiProfilerEndSession = __library
+                .get(b"cuptiProfilerEndSession\0")
+                .map(|sym| *sym)
+                .expect("Expected symbol in library");
+            let cuptiProfilerFlushCounterData = __library
+                .get(b"cuptiProfilerFlushCounterData\0")
+                .map(|sym| *sym)
+                .expect("Expected symbol in library");
+            let cuptiProfilerGetCounterAvailability = __library
+                .get(b"cuptiProfilerGetCounterAvailability\0")
+                .map(|sym| *sym)
+                .expect("Expected symbol in library");
+            #[cfg(any(
+                feature = "cuda-12060",
+                feature = "cuda-12080",
+                feature = "cuda-12090",
+                feature = "cuda-13000"
+            ))]
+            let cuptiProfilerHostConfigAddMetrics = __library
+                .get(b"cuptiProfilerHostConfigAddMetrics\0")
+                .map(|sym| *sym)
+                .expect("Expected symbol in library");
+            #[cfg(any(
+                feature = "cuda-12060",
+                feature = "cuda-12080",
+                feature = "cuda-12090",
+                feature = "cuda-13000"
+            ))]
+            let cuptiProfilerHostDeinitialize = __library
+                .get(b"cuptiProfilerHostDeinitialize\0")
+                .map(|sym| *sym)
+                .expect("Expected symbol in library");
+            #[cfg(any(
+                feature = "cuda-12060",
+                feature = "cuda-12080",
+                feature = "cuda-12090",
+                feature = "cuda-13000"
+            ))]
+            let cuptiProfilerHostEvaluateToGpuValues = __library
+                .get(b"cuptiProfilerHostEvaluateToGpuValues\0")
+                .map(|sym| *sym)
+                .expect("Expected symbol in library");
+            #[cfg(any(
+                feature = "cuda-12060",
+                feature = "cuda-12080",
+                feature = "cuda-12090",
+                feature = "cuda-13000"
+            ))]
+            let cuptiProfilerHostGetBaseMetrics = __library
+                .get(b"cuptiProfilerHostGetBaseMetrics\0")
+                .map(|sym| *sym)
+                .expect("Expected symbol in library");
+            #[cfg(any(
+                feature = "cuda-12060",
+                feature = "cuda-12080",
+                feature = "cuda-12090",
+                feature = "cuda-13000"
+            ))]
+            let cuptiProfilerHostGetConfigImage = __library
+                .get(b"cuptiProfilerHostGetConfigImage\0")
+                .map(|sym| *sym)
+                .expect("Expected symbol in library");
+            #[cfg(any(
+                feature = "cuda-12060",
+                feature = "cuda-12080",
+                feature = "cuda-12090",
+                feature = "cuda-13000"
+            ))]
+            let cuptiProfilerHostGetConfigImageSize = __library
+                .get(b"cuptiProfilerHostGetConfigImageSize\0")
+                .map(|sym| *sym)
+                .expect("Expected symbol in library");
+            #[cfg(any(
+                feature = "cuda-12060",
+                feature = "cuda-12080",
+                feature = "cuda-12090",
+                feature = "cuda-13000"
+            ))]
+            let cuptiProfilerHostGetMaxNumHardwareMetricsPerPass = __library
+                .get(b"cuptiProfilerHostGetMaxNumHardwareMetricsPerPass\0")
+                .map(|sym| *sym)
+                .expect("Expected symbol in library");
+            #[cfg(any(
+                feature = "cuda-12060",
+                feature = "cuda-12080",
+                feature = "cuda-12090",
+                feature = "cuda-13000"
+            ))]
+            let cuptiProfilerHostGetMetricProperties = __library
+                .get(b"cuptiProfilerHostGetMetricProperties\0")
+                .map(|sym| *sym)
+                .expect("Expected symbol in library");
+            #[cfg(any(
+                feature = "cuda-12060",
+                feature = "cuda-12080",
+                feature = "cuda-12090",
+                feature = "cuda-13000"
+            ))]
+            let cuptiProfilerHostGetNumOfPasses = __library
+                .get(b"cuptiProfilerHostGetNumOfPasses\0")
+                .map(|sym| *sym)
+                .expect("Expected symbol in library");
+            #[cfg(any(
+                feature = "cuda-12060",
+                feature = "cuda-12080",
+                feature = "cuda-12090",
+                feature = "cuda-13000"
+            ))]
+            let cuptiProfilerHostGetRangeName = __library
+                .get(b"cuptiProfilerHostGetRangeName\0")
+                .map(|sym| *sym)
+                .expect("Expected symbol in library");
+            #[cfg(any(
+                feature = "cuda-12060",
+                feature = "cuda-12080",
+                feature = "cuda-12090",
+                feature = "cuda-13000"
+            ))]
+            let cuptiProfilerHostGetSubMetrics = __library
+                .get(b"cuptiProfilerHostGetSubMetrics\0")
+                .map(|sym| *sym)
+                .expect("Expected symbol in library");
+            #[cfg(any(
+                feature = "cuda-12060",
+                feature = "cuda-12080",
+                feature = "cuda-12090",
+                feature = "cuda-13000"
+            ))]
+            let cuptiProfilerHostGetSupportedChips = __library
+                .get(b"cuptiProfilerHostGetSupportedChips\0")
+                .map(|sym| *sym)
+                .expect("Expected symbol in library");
+            #[cfg(any(
+                feature = "cuda-12060",
+                feature = "cuda-12080",
+                feature = "cuda-12090",
+                feature = "cuda-13000"
+            ))]
+            let cuptiProfilerHostInitialize = __library
+                .get(b"cuptiProfilerHostInitialize\0")
+                .map(|sym| *sym)
+                .expect("Expected symbol in library");
+            let cuptiProfilerInitialize = __library
+                .get(b"cuptiProfilerInitialize\0")
+                .map(|sym| *sym)
+                .expect("Expected symbol in library");
+            let cuptiProfilerIsPassCollected = __library
+                .get(b"cuptiProfilerIsPassCollected\0")
+                .map(|sym| *sym)
+                .expect("Expected symbol in library");
+            let cuptiProfilerPopRange = __library
+                .get(b"cuptiProfilerPopRange\0")
+                .map(|sym| *sym)
+                .expect("Expected symbol in library");
+            let cuptiProfilerPushRange = __library
+                .get(b"cuptiProfilerPushRange\0")
+                .map(|sym| *sym)
+                .expect("Expected symbol in library");
+            let cuptiProfilerSetConfig = __library
+                .get(b"cuptiProfilerSetConfig\0")
+                .map(|sym| *sym)
+                .expect("Expected symbol in library");
+            let cuptiProfilerUnsetConfig = __library
+                .get(b"cuptiProfilerUnsetConfig\0")
+                .map(|sym| *sym)
+                .expect("Expected symbol in library");
             let cuptiSetEventCollectionMode = __library
                 .get(b"cuptiSetEventCollectionMode\0")
                 .map(|sym| *sym)
@@ -49961,6 +52575,7 @@ mod loaded {
                 cuptiDeviceEnumEventDomains,
                 cuptiDeviceEnumMetrics,
                 cuptiDeviceGetAttribute,
+                cuptiDeviceGetChipName,
                 cuptiDeviceGetEventDomainAttribute,
                 cuptiDeviceGetNumEventDomains,
                 cuptiDeviceGetNumMetrics,
@@ -50053,6 +52668,210 @@ mod loaded {
                 cuptiMetricGetRequiredEventGroupSets,
                 cuptiMetricGetValue,
                 cuptiMetricGetValue2,
+                #[cfg(any(
+                    feature = "cuda-12060",
+                    feature = "cuda-12080",
+                    feature = "cuda-12090",
+                    feature = "cuda-13000"
+                ))]
+                cuptiPmSamplingCounterDataGetSampleInfo,
+                #[cfg(any(
+                    feature = "cuda-12060",
+                    feature = "cuda-12080",
+                    feature = "cuda-12090",
+                    feature = "cuda-13000"
+                ))]
+                cuptiPmSamplingCounterDataImageInitialize,
+                #[cfg(any(
+                    feature = "cuda-12060",
+                    feature = "cuda-12080",
+                    feature = "cuda-12090",
+                    feature = "cuda-13000"
+                ))]
+                cuptiPmSamplingDecodeData,
+                #[cfg(any(
+                    feature = "cuda-12060",
+                    feature = "cuda-12080",
+                    feature = "cuda-12090",
+                    feature = "cuda-13000"
+                ))]
+                cuptiPmSamplingDisable,
+                #[cfg(any(
+                    feature = "cuda-12060",
+                    feature = "cuda-12080",
+                    feature = "cuda-12090",
+                    feature = "cuda-13000"
+                ))]
+                cuptiPmSamplingEnable,
+                #[cfg(any(
+                    feature = "cuda-12060",
+                    feature = "cuda-12080",
+                    feature = "cuda-12090",
+                    feature = "cuda-13000"
+                ))]
+                cuptiPmSamplingGetCounterAvailability,
+                #[cfg(any(
+                    feature = "cuda-12060",
+                    feature = "cuda-12080",
+                    feature = "cuda-12090",
+                    feature = "cuda-13000"
+                ))]
+                cuptiPmSamplingGetCounterDataInfo,
+                #[cfg(any(
+                    feature = "cuda-12060",
+                    feature = "cuda-12080",
+                    feature = "cuda-12090",
+                    feature = "cuda-13000"
+                ))]
+                cuptiPmSamplingGetCounterDataSize,
+                #[cfg(any(
+                    feature = "cuda-12060",
+                    feature = "cuda-12080",
+                    feature = "cuda-12090",
+                    feature = "cuda-13000"
+                ))]
+                cuptiPmSamplingSetConfig,
+                #[cfg(any(
+                    feature = "cuda-12060",
+                    feature = "cuda-12080",
+                    feature = "cuda-12090",
+                    feature = "cuda-13000"
+                ))]
+                cuptiPmSamplingStart,
+                #[cfg(any(
+                    feature = "cuda-12060",
+                    feature = "cuda-12080",
+                    feature = "cuda-12090",
+                    feature = "cuda-13000"
+                ))]
+                cuptiPmSamplingStop,
+                cuptiProfilerBeginPass,
+                cuptiProfilerBeginSession,
+                cuptiProfilerCounterDataImageCalculateScratchBufferSize,
+                cuptiProfilerCounterDataImageCalculateSize,
+                cuptiProfilerCounterDataImageInitialize,
+                cuptiProfilerCounterDataImageInitializeScratchBuffer,
+                cuptiProfilerDeInitialize,
+                #[cfg(any(
+                    feature = "cuda-11050",
+                    feature = "cuda-11060",
+                    feature = "cuda-11070",
+                    feature = "cuda-11080",
+                    feature = "cuda-12000",
+                    feature = "cuda-12010",
+                    feature = "cuda-12020",
+                    feature = "cuda-12030",
+                    feature = "cuda-12040",
+                    feature = "cuda-12050",
+                    feature = "cuda-12060",
+                    feature = "cuda-12080",
+                    feature = "cuda-12090",
+                    feature = "cuda-13000"
+                ))]
+                cuptiProfilerDeviceSupported,
+                cuptiProfilerDisableProfiling,
+                cuptiProfilerEnableProfiling,
+                cuptiProfilerEndPass,
+                cuptiProfilerEndSession,
+                cuptiProfilerFlushCounterData,
+                cuptiProfilerGetCounterAvailability,
+                #[cfg(any(
+                    feature = "cuda-12060",
+                    feature = "cuda-12080",
+                    feature = "cuda-12090",
+                    feature = "cuda-13000"
+                ))]
+                cuptiProfilerHostConfigAddMetrics,
+                #[cfg(any(
+                    feature = "cuda-12060",
+                    feature = "cuda-12080",
+                    feature = "cuda-12090",
+                    feature = "cuda-13000"
+                ))]
+                cuptiProfilerHostDeinitialize,
+                #[cfg(any(
+                    feature = "cuda-12060",
+                    feature = "cuda-12080",
+                    feature = "cuda-12090",
+                    feature = "cuda-13000"
+                ))]
+                cuptiProfilerHostEvaluateToGpuValues,
+                #[cfg(any(
+                    feature = "cuda-12060",
+                    feature = "cuda-12080",
+                    feature = "cuda-12090",
+                    feature = "cuda-13000"
+                ))]
+                cuptiProfilerHostGetBaseMetrics,
+                #[cfg(any(
+                    feature = "cuda-12060",
+                    feature = "cuda-12080",
+                    feature = "cuda-12090",
+                    feature = "cuda-13000"
+                ))]
+                cuptiProfilerHostGetConfigImage,
+                #[cfg(any(
+                    feature = "cuda-12060",
+                    feature = "cuda-12080",
+                    feature = "cuda-12090",
+                    feature = "cuda-13000"
+                ))]
+                cuptiProfilerHostGetConfigImageSize,
+                #[cfg(any(
+                    feature = "cuda-12060",
+                    feature = "cuda-12080",
+                    feature = "cuda-12090",
+                    feature = "cuda-13000"
+                ))]
+                cuptiProfilerHostGetMaxNumHardwareMetricsPerPass,
+                #[cfg(any(
+                    feature = "cuda-12060",
+                    feature = "cuda-12080",
+                    feature = "cuda-12090",
+                    feature = "cuda-13000"
+                ))]
+                cuptiProfilerHostGetMetricProperties,
+                #[cfg(any(
+                    feature = "cuda-12060",
+                    feature = "cuda-12080",
+                    feature = "cuda-12090",
+                    feature = "cuda-13000"
+                ))]
+                cuptiProfilerHostGetNumOfPasses,
+                #[cfg(any(
+                    feature = "cuda-12060",
+                    feature = "cuda-12080",
+                    feature = "cuda-12090",
+                    feature = "cuda-13000"
+                ))]
+                cuptiProfilerHostGetRangeName,
+                #[cfg(any(
+                    feature = "cuda-12060",
+                    feature = "cuda-12080",
+                    feature = "cuda-12090",
+                    feature = "cuda-13000"
+                ))]
+                cuptiProfilerHostGetSubMetrics,
+                #[cfg(any(
+                    feature = "cuda-12060",
+                    feature = "cuda-12080",
+                    feature = "cuda-12090",
+                    feature = "cuda-13000"
+                ))]
+                cuptiProfilerHostGetSupportedChips,
+                #[cfg(any(
+                    feature = "cuda-12060",
+                    feature = "cuda-12080",
+                    feature = "cuda-12090",
+                    feature = "cuda-13000"
+                ))]
+                cuptiProfilerHostInitialize,
+                cuptiProfilerInitialize,
+                cuptiProfilerIsPassCollected,
+                cuptiProfilerPopRange,
+                cuptiProfilerPushRange,
+                cuptiProfilerSetConfig,
+                cuptiProfilerUnsetConfig,
                 cuptiSetEventCollectionMode,
                 cuptiSetThreadIdType,
                 cuptiSubscribe,

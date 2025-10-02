@@ -43,7 +43,7 @@ fn create_modules() -> Vec<ModuleConfig> {
                 vars: vec![],
             },
             libs: vec!["cuda".to_string(), "nvcuda".to_string()],
-            raw_lines: vec![],
+            ..Default::default()
         },
         ModuleConfig {
             cudarc_name: "cublas".to_string(),
@@ -56,7 +56,7 @@ fn create_modules() -> Vec<ModuleConfig> {
             allowlist_recursively: true,
             blocklist: Filters::none(),
             libs: vec!["cublas".to_string()],
-            raw_lines: vec![],
+            ..Default::default()
         },
         ModuleConfig {
             cudarc_name: "cublaslt".to_string(),
@@ -73,7 +73,7 @@ fn create_modules() -> Vec<ModuleConfig> {
                 vars: vec![],
             },
             libs: vec!["cublasLt".to_string()],
-            raw_lines: vec![],
+            ..Default::default()
         },
         ModuleConfig {
             cudarc_name: "curand".to_string(),
@@ -93,7 +93,7 @@ fn create_modules() -> Vec<ModuleConfig> {
                 vars: vec![],
             },
             libs: vec!["curand".to_string()],
-            raw_lines: vec![],
+            ..Default::default()
         },
         ModuleConfig {
             cudarc_name: "runtime".to_string(),
@@ -111,7 +111,7 @@ fn create_modules() -> Vec<ModuleConfig> {
                 vars: vec![],
             },
             libs: vec!["cudart".to_string()],
-            raw_lines: vec![],
+            ..Default::default()
         },
         ModuleConfig {
             cudarc_name: "nvrtc".to_string(),
@@ -135,7 +135,7 @@ fn create_modules() -> Vec<ModuleConfig> {
                 vars: vec![],
             },
             libs: vec!["nvrtc".to_string()],
-            raw_lines: vec![],
+            ..Default::default()
         },
         ModuleConfig {
             cudarc_name: "cudnn".to_string(),
@@ -148,7 +148,7 @@ fn create_modules() -> Vec<ModuleConfig> {
             allowlist_recursively: true,
             blocklist: Filters::none(),
             libs: vec!["cudnn".to_string()],
-            raw_lines: vec![],
+            ..Default::default()
         },
         ModuleConfig {
             cudarc_name: "nccl".to_string(),
@@ -161,7 +161,7 @@ fn create_modules() -> Vec<ModuleConfig> {
             allowlist_recursively: true,
             blocklist: Filters::none(),
             libs: vec!["nccl".to_string()],
-            raw_lines: vec![],
+            ..Default::default()
         },
         ModuleConfig {
             cudarc_name: "cusparse".to_string(),
@@ -216,7 +216,7 @@ fn create_modules() -> Vec<ModuleConfig> {
                 vars: vec![],
             },
             libs: vec!["cusparse".to_string()],
-            raw_lines: vec![],
+            ..Default::default()
         },
         ModuleConfig {
             cudarc_name: "cusolver".to_string(),
@@ -236,7 +236,7 @@ fn create_modules() -> Vec<ModuleConfig> {
                 vars: vec!["^cusolverMg.*".to_string()],
             },
             libs: vec!["cusolver".to_string()],
-            raw_lines: vec![],
+            ..Default::default()
         },
         ModuleConfig {
             cudarc_name: "cusolvermg".to_string(),
@@ -249,7 +249,7 @@ fn create_modules() -> Vec<ModuleConfig> {
             allowlist_recursively: true,
             blocklist: Filters::none(),
             libs: vec!["cusolverMg".to_string()],
-            raw_lines: vec![],
+            ..Default::default()
         },
         ModuleConfig {
             cudarc_name: "cufile".to_string(),
@@ -262,7 +262,7 @@ fn create_modules() -> Vec<ModuleConfig> {
             allowlist_recursively: true,
             blocklist: Filters::none(),
             libs: vec!["cufile".to_string()],
-            raw_lines: vec![],
+            ..Default::default()
         },
         ModuleConfig {
             cudarc_name: "cupti".into(),
@@ -305,6 +305,7 @@ fn create_modules() -> Vec<ModuleConfig> {
                     "cudaWaitExternalSemaphoresAsync_ptsz_v10000_params".into(),
                     "cudaWaitExternalSemaphoresAsync_v10000_params_st".into(),
                     "cudaWaitExternalSemaphoresAsync_v10000_params".into(),
+                    "std::.*".into(),
                 ],
                 functions: vec![],
                 vars: vec![],
@@ -314,11 +315,12 @@ fn create_modules() -> Vec<ModuleConfig> {
                 "use crate::driver::sys::*;".into(),
                 "use crate::runtime::sys::*;".into(),
             ],
+            use_cpp: true,
         },
     ]
 }
 
-#[derive(Debug)]
+#[derive(Debug, Default)]
 struct ModuleConfig {
     /// Name of corresponding module in cudarc
     cudarc_name: String,
@@ -338,6 +340,9 @@ struct ModuleConfig {
     allowlist_recursively: bool,
     /// Lines of code to add at the beginning of the generated bindings.
     raw_lines: Vec<String>,
+    /// Parse headers with Clang in C++ mode. This is useful to work around some likely erroneous
+    /// C++ header includes in public CUDA headers that are meant to be pure C headers.
+    use_cpp: bool,
 }
 
 impl ModuleConfig {
@@ -346,6 +351,7 @@ impl ModuleConfig {
         cuda_version: &str,
         archive_directory: &Path,
         primary_archives: &[PathBuf],
+        wrapper: &str,
     ) -> Result<()> {
         let sysdir = Path::new(".")
             .join("out")
@@ -404,7 +410,7 @@ impl ModuleConfig {
             .join("src")
             .join(&self.cudarc_name)
             .join("sys");
-        let wrapper_h = parent_sysdir.join("wrapper.h");
+        let wrapper_h = parent_sysdir.join(wrapper);
         let cuda_directory = archive_directory.join("include");
         let primary_includes: Vec<_> = primary_archives
             .into_iter()
@@ -429,6 +435,11 @@ impl ModuleConfig {
                     .join("include")
                     .display()
             ));
+
+        if self.use_cpp {
+            builder = builder.clang_args(["-x", "c++", "--std=c++11"])
+        }
+
         for include in primary_includes {
             builder = builder.clang_arg(format!("-I{}", include.display()));
         }
@@ -448,7 +459,7 @@ impl ModuleConfig {
     }
 }
 
-#[derive(Debug)]
+#[derive(Debug, Default)]
 /// Bindgen filters
 struct Filters {
     types: Vec<String>,
@@ -508,6 +519,7 @@ fn create_bindings(modules: &[ModuleConfig], cuda_versions: &[&str]) -> Result<(
             match module.cudarc_name.as_str() {
                 "cudnn" => generate_cudnn(cuda_version, module, &primary_archives, &multi_progress),
                 "nccl" => generate_nccl(cuda_version, module, &primary_archives, &multi_progress),
+                "cupti" => generate_cupti(cuda_version, module, &primary_archives, &multi_progress),
                 _ => generate_sys(cuda_version, module, &primary_archives, &multi_progress),
             }
             .context(format!(
@@ -617,7 +629,7 @@ fn generate_sys(
         &module.cudarc_name,
         multi_progress,
     )?;
-    module.run_bindgen(cuda_version, &archive_dir, primary_archives)?;
+    module.run_bindgen(cuda_version, &archive_dir, primary_archives, "wrapper.h")?;
     Ok(())
 }
 
@@ -683,7 +695,7 @@ fn generate_cudnn(
             .context("Extracting archive")?;
     }
 
-    module.run_bindgen(cuda_version, &archive_dir, primary_archives)
+    module.run_bindgen(cuda_version, &archive_dir, primary_archives, "wrapper.h")
 }
 
 fn generate_nccl(
@@ -729,7 +741,38 @@ fn generate_nccl(
     }
     assert!(archive_dir.exists());
 
-    module.run_bindgen(cuda_version, &archive_dir, primary_archives)
+    module.run_bindgen(cuda_version, &archive_dir, primary_archives, "wrapper.h")
+}
+
+fn generate_cupti(
+    cuda_version: &str,
+    module: &ModuleConfig,
+    primary_archives: &[PathBuf],
+    multi_progress: &MultiProgress,
+) -> Result<()> {
+    let archive_dir = get_archive(
+        cuda_version,
+        &module.redist_name,
+        &module.cudarc_name,
+        multi_progress,
+    )?;
+
+    let (cuda_major, cuda_minor, _) = get_version(cuda_version)?;
+    if cuda_major == 12 && cuda_minor >= 6 || cuda_major > 12 {
+        module.run_bindgen(
+            cuda_version,
+            &archive_dir,
+            primary_archives,
+            "wrapper_12_6+.h",
+        )
+    } else {
+        module.run_bindgen(
+            cuda_version,
+            &archive_dir,
+            primary_archives,
+            "wrapper_11-12_5.h",
+        )
+    }
 }
 
 #[derive(Parser)]
