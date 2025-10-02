@@ -4,6 +4,7 @@ use super::sys;
 use crate::driver;
 
 pub mod activity;
+pub mod profiler_host;
 
 /// Wrapper around an erroneous `CUptiResult`. See
 /// NVIDIA's [CUDA Runtime API](https://docs.nvidia.com/cupti/api/group__CUPTI__RESULT__API.html?highlight=CUptiResult#_CPPv411CUptiResult)
