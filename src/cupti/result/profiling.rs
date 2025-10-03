@@ -1,6 +1,6 @@
 //! Functions of the Profiling API
 
-use crate::cupti::{result::CuptiError, sys};
+use super::super::{result::CuptiError, sys};
 
 /// Replay API: used for multipass collection.
 pub unsafe fn begin_pass(

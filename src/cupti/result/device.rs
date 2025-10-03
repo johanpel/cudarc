@@ -27,9 +27,9 @@ pub unsafe fn get_attribute(
 }
 
 pub unsafe fn get_chip_name(
-    p_params: *mut sys::CUpti_Device_GetChipName_Params,
+    params_ptr: *mut sys::CUpti_Device_GetChipName_Params,
 ) -> Result<(), CuptiError> {
-    unsafe { sys::cuptiDeviceGetChipName(p_params) }.result()
+    unsafe { sys::cuptiDeviceGetChipName(params_ptr) }.result()
 }
 
 pub unsafe fn get_event_domain_attribute(
