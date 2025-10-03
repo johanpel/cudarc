@@ -1,3 +1,5 @@
+//! Functions of the Profiling API
+
 use crate::cupti::{result::CuptiError, sys};
 
 /// Replay API: used for multipass collection.

@@ -5,7 +5,7 @@ use crate::driver;
 
 pub mod activity;
 pub mod device;
-pub mod pm;
+pub mod pm_sampling;
 pub mod profiler_host;
 pub mod profiling;
 
