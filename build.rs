@@ -238,35 +238,8 @@ fn link_searches(major: usize, minor: usize) -> Vec<PathBuf> {
         .map(std::env::var)
         .filter_map(Result::ok);
 
-    let standard_locations = [
-        "/usr",
-        "/usr/local/cuda",
-        "/opt/cuda",
-        "/usr/lib/cuda",
-        "C:/Program Files/NVIDIA GPU Computing Toolkit",
-        "C:/Program Files/NVIDIA",
-        "C:/CUDA",
-        // See issue #260 & #409
-        // TODO figure out how to handle all of these automatically
-        "C:/Program Files/NVIDIA/CUDNN/v9.10",
-        "C:/Program Files/NVIDIA/CUDNN/v9.9",
-        "C:/Program Files/NVIDIA/CUDNN/v9.8",
-        "C:/Program Files/NVIDIA/CUDNN/v9.7",
-        "C:/Program Files/NVIDIA/CUDNN/v9.6",
-        "C:/Program Files/NVIDIA/CUDNN/v9.5",
-        "C:/Program Files/NVIDIA/CUDNN/v9.4",
-        "C:/Program Files/NVIDIA/CUDNN/v9.3",
-        "C:/Program Files/NVIDIA/CUDNN/v9.2",
-        "C:/Program Files/NVIDIA/CUDNN/v9.1",
-        "C:/Program Files/NVIDIA/CUDNN/v9.0",
-    ];
-    let standard_locations = standard_locations.into_iter().map(Into::into);
-
     let mut candidates = Vec::new();
-    for root in env_vars
-        .chain(standard_locations)
-        .map(Into::<PathBuf>::into)
-    {
+    for root in env_vars.map(Into::<PathBuf>::into) {
         candidates.extend(
             [
                 "lib".into(),
