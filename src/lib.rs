@@ -107,13 +107,13 @@ pub mod cusolver;
 pub mod cusolvermg;
 #[cfg(feature = "cusparse")]
 pub mod cusparse;
-#[cfg(feature = "driver")]
+#[cfg(any(feature = "driver", feature = "driver-sys"))]
 pub mod driver;
 #[cfg(feature = "nccl")]
 pub mod nccl;
 #[cfg(feature = "nvrtc")]
 pub mod nvrtc;
-#[cfg(feature = "runtime")]
+#[cfg(any(feature = "runtime", feature = "runtime-sys"))]
 pub mod runtime;
 
 pub mod types;
