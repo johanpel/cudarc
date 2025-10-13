@@ -139,7 +139,7 @@ fn dynamic_linking(major: usize, minor: usize) {
         println!("cargo:rustc-link-search=native={}", path.display());
     }
 
-    #[cfg(feature = "link-driver")]
+    #[cfg(feature = "driver-result")]
     println!("cargo:rustc-link-lib=dylib=cuda");
     #[cfg(feature = "nccl")]
     println!("cargo:rustc-link-lib=dylib=nccl");
@@ -161,7 +161,7 @@ fn dynamic_linking(major: usize, minor: usize) {
     println!("cargo:rustc-link-lib=dylib=cusolverMg");
     #[cfg(feature = "cudnn")]
     println!("cargo:rustc-link-lib=dylib=cudnn");
-    #[cfg(feature = "link-runtime")]
+    #[cfg(feature = "runtime-result")]
     println!("cargo:rustc-link-lib=dylib=cudart");
     #[cfg(feature = "cufile")]
     {
