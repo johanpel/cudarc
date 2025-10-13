@@ -158,4 +158,5 @@ pub mod safe;
 #[allow(warnings)]
 pub mod sys;
 
+#[cfg(feature = "driver")]
 pub use safe::*;
