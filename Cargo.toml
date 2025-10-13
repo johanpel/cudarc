@@ -69,6 +69,8 @@ dynamic-linking = []
 static-linking = []
 
 driver = []
+link-driver = []
+link-runtime = []
 nvrtc = []
 cublas = ["driver"]
 cublaslt = ["driver"]
