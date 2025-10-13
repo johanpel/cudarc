@@ -151,10 +151,11 @@
 //! When copying data between host & device, we ensure proper use of [CudaEvent::synchronize()]
 //! and [CudaStream::synchronize()] to make sure no data is freed during use.
 
-#[cfg(feature = "driver-result")]
+#[cfg(feature = "driver")]
 pub mod result;
 #[cfg(feature = "driver")]
 pub mod safe;
+#[cfg(feature = "driver-sys")]
 #[allow(warnings)]
 pub mod sys;
 
