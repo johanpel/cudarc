@@ -227,19 +227,60 @@ fn static_linking(major: usize, minor: usize) {
 
 #[allow(unused)]
 fn link_searches(major: usize, minor: usize) -> Vec<PathBuf> {
-    let env_vars = [
+    let typical_env_vars = [
+        "CUDA_HOME",
         "CUDA_PATH",
         "CUDA_ROOT",
         "CUDA_TOOLKIT_ROOT_DIR",
         "CUDNN_LIB",
     ];
-    let env_vars = env_vars
+
+    let env_vars = typical_env_vars
         .into_iter()
         .map(std::env::var)
-        .filter_map(Result::ok);
+        .filter_map(Result::ok)
+        .collect::<Vec<_>>();
+
+    // Emit a warning when it appears we're building within a conda-like environment and no env vars
+    // were set:
+    if env_vars.is_empty() && std::env::var("CONDA_PREFIX").is_ok() {
+        println!("cargo::warn=Detected CONDA_PREFIX in the environment, but no CUDA_HOME was set. If linker errors occur, please consider setting CUDA_HOME=$CONDA_PREFIX.")
+    }
+
+    let typical_locations = [
+        "/usr",
+        "/usr/local/cuda",
+        "/opt/cuda",
+        "/usr/lib/cuda",
+        "C:/Program Files/NVIDIA GPU Computing Toolkit",
+        "C:/Program Files/NVIDIA",
+        "C:/CUDA",
+        // See issue #260 & #409
+        // TODO figure out how to handle all of these automatically
+        "C:/Program Files/NVIDIA/CUDNN/v9.10",
+        "C:/Program Files/NVIDIA/CUDNN/v9.9",
+        "C:/Program Files/NVIDIA/CUDNN/v9.8",
+        "C:/Program Files/NVIDIA/CUDNN/v9.7",
+        "C:/Program Files/NVIDIA/CUDNN/v9.6",
+        "C:/Program Files/NVIDIA/CUDNN/v9.5",
+        "C:/Program Files/NVIDIA/CUDNN/v9.4",
+        "C:/Program Files/NVIDIA/CUDNN/v9.3",
+        "C:/Program Files/NVIDIA/CUDNN/v9.2",
+        "C:/Program Files/NVIDIA/CUDNN/v9.1",
+        "C:/Program Files/NVIDIA/CUDNN/v9.0",
+    ];
+
+    let possible_locations = if env_vars.is_empty() {
+        typical_locations
+            .into_iter()
+            .map(Into::<String>::into)
+            .collect()
+    } else {
+        env_vars
+    };
 
     let mut candidates = Vec::new();
-    for root in env_vars.map(Into::<PathBuf>::into) {
+    for root in possible_locations.into_iter().map(Into::<PathBuf>::into) {
         candidates.extend(
             [
                 "lib".into(),
