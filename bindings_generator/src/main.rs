@@ -1,6 +1,7 @@
 use clap::Parser;
 use indicatif::{MultiProgress, ProgressBar, ProgressStyle};
 use std::{
+    collections::HashMap,
     fs,
     path::{Path, PathBuf},
 };
@@ -43,6 +44,7 @@ fn create_modules() -> Vec<ModuleConfig> {
                 vars: vec![],
             },
             libs: vec!["cuda".to_string(), "nvcuda".to_string()],
+            not_supported: "CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER",
             ..Default::default()
         },
         ModuleConfig {
@@ -111,6 +113,14 @@ fn create_modules() -> Vec<ModuleConfig> {
                 vars: vec![],
             },
             libs: vec!["cudart".to_string()],
+            not_supported: "cudaError::cudaErrorNotSupported",
+            not_supported_special_cases: [
+                ("cudaCreateChannelDesc".into(), None),
+                ("cudaGetErrorName".into(), None),
+                ("cudaGetErrorString".into(), None),
+            ]
+            .into_iter()
+            .collect(),
             ..Default::default()
         },
         ModuleConfig {
@@ -317,6 +327,7 @@ fn create_modules() -> Vec<ModuleConfig> {
             ],
             use_cpp: true,
             not_supported: "CUptiResult::CUPTI_ERROR_NOT_SUPPORTED",
+            ..Default::default()
         },
     ]
 }
@@ -335,20 +346,26 @@ struct ModuleConfig {
     /// Those names are only used with the `dynamic-loading`
     /// feature.
     libs: Vec<String>,
-    /// Whether to recursively add types from allowlist items. This can be set to false
-    /// in order to prevent duplicate definitions for headers that include other headers
-    /// for which bindings are also generated.
+    /// Whether to recursively add types from allowlist items. This can be set
+    /// to false in order to prevent duplicate definitions for headers that
+    /// include other headers for which bindings are also generated.
     allowlist_recursively: bool,
     /// Lines of code to add at the beginning of the generated bindings.
     raw_lines: Vec<String>,
-    /// Parse headers with Clang in C++ mode. This is useful to work around some likely erroneous
-    /// C++ header includes in public CUDA headers that are meant to be pure C headers.
+    /// Parse headers with Clang in C++ mode. This is useful to work around some
+    /// likely erroneous C++ header includes in public CUDA headers that are
+    /// meant to be pure C headers.
     use_cpp: bool,
     /// The path string of the enum variant returned when dynamic loading didn't
     /// succeed for a specific function. This is useful when dynamically loading
     /// an older driver. Typically something like:
     /// <ResultEnum>::<RESULT_ENUM>_NOT_SUPPORTED.
     not_supported: &'static str,
+    /// Some functions don't return a result type, so when they can't be
+    /// dynamically loaded, special cases are needed, captured by this map. If
+    /// there is no sensible resolution, panic, conveyed through None in the map
+    /// value.
+    not_supported_special_cases: HashMap<String, Option<String>>,
 }
 
 impl ModuleConfig {

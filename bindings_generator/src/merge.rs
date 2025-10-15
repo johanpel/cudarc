@@ -1,12 +1,12 @@
 use anyhow::{Context, Result};
 use proc_macro2::TokenStream;
 use quote::{ToTokens, quote};
-use std::collections::BTreeMap;
+use std::collections::{BTreeMap, HashMap};
 use std::fs;
 use syn::parse::Parser;
 use syn::{
     Expr, Field, FnArg, ForeignItemFn, Item, ItemConst, ItemEnum, ItemFn, ItemImpl, ItemStruct,
-    ItemType, ItemUnion, ItemUse, Pat, Path, Stmt,
+    ItemType, ItemUnion, ItemUse, Pat, Stmt,
 };
 
 use crate::ModuleConfig;
@@ -34,7 +34,8 @@ struct LibItem {
     member: Field,
     init_member: Stmt,
     init_decl: Expr,
-    not_supported: Path,
+    #[allow(dead_code)]
+    not_supported: Expr,
 }
 struct LibItems {
     adapter_functions: Vec<ItemFn>,
@@ -45,7 +46,7 @@ struct LibItems {
 impl LibItem {
     fn new(
         func: &ForeignItemFn,
-        not_supported: Path,
+        not_supported: Expr,
         versions: &[&Version],
         n_versions: usize,
     ) -> Self {
@@ -82,11 +83,12 @@ impl LibItem {
         });
 
         let args = arg_names;
+
         let c = quote! {
             #feature_tok
             pub unsafe fn #fn_name(#inputs) #output{
-                if let Some(func) = (culib().#fn_name) {
-                    func(#(#args),*)
+                if let Some(__function) = (culib().#fn_name) {
+                    __function(#(#args),*)
                 } else {
                     #not_supported
                 }
@@ -176,11 +178,16 @@ struct BindingMerger {
 
     lib_names: Vec<String>,
     not_supported: String,
+    not_supported_special: HashMap<String, Option<String>>,
     n_versions: usize,
 }
 
 impl BindingMerger {
-    pub fn new(lib_names: Vec<String>, not_supported: String) -> Self {
+    pub fn new(
+        lib_names: Vec<String>,
+        not_supported: String,
+        not_supported_special: HashMap<String, Option<String>>,
+    ) -> Self {
         Self {
             functions: Default::default(),
             enums: Default::default(),
@@ -192,6 +199,7 @@ impl BindingMerger {
             consts: Default::default(),
             lib_names,
             not_supported,
+            not_supported_special,
             n_versions: 0,
         }
     }
@@ -406,8 +414,17 @@ impl BindingMerger {
         info: &BTreeMap<String, FunctionInfo<ForeignItemFn>>,
     ) -> Result<TokenStream> {
         let mut elements = vec![];
-        let not_supported: Path = syn::parse_str(self.not_supported.as_str())?;
         for (_name, info) in info {
+            let not_supported: Expr = if let Some(value) = self.not_supported_special.get(_name) {
+                syn::parse_str(
+                    value
+                        .clone()
+                        .unwrap_or(format!("panic!(\"{_name} was not found during dynamic loading - this indicates a CUDA toolkit or driver version mismatch\")"))
+                        .as_str(),
+                )?
+            } else {
+                syn::parse_str(self.not_supported.as_str())?
+            };
             // Function with version-specific declarations
             let mut prev_decl: Option<&ForeignItemFn> = None;
             let mut versions = vec![];
@@ -491,9 +508,10 @@ pub fn merge<P: AsRef<std::path::Path>>(
     output_filename: P,
     lib_names: Vec<String>,
     not_supported: impl Into<String>,
+    not_supported_special: HashMap<String, Option<String>>,
 ) -> Result<()> {
     let binding_dir = binding_dir.as_ref();
-    let mut merger = BindingMerger::new(lib_names, not_supported.into());
+    let mut merger = BindingMerger::new(lib_names, not_supported.into(), not_supported_special);
 
     let entries = fs::read_dir(binding_dir)?;
     for entry in entries {
@@ -547,6 +565,7 @@ pub fn merge_bindings(modules: &[ModuleConfig]) -> Result<()> {
             format!("../src/{}/sys/mod.rs", config.cudarc_name),
             config.libs.clone(),
             config.not_supported,
+            config.not_supported_special_cases.clone(),
         )?;
     }
     Ok(())

@@ -49840,8 +49840,8 @@ mod loaded {
         ctx: CUcontext,
         config: *mut CUpti_ActivityPCSamplingConfig,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiActivityConfigurePCSampling) {
-            func(ctx, config)
+        if let Some(__function) = (culib().cuptiActivityConfigurePCSampling) {
+            __function(ctx, config)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -49850,15 +49850,15 @@ mod loaded {
         config: *mut CUpti_ActivityUnifiedMemoryCounterConfig,
         count: u32,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiActivityConfigureUnifiedMemoryCounter) {
-            func(config, count)
+        if let Some(__function) = (culib().cuptiActivityConfigureUnifiedMemoryCounter) {
+            __function(config, count)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
     }
     pub unsafe fn cuptiActivityDisable(kind: CUpti_ActivityKind) -> CUptiResult {
-        if let Some(func) = (culib().cuptiActivityDisable) {
-            func(kind)
+        if let Some(__function) = (culib().cuptiActivityDisable) {
+            __function(kind)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -49867,23 +49867,23 @@ mod loaded {
         context: CUcontext,
         kind: CUpti_ActivityKind,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiActivityDisableContext) {
-            func(context, kind)
+        if let Some(__function) = (culib().cuptiActivityDisableContext) {
+            __function(context, kind)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
     }
     pub unsafe fn cuptiActivityEnable(kind: CUpti_ActivityKind) -> CUptiResult {
-        if let Some(func) = (culib().cuptiActivityEnable) {
-            func(kind)
+        if let Some(__function) = (culib().cuptiActivityEnable) {
+            __function(kind)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
     }
     #[cfg(any(feature = "cuda-12080", feature = "cuda-12090", feature = "cuda-13000"))]
     pub unsafe fn cuptiActivityEnableAllSyncRecords(enable: u8) -> CUptiResult {
-        if let Some(func) = (culib().cuptiActivityEnableAllSyncRecords) {
-            func(enable)
+        if let Some(__function) = (culib().cuptiActivityEnableAllSyncRecords) {
+            __function(enable)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -49895,8 +49895,8 @@ mod loaded {
         feature = "cuda-13000"
     ))]
     pub unsafe fn cuptiActivityEnableAllocationSource(enable: u8) -> CUptiResult {
-        if let Some(func) = (culib().cuptiActivityEnableAllocationSource) {
-            func(enable)
+        if let Some(__function) = (culib().cuptiActivityEnableAllocationSource) {
+            __function(enable)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -49916,8 +49916,8 @@ mod loaded {
         feature = "cuda-13000"
     ))]
     pub unsafe fn cuptiActivityEnableAndDump(kind: CUpti_ActivityKind) -> CUptiResult {
-        if let Some(func) = (culib().cuptiActivityEnableAndDump) {
-            func(kind)
+        if let Some(__function) = (culib().cuptiActivityEnableAndDump) {
+            __function(kind)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -49926,16 +49926,16 @@ mod loaded {
         context: CUcontext,
         kind: CUpti_ActivityKind,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiActivityEnableContext) {
-            func(context, kind)
+        if let Some(__function) = (culib().cuptiActivityEnableContext) {
+            __function(context, kind)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
     }
     #[cfg(any(feature = "cuda-13000"))]
     pub unsafe fn cuptiActivityEnableCudaEventDeviceTimestamps(enable: u8) -> CUptiResult {
-        if let Some(func) = (culib().cuptiActivityEnableCudaEventDeviceTimestamps) {
-            func(enable)
+        if let Some(__function) = (culib().cuptiActivityEnableCudaEventDeviceTimestamps) {
+            __function(enable)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -49950,8 +49950,8 @@ mod loaded {
         feature = "cuda-13000"
     ))]
     pub unsafe fn cuptiActivityEnableDeviceGraph(enable: u8) -> CUptiResult {
-        if let Some(func) = (culib().cuptiActivityEnableDeviceGraph) {
-            func(enable)
+        if let Some(__function) = (culib().cuptiActivityEnableDeviceGraph) {
+            __function(enable)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -49964,30 +49964,30 @@ mod loaded {
         feature = "cuda-13000"
     ))]
     pub unsafe fn cuptiActivityEnableDriverApi(cbid: CUpti_CallbackId, enable: u8) -> CUptiResult {
-        if let Some(func) = (culib().cuptiActivityEnableDriverApi) {
-            func(cbid, enable)
+        if let Some(__function) = (culib().cuptiActivityEnableDriverApi) {
+            __function(cbid, enable)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
     }
     #[cfg(any(feature = "cuda-12080", feature = "cuda-12090", feature = "cuda-13000"))]
     pub unsafe fn cuptiActivityEnableHWTrace(enable: u8) -> CUptiResult {
-        if let Some(func) = (culib().cuptiActivityEnableHWTrace) {
-            func(enable)
+        if let Some(__function) = (culib().cuptiActivityEnableHWTrace) {
+            __function(enable)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
     }
     pub unsafe fn cuptiActivityEnableLatencyTimestamps(enable: u8) -> CUptiResult {
-        if let Some(func) = (culib().cuptiActivityEnableLatencyTimestamps) {
-            func(enable)
+        if let Some(__function) = (culib().cuptiActivityEnableLatencyTimestamps) {
+            __function(enable)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
     }
     pub unsafe fn cuptiActivityEnableLaunchAttributes(enable: u8) -> CUptiResult {
-        if let Some(func) = (culib().cuptiActivityEnableLaunchAttributes) {
-            func(enable)
+        if let Some(__function) = (culib().cuptiActivityEnableLaunchAttributes) {
+            __function(enable)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50000,29 +50000,29 @@ mod loaded {
         feature = "cuda-13000"
     ))]
     pub unsafe fn cuptiActivityEnableRuntimeApi(cbid: CUpti_CallbackId, enable: u8) -> CUptiResult {
-        if let Some(func) = (culib().cuptiActivityEnableRuntimeApi) {
-            func(cbid, enable)
+        if let Some(__function) = (culib().cuptiActivityEnableRuntimeApi) {
+            __function(cbid, enable)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
     }
     pub unsafe fn cuptiActivityFlush(context: CUcontext, streamId: u32, flag: u32) -> CUptiResult {
-        if let Some(func) = (culib().cuptiActivityFlush) {
-            func(context, streamId, flag)
+        if let Some(__function) = (culib().cuptiActivityFlush) {
+            __function(context, streamId, flag)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
     }
     pub unsafe fn cuptiActivityFlushAll(flag: u32) -> CUptiResult {
-        if let Some(func) = (culib().cuptiActivityFlushAll) {
-            func(flag)
+        if let Some(__function) = (culib().cuptiActivityFlushAll) {
+            __function(flag)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
     }
     pub unsafe fn cuptiActivityFlushPeriod(time: u32) -> CUptiResult {
-        if let Some(func) = (culib().cuptiActivityFlushPeriod) {
-            func(time)
+        if let Some(__function) = (culib().cuptiActivityFlushPeriod) {
+            __function(time)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50032,8 +50032,8 @@ mod loaded {
         valueSize: *mut usize,
         value: *mut ::core::ffi::c_void,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiActivityGetAttribute) {
-            func(attr, valueSize, value)
+        if let Some(__function) = (culib().cuptiActivityGetAttribute) {
+            __function(attr, valueSize, value)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50043,8 +50043,8 @@ mod loaded {
         validBufferSizeBytes: usize,
         record: *mut *mut CUpti_Activity,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiActivityGetNextRecord) {
-            func(buffer, validBufferSizeBytes, record)
+        if let Some(__function) = (culib().cuptiActivityGetNextRecord) {
+            __function(buffer, validBufferSizeBytes, record)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50054,8 +50054,8 @@ mod loaded {
         streamId: u32,
         dropped: *mut usize,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiActivityGetNumDroppedRecords) {
-            func(context, streamId, dropped)
+        if let Some(__function) = (culib().cuptiActivityGetNumDroppedRecords) {
+            __function(context, streamId, dropped)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50064,8 +50064,8 @@ mod loaded {
         kind: CUpti_ExternalCorrelationKind,
         lastId: *mut u64,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiActivityPopExternalCorrelationId) {
-            func(kind, lastId)
+        if let Some(__function) = (culib().cuptiActivityPopExternalCorrelationId) {
+            __function(kind, lastId)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50074,8 +50074,8 @@ mod loaded {
         kind: CUpti_ExternalCorrelationKind,
         id: u64,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiActivityPushExternalCorrelationId) {
-            func(kind, id)
+        if let Some(__function) = (culib().cuptiActivityPushExternalCorrelationId) {
+            __function(kind, id)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50084,8 +50084,8 @@ mod loaded {
         funcBufferRequested: CUpti_BuffersCallbackRequestFunc,
         funcBufferCompleted: CUpti_BuffersCallbackCompleteFunc,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiActivityRegisterCallbacks) {
-            func(funcBufferRequested, funcBufferCompleted)
+        if let Some(__function) = (culib().cuptiActivityRegisterCallbacks) {
+            __function(funcBufferRequested, funcBufferCompleted)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50108,8 +50108,8 @@ mod loaded {
     pub unsafe fn cuptiActivityRegisterTimestampCallback(
         funcTimestamp: CUpti_TimestampCallbackFunc,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiActivityRegisterTimestampCallback) {
-            func(funcTimestamp)
+        if let Some(__function) = (culib().cuptiActivityRegisterTimestampCallback) {
+            __function(funcTimestamp)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50119,8 +50119,8 @@ mod loaded {
         valueSize: *mut usize,
         value: *mut ::core::ffi::c_void,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiActivitySetAttribute) {
-            func(attr, valueSize, value)
+        if let Some(__function) = (culib().cuptiActivitySetAttribute) {
+            __function(attr, valueSize, value)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50130,8 +50130,8 @@ mod loaded {
         minor: ::core::ffi::c_int,
         support: *mut ::core::ffi::c_int,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiComputeCapabilitySupported) {
-            func(major, minor, support)
+        if let Some(__function) = (culib().cuptiComputeCapabilitySupported) {
+            __function(major, minor, support)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50141,8 +50141,8 @@ mod loaded {
         arraySizeBytes: *mut usize,
         domainArray: *mut CUpti_EventDomainID,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiDeviceEnumEventDomains) {
-            func(device, arraySizeBytes, domainArray)
+        if let Some(__function) = (culib().cuptiDeviceEnumEventDomains) {
+            __function(device, arraySizeBytes, domainArray)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50152,8 +50152,8 @@ mod loaded {
         arraySizeBytes: *mut usize,
         metricArray: *mut CUpti_MetricID,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiDeviceEnumMetrics) {
-            func(device, arraySizeBytes, metricArray)
+        if let Some(__function) = (culib().cuptiDeviceEnumMetrics) {
+            __function(device, arraySizeBytes, metricArray)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50164,8 +50164,8 @@ mod loaded {
         valueSize: *mut usize,
         value: *mut ::core::ffi::c_void,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiDeviceGetAttribute) {
-            func(device, attrib, valueSize, value)
+        if let Some(__function) = (culib().cuptiDeviceGetAttribute) {
+            __function(device, attrib, valueSize, value)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50173,8 +50173,8 @@ mod loaded {
     pub unsafe fn cuptiDeviceGetChipName(
         pParams: *mut CUpti_Device_GetChipName_Params,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiDeviceGetChipName) {
-            func(pParams)
+        if let Some(__function) = (culib().cuptiDeviceGetChipName) {
+            __function(pParams)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50186,8 +50186,8 @@ mod loaded {
         valueSize: *mut usize,
         value: *mut ::core::ffi::c_void,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiDeviceGetEventDomainAttribute) {
-            func(device, eventDomain, attrib, valueSize, value)
+        if let Some(__function) = (culib().cuptiDeviceGetEventDomainAttribute) {
+            __function(device, eventDomain, attrib, valueSize, value)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50196,15 +50196,15 @@ mod loaded {
         device: CUdevice,
         numDomains: *mut u32,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiDeviceGetNumEventDomains) {
-            func(device, numDomains)
+        if let Some(__function) = (culib().cuptiDeviceGetNumEventDomains) {
+            __function(device, numDomains)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
     }
     pub unsafe fn cuptiDeviceGetNumMetrics(device: CUdevice, numMetrics: *mut u32) -> CUptiResult {
-        if let Some(func) = (culib().cuptiDeviceGetNumMetrics) {
-            func(device, numMetrics)
+        if let Some(__function) = (culib().cuptiDeviceGetNumMetrics) {
+            __function(device, numMetrics)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50219,8 +50219,8 @@ mod loaded {
         feature = "cuda-12010"
     ))]
     pub unsafe fn cuptiDeviceGetTimestamp(context: CUcontext, timestamp: *mut u64) -> CUptiResult {
-        if let Some(func) = (culib().cuptiDeviceGetTimestamp) {
-            func(context, timestamp)
+        if let Some(__function) = (culib().cuptiDeviceGetTimestamp) {
+            __function(context, timestamp)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50229,8 +50229,8 @@ mod loaded {
         dev: CUdevice,
         support: *mut ::core::ffi::c_int,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiDeviceSupported) {
-            func(dev, support)
+        if let Some(__function) = (culib().cuptiDeviceSupported) {
+            __function(dev, support)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50239,15 +50239,15 @@ mod loaded {
         dev: CUdevice,
         mode: *mut CUpti_DeviceVirtualizationMode,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiDeviceVirtualizationMode) {
-            func(dev, mode)
+        if let Some(__function) = (culib().cuptiDeviceVirtualizationMode) {
+            __function(dev, mode)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
     }
     pub unsafe fn cuptiDisableKernelReplayMode(context: CUcontext) -> CUptiResult {
-        if let Some(func) = (culib().cuptiDisableKernelReplayMode) {
-            func(context)
+        if let Some(__function) = (culib().cuptiDisableKernelReplayMode) {
+            __function(context)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50256,8 +50256,8 @@ mod loaded {
         enable: u32,
         subscriber: CUpti_SubscriberHandle,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiEnableAllDomains) {
-            func(enable, subscriber)
+        if let Some(__function) = (culib().cuptiEnableAllDomains) {
+            __function(enable, subscriber)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50268,8 +50268,8 @@ mod loaded {
         domain: CUpti_CallbackDomain,
         cbid: CUpti_CallbackId,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiEnableCallback) {
-            func(enable, subscriber, domain, cbid)
+        if let Some(__function) = (culib().cuptiEnableCallback) {
+            __function(enable, subscriber, domain, cbid)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50279,15 +50279,15 @@ mod loaded {
         subscriber: CUpti_SubscriberHandle,
         domain: CUpti_CallbackDomain,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiEnableDomain) {
-            func(enable, subscriber, domain)
+        if let Some(__function) = (culib().cuptiEnableDomain) {
+            __function(enable, subscriber, domain)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
     }
     pub unsafe fn cuptiEnableKernelReplayMode(context: CUcontext) -> CUptiResult {
-        if let Some(func) = (culib().cuptiEnableKernelReplayMode) {
-            func(context)
+        if let Some(__function) = (culib().cuptiEnableKernelReplayMode) {
+            __function(context)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50296,8 +50296,8 @@ mod loaded {
         arraySizeBytes: *mut usize,
         domainArray: *mut CUpti_EventDomainID,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiEnumEventDomains) {
-            func(arraySizeBytes, domainArray)
+        if let Some(__function) = (culib().cuptiEnumEventDomains) {
+            __function(arraySizeBytes, domainArray)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50306,8 +50306,8 @@ mod loaded {
         arraySizeBytes: *mut usize,
         metricArray: *mut CUpti_MetricID,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiEnumMetrics) {
-            func(arraySizeBytes, metricArray)
+        if let Some(__function) = (culib().cuptiEnumMetrics) {
+            __function(arraySizeBytes, metricArray)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50317,8 +50317,8 @@ mod loaded {
         arraySizeBytes: *mut usize,
         eventArray: *mut CUpti_EventID,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiEventDomainEnumEvents) {
-            func(eventDomain, arraySizeBytes, eventArray)
+        if let Some(__function) = (culib().cuptiEventDomainEnumEvents) {
+            __function(eventDomain, arraySizeBytes, eventArray)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50329,8 +50329,8 @@ mod loaded {
         valueSize: *mut usize,
         value: *mut ::core::ffi::c_void,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiEventDomainGetAttribute) {
-            func(eventDomain, attrib, valueSize, value)
+        if let Some(__function) = (culib().cuptiEventDomainGetAttribute) {
+            __function(eventDomain, attrib, valueSize, value)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50339,8 +50339,8 @@ mod loaded {
         eventDomain: CUpti_EventDomainID,
         numEvents: *mut u32,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiEventDomainGetNumEvents) {
-            func(eventDomain, numEvents)
+        if let Some(__function) = (culib().cuptiEventDomainGetNumEvents) {
+            __function(eventDomain, numEvents)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50351,8 +50351,8 @@ mod loaded {
         valueSize: *mut usize,
         value: *mut ::core::ffi::c_void,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiEventGetAttribute) {
-            func(event, attrib, valueSize, value)
+        if let Some(__function) = (culib().cuptiEventGetAttribute) {
+            __function(event, attrib, valueSize, value)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50362,8 +50362,8 @@ mod loaded {
         eventName: *const ::core::ffi::c_char,
         event: *mut CUpti_EventID,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiEventGetIdFromName) {
-            func(device, eventName, event)
+        if let Some(__function) = (culib().cuptiEventGetIdFromName) {
+            __function(device, eventName, event)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50372,8 +50372,8 @@ mod loaded {
         eventGroup: CUpti_EventGroup,
         event: CUpti_EventID,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiEventGroupAddEvent) {
-            func(eventGroup, event)
+        if let Some(__function) = (culib().cuptiEventGroupAddEvent) {
+            __function(eventGroup, event)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50383,29 +50383,29 @@ mod loaded {
         eventGroup: *mut CUpti_EventGroup,
         flags: u32,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiEventGroupCreate) {
-            func(context, eventGroup, flags)
+        if let Some(__function) = (culib().cuptiEventGroupCreate) {
+            __function(context, eventGroup, flags)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
     }
     pub unsafe fn cuptiEventGroupDestroy(eventGroup: CUpti_EventGroup) -> CUptiResult {
-        if let Some(func) = (culib().cuptiEventGroupDestroy) {
-            func(eventGroup)
+        if let Some(__function) = (culib().cuptiEventGroupDestroy) {
+            __function(eventGroup)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
     }
     pub unsafe fn cuptiEventGroupDisable(eventGroup: CUpti_EventGroup) -> CUptiResult {
-        if let Some(func) = (culib().cuptiEventGroupDisable) {
-            func(eventGroup)
+        if let Some(__function) = (culib().cuptiEventGroupDisable) {
+            __function(eventGroup)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
     }
     pub unsafe fn cuptiEventGroupEnable(eventGroup: CUpti_EventGroup) -> CUptiResult {
-        if let Some(func) = (culib().cuptiEventGroupEnable) {
-            func(eventGroup)
+        if let Some(__function) = (culib().cuptiEventGroupEnable) {
+            __function(eventGroup)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50416,8 +50416,8 @@ mod loaded {
         valueSize: *mut usize,
         value: *mut ::core::ffi::c_void,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiEventGroupGetAttribute) {
-            func(eventGroup, attrib, valueSize, value)
+        if let Some(__function) = (culib().cuptiEventGroupGetAttribute) {
+            __function(eventGroup, attrib, valueSize, value)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50431,8 +50431,8 @@ mod loaded {
         eventIdArray: *mut CUpti_EventID,
         numEventIdsRead: *mut usize,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiEventGroupReadAllEvents) {
-            func(
+        if let Some(__function) = (culib().cuptiEventGroupReadAllEvents) {
+            __function(
                 eventGroup,
                 flags,
                 eventValueBufferSizeBytes,
@@ -50452,8 +50452,8 @@ mod loaded {
         eventValueBufferSizeBytes: *mut usize,
         eventValueBuffer: *mut u64,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiEventGroupReadEvent) {
-            func(
+        if let Some(__function) = (culib().cuptiEventGroupReadEvent) {
+            __function(
                 eventGroup,
                 flags,
                 event,
@@ -50465,8 +50465,8 @@ mod loaded {
         }
     }
     pub unsafe fn cuptiEventGroupRemoveAllEvents(eventGroup: CUpti_EventGroup) -> CUptiResult {
-        if let Some(func) = (culib().cuptiEventGroupRemoveAllEvents) {
-            func(eventGroup)
+        if let Some(__function) = (culib().cuptiEventGroupRemoveAllEvents) {
+            __function(eventGroup)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50475,15 +50475,15 @@ mod loaded {
         eventGroup: CUpti_EventGroup,
         event: CUpti_EventID,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiEventGroupRemoveEvent) {
-            func(eventGroup, event)
+        if let Some(__function) = (culib().cuptiEventGroupRemoveEvent) {
+            __function(eventGroup, event)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
     }
     pub unsafe fn cuptiEventGroupResetAllEvents(eventGroup: CUpti_EventGroup) -> CUptiResult {
-        if let Some(func) = (culib().cuptiEventGroupResetAllEvents) {
-            func(eventGroup)
+        if let Some(__function) = (culib().cuptiEventGroupResetAllEvents) {
+            __function(eventGroup)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50494,8 +50494,8 @@ mod loaded {
         valueSize: usize,
         value: *mut ::core::ffi::c_void,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiEventGroupSetAttribute) {
-            func(eventGroup, attrib, valueSize, value)
+        if let Some(__function) = (culib().cuptiEventGroupSetAttribute) {
+            __function(eventGroup, attrib, valueSize, value)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50503,15 +50503,15 @@ mod loaded {
     pub unsafe fn cuptiEventGroupSetDisable(
         eventGroupSet: *mut CUpti_EventGroupSet,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiEventGroupSetDisable) {
-            func(eventGroupSet)
+        if let Some(__function) = (culib().cuptiEventGroupSetDisable) {
+            __function(eventGroupSet)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
     }
     pub unsafe fn cuptiEventGroupSetEnable(eventGroupSet: *mut CUpti_EventGroupSet) -> CUptiResult {
-        if let Some(func) = (culib().cuptiEventGroupSetEnable) {
-            func(eventGroupSet)
+        if let Some(__function) = (culib().cuptiEventGroupSetEnable) {
+            __function(eventGroupSet)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50522,8 +50522,8 @@ mod loaded {
         eventIdArray: *mut CUpti_EventID,
         eventGroupPasses: *mut *mut CUpti_EventGroupSets,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiEventGroupSetsCreate) {
-            func(
+        if let Some(__function) = (culib().cuptiEventGroupSetsCreate) {
+            __function(
                 context,
                 eventIdArraySizeBytes,
                 eventIdArray,
@@ -50536,15 +50536,15 @@ mod loaded {
     pub unsafe fn cuptiEventGroupSetsDestroy(
         eventGroupSets: *mut CUpti_EventGroupSets,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiEventGroupSetsDestroy) {
-            func(eventGroupSets)
+        if let Some(__function) = (culib().cuptiEventGroupSetsDestroy) {
+            __function(eventGroupSets)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
     }
     pub unsafe fn cuptiFinalize() -> CUptiResult {
-        if let Some(func) = (culib().cuptiFinalize) {
-            func()
+        if let Some(__function) = (culib().cuptiFinalize) {
+            __function()
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50553,8 +50553,8 @@ mod loaded {
         context: CUcontext,
         state: *mut CUpti_ActivityAutoBoostState,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiGetAutoBoostState) {
-            func(context, state)
+        if let Some(__function) = (culib().cuptiGetAutoBoostState) {
+            __function(context, state)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50564,8 +50564,8 @@ mod loaded {
         cbid: u32,
         name: *mut *const ::core::ffi::c_char,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiGetCallbackName) {
-            func(domain, cbid, name)
+        if let Some(__function) = (culib().cuptiGetCallbackName) {
+            __function(domain, cbid, name)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50576,22 +50576,22 @@ mod loaded {
         domain: CUpti_CallbackDomain,
         cbid: CUpti_CallbackId,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiGetCallbackState) {
-            func(enable, subscriber, domain, cbid)
+        if let Some(__function) = (culib().cuptiGetCallbackState) {
+            __function(enable, subscriber, domain, cbid)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
     }
     pub unsafe fn cuptiGetContextId(context: CUcontext, contextId: *mut u32) -> CUptiResult {
-        if let Some(func) = (culib().cuptiGetContextId) {
-            func(context, contextId)
+        if let Some(__function) = (culib().cuptiGetContextId) {
+            __function(context, contextId)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
     }
     pub unsafe fn cuptiGetDeviceId(context: CUcontext, deviceId: *mut u32) -> CUptiResult {
-        if let Some(func) = (culib().cuptiGetDeviceId) {
-            func(context, deviceId)
+        if let Some(__function) = (culib().cuptiGetDeviceId) {
+            __function(context, deviceId)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50610,8 +50610,8 @@ mod loaded {
         result: CUptiResult,
         str_: *mut *const ::core::ffi::c_char,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiGetErrorMessage) {
-            func(result, str_)
+        if let Some(__function) = (culib().cuptiGetErrorMessage) {
+            __function(result, str_)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50626,43 +50626,43 @@ mod loaded {
         feature = "cuda-13000"
     ))]
     pub unsafe fn cuptiGetGraphExecId(graphExec: CUgraphExec, pId: *mut u32) -> CUptiResult {
-        if let Some(func) = (culib().cuptiGetGraphExecId) {
-            func(graphExec, pId)
+        if let Some(__function) = (culib().cuptiGetGraphExecId) {
+            __function(graphExec, pId)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
     }
     pub unsafe fn cuptiGetGraphId(graph: CUgraph, pId: *mut u32) -> CUptiResult {
-        if let Some(func) = (culib().cuptiGetGraphId) {
-            func(graph, pId)
+        if let Some(__function) = (culib().cuptiGetGraphId) {
+            __function(graph, pId)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
     }
     pub unsafe fn cuptiGetGraphNodeId(node: CUgraphNode, nodeId: *mut u64) -> CUptiResult {
-        if let Some(func) = (culib().cuptiGetGraphNodeId) {
-            func(node, nodeId)
+        if let Some(__function) = (culib().cuptiGetGraphNodeId) {
+            __function(node, nodeId)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
     }
     pub unsafe fn cuptiGetLastError() -> CUptiResult {
-        if let Some(func) = (culib().cuptiGetLastError) {
-            func()
+        if let Some(__function) = (culib().cuptiGetLastError) {
+            __function()
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
     }
     pub unsafe fn cuptiGetNumEventDomains(numDomains: *mut u32) -> CUptiResult {
-        if let Some(func) = (culib().cuptiGetNumEventDomains) {
-            func(numDomains)
+        if let Some(__function) = (culib().cuptiGetNumEventDomains) {
+            __function(numDomains)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
     }
     pub unsafe fn cuptiGetNumMetrics(numMetrics: *mut u32) -> CUptiResult {
-        if let Some(func) = (culib().cuptiGetNumMetrics) {
-            func(numMetrics)
+        if let Some(__function) = (culib().cuptiGetNumMetrics) {
+            __function(numMetrics)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50671,8 +50671,8 @@ mod loaded {
         result: CUptiResult,
         str_: *mut *const ::core::ffi::c_char,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiGetResultString) {
-            func(result, str_)
+        if let Some(__function) = (culib().cuptiGetResultString) {
+            __function(result, str_)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50682,8 +50682,8 @@ mod loaded {
         stream: CUstream,
         streamId: *mut u32,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiGetStreamId) {
-            func(context, stream, streamId)
+        if let Some(__function) = (culib().cuptiGetStreamId) {
+            __function(context, stream, streamId)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50694,29 +50694,29 @@ mod loaded {
         perThreadStream: u8,
         streamId: *mut u32,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiGetStreamIdEx) {
-            func(context, stream, perThreadStream, streamId)
+        if let Some(__function) = (culib().cuptiGetStreamIdEx) {
+            __function(context, stream, perThreadStream, streamId)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
     }
     pub unsafe fn cuptiGetThreadIdType(type_: *mut CUpti_ActivityThreadIdType) -> CUptiResult {
-        if let Some(func) = (culib().cuptiGetThreadIdType) {
-            func(type_)
+        if let Some(__function) = (culib().cuptiGetThreadIdType) {
+            __function(type_)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
     }
     pub unsafe fn cuptiGetTimestamp(timestamp: *mut u64) -> CUptiResult {
-        if let Some(func) = (culib().cuptiGetTimestamp) {
-            func(timestamp)
+        if let Some(__function) = (culib().cuptiGetTimestamp) {
+            __function(timestamp)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
     }
     pub unsafe fn cuptiGetVersion(version: *mut u32) -> CUptiResult {
-        if let Some(func) = (culib().cuptiGetVersion) {
-            func(version)
+        if let Some(__function) = (culib().cuptiGetVersion) {
+            __function(version)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50725,8 +50725,8 @@ mod loaded {
         updateFunc: CUpti_KernelReplayUpdateFunc,
         customData: *mut ::core::ffi::c_void,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiKernelReplaySubscribeUpdate) {
-            func(updateFunc, customData)
+        if let Some(__function) = (culib().cuptiKernelReplaySubscribeUpdate) {
+            __function(updateFunc, customData)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50737,8 +50737,8 @@ mod loaded {
         metricIdArray: *mut CUpti_MetricID,
         eventGroupPasses: *mut *mut CUpti_EventGroupSets,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiMetricCreateEventGroupSets) {
-            func(
+        if let Some(__function) = (culib().cuptiMetricCreateEventGroupSets) {
+            __function(
                 context,
                 metricIdArraySizeBytes,
                 metricIdArray,
@@ -50753,8 +50753,8 @@ mod loaded {
         eventIdArraySizeBytes: *mut usize,
         eventIdArray: *mut CUpti_EventID,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiMetricEnumEvents) {
-            func(metric, eventIdArraySizeBytes, eventIdArray)
+        if let Some(__function) = (culib().cuptiMetricEnumEvents) {
+            __function(metric, eventIdArraySizeBytes, eventIdArray)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50764,8 +50764,8 @@ mod loaded {
         propIdArraySizeBytes: *mut usize,
         propIdArray: *mut CUpti_MetricPropertyID,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiMetricEnumProperties) {
-            func(metric, propIdArraySizeBytes, propIdArray)
+        if let Some(__function) = (culib().cuptiMetricEnumProperties) {
+            __function(metric, propIdArraySizeBytes, propIdArray)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50776,8 +50776,8 @@ mod loaded {
         valueSize: *mut usize,
         value: *mut ::core::ffi::c_void,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiMetricGetAttribute) {
-            func(metric, attrib, valueSize, value)
+        if let Some(__function) = (culib().cuptiMetricGetAttribute) {
+            __function(metric, attrib, valueSize, value)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50787,8 +50787,8 @@ mod loaded {
         metricName: *const ::core::ffi::c_char,
         metric: *mut CUpti_MetricID,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiMetricGetIdFromName) {
-            func(device, metricName, metric)
+        if let Some(__function) = (culib().cuptiMetricGetIdFromName) {
+            __function(device, metricName, metric)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50797,8 +50797,8 @@ mod loaded {
         metric: CUpti_MetricID,
         numEvents: *mut u32,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiMetricGetNumEvents) {
-            func(metric, numEvents)
+        if let Some(__function) = (culib().cuptiMetricGetNumEvents) {
+            __function(metric, numEvents)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50807,8 +50807,8 @@ mod loaded {
         metric: CUpti_MetricID,
         numProp: *mut u32,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiMetricGetNumProperties) {
-            func(metric, numProp)
+        if let Some(__function) = (culib().cuptiMetricGetNumProperties) {
+            __function(metric, numProp)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50818,8 +50818,8 @@ mod loaded {
         metric: CUpti_MetricID,
         eventGroupSets: *mut *mut CUpti_EventGroupSets,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiMetricGetRequiredEventGroupSets) {
-            func(context, metric, eventGroupSets)
+        if let Some(__function) = (culib().cuptiMetricGetRequiredEventGroupSets) {
+            __function(context, metric, eventGroupSets)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50834,8 +50834,8 @@ mod loaded {
         timeDuration: u64,
         metricValue: *mut CUpti_MetricValue,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiMetricGetValue) {
-            func(
+        if let Some(__function) = (culib().cuptiMetricGetValue) {
+            __function(
                 device,
                 metric,
                 eventIdArraySizeBytes,
@@ -50861,8 +50861,8 @@ mod loaded {
         propValueArray: *mut u64,
         metricValue: *mut CUpti_MetricValue,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiMetricGetValue2) {
-            func(
+        if let Some(__function) = (culib().cuptiMetricGetValue2) {
+            __function(
                 metric,
                 eventIdArraySizeBytes,
                 eventIdArray,
@@ -50887,8 +50887,8 @@ mod loaded {
     pub unsafe fn cuptiPmSamplingCounterDataGetSampleInfo(
         pParams: *mut CUpti_PmSampling_CounterData_GetSampleInfo_Params,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiPmSamplingCounterDataGetSampleInfo) {
-            func(pParams)
+        if let Some(__function) = (culib().cuptiPmSamplingCounterDataGetSampleInfo) {
+            __function(pParams)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50902,8 +50902,8 @@ mod loaded {
     pub unsafe fn cuptiPmSamplingCounterDataImageInitialize(
         pParams: *mut CUpti_PmSampling_CounterDataImage_Initialize_Params,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiPmSamplingCounterDataImageInitialize) {
-            func(pParams)
+        if let Some(__function) = (culib().cuptiPmSamplingCounterDataImageInitialize) {
+            __function(pParams)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50917,8 +50917,8 @@ mod loaded {
     pub unsafe fn cuptiPmSamplingDecodeData(
         pParams: *mut CUpti_PmSampling_DecodeData_Params,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiPmSamplingDecodeData) {
-            func(pParams)
+        if let Some(__function) = (culib().cuptiPmSamplingDecodeData) {
+            __function(pParams)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50932,8 +50932,8 @@ mod loaded {
     pub unsafe fn cuptiPmSamplingDisable(
         pParams: *mut CUpti_PmSampling_Disable_Params,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiPmSamplingDisable) {
-            func(pParams)
+        if let Some(__function) = (culib().cuptiPmSamplingDisable) {
+            __function(pParams)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50947,8 +50947,8 @@ mod loaded {
     pub unsafe fn cuptiPmSamplingEnable(
         pParams: *mut CUpti_PmSampling_Enable_Params,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiPmSamplingEnable) {
-            func(pParams)
+        if let Some(__function) = (culib().cuptiPmSamplingEnable) {
+            __function(pParams)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50962,8 +50962,8 @@ mod loaded {
     pub unsafe fn cuptiPmSamplingGetCounterAvailability(
         pParams: *mut CUpti_PmSampling_GetCounterAvailability_Params,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiPmSamplingGetCounterAvailability) {
-            func(pParams)
+        if let Some(__function) = (culib().cuptiPmSamplingGetCounterAvailability) {
+            __function(pParams)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50977,8 +50977,8 @@ mod loaded {
     pub unsafe fn cuptiPmSamplingGetCounterDataInfo(
         pParams: *mut CUpti_PmSampling_GetCounterDataInfo_Params,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiPmSamplingGetCounterDataInfo) {
-            func(pParams)
+        if let Some(__function) = (culib().cuptiPmSamplingGetCounterDataInfo) {
+            __function(pParams)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -50992,8 +50992,8 @@ mod loaded {
     pub unsafe fn cuptiPmSamplingGetCounterDataSize(
         pParams: *mut CUpti_PmSampling_GetCounterDataSize_Params,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiPmSamplingGetCounterDataSize) {
-            func(pParams)
+        if let Some(__function) = (culib().cuptiPmSamplingGetCounterDataSize) {
+            __function(pParams)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -51007,8 +51007,8 @@ mod loaded {
     pub unsafe fn cuptiPmSamplingSetConfig(
         pParams: *mut CUpti_PmSampling_SetConfig_Params,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiPmSamplingSetConfig) {
-            func(pParams)
+        if let Some(__function) = (culib().cuptiPmSamplingSetConfig) {
+            __function(pParams)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -51020,8 +51020,8 @@ mod loaded {
         feature = "cuda-13000"
     ))]
     pub unsafe fn cuptiPmSamplingStart(pParams: *mut CUpti_PmSampling_Start_Params) -> CUptiResult {
-        if let Some(func) = (culib().cuptiPmSamplingStart) {
-            func(pParams)
+        if let Some(__function) = (culib().cuptiPmSamplingStart) {
+            __function(pParams)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -51033,8 +51033,8 @@ mod loaded {
         feature = "cuda-13000"
     ))]
     pub unsafe fn cuptiPmSamplingStop(pParams: *mut CUpti_PmSampling_Stop_Params) -> CUptiResult {
-        if let Some(func) = (culib().cuptiPmSamplingStop) {
-            func(pParams)
+        if let Some(__function) = (culib().cuptiPmSamplingStop) {
+            __function(pParams)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -51042,8 +51042,8 @@ mod loaded {
     pub unsafe fn cuptiProfilerBeginPass(
         pParams: *mut CUpti_Profiler_BeginPass_Params,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiProfilerBeginPass) {
-            func(pParams)
+        if let Some(__function) = (culib().cuptiProfilerBeginPass) {
+            __function(pParams)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -51051,8 +51051,8 @@ mod loaded {
     pub unsafe fn cuptiProfilerBeginSession(
         pParams: *mut CUpti_Profiler_BeginSession_Params,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiProfilerBeginSession) {
-            func(pParams)
+        if let Some(__function) = (culib().cuptiProfilerBeginSession) {
+            __function(pParams)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -51060,8 +51060,9 @@ mod loaded {
     pub unsafe fn cuptiProfilerCounterDataImageCalculateScratchBufferSize(
         pParams: *mut CUpti_Profiler_CounterDataImage_CalculateScratchBufferSize_Params,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiProfilerCounterDataImageCalculateScratchBufferSize) {
-            func(pParams)
+        if let Some(__function) = (culib().cuptiProfilerCounterDataImageCalculateScratchBufferSize)
+        {
+            __function(pParams)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -51069,8 +51070,8 @@ mod loaded {
     pub unsafe fn cuptiProfilerCounterDataImageCalculateSize(
         pParams: *mut CUpti_Profiler_CounterDataImage_CalculateSize_Params,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiProfilerCounterDataImageCalculateSize) {
-            func(pParams)
+        if let Some(__function) = (culib().cuptiProfilerCounterDataImageCalculateSize) {
+            __function(pParams)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -51078,8 +51079,8 @@ mod loaded {
     pub unsafe fn cuptiProfilerCounterDataImageInitialize(
         pParams: *mut CUpti_Profiler_CounterDataImage_Initialize_Params,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiProfilerCounterDataImageInitialize) {
-            func(pParams)
+        if let Some(__function) = (culib().cuptiProfilerCounterDataImageInitialize) {
+            __function(pParams)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -51087,8 +51088,8 @@ mod loaded {
     pub unsafe fn cuptiProfilerCounterDataImageInitializeScratchBuffer(
         pParams: *mut CUpti_Profiler_CounterDataImage_InitializeScratchBuffer_Params,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiProfilerCounterDataImageInitializeScratchBuffer) {
-            func(pParams)
+        if let Some(__function) = (culib().cuptiProfilerCounterDataImageInitializeScratchBuffer) {
+            __function(pParams)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -51096,8 +51097,8 @@ mod loaded {
     pub unsafe fn cuptiProfilerDeInitialize(
         pParams: *mut CUpti_Profiler_DeInitialize_Params,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiProfilerDeInitialize) {
-            func(pParams)
+        if let Some(__function) = (culib().cuptiProfilerDeInitialize) {
+            __function(pParams)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -51121,8 +51122,8 @@ mod loaded {
     pub unsafe fn cuptiProfilerDeviceSupported(
         pParams: *mut CUpti_Profiler_DeviceSupported_Params,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiProfilerDeviceSupported) {
-            func(pParams)
+        if let Some(__function) = (culib().cuptiProfilerDeviceSupported) {
+            __function(pParams)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -51130,8 +51131,8 @@ mod loaded {
     pub unsafe fn cuptiProfilerDisableProfiling(
         pParams: *mut CUpti_Profiler_DisableProfiling_Params,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiProfilerDisableProfiling) {
-            func(pParams)
+        if let Some(__function) = (culib().cuptiProfilerDisableProfiling) {
+            __function(pParams)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -51139,15 +51140,15 @@ mod loaded {
     pub unsafe fn cuptiProfilerEnableProfiling(
         pParams: *mut CUpti_Profiler_EnableProfiling_Params,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiProfilerEnableProfiling) {
-            func(pParams)
+        if let Some(__function) = (culib().cuptiProfilerEnableProfiling) {
+            __function(pParams)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
     }
     pub unsafe fn cuptiProfilerEndPass(pParams: *mut CUpti_Profiler_EndPass_Params) -> CUptiResult {
-        if let Some(func) = (culib().cuptiProfilerEndPass) {
-            func(pParams)
+        if let Some(__function) = (culib().cuptiProfilerEndPass) {
+            __function(pParams)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -51155,8 +51156,8 @@ mod loaded {
     pub unsafe fn cuptiProfilerEndSession(
         pParams: *mut CUpti_Profiler_EndSession_Params,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiProfilerEndSession) {
-            func(pParams)
+        if let Some(__function) = (culib().cuptiProfilerEndSession) {
+            __function(pParams)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -51164,8 +51165,8 @@ mod loaded {
     pub unsafe fn cuptiProfilerFlushCounterData(
         pParams: *mut CUpti_Profiler_FlushCounterData_Params,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiProfilerFlushCounterData) {
-            func(pParams)
+        if let Some(__function) = (culib().cuptiProfilerFlushCounterData) {
+            __function(pParams)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -51173,8 +51174,8 @@ mod loaded {
     pub unsafe fn cuptiProfilerGetCounterAvailability(
         pParams: *mut CUpti_Profiler_GetCounterAvailability_Params,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiProfilerGetCounterAvailability) {
-            func(pParams)
+        if let Some(__function) = (culib().cuptiProfilerGetCounterAvailability) {
+            __function(pParams)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -51188,8 +51189,8 @@ mod loaded {
     pub unsafe fn cuptiProfilerHostConfigAddMetrics(
         pParams: *mut CUpti_Profiler_Host_ConfigAddMetrics_Params,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiProfilerHostConfigAddMetrics) {
-            func(pParams)
+        if let Some(__function) = (culib().cuptiProfilerHostConfigAddMetrics) {
+            __function(pParams)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -51203,8 +51204,8 @@ mod loaded {
     pub unsafe fn cuptiProfilerHostDeinitialize(
         pParams: *mut CUpti_Profiler_Host_Deinitialize_Params,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiProfilerHostDeinitialize) {
-            func(pParams)
+        if let Some(__function) = (culib().cuptiProfilerHostDeinitialize) {
+            __function(pParams)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -51218,8 +51219,8 @@ mod loaded {
     pub unsafe fn cuptiProfilerHostEvaluateToGpuValues(
         pParams: *mut CUpti_Profiler_Host_EvaluateToGpuValues_Params,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiProfilerHostEvaluateToGpuValues) {
-            func(pParams)
+        if let Some(__function) = (culib().cuptiProfilerHostEvaluateToGpuValues) {
+            __function(pParams)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -51233,8 +51234,8 @@ mod loaded {
     pub unsafe fn cuptiProfilerHostGetBaseMetrics(
         pParams: *mut CUpti_Profiler_Host_GetBaseMetrics_Params,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiProfilerHostGetBaseMetrics) {
-            func(pParams)
+        if let Some(__function) = (culib().cuptiProfilerHostGetBaseMetrics) {
+            __function(pParams)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -51248,8 +51249,8 @@ mod loaded {
     pub unsafe fn cuptiProfilerHostGetConfigImage(
         pParams: *mut CUpti_Profiler_Host_GetConfigImage_Params,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiProfilerHostGetConfigImage) {
-            func(pParams)
+        if let Some(__function) = (culib().cuptiProfilerHostGetConfigImage) {
+            __function(pParams)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -51263,8 +51264,8 @@ mod loaded {
     pub unsafe fn cuptiProfilerHostGetConfigImageSize(
         pParams: *mut CUpti_Profiler_Host_GetConfigImageSize_Params,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiProfilerHostGetConfigImageSize) {
-            func(pParams)
+        if let Some(__function) = (culib().cuptiProfilerHostGetConfigImageSize) {
+            __function(pParams)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -51278,8 +51279,8 @@ mod loaded {
     pub unsafe fn cuptiProfilerHostGetMaxNumHardwareMetricsPerPass(
         pParams: *mut CUpti_Profiler_Host_GetMaxNumHardwareMetricsPerPass_Params,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiProfilerHostGetMaxNumHardwareMetricsPerPass) {
-            func(pParams)
+        if let Some(__function) = (culib().cuptiProfilerHostGetMaxNumHardwareMetricsPerPass) {
+            __function(pParams)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -51293,8 +51294,8 @@ mod loaded {
     pub unsafe fn cuptiProfilerHostGetMetricProperties(
         pParams: *mut CUpti_Profiler_Host_GetMetricProperties_Params,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiProfilerHostGetMetricProperties) {
-            func(pParams)
+        if let Some(__function) = (culib().cuptiProfilerHostGetMetricProperties) {
+            __function(pParams)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -51308,8 +51309,8 @@ mod loaded {
     pub unsafe fn cuptiProfilerHostGetNumOfPasses(
         pParams: *mut CUpti_Profiler_Host_GetNumOfPasses_Params,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiProfilerHostGetNumOfPasses) {
-            func(pParams)
+        if let Some(__function) = (culib().cuptiProfilerHostGetNumOfPasses) {
+            __function(pParams)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -51323,8 +51324,8 @@ mod loaded {
     pub unsafe fn cuptiProfilerHostGetRangeName(
         pParams: *mut CUpti_Profiler_Host_GetRangeName_Params,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiProfilerHostGetRangeName) {
-            func(pParams)
+        if let Some(__function) = (culib().cuptiProfilerHostGetRangeName) {
+            __function(pParams)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -51338,8 +51339,8 @@ mod loaded {
     pub unsafe fn cuptiProfilerHostGetSubMetrics(
         pParams: *mut CUpti_Profiler_Host_GetSubMetrics_Params,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiProfilerHostGetSubMetrics) {
-            func(pParams)
+        if let Some(__function) = (culib().cuptiProfilerHostGetSubMetrics) {
+            __function(pParams)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -51353,8 +51354,8 @@ mod loaded {
     pub unsafe fn cuptiProfilerHostGetSupportedChips(
         pParams: *mut CUpti_Profiler_Host_GetSupportedChips_Params,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiProfilerHostGetSupportedChips) {
-            func(pParams)
+        if let Some(__function) = (culib().cuptiProfilerHostGetSupportedChips) {
+            __function(pParams)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -51368,8 +51369,8 @@ mod loaded {
     pub unsafe fn cuptiProfilerHostInitialize(
         pParams: *mut CUpti_Profiler_Host_Initialize_Params,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiProfilerHostInitialize) {
-            func(pParams)
+        if let Some(__function) = (culib().cuptiProfilerHostInitialize) {
+            __function(pParams)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -51377,8 +51378,8 @@ mod loaded {
     pub unsafe fn cuptiProfilerInitialize(
         pParams: *mut CUpti_Profiler_Initialize_Params,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiProfilerInitialize) {
-            func(pParams)
+        if let Some(__function) = (culib().cuptiProfilerInitialize) {
+            __function(pParams)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -51386,8 +51387,8 @@ mod loaded {
     pub unsafe fn cuptiProfilerIsPassCollected(
         pParams: *mut CUpti_Profiler_IsPassCollected_Params,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiProfilerIsPassCollected) {
-            func(pParams)
+        if let Some(__function) = (culib().cuptiProfilerIsPassCollected) {
+            __function(pParams)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -51395,8 +51396,8 @@ mod loaded {
     pub unsafe fn cuptiProfilerPopRange(
         pParams: *mut CUpti_Profiler_PopRange_Params,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiProfilerPopRange) {
-            func(pParams)
+        if let Some(__function) = (culib().cuptiProfilerPopRange) {
+            __function(pParams)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -51404,8 +51405,8 @@ mod loaded {
     pub unsafe fn cuptiProfilerPushRange(
         pParams: *mut CUpti_Profiler_PushRange_Params,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiProfilerPushRange) {
-            func(pParams)
+        if let Some(__function) = (culib().cuptiProfilerPushRange) {
+            __function(pParams)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -51413,8 +51414,8 @@ mod loaded {
     pub unsafe fn cuptiProfilerSetConfig(
         pParams: *mut CUpti_Profiler_SetConfig_Params,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiProfilerSetConfig) {
-            func(pParams)
+        if let Some(__function) = (culib().cuptiProfilerSetConfig) {
+            __function(pParams)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -51422,8 +51423,8 @@ mod loaded {
     pub unsafe fn cuptiProfilerUnsetConfig(
         pParams: *mut CUpti_Profiler_UnsetConfig_Params,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiProfilerUnsetConfig) {
-            func(pParams)
+        if let Some(__function) = (culib().cuptiProfilerUnsetConfig) {
+            __function(pParams)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -51432,15 +51433,15 @@ mod loaded {
         context: CUcontext,
         mode: CUpti_EventCollectionMode,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiSetEventCollectionMode) {
-            func(context, mode)
+        if let Some(__function) = (culib().cuptiSetEventCollectionMode) {
+            __function(context, mode)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
     }
     pub unsafe fn cuptiSetThreadIdType(type_: CUpti_ActivityThreadIdType) -> CUptiResult {
-        if let Some(func) = (culib().cuptiSetThreadIdType) {
-            func(type_)
+        if let Some(__function) = (culib().cuptiSetThreadIdType) {
+            __function(type_)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -51450,8 +51451,8 @@ mod loaded {
         callback: CUpti_CallbackFunc,
         userdata: *mut ::core::ffi::c_void,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiSubscribe) {
-            func(subscriber, callback, userdata)
+        if let Some(__function) = (culib().cuptiSubscribe) {
+            __function(subscriber, callback, userdata)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -51463,8 +51464,8 @@ mod loaded {
         userdata: *mut ::core::ffi::c_void,
         pParams: *mut CUpti_SubscriberParams,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiSubscribe_v2) {
-            func(subscriber, callback, userdata, pParams)
+        if let Some(__function) = (culib().cuptiSubscribe_v2) {
+            __function(subscriber, callback, userdata, pParams)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
@@ -51473,15 +51474,15 @@ mod loaded {
         domainCount: *mut usize,
         domainTable: *mut CUpti_DomainTable,
     ) -> CUptiResult {
-        if let Some(func) = (culib().cuptiSupportedDomains) {
-            func(domainCount, domainTable)
+        if let Some(__function) = (culib().cuptiSupportedDomains) {
+            __function(domainCount, domainTable)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }
     }
     pub unsafe fn cuptiUnsubscribe(subscriber: CUpti_SubscriberHandle) -> CUptiResult {
-        if let Some(func) = (culib().cuptiUnsubscribe) {
-            func(subscriber)
+        if let Some(__function) = (culib().cuptiUnsubscribe) {
+            __function(subscriber)
         } else {
             CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
         }

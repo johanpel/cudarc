@@ -13016,28 +13016,48 @@ mod loaded {
         pHandle: *mut CUarray,
         pAllocateArray: *const CUDA_ARRAY3D_DESCRIPTOR,
     ) -> CUresult {
-        (culib().cuArray3DCreate_v2)(pHandle, pAllocateArray)
+        if let Some(__function) = (culib().cuArray3DCreate_v2) {
+            __function(pHandle, pAllocateArray)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuArray3DGetDescriptor_v2(
         pArrayDescriptor: *mut CUDA_ARRAY3D_DESCRIPTOR,
         hArray: CUarray,
     ) -> CUresult {
-        (culib().cuArray3DGetDescriptor_v2)(pArrayDescriptor, hArray)
+        if let Some(__function) = (culib().cuArray3DGetDescriptor_v2) {
+            __function(pArrayDescriptor, hArray)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuArrayCreate_v2(
         pHandle: *mut CUarray,
         pAllocateArray: *const CUDA_ARRAY_DESCRIPTOR,
     ) -> CUresult {
-        (culib().cuArrayCreate_v2)(pHandle, pAllocateArray)
+        if let Some(__function) = (culib().cuArrayCreate_v2) {
+            __function(pHandle, pAllocateArray)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuArrayDestroy(hArray: CUarray) -> CUresult {
-        (culib().cuArrayDestroy)(hArray)
+        if let Some(__function) = (culib().cuArrayDestroy) {
+            __function(hArray)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuArrayGetDescriptor_v2(
         pArrayDescriptor: *mut CUDA_ARRAY_DESCRIPTOR,
         hArray: CUarray,
     ) -> CUresult {
-        (culib().cuArrayGetDescriptor_v2)(pArrayDescriptor, hArray)
+        if let Some(__function) = (culib().cuArrayGetDescriptor_v2) {
+            __function(pArrayDescriptor, hArray)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-11060",
@@ -13059,20 +13079,32 @@ mod loaded {
         array: CUarray,
         device: CUdevice,
     ) -> CUresult {
-        (culib().cuArrayGetMemoryRequirements)(memoryRequirements, array, device)
+        if let Some(__function) = (culib().cuArrayGetMemoryRequirements) {
+            __function(memoryRequirements, array, device)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuArrayGetPlane(
         pPlaneArray: *mut CUarray,
         hArray: CUarray,
         planeIdx: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuArrayGetPlane)(pPlaneArray, hArray, planeIdx)
+        if let Some(__function) = (culib().cuArrayGetPlane) {
+            __function(pPlaneArray, hArray, planeIdx)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuArrayGetSparseProperties(
         sparseProperties: *mut CUDA_ARRAY_SPARSE_PROPERTIES,
         array: CUarray,
     ) -> CUresult {
-        (culib().cuArrayGetSparseProperties)(sparseProperties, array)
+        if let Some(__function) = (culib().cuArrayGetSparseProperties) {
+            __function(sparseProperties, array)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12010",
@@ -13090,7 +13122,11 @@ mod loaded {
         value: *mut ::core::ffi::c_void,
         size: *mut usize,
     ) -> CUresult {
-        (culib().cuCoredumpGetAttribute)(attrib, value, size)
+        if let Some(__function) = (culib().cuCoredumpGetAttribute) {
+            __function(attrib, value, size)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12010",
@@ -13108,7 +13144,11 @@ mod loaded {
         value: *mut ::core::ffi::c_void,
         size: *mut usize,
     ) -> CUresult {
-        (culib().cuCoredumpGetAttributeGlobal)(attrib, value, size)
+        if let Some(__function) = (culib().cuCoredumpGetAttributeGlobal) {
+            __function(attrib, value, size)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12010",
@@ -13126,7 +13166,11 @@ mod loaded {
         value: *mut ::core::ffi::c_void,
         size: *mut usize,
     ) -> CUresult {
-        (culib().cuCoredumpSetAttribute)(attrib, value, size)
+        if let Some(__function) = (culib().cuCoredumpSetAttribute) {
+            __function(attrib, value, size)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12010",
@@ -13144,10 +13188,18 @@ mod loaded {
         value: *mut ::core::ffi::c_void,
         size: *mut usize,
     ) -> CUresult {
-        (culib().cuCoredumpSetAttributeGlobal)(attrib, value, size)
+        if let Some(__function) = (culib().cuCoredumpSetAttributeGlobal) {
+            __function(attrib, value, size)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuCtxAttach(pctx: *mut CUcontext, flags: ::core::ffi::c_uint) -> CUresult {
-        (culib().cuCtxAttach)(pctx, flags)
+        if let Some(__function) = (culib().cuCtxAttach) {
+            __function(pctx, flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-11040",
@@ -13170,7 +13222,11 @@ mod loaded {
         flags: ::core::ffi::c_uint,
         dev: CUdevice,
     ) -> CUresult {
-        (culib().cuCtxCreate_v2)(pctx, flags, dev)
+        if let Some(__function) = (culib().cuCtxCreate_v2) {
+            __function(pctx, flags, dev)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-11040",
@@ -13195,7 +13251,11 @@ mod loaded {
         flags: ::core::ffi::c_uint,
         dev: CUdevice,
     ) -> CUresult {
-        (culib().cuCtxCreate_v3)(pctx, paramsArray, numParams, flags, dev)
+        if let Some(__function) = (culib().cuCtxCreate_v3) {
+            __function(pctx, paramsArray, numParams, flags, dev)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12050",
@@ -13210,22 +13270,42 @@ mod loaded {
         flags: ::core::ffi::c_uint,
         dev: CUdevice,
     ) -> CUresult {
-        (culib().cuCtxCreate_v4)(pctx, ctxCreateParams, flags, dev)
+        if let Some(__function) = (culib().cuCtxCreate_v4) {
+            __function(pctx, ctxCreateParams, flags, dev)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuCtxDestroy_v2(ctx: CUcontext) -> CUresult {
-        (culib().cuCtxDestroy_v2)(ctx)
+        if let Some(__function) = (culib().cuCtxDestroy_v2) {
+            __function(ctx)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuCtxDetach(ctx: CUcontext) -> CUresult {
-        (culib().cuCtxDetach)(ctx)
+        if let Some(__function) = (culib().cuCtxDetach) {
+            __function(ctx)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuCtxDisablePeerAccess(peerContext: CUcontext) -> CUresult {
-        (culib().cuCtxDisablePeerAccess)(peerContext)
+        if let Some(__function) = (culib().cuCtxDisablePeerAccess) {
+            __function(peerContext)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuCtxEnablePeerAccess(
         peerContext: CUcontext,
         Flags: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuCtxEnablePeerAccess)(peerContext, Flags)
+        if let Some(__function) = (culib().cuCtxEnablePeerAccess) {
+            __function(peerContext, Flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12040",
@@ -13236,19 +13316,35 @@ mod loaded {
         feature = "cuda-13000"
     ))]
     pub unsafe fn cuCtxFromGreenCtx(pContext: *mut CUcontext, hCtx: CUgreenCtx) -> CUresult {
-        (culib().cuCtxFromGreenCtx)(pContext, hCtx)
+        if let Some(__function) = (culib().cuCtxFromGreenCtx) {
+            __function(pContext, hCtx)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuCtxGetApiVersion(
         ctx: CUcontext,
         version: *mut ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuCtxGetApiVersion)(ctx, version)
+        if let Some(__function) = (culib().cuCtxGetApiVersion) {
+            __function(ctx, version)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuCtxGetCacheConfig(pconfig: *mut CUfunc_cache) -> CUresult {
-        (culib().cuCtxGetCacheConfig)(pconfig)
+        if let Some(__function) = (culib().cuCtxGetCacheConfig) {
+            __function(pconfig)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuCtxGetCurrent(pctx: *mut CUcontext) -> CUresult {
-        (culib().cuCtxGetCurrent)(pctx)
+        if let Some(__function) = (culib().cuCtxGetCurrent) {
+            __function(pctx)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12040",
@@ -13263,23 +13359,43 @@ mod loaded {
         resource: *mut CUdevResource,
         type_: CUdevResourceType,
     ) -> CUresult {
-        (culib().cuCtxGetDevResource)(hCtx, resource, type_)
+        if let Some(__function) = (culib().cuCtxGetDevResource) {
+            __function(hCtx, resource, type_)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuCtxGetDevice(device: *mut CUdevice) -> CUresult {
-        (culib().cuCtxGetDevice)(device)
+        if let Some(__function) = (culib().cuCtxGetDevice) {
+            __function(device)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(feature = "cuda-13000"))]
     pub unsafe fn cuCtxGetDevice_v2(device: *mut CUdevice, ctx: CUcontext) -> CUresult {
-        (culib().cuCtxGetDevice_v2)(device, ctx)
+        if let Some(__function) = (culib().cuCtxGetDevice_v2) {
+            __function(device, ctx)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuCtxGetExecAffinity(
         pExecAffinity: *mut CUexecAffinityParam,
         type_: CUexecAffinityType,
     ) -> CUresult {
-        (culib().cuCtxGetExecAffinity)(pExecAffinity, type_)
+        if let Some(__function) = (culib().cuCtxGetExecAffinity) {
+            __function(pExecAffinity, type_)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuCtxGetFlags(flags: *mut ::core::ffi::c_uint) -> CUresult {
-        (culib().cuCtxGetFlags)(flags)
+        if let Some(__function) = (culib().cuCtxGetFlags) {
+            __function(flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12000",
@@ -13294,25 +13410,49 @@ mod loaded {
         feature = "cuda-13000"
     ))]
     pub unsafe fn cuCtxGetId(ctx: CUcontext, ctxId: *mut ::core::ffi::c_ulonglong) -> CUresult {
-        (culib().cuCtxGetId)(ctx, ctxId)
+        if let Some(__function) = (culib().cuCtxGetId) {
+            __function(ctx, ctxId)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuCtxGetLimit(pvalue: *mut usize, limit: CUlimit) -> CUresult {
-        (culib().cuCtxGetLimit)(pvalue, limit)
+        if let Some(__function) = (culib().cuCtxGetLimit) {
+            __function(pvalue, limit)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuCtxGetSharedMemConfig(pConfig: *mut CUsharedconfig) -> CUresult {
-        (culib().cuCtxGetSharedMemConfig)(pConfig)
+        if let Some(__function) = (culib().cuCtxGetSharedMemConfig) {
+            __function(pConfig)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuCtxGetStreamPriorityRange(
         leastPriority: *mut ::core::ffi::c_int,
         greatestPriority: *mut ::core::ffi::c_int,
     ) -> CUresult {
-        (culib().cuCtxGetStreamPriorityRange)(leastPriority, greatestPriority)
+        if let Some(__function) = (culib().cuCtxGetStreamPriorityRange) {
+            __function(leastPriority, greatestPriority)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuCtxPopCurrent_v2(pctx: *mut CUcontext) -> CUresult {
-        (culib().cuCtxPopCurrent_v2)(pctx)
+        if let Some(__function) = (culib().cuCtxPopCurrent_v2) {
+            __function(pctx)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuCtxPushCurrent_v2(ctx: CUcontext) -> CUresult {
-        (culib().cuCtxPushCurrent_v2)(ctx)
+        if let Some(__function) = (culib().cuCtxPushCurrent_v2) {
+            __function(ctx)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12050",
@@ -13322,16 +13462,32 @@ mod loaded {
         feature = "cuda-13000"
     ))]
     pub unsafe fn cuCtxRecordEvent(hCtx: CUcontext, hEvent: CUevent) -> CUresult {
-        (culib().cuCtxRecordEvent)(hCtx, hEvent)
+        if let Some(__function) = (culib().cuCtxRecordEvent) {
+            __function(hCtx, hEvent)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuCtxResetPersistingL2Cache() -> CUresult {
-        (culib().cuCtxResetPersistingL2Cache)()
+        if let Some(__function) = (culib().cuCtxResetPersistingL2Cache) {
+            __function()
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuCtxSetCacheConfig(config: CUfunc_cache) -> CUresult {
-        (culib().cuCtxSetCacheConfig)(config)
+        if let Some(__function) = (culib().cuCtxSetCacheConfig) {
+            __function(config)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuCtxSetCurrent(ctx: CUcontext) -> CUresult {
-        (culib().cuCtxSetCurrent)(ctx)
+        if let Some(__function) = (culib().cuCtxSetCurrent) {
+            __function(ctx)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12010",
@@ -13345,20 +13501,40 @@ mod loaded {
         feature = "cuda-13000"
     ))]
     pub unsafe fn cuCtxSetFlags(flags: ::core::ffi::c_uint) -> CUresult {
-        (culib().cuCtxSetFlags)(flags)
+        if let Some(__function) = (culib().cuCtxSetFlags) {
+            __function(flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuCtxSetLimit(limit: CUlimit, value: usize) -> CUresult {
-        (culib().cuCtxSetLimit)(limit, value)
+        if let Some(__function) = (culib().cuCtxSetLimit) {
+            __function(limit, value)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuCtxSetSharedMemConfig(config: CUsharedconfig) -> CUresult {
-        (culib().cuCtxSetSharedMemConfig)(config)
+        if let Some(__function) = (culib().cuCtxSetSharedMemConfig) {
+            __function(config)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuCtxSynchronize() -> CUresult {
-        (culib().cuCtxSynchronize)()
+        if let Some(__function) = (culib().cuCtxSynchronize) {
+            __function()
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(feature = "cuda-13000"))]
     pub unsafe fn cuCtxSynchronize_v2(ctx: CUcontext) -> CUresult {
-        (culib().cuCtxSynchronize_v2)(ctx)
+        if let Some(__function) = (culib().cuCtxSynchronize_v2) {
+            __function(ctx)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12050",
@@ -13368,13 +13544,25 @@ mod loaded {
         feature = "cuda-13000"
     ))]
     pub unsafe fn cuCtxWaitEvent(hCtx: CUcontext, hEvent: CUevent) -> CUresult {
-        (culib().cuCtxWaitEvent)(hCtx, hEvent)
+        if let Some(__function) = (culib().cuCtxWaitEvent) {
+            __function(hCtx, hEvent)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuDestroyExternalMemory(extMem: CUexternalMemory) -> CUresult {
-        (culib().cuDestroyExternalMemory)(extMem)
+        if let Some(__function) = (culib().cuDestroyExternalMemory) {
+            __function(extMem)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuDestroyExternalSemaphore(extSem: CUexternalSemaphore) -> CUresult {
-        (culib().cuDestroyExternalSemaphore)(extSem)
+        if let Some(__function) = (culib().cuDestroyExternalSemaphore) {
+            __function(extSem)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12040",
@@ -13389,7 +13577,11 @@ mod loaded {
         resources: *mut CUdevResource,
         nbResources: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuDevResourceGenerateDesc)(phDesc, resources, nbResources)
+        if let Some(__function) = (culib().cuDevResourceGenerateDesc) {
+            __function(phDesc, resources, nbResources)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12040",
@@ -13407,48 +13599,78 @@ mod loaded {
         useFlags: ::core::ffi::c_uint,
         minCount: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuDevSmResourceSplitByCount)(
-            result, nbGroups, input, remaining, useFlags, minCount,
-        )
+        if let Some(__function) = (culib().cuDevSmResourceSplitByCount) {
+            __function(result, nbGroups, input, remaining, useFlags, minCount)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuDeviceCanAccessPeer(
         canAccessPeer: *mut ::core::ffi::c_int,
         dev: CUdevice,
         peerDev: CUdevice,
     ) -> CUresult {
-        (culib().cuDeviceCanAccessPeer)(canAccessPeer, dev, peerDev)
+        if let Some(__function) = (culib().cuDeviceCanAccessPeer) {
+            __function(canAccessPeer, dev, peerDev)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuDeviceComputeCapability(
         major: *mut ::core::ffi::c_int,
         minor: *mut ::core::ffi::c_int,
         dev: CUdevice,
     ) -> CUresult {
-        (culib().cuDeviceComputeCapability)(major, minor, dev)
+        if let Some(__function) = (culib().cuDeviceComputeCapability) {
+            __function(major, minor, dev)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuDeviceGet(device: *mut CUdevice, ordinal: ::core::ffi::c_int) -> CUresult {
-        (culib().cuDeviceGet)(device, ordinal)
+        if let Some(__function) = (culib().cuDeviceGet) {
+            __function(device, ordinal)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuDeviceGetAttribute(
         pi: *mut ::core::ffi::c_int,
         attrib: CUdevice_attribute,
         dev: CUdevice,
     ) -> CUresult {
-        (culib().cuDeviceGetAttribute)(pi, attrib, dev)
+        if let Some(__function) = (culib().cuDeviceGetAttribute) {
+            __function(pi, attrib, dev)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuDeviceGetByPCIBusId(
         dev: *mut CUdevice,
         pciBusId: *const ::core::ffi::c_char,
     ) -> CUresult {
-        (culib().cuDeviceGetByPCIBusId)(dev, pciBusId)
+        if let Some(__function) = (culib().cuDeviceGetByPCIBusId) {
+            __function(dev, pciBusId)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuDeviceGetCount(count: *mut ::core::ffi::c_int) -> CUresult {
-        (culib().cuDeviceGetCount)(count)
+        if let Some(__function) = (culib().cuDeviceGetCount) {
+            __function(count)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuDeviceGetDefaultMemPool(
         pool_out: *mut CUmemoryPool,
         dev: CUdevice,
     ) -> CUresult {
-        (culib().cuDeviceGetDefaultMemPool)(pool_out, dev)
+        if let Some(__function) = (culib().cuDeviceGetDefaultMemPool) {
+            __function(pool_out, dev)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12040",
@@ -13463,21 +13685,33 @@ mod loaded {
         resource: *mut CUdevResource,
         type_: CUdevResourceType,
     ) -> CUresult {
-        (culib().cuDeviceGetDevResource)(device, resource, type_)
+        if let Some(__function) = (culib().cuDeviceGetDevResource) {
+            __function(device, resource, type_)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuDeviceGetExecAffinitySupport(
         pi: *mut ::core::ffi::c_int,
         type_: CUexecAffinityType,
         dev: CUdevice,
     ) -> CUresult {
-        (culib().cuDeviceGetExecAffinitySupport)(pi, type_, dev)
+        if let Some(__function) = (culib().cuDeviceGetExecAffinitySupport) {
+            __function(pi, type_, dev)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuDeviceGetGraphMemAttribute(
         device: CUdevice,
         attr: CUgraphMem_attribute,
         value: *mut ::core::ffi::c_void,
     ) -> CUresult {
-        (culib().cuDeviceGetGraphMemAttribute)(device, attr, value)
+        if let Some(__function) = (culib().cuDeviceGetGraphMemAttribute) {
+            __function(device, attr, value)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(feature = "cuda-13000"))]
     pub unsafe fn cuDeviceGetHostAtomicCapabilities(
@@ -13486,24 +13720,40 @@ mod loaded {
         count: ::core::ffi::c_uint,
         dev: CUdevice,
     ) -> CUresult {
-        (culib().cuDeviceGetHostAtomicCapabilities)(capabilities, operations, count, dev)
+        if let Some(__function) = (culib().cuDeviceGetHostAtomicCapabilities) {
+            __function(capabilities, operations, count, dev)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuDeviceGetLuid(
         luid: *mut ::core::ffi::c_char,
         deviceNodeMask: *mut ::core::ffi::c_uint,
         dev: CUdevice,
     ) -> CUresult {
-        (culib().cuDeviceGetLuid)(luid, deviceNodeMask, dev)
+        if let Some(__function) = (culib().cuDeviceGetLuid) {
+            __function(luid, deviceNodeMask, dev)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuDeviceGetMemPool(pool: *mut CUmemoryPool, dev: CUdevice) -> CUresult {
-        (culib().cuDeviceGetMemPool)(pool, dev)
+        if let Some(__function) = (culib().cuDeviceGetMemPool) {
+            __function(pool, dev)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuDeviceGetName(
         name: *mut ::core::ffi::c_char,
         len: ::core::ffi::c_int,
         dev: CUdevice,
     ) -> CUresult {
-        (culib().cuDeviceGetName)(name, len, dev)
+        if let Some(__function) = (culib().cuDeviceGetName) {
+            __function(name, len, dev)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(feature = "cuda-13000"))]
     pub unsafe fn cuDeviceGetP2PAtomicCapabilities(
@@ -13513,13 +13763,11 @@ mod loaded {
         srcDevice: CUdevice,
         dstDevice: CUdevice,
     ) -> CUresult {
-        (culib().cuDeviceGetP2PAtomicCapabilities)(
-            capabilities,
-            operations,
-            count,
-            srcDevice,
-            dstDevice,
-        )
+        if let Some(__function) = (culib().cuDeviceGetP2PAtomicCapabilities) {
+            __function(capabilities, operations, count, srcDevice, dstDevice)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuDeviceGetP2PAttribute(
         value: *mut ::core::ffi::c_int,
@@ -13527,17 +13775,29 @@ mod loaded {
         srcDevice: CUdevice,
         dstDevice: CUdevice,
     ) -> CUresult {
-        (culib().cuDeviceGetP2PAttribute)(value, attrib, srcDevice, dstDevice)
+        if let Some(__function) = (culib().cuDeviceGetP2PAttribute) {
+            __function(value, attrib, srcDevice, dstDevice)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuDeviceGetPCIBusId(
         pciBusId: *mut ::core::ffi::c_char,
         len: ::core::ffi::c_int,
         dev: CUdevice,
     ) -> CUresult {
-        (culib().cuDeviceGetPCIBusId)(pciBusId, len, dev)
+        if let Some(__function) = (culib().cuDeviceGetPCIBusId) {
+            __function(pciBusId, len, dev)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuDeviceGetProperties(prop: *mut CUdevprop, dev: CUdevice) -> CUresult {
-        (culib().cuDeviceGetProperties)(prop, dev)
+        if let Some(__function) = (culib().cuDeviceGetProperties) {
+            __function(prop, dev)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuDeviceGetTexture1DLinearMaxWidth(
         maxWidthInElements: *mut usize,
@@ -13545,7 +13805,11 @@ mod loaded {
         numChannels: ::core::ffi::c_uint,
         dev: CUdevice,
     ) -> CUresult {
-        (culib().cuDeviceGetTexture1DLinearMaxWidth)(maxWidthInElements, format, numChannels, dev)
+        if let Some(__function) = (culib().cuDeviceGetTexture1DLinearMaxWidth) {
+            __function(maxWidthInElements, format, numChannels, dev)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-11040",
@@ -13564,35 +13828,67 @@ mod loaded {
         feature = "cuda-12090"
     ))]
     pub unsafe fn cuDeviceGetUuid(uuid: *mut CUuuid, dev: CUdevice) -> CUresult {
-        (culib().cuDeviceGetUuid)(uuid, dev)
+        if let Some(__function) = (culib().cuDeviceGetUuid) {
+            __function(uuid, dev)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuDeviceGetUuid_v2(uuid: *mut CUuuid, dev: CUdevice) -> CUresult {
-        (culib().cuDeviceGetUuid_v2)(uuid, dev)
+        if let Some(__function) = (culib().cuDeviceGetUuid_v2) {
+            __function(uuid, dev)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuDeviceGraphMemTrim(device: CUdevice) -> CUresult {
-        (culib().cuDeviceGraphMemTrim)(device)
+        if let Some(__function) = (culib().cuDeviceGraphMemTrim) {
+            __function(device)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuDevicePrimaryCtxGetState(
         dev: CUdevice,
         flags: *mut ::core::ffi::c_uint,
         active: *mut ::core::ffi::c_int,
     ) -> CUresult {
-        (culib().cuDevicePrimaryCtxGetState)(dev, flags, active)
+        if let Some(__function) = (culib().cuDevicePrimaryCtxGetState) {
+            __function(dev, flags, active)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuDevicePrimaryCtxRelease_v2(dev: CUdevice) -> CUresult {
-        (culib().cuDevicePrimaryCtxRelease_v2)(dev)
+        if let Some(__function) = (culib().cuDevicePrimaryCtxRelease_v2) {
+            __function(dev)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuDevicePrimaryCtxReset_v2(dev: CUdevice) -> CUresult {
-        (culib().cuDevicePrimaryCtxReset_v2)(dev)
+        if let Some(__function) = (culib().cuDevicePrimaryCtxReset_v2) {
+            __function(dev)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuDevicePrimaryCtxRetain(pctx: *mut CUcontext, dev: CUdevice) -> CUresult {
-        (culib().cuDevicePrimaryCtxRetain)(pctx, dev)
+        if let Some(__function) = (culib().cuDevicePrimaryCtxRetain) {
+            __function(pctx, dev)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuDevicePrimaryCtxSetFlags_v2(
         dev: CUdevice,
         flags: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuDevicePrimaryCtxSetFlags_v2)(dev, flags)
+        if let Some(__function) = (culib().cuDevicePrimaryCtxSetFlags_v2) {
+            __function(dev, flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12040",
@@ -13608,20 +13904,36 @@ mod loaded {
         userData: *mut ::core::ffi::c_void,
         callback: *mut CUasyncCallbackHandle,
     ) -> CUresult {
-        (culib().cuDeviceRegisterAsyncNotification)(device, callbackFunc, userData, callback)
+        if let Some(__function) = (culib().cuDeviceRegisterAsyncNotification) {
+            __function(device, callbackFunc, userData, callback)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuDeviceSetGraphMemAttribute(
         device: CUdevice,
         attr: CUgraphMem_attribute,
         value: *mut ::core::ffi::c_void,
     ) -> CUresult {
-        (culib().cuDeviceSetGraphMemAttribute)(device, attr, value)
+        if let Some(__function) = (culib().cuDeviceSetGraphMemAttribute) {
+            __function(device, attr, value)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuDeviceSetMemPool(dev: CUdevice, pool: CUmemoryPool) -> CUresult {
-        (culib().cuDeviceSetMemPool)(dev, pool)
+        if let Some(__function) = (culib().cuDeviceSetMemPool) {
+            __function(dev, pool)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuDeviceTotalMem_v2(bytes: *mut usize, dev: CUdevice) -> CUresult {
-        (culib().cuDeviceTotalMem_v2)(bytes, dev)
+        if let Some(__function) = (culib().cuDeviceTotalMem_v2) {
+            __function(bytes, dev)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12040",
@@ -13635,16 +13947,32 @@ mod loaded {
         device: CUdevice,
         callback: CUasyncCallbackHandle,
     ) -> CUresult {
-        (culib().cuDeviceUnregisterAsyncNotification)(device, callback)
+        if let Some(__function) = (culib().cuDeviceUnregisterAsyncNotification) {
+            __function(device, callback)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuDriverGetVersion(driverVersion: *mut ::core::ffi::c_int) -> CUresult {
-        (culib().cuDriverGetVersion)(driverVersion)
+        if let Some(__function) = (culib().cuDriverGetVersion) {
+            __function(driverVersion)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuEventCreate(phEvent: *mut CUevent, Flags: ::core::ffi::c_uint) -> CUresult {
-        (culib().cuEventCreate)(phEvent, Flags)
+        if let Some(__function) = (culib().cuEventCreate) {
+            __function(phEvent, Flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuEventDestroy_v2(hEvent: CUevent) -> CUresult {
-        (culib().cuEventDestroy_v2)(hEvent)
+        if let Some(__function) = (culib().cuEventDestroy_v2) {
+            __function(hEvent)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-11040",
@@ -13667,7 +13995,11 @@ mod loaded {
         hStart: CUevent,
         hEnd: CUevent,
     ) -> CUresult {
-        (culib().cuEventElapsedTime)(pMilliseconds, hStart, hEnd)
+        if let Some(__function) = (culib().cuEventElapsedTime) {
+            __function(pMilliseconds, hStart, hEnd)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(feature = "cuda-12080", feature = "cuda-12090", feature = "cuda-13000"))]
     pub unsafe fn cuEventElapsedTime_v2(
@@ -13675,53 +14007,93 @@ mod loaded {
         hStart: CUevent,
         hEnd: CUevent,
     ) -> CUresult {
-        (culib().cuEventElapsedTime_v2)(pMilliseconds, hStart, hEnd)
+        if let Some(__function) = (culib().cuEventElapsedTime_v2) {
+            __function(pMilliseconds, hStart, hEnd)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuEventQuery(hEvent: CUevent) -> CUresult {
-        (culib().cuEventQuery)(hEvent)
+        if let Some(__function) = (culib().cuEventQuery) {
+            __function(hEvent)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuEventRecord(hEvent: CUevent, hStream: CUstream) -> CUresult {
-        (culib().cuEventRecord)(hEvent, hStream)
+        if let Some(__function) = (culib().cuEventRecord) {
+            __function(hEvent, hStream)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuEventRecordWithFlags(
         hEvent: CUevent,
         hStream: CUstream,
         flags: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuEventRecordWithFlags)(hEvent, hStream, flags)
+        if let Some(__function) = (culib().cuEventRecordWithFlags) {
+            __function(hEvent, hStream, flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuEventSynchronize(hEvent: CUevent) -> CUresult {
-        (culib().cuEventSynchronize)(hEvent)
+        if let Some(__function) = (culib().cuEventSynchronize) {
+            __function(hEvent)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuExternalMemoryGetMappedBuffer(
         devPtr: *mut CUdeviceptr,
         extMem: CUexternalMemory,
         bufferDesc: *const CUDA_EXTERNAL_MEMORY_BUFFER_DESC,
     ) -> CUresult {
-        (culib().cuExternalMemoryGetMappedBuffer)(devPtr, extMem, bufferDesc)
+        if let Some(__function) = (culib().cuExternalMemoryGetMappedBuffer) {
+            __function(devPtr, extMem, bufferDesc)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuExternalMemoryGetMappedMipmappedArray(
         mipmap: *mut CUmipmappedArray,
         extMem: CUexternalMemory,
         mipmapDesc: *const CUDA_EXTERNAL_MEMORY_MIPMAPPED_ARRAY_DESC,
     ) -> CUresult {
-        (culib().cuExternalMemoryGetMappedMipmappedArray)(mipmap, extMem, mipmapDesc)
+        if let Some(__function) = (culib().cuExternalMemoryGetMappedMipmappedArray) {
+            __function(mipmap, extMem, mipmapDesc)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuFlushGPUDirectRDMAWrites(
         target: CUflushGPUDirectRDMAWritesTarget,
         scope: CUflushGPUDirectRDMAWritesScope,
     ) -> CUresult {
-        (culib().cuFlushGPUDirectRDMAWrites)(target, scope)
+        if let Some(__function) = (culib().cuFlushGPUDirectRDMAWrites) {
+            __function(target, scope)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuFuncGetAttribute(
         pi: *mut ::core::ffi::c_int,
         attrib: CUfunction_attribute,
         hfunc: CUfunction,
     ) -> CUresult {
-        (culib().cuFuncGetAttribute)(pi, attrib, hfunc)
+        if let Some(__function) = (culib().cuFuncGetAttribute) {
+            __function(pi, attrib, hfunc)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuFuncGetModule(hmod: *mut CUmodule, hfunc: CUfunction) -> CUresult {
-        (culib().cuFuncGetModule)(hmod, hfunc)
+        if let Some(__function) = (culib().cuFuncGetModule) {
+            __function(hmod, hfunc)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12030",
@@ -13736,7 +14108,11 @@ mod loaded {
         name: *mut *const ::core::ffi::c_char,
         hfunc: CUfunction,
     ) -> CUresult {
-        (culib().cuFuncGetName)(name, hfunc)
+        if let Some(__function) = (culib().cuFuncGetName) {
+            __function(name, hfunc)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12040",
@@ -13752,7 +14128,11 @@ mod loaded {
         paramOffset: *mut usize,
         paramSize: *mut usize,
     ) -> CUresult {
-        (culib().cuFuncGetParamInfo)(func, paramIndex, paramOffset, paramSize)
+        if let Some(__function) = (culib().cuFuncGetParamInfo) {
+            __function(func, paramIndex, paramOffset, paramSize)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12040",
@@ -13766,7 +14146,11 @@ mod loaded {
         state: *mut CUfunctionLoadingState,
         function: CUfunction,
     ) -> CUresult {
-        (culib().cuFuncIsLoaded)(state, function)
+        if let Some(__function) = (culib().cuFuncIsLoaded) {
+            __function(state, function)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12040",
@@ -13777,14 +14161,22 @@ mod loaded {
         feature = "cuda-13000"
     ))]
     pub unsafe fn cuFuncLoad(function: CUfunction) -> CUresult {
-        (culib().cuFuncLoad)(function)
+        if let Some(__function) = (culib().cuFuncLoad) {
+            __function(function)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuFuncSetAttribute(
         hfunc: CUfunction,
         attrib: CUfunction_attribute,
         value: ::core::ffi::c_int,
     ) -> CUresult {
-        (culib().cuFuncSetAttribute)(hfunc, attrib, value)
+        if let Some(__function) = (culib().cuFuncSetAttribute) {
+            __function(hfunc, attrib, value)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuFuncSetBlockShape(
         hfunc: CUfunction,
@@ -13792,34 +14184,62 @@ mod loaded {
         y: ::core::ffi::c_int,
         z: ::core::ffi::c_int,
     ) -> CUresult {
-        (culib().cuFuncSetBlockShape)(hfunc, x, y, z)
+        if let Some(__function) = (culib().cuFuncSetBlockShape) {
+            __function(hfunc, x, y, z)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuFuncSetCacheConfig(hfunc: CUfunction, config: CUfunc_cache) -> CUresult {
-        (culib().cuFuncSetCacheConfig)(hfunc, config)
+        if let Some(__function) = (culib().cuFuncSetCacheConfig) {
+            __function(hfunc, config)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuFuncSetSharedMemConfig(hfunc: CUfunction, config: CUsharedconfig) -> CUresult {
-        (culib().cuFuncSetSharedMemConfig)(hfunc, config)
+        if let Some(__function) = (culib().cuFuncSetSharedMemConfig) {
+            __function(hfunc, config)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuFuncSetSharedSize(hfunc: CUfunction, bytes: ::core::ffi::c_uint) -> CUresult {
-        (culib().cuFuncSetSharedSize)(hfunc, bytes)
+        if let Some(__function) = (culib().cuFuncSetSharedSize) {
+            __function(hfunc, bytes)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGetErrorName(
         error: CUresult,
         pStr: *mut *const ::core::ffi::c_char,
     ) -> CUresult {
-        (culib().cuGetErrorName)(error, pStr)
+        if let Some(__function) = (culib().cuGetErrorName) {
+            __function(error, pStr)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGetErrorString(
         error: CUresult,
         pStr: *mut *const ::core::ffi::c_char,
     ) -> CUresult {
-        (culib().cuGetErrorString)(error, pStr)
+        if let Some(__function) = (culib().cuGetErrorString) {
+            __function(error, pStr)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGetExportTable(
         ppExportTable: *mut *const ::core::ffi::c_void,
         pExportTableId: *const CUuuid,
     ) -> CUresult {
-        (culib().cuGetExportTable)(ppExportTable, pExportTableId)
+        if let Some(__function) = (culib().cuGetExportTable) {
+            __function(ppExportTable, pExportTableId)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-11040",
@@ -13834,7 +14254,11 @@ mod loaded {
         cudaVersion: ::core::ffi::c_int,
         flags: cuuint64_t,
     ) -> CUresult {
-        (culib().cuGetProcAddress)(symbol, pfn, cudaVersion, flags)
+        if let Some(__function) = (culib().cuGetProcAddress) {
+            __function(symbol, pfn, cudaVersion, flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12000",
@@ -13855,7 +14279,11 @@ mod loaded {
         flags: cuuint64_t,
         symbolStatus: *mut CUdriverProcAddressQueryResult,
     ) -> CUresult {
-        (culib().cuGetProcAddress_v2)(symbol, pfn, cudaVersion, flags, symbolStatus)
+        if let Some(__function) = (culib().cuGetProcAddress_v2) {
+            __function(symbol, pfn, cudaVersion, flags, symbolStatus)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-11070",
@@ -13878,13 +14306,17 @@ mod loaded {
         numDependencies: usize,
         nodeParams: *const CUDA_BATCH_MEM_OP_NODE_PARAMS,
     ) -> CUresult {
-        (culib().cuGraphAddBatchMemOpNode)(
-            phGraphNode,
-            hGraph,
-            dependencies,
-            numDependencies,
-            nodeParams,
-        )
+        if let Some(__function) = (culib().cuGraphAddBatchMemOpNode) {
+            __function(
+                phGraphNode,
+                hGraph,
+                dependencies,
+                numDependencies,
+                nodeParams,
+            )
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphAddChildGraphNode(
         phGraphNode: *mut CUgraphNode,
@@ -13893,13 +14325,17 @@ mod loaded {
         numDependencies: usize,
         childGraph: CUgraph,
     ) -> CUresult {
-        (culib().cuGraphAddChildGraphNode)(
-            phGraphNode,
-            hGraph,
-            dependencies,
-            numDependencies,
-            childGraph,
-        )
+        if let Some(__function) = (culib().cuGraphAddChildGraphNode) {
+            __function(
+                phGraphNode,
+                hGraph,
+                dependencies,
+                numDependencies,
+                childGraph,
+            )
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-11040",
@@ -13923,7 +14359,11 @@ mod loaded {
         to: *const CUgraphNode,
         numDependencies: usize,
     ) -> CUresult {
-        (culib().cuGraphAddDependencies)(hGraph, from, to, numDependencies)
+        if let Some(__function) = (culib().cuGraphAddDependencies) {
+            __function(hGraph, from, to, numDependencies)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12030",
@@ -13941,7 +14381,11 @@ mod loaded {
         edgeData: *const CUgraphEdgeData,
         numDependencies: usize,
     ) -> CUresult {
-        (culib().cuGraphAddDependencies_v2)(hGraph, from, to, edgeData, numDependencies)
+        if let Some(__function) = (culib().cuGraphAddDependencies_v2) {
+            __function(hGraph, from, to, edgeData, numDependencies)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphAddEmptyNode(
         phGraphNode: *mut CUgraphNode,
@@ -13949,7 +14393,11 @@ mod loaded {
         dependencies: *const CUgraphNode,
         numDependencies: usize,
     ) -> CUresult {
-        (culib().cuGraphAddEmptyNode)(phGraphNode, hGraph, dependencies, numDependencies)
+        if let Some(__function) = (culib().cuGraphAddEmptyNode) {
+            __function(phGraphNode, hGraph, dependencies, numDependencies)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphAddEventRecordNode(
         phGraphNode: *mut CUgraphNode,
@@ -13958,13 +14406,11 @@ mod loaded {
         numDependencies: usize,
         event: CUevent,
     ) -> CUresult {
-        (culib().cuGraphAddEventRecordNode)(
-            phGraphNode,
-            hGraph,
-            dependencies,
-            numDependencies,
-            event,
-        )
+        if let Some(__function) = (culib().cuGraphAddEventRecordNode) {
+            __function(phGraphNode, hGraph, dependencies, numDependencies, event)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphAddEventWaitNode(
         phGraphNode: *mut CUgraphNode,
@@ -13973,7 +14419,11 @@ mod loaded {
         numDependencies: usize,
         event: CUevent,
     ) -> CUresult {
-        (culib().cuGraphAddEventWaitNode)(phGraphNode, hGraph, dependencies, numDependencies, event)
+        if let Some(__function) = (culib().cuGraphAddEventWaitNode) {
+            __function(phGraphNode, hGraph, dependencies, numDependencies, event)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphAddExternalSemaphoresSignalNode(
         phGraphNode: *mut CUgraphNode,
@@ -13982,13 +14432,17 @@ mod loaded {
         numDependencies: usize,
         nodeParams: *const CUDA_EXT_SEM_SIGNAL_NODE_PARAMS,
     ) -> CUresult {
-        (culib().cuGraphAddExternalSemaphoresSignalNode)(
-            phGraphNode,
-            hGraph,
-            dependencies,
-            numDependencies,
-            nodeParams,
-        )
+        if let Some(__function) = (culib().cuGraphAddExternalSemaphoresSignalNode) {
+            __function(
+                phGraphNode,
+                hGraph,
+                dependencies,
+                numDependencies,
+                nodeParams,
+            )
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphAddExternalSemaphoresWaitNode(
         phGraphNode: *mut CUgraphNode,
@@ -13997,13 +14451,17 @@ mod loaded {
         numDependencies: usize,
         nodeParams: *const CUDA_EXT_SEM_WAIT_NODE_PARAMS,
     ) -> CUresult {
-        (culib().cuGraphAddExternalSemaphoresWaitNode)(
-            phGraphNode,
-            hGraph,
-            dependencies,
-            numDependencies,
-            nodeParams,
-        )
+        if let Some(__function) = (culib().cuGraphAddExternalSemaphoresWaitNode) {
+            __function(
+                phGraphNode,
+                hGraph,
+                dependencies,
+                numDependencies,
+                nodeParams,
+            )
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphAddHostNode(
         phGraphNode: *mut CUgraphNode,
@@ -14012,13 +14470,17 @@ mod loaded {
         numDependencies: usize,
         nodeParams: *const CUDA_HOST_NODE_PARAMS,
     ) -> CUresult {
-        (culib().cuGraphAddHostNode)(
-            phGraphNode,
-            hGraph,
-            dependencies,
-            numDependencies,
-            nodeParams,
-        )
+        if let Some(__function) = (culib().cuGraphAddHostNode) {
+            __function(
+                phGraphNode,
+                hGraph,
+                dependencies,
+                numDependencies,
+                nodeParams,
+            )
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-11040",
@@ -14034,13 +14496,17 @@ mod loaded {
         numDependencies: usize,
         nodeParams: *const CUDA_KERNEL_NODE_PARAMS,
     ) -> CUresult {
-        (culib().cuGraphAddKernelNode)(
-            phGraphNode,
-            hGraph,
-            dependencies,
-            numDependencies,
-            nodeParams,
-        )
+        if let Some(__function) = (culib().cuGraphAddKernelNode) {
+            __function(
+                phGraphNode,
+                hGraph,
+                dependencies,
+                numDependencies,
+                nodeParams,
+            )
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12000",
@@ -14061,13 +14527,17 @@ mod loaded {
         numDependencies: usize,
         nodeParams: *const CUDA_KERNEL_NODE_PARAMS,
     ) -> CUresult {
-        (culib().cuGraphAddKernelNode_v2)(
-            phGraphNode,
-            hGraph,
-            dependencies,
-            numDependencies,
-            nodeParams,
-        )
+        if let Some(__function) = (culib().cuGraphAddKernelNode_v2) {
+            __function(
+                phGraphNode,
+                hGraph,
+                dependencies,
+                numDependencies,
+                nodeParams,
+            )
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphAddMemAllocNode(
         phGraphNode: *mut CUgraphNode,
@@ -14076,13 +14546,17 @@ mod loaded {
         numDependencies: usize,
         nodeParams: *mut CUDA_MEM_ALLOC_NODE_PARAMS,
     ) -> CUresult {
-        (culib().cuGraphAddMemAllocNode)(
-            phGraphNode,
-            hGraph,
-            dependencies,
-            numDependencies,
-            nodeParams,
-        )
+        if let Some(__function) = (culib().cuGraphAddMemAllocNode) {
+            __function(
+                phGraphNode,
+                hGraph,
+                dependencies,
+                numDependencies,
+                nodeParams,
+            )
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphAddMemFreeNode(
         phGraphNode: *mut CUgraphNode,
@@ -14091,7 +14565,11 @@ mod loaded {
         numDependencies: usize,
         dptr: CUdeviceptr,
     ) -> CUresult {
-        (culib().cuGraphAddMemFreeNode)(phGraphNode, hGraph, dependencies, numDependencies, dptr)
+        if let Some(__function) = (culib().cuGraphAddMemFreeNode) {
+            __function(phGraphNode, hGraph, dependencies, numDependencies, dptr)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphAddMemcpyNode(
         phGraphNode: *mut CUgraphNode,
@@ -14101,14 +14579,18 @@ mod loaded {
         copyParams: *const CUDA_MEMCPY3D,
         ctx: CUcontext,
     ) -> CUresult {
-        (culib().cuGraphAddMemcpyNode)(
-            phGraphNode,
-            hGraph,
-            dependencies,
-            numDependencies,
-            copyParams,
-            ctx,
-        )
+        if let Some(__function) = (culib().cuGraphAddMemcpyNode) {
+            __function(
+                phGraphNode,
+                hGraph,
+                dependencies,
+                numDependencies,
+                copyParams,
+                ctx,
+            )
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphAddMemsetNode(
         phGraphNode: *mut CUgraphNode,
@@ -14118,14 +14600,18 @@ mod loaded {
         memsetParams: *const CUDA_MEMSET_NODE_PARAMS,
         ctx: CUcontext,
     ) -> CUresult {
-        (culib().cuGraphAddMemsetNode)(
-            phGraphNode,
-            hGraph,
-            dependencies,
-            numDependencies,
-            memsetParams,
-            ctx,
-        )
+        if let Some(__function) = (culib().cuGraphAddMemsetNode) {
+            __function(
+                phGraphNode,
+                hGraph,
+                dependencies,
+                numDependencies,
+                memsetParams,
+                ctx,
+            )
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12020",
@@ -14143,13 +14629,17 @@ mod loaded {
         numDependencies: usize,
         nodeParams: *mut CUgraphNodeParams,
     ) -> CUresult {
-        (culib().cuGraphAddNode)(
-            phGraphNode,
-            hGraph,
-            dependencies,
-            numDependencies,
-            nodeParams,
-        )
+        if let Some(__function) = (culib().cuGraphAddNode) {
+            __function(
+                phGraphNode,
+                hGraph,
+                dependencies,
+                numDependencies,
+                nodeParams,
+            )
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12030",
@@ -14168,14 +14658,18 @@ mod loaded {
         numDependencies: usize,
         nodeParams: *mut CUgraphNodeParams,
     ) -> CUresult {
-        (culib().cuGraphAddNode_v2)(
-            phGraphNode,
-            hGraph,
-            dependencies,
-            dependencyData,
-            numDependencies,
-            nodeParams,
-        )
+        if let Some(__function) = (culib().cuGraphAddNode_v2) {
+            __function(
+                phGraphNode,
+                hGraph,
+                dependencies,
+                dependencyData,
+                numDependencies,
+                nodeParams,
+            )
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-11070",
@@ -14195,7 +14689,11 @@ mod loaded {
         hNode: CUgraphNode,
         nodeParams_out: *mut CUDA_BATCH_MEM_OP_NODE_PARAMS,
     ) -> CUresult {
-        (culib().cuGraphBatchMemOpNodeGetParams)(hNode, nodeParams_out)
+        if let Some(__function) = (culib().cuGraphBatchMemOpNodeGetParams) {
+            __function(hNode, nodeParams_out)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-11070",
@@ -14215,16 +14713,28 @@ mod loaded {
         hNode: CUgraphNode,
         nodeParams: *const CUDA_BATCH_MEM_OP_NODE_PARAMS,
     ) -> CUresult {
-        (culib().cuGraphBatchMemOpNodeSetParams)(hNode, nodeParams)
+        if let Some(__function) = (culib().cuGraphBatchMemOpNodeSetParams) {
+            __function(hNode, nodeParams)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphChildGraphNodeGetGraph(
         hNode: CUgraphNode,
         phGraph: *mut CUgraph,
     ) -> CUresult {
-        (culib().cuGraphChildGraphNodeGetGraph)(hNode, phGraph)
+        if let Some(__function) = (culib().cuGraphChildGraphNodeGetGraph) {
+            __function(hNode, phGraph)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphClone(phGraphClone: *mut CUgraph, originalGraph: CUgraph) -> CUresult {
-        (culib().cuGraphClone)(phGraphClone, originalGraph)
+        if let Some(__function) = (culib().cuGraphClone) {
+            __function(phGraphClone, originalGraph)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12030",
@@ -14242,47 +14752,77 @@ mod loaded {
         defaultLaunchValue: ::core::ffi::c_uint,
         flags: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuGraphConditionalHandleCreate)(
-            pHandle_out,
-            hGraph,
-            ctx,
-            defaultLaunchValue,
-            flags,
-        )
+        if let Some(__function) = (culib().cuGraphConditionalHandleCreate) {
+            __function(pHandle_out, hGraph, ctx, defaultLaunchValue, flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphCreate(phGraph: *mut CUgraph, flags: ::core::ffi::c_uint) -> CUresult {
-        (culib().cuGraphCreate)(phGraph, flags)
+        if let Some(__function) = (culib().cuGraphCreate) {
+            __function(phGraph, flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphDebugDotPrint(
         hGraph: CUgraph,
         path: *const ::core::ffi::c_char,
         flags: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuGraphDebugDotPrint)(hGraph, path, flags)
+        if let Some(__function) = (culib().cuGraphDebugDotPrint) {
+            __function(hGraph, path, flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphDestroy(hGraph: CUgraph) -> CUresult {
-        (culib().cuGraphDestroy)(hGraph)
+        if let Some(__function) = (culib().cuGraphDestroy) {
+            __function(hGraph)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphDestroyNode(hNode: CUgraphNode) -> CUresult {
-        (culib().cuGraphDestroyNode)(hNode)
+        if let Some(__function) = (culib().cuGraphDestroyNode) {
+            __function(hNode)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphEventRecordNodeGetEvent(
         hNode: CUgraphNode,
         event_out: *mut CUevent,
     ) -> CUresult {
-        (culib().cuGraphEventRecordNodeGetEvent)(hNode, event_out)
+        if let Some(__function) = (culib().cuGraphEventRecordNodeGetEvent) {
+            __function(hNode, event_out)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphEventRecordNodeSetEvent(hNode: CUgraphNode, event: CUevent) -> CUresult {
-        (culib().cuGraphEventRecordNodeSetEvent)(hNode, event)
+        if let Some(__function) = (culib().cuGraphEventRecordNodeSetEvent) {
+            __function(hNode, event)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphEventWaitNodeGetEvent(
         hNode: CUgraphNode,
         event_out: *mut CUevent,
     ) -> CUresult {
-        (culib().cuGraphEventWaitNodeGetEvent)(hNode, event_out)
+        if let Some(__function) = (culib().cuGraphEventWaitNodeGetEvent) {
+            __function(hNode, event_out)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphEventWaitNodeSetEvent(hNode: CUgraphNode, event: CUevent) -> CUresult {
-        (culib().cuGraphEventWaitNodeSetEvent)(hNode, event)
+        if let Some(__function) = (culib().cuGraphEventWaitNodeSetEvent) {
+            __function(hNode, event)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-11070",
@@ -14303,45 +14843,73 @@ mod loaded {
         hNode: CUgraphNode,
         nodeParams: *const CUDA_BATCH_MEM_OP_NODE_PARAMS,
     ) -> CUresult {
-        (culib().cuGraphExecBatchMemOpNodeSetParams)(hGraphExec, hNode, nodeParams)
+        if let Some(__function) = (culib().cuGraphExecBatchMemOpNodeSetParams) {
+            __function(hGraphExec, hNode, nodeParams)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphExecChildGraphNodeSetParams(
         hGraphExec: CUgraphExec,
         hNode: CUgraphNode,
         childGraph: CUgraph,
     ) -> CUresult {
-        (culib().cuGraphExecChildGraphNodeSetParams)(hGraphExec, hNode, childGraph)
+        if let Some(__function) = (culib().cuGraphExecChildGraphNodeSetParams) {
+            __function(hGraphExec, hNode, childGraph)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphExecDestroy(hGraphExec: CUgraphExec) -> CUresult {
-        (culib().cuGraphExecDestroy)(hGraphExec)
+        if let Some(__function) = (culib().cuGraphExecDestroy) {
+            __function(hGraphExec)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphExecEventRecordNodeSetEvent(
         hGraphExec: CUgraphExec,
         hNode: CUgraphNode,
         event: CUevent,
     ) -> CUresult {
-        (culib().cuGraphExecEventRecordNodeSetEvent)(hGraphExec, hNode, event)
+        if let Some(__function) = (culib().cuGraphExecEventRecordNodeSetEvent) {
+            __function(hGraphExec, hNode, event)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphExecEventWaitNodeSetEvent(
         hGraphExec: CUgraphExec,
         hNode: CUgraphNode,
         event: CUevent,
     ) -> CUresult {
-        (culib().cuGraphExecEventWaitNodeSetEvent)(hGraphExec, hNode, event)
+        if let Some(__function) = (culib().cuGraphExecEventWaitNodeSetEvent) {
+            __function(hGraphExec, hNode, event)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphExecExternalSemaphoresSignalNodeSetParams(
         hGraphExec: CUgraphExec,
         hNode: CUgraphNode,
         nodeParams: *const CUDA_EXT_SEM_SIGNAL_NODE_PARAMS,
     ) -> CUresult {
-        (culib().cuGraphExecExternalSemaphoresSignalNodeSetParams)(hGraphExec, hNode, nodeParams)
+        if let Some(__function) = (culib().cuGraphExecExternalSemaphoresSignalNodeSetParams) {
+            __function(hGraphExec, hNode, nodeParams)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphExecExternalSemaphoresWaitNodeSetParams(
         hGraphExec: CUgraphExec,
         hNode: CUgraphNode,
         nodeParams: *const CUDA_EXT_SEM_WAIT_NODE_PARAMS,
     ) -> CUresult {
-        (culib().cuGraphExecExternalSemaphoresWaitNodeSetParams)(hGraphExec, hNode, nodeParams)
+        if let Some(__function) = (culib().cuGraphExecExternalSemaphoresWaitNodeSetParams) {
+            __function(hGraphExec, hNode, nodeParams)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12000",
@@ -14356,14 +14924,22 @@ mod loaded {
         feature = "cuda-13000"
     ))]
     pub unsafe fn cuGraphExecGetFlags(hGraphExec: CUgraphExec, flags: *mut cuuint64_t) -> CUresult {
-        (culib().cuGraphExecGetFlags)(hGraphExec, flags)
+        if let Some(__function) = (culib().cuGraphExecGetFlags) {
+            __function(hGraphExec, flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphExecHostNodeSetParams(
         hGraphExec: CUgraphExec,
         hNode: CUgraphNode,
         nodeParams: *const CUDA_HOST_NODE_PARAMS,
     ) -> CUresult {
-        (culib().cuGraphExecHostNodeSetParams)(hGraphExec, hNode, nodeParams)
+        if let Some(__function) = (culib().cuGraphExecHostNodeSetParams) {
+            __function(hGraphExec, hNode, nodeParams)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-11040",
@@ -14377,7 +14953,11 @@ mod loaded {
         hNode: CUgraphNode,
         nodeParams: *const CUDA_KERNEL_NODE_PARAMS,
     ) -> CUresult {
-        (culib().cuGraphExecKernelNodeSetParams)(hGraphExec, hNode, nodeParams)
+        if let Some(__function) = (culib().cuGraphExecKernelNodeSetParams) {
+            __function(hGraphExec, hNode, nodeParams)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12000",
@@ -14396,7 +14976,11 @@ mod loaded {
         hNode: CUgraphNode,
         nodeParams: *const CUDA_KERNEL_NODE_PARAMS,
     ) -> CUresult {
-        (culib().cuGraphExecKernelNodeSetParams_v2)(hGraphExec, hNode, nodeParams)
+        if let Some(__function) = (culib().cuGraphExecKernelNodeSetParams_v2) {
+            __function(hGraphExec, hNode, nodeParams)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphExecMemcpyNodeSetParams(
         hGraphExec: CUgraphExec,
@@ -14404,7 +14988,11 @@ mod loaded {
         copyParams: *const CUDA_MEMCPY3D,
         ctx: CUcontext,
     ) -> CUresult {
-        (culib().cuGraphExecMemcpyNodeSetParams)(hGraphExec, hNode, copyParams, ctx)
+        if let Some(__function) = (culib().cuGraphExecMemcpyNodeSetParams) {
+            __function(hGraphExec, hNode, copyParams, ctx)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphExecMemsetNodeSetParams(
         hGraphExec: CUgraphExec,
@@ -14412,7 +15000,11 @@ mod loaded {
         memsetParams: *const CUDA_MEMSET_NODE_PARAMS,
         ctx: CUcontext,
     ) -> CUresult {
-        (culib().cuGraphExecMemsetNodeSetParams)(hGraphExec, hNode, memsetParams, ctx)
+        if let Some(__function) = (culib().cuGraphExecMemsetNodeSetParams) {
+            __function(hGraphExec, hNode, memsetParams, ctx)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12020",
@@ -14429,7 +15021,11 @@ mod loaded {
         hNode: CUgraphNode,
         nodeParams: *mut CUgraphNodeParams,
     ) -> CUresult {
-        (culib().cuGraphExecNodeSetParams)(hGraphExec, hNode, nodeParams)
+        if let Some(__function) = (culib().cuGraphExecNodeSetParams) {
+            __function(hGraphExec, hNode, nodeParams)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-11040",
@@ -14444,7 +15040,11 @@ mod loaded {
         hErrorNode_out: *mut CUgraphNode,
         updateResult_out: *mut CUgraphExecUpdateResult,
     ) -> CUresult {
-        (culib().cuGraphExecUpdate)(hGraphExec, hGraph, hErrorNode_out, updateResult_out)
+        if let Some(__function) = (culib().cuGraphExecUpdate) {
+            __function(hGraphExec, hGraph, hErrorNode_out, updateResult_out)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12000",
@@ -14463,31 +15063,51 @@ mod loaded {
         hGraph: CUgraph,
         resultInfo: *mut CUgraphExecUpdateResultInfo,
     ) -> CUresult {
-        (culib().cuGraphExecUpdate_v2)(hGraphExec, hGraph, resultInfo)
+        if let Some(__function) = (culib().cuGraphExecUpdate_v2) {
+            __function(hGraphExec, hGraph, resultInfo)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphExternalSemaphoresSignalNodeGetParams(
         hNode: CUgraphNode,
         params_out: *mut CUDA_EXT_SEM_SIGNAL_NODE_PARAMS,
     ) -> CUresult {
-        (culib().cuGraphExternalSemaphoresSignalNodeGetParams)(hNode, params_out)
+        if let Some(__function) = (culib().cuGraphExternalSemaphoresSignalNodeGetParams) {
+            __function(hNode, params_out)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphExternalSemaphoresSignalNodeSetParams(
         hNode: CUgraphNode,
         nodeParams: *const CUDA_EXT_SEM_SIGNAL_NODE_PARAMS,
     ) -> CUresult {
-        (culib().cuGraphExternalSemaphoresSignalNodeSetParams)(hNode, nodeParams)
+        if let Some(__function) = (culib().cuGraphExternalSemaphoresSignalNodeSetParams) {
+            __function(hNode, nodeParams)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphExternalSemaphoresWaitNodeGetParams(
         hNode: CUgraphNode,
         params_out: *mut CUDA_EXT_SEM_WAIT_NODE_PARAMS,
     ) -> CUresult {
-        (culib().cuGraphExternalSemaphoresWaitNodeGetParams)(hNode, params_out)
+        if let Some(__function) = (culib().cuGraphExternalSemaphoresWaitNodeGetParams) {
+            __function(hNode, params_out)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphExternalSemaphoresWaitNodeSetParams(
         hNode: CUgraphNode,
         nodeParams: *const CUDA_EXT_SEM_WAIT_NODE_PARAMS,
     ) -> CUresult {
-        (culib().cuGraphExternalSemaphoresWaitNodeSetParams)(hNode, nodeParams)
+        if let Some(__function) = (culib().cuGraphExternalSemaphoresWaitNodeSetParams) {
+            __function(hNode, nodeParams)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-11040",
@@ -14511,7 +15131,11 @@ mod loaded {
         to: *mut CUgraphNode,
         numEdges: *mut usize,
     ) -> CUresult {
-        (culib().cuGraphGetEdges)(hGraph, from, to, numEdges)
+        if let Some(__function) = (culib().cuGraphGetEdges) {
+            __function(hGraph, from, to, numEdges)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12030",
@@ -14529,40 +15153,64 @@ mod loaded {
         edgeData: *mut CUgraphEdgeData,
         numEdges: *mut usize,
     ) -> CUresult {
-        (culib().cuGraphGetEdges_v2)(hGraph, from, to, edgeData, numEdges)
+        if let Some(__function) = (culib().cuGraphGetEdges_v2) {
+            __function(hGraph, from, to, edgeData, numEdges)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphGetNodes(
         hGraph: CUgraph,
         nodes: *mut CUgraphNode,
         numNodes: *mut usize,
     ) -> CUresult {
-        (culib().cuGraphGetNodes)(hGraph, nodes, numNodes)
+        if let Some(__function) = (culib().cuGraphGetNodes) {
+            __function(hGraph, nodes, numNodes)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphGetRootNodes(
         hGraph: CUgraph,
         rootNodes: *mut CUgraphNode,
         numRootNodes: *mut usize,
     ) -> CUresult {
-        (culib().cuGraphGetRootNodes)(hGraph, rootNodes, numRootNodes)
+        if let Some(__function) = (culib().cuGraphGetRootNodes) {
+            __function(hGraph, rootNodes, numRootNodes)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphHostNodeGetParams(
         hNode: CUgraphNode,
         nodeParams: *mut CUDA_HOST_NODE_PARAMS,
     ) -> CUresult {
-        (culib().cuGraphHostNodeGetParams)(hNode, nodeParams)
+        if let Some(__function) = (culib().cuGraphHostNodeGetParams) {
+            __function(hNode, nodeParams)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphHostNodeSetParams(
         hNode: CUgraphNode,
         nodeParams: *const CUDA_HOST_NODE_PARAMS,
     ) -> CUresult {
-        (culib().cuGraphHostNodeSetParams)(hNode, nodeParams)
+        if let Some(__function) = (culib().cuGraphHostNodeSetParams) {
+            __function(hNode, nodeParams)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphInstantiateWithFlags(
         phGraphExec: *mut CUgraphExec,
         hGraph: CUgraph,
         flags: ::core::ffi::c_ulonglong,
     ) -> CUresult {
-        (culib().cuGraphInstantiateWithFlags)(phGraphExec, hGraph, flags)
+        if let Some(__function) = (culib().cuGraphInstantiateWithFlags) {
+            __function(phGraphExec, hGraph, flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12000",
@@ -14581,7 +15229,11 @@ mod loaded {
         hGraph: CUgraph,
         instantiateParams: *mut CUDA_GRAPH_INSTANTIATE_PARAMS,
     ) -> CUresult {
-        (culib().cuGraphInstantiateWithParams)(phGraphExec, hGraph, instantiateParams)
+        if let Some(__function) = (culib().cuGraphInstantiateWithParams) {
+            __function(phGraphExec, hGraph, instantiateParams)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-11040",
@@ -14597,17 +15249,29 @@ mod loaded {
         logBuffer: *mut ::core::ffi::c_char,
         bufferSize: usize,
     ) -> CUresult {
-        (culib().cuGraphInstantiate_v2)(phGraphExec, hGraph, phErrorNode, logBuffer, bufferSize)
+        if let Some(__function) = (culib().cuGraphInstantiate_v2) {
+            __function(phGraphExec, hGraph, phErrorNode, logBuffer, bufferSize)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphKernelNodeCopyAttributes(dst: CUgraphNode, src: CUgraphNode) -> CUresult {
-        (culib().cuGraphKernelNodeCopyAttributes)(dst, src)
+        if let Some(__function) = (culib().cuGraphKernelNodeCopyAttributes) {
+            __function(dst, src)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphKernelNodeGetAttribute(
         hNode: CUgraphNode,
         attr: CUkernelNodeAttrID,
         value_out: *mut CUkernelNodeAttrValue,
     ) -> CUresult {
-        (culib().cuGraphKernelNodeGetAttribute)(hNode, attr, value_out)
+        if let Some(__function) = (culib().cuGraphKernelNodeGetAttribute) {
+            __function(hNode, attr, value_out)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-11040",
@@ -14620,7 +15284,11 @@ mod loaded {
         hNode: CUgraphNode,
         nodeParams: *mut CUDA_KERNEL_NODE_PARAMS,
     ) -> CUresult {
-        (culib().cuGraphKernelNodeGetParams)(hNode, nodeParams)
+        if let Some(__function) = (culib().cuGraphKernelNodeGetParams) {
+            __function(hNode, nodeParams)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12000",
@@ -14638,14 +15306,22 @@ mod loaded {
         hNode: CUgraphNode,
         nodeParams: *mut CUDA_KERNEL_NODE_PARAMS,
     ) -> CUresult {
-        (culib().cuGraphKernelNodeGetParams_v2)(hNode, nodeParams)
+        if let Some(__function) = (culib().cuGraphKernelNodeGetParams_v2) {
+            __function(hNode, nodeParams)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphKernelNodeSetAttribute(
         hNode: CUgraphNode,
         attr: CUkernelNodeAttrID,
         value: *const CUkernelNodeAttrValue,
     ) -> CUresult {
-        (culib().cuGraphKernelNodeSetAttribute)(hNode, attr, value)
+        if let Some(__function) = (culib().cuGraphKernelNodeSetAttribute) {
+            __function(hNode, attr, value)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-11040",
@@ -14658,7 +15334,11 @@ mod loaded {
         hNode: CUgraphNode,
         nodeParams: *const CUDA_KERNEL_NODE_PARAMS,
     ) -> CUresult {
-        (culib().cuGraphKernelNodeSetParams)(hNode, nodeParams)
+        if let Some(__function) = (culib().cuGraphKernelNodeSetParams) {
+            __function(hNode, nodeParams)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12000",
@@ -14676,53 +15356,89 @@ mod loaded {
         hNode: CUgraphNode,
         nodeParams: *const CUDA_KERNEL_NODE_PARAMS,
     ) -> CUresult {
-        (culib().cuGraphKernelNodeSetParams_v2)(hNode, nodeParams)
+        if let Some(__function) = (culib().cuGraphKernelNodeSetParams_v2) {
+            __function(hNode, nodeParams)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphLaunch(hGraphExec: CUgraphExec, hStream: CUstream) -> CUresult {
-        (culib().cuGraphLaunch)(hGraphExec, hStream)
+        if let Some(__function) = (culib().cuGraphLaunch) {
+            __function(hGraphExec, hStream)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphMemAllocNodeGetParams(
         hNode: CUgraphNode,
         params_out: *mut CUDA_MEM_ALLOC_NODE_PARAMS,
     ) -> CUresult {
-        (culib().cuGraphMemAllocNodeGetParams)(hNode, params_out)
+        if let Some(__function) = (culib().cuGraphMemAllocNodeGetParams) {
+            __function(hNode, params_out)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphMemFreeNodeGetParams(
         hNode: CUgraphNode,
         dptr_out: *mut CUdeviceptr,
     ) -> CUresult {
-        (culib().cuGraphMemFreeNodeGetParams)(hNode, dptr_out)
+        if let Some(__function) = (culib().cuGraphMemFreeNodeGetParams) {
+            __function(hNode, dptr_out)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphMemcpyNodeGetParams(
         hNode: CUgraphNode,
         nodeParams: *mut CUDA_MEMCPY3D,
     ) -> CUresult {
-        (culib().cuGraphMemcpyNodeGetParams)(hNode, nodeParams)
+        if let Some(__function) = (culib().cuGraphMemcpyNodeGetParams) {
+            __function(hNode, nodeParams)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphMemcpyNodeSetParams(
         hNode: CUgraphNode,
         nodeParams: *const CUDA_MEMCPY3D,
     ) -> CUresult {
-        (culib().cuGraphMemcpyNodeSetParams)(hNode, nodeParams)
+        if let Some(__function) = (culib().cuGraphMemcpyNodeSetParams) {
+            __function(hNode, nodeParams)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphMemsetNodeGetParams(
         hNode: CUgraphNode,
         nodeParams: *mut CUDA_MEMSET_NODE_PARAMS,
     ) -> CUresult {
-        (culib().cuGraphMemsetNodeGetParams)(hNode, nodeParams)
+        if let Some(__function) = (culib().cuGraphMemsetNodeGetParams) {
+            __function(hNode, nodeParams)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphMemsetNodeSetParams(
         hNode: CUgraphNode,
         nodeParams: *const CUDA_MEMSET_NODE_PARAMS,
     ) -> CUresult {
-        (culib().cuGraphMemsetNodeSetParams)(hNode, nodeParams)
+        if let Some(__function) = (culib().cuGraphMemsetNodeSetParams) {
+            __function(hNode, nodeParams)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphNodeFindInClone(
         phNode: *mut CUgraphNode,
         hOriginalNode: CUgraphNode,
         hClonedGraph: CUgraph,
     ) -> CUresult {
-        (culib().cuGraphNodeFindInClone)(phNode, hOriginalNode, hClonedGraph)
+        if let Some(__function) = (culib().cuGraphNodeFindInClone) {
+            __function(phNode, hOriginalNode, hClonedGraph)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-11040",
@@ -14745,7 +15461,11 @@ mod loaded {
         dependencies: *mut CUgraphNode,
         numDependencies: *mut usize,
     ) -> CUresult {
-        (culib().cuGraphNodeGetDependencies)(hNode, dependencies, numDependencies)
+        if let Some(__function) = (culib().cuGraphNodeGetDependencies) {
+            __function(hNode, dependencies, numDependencies)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12030",
@@ -14762,7 +15482,11 @@ mod loaded {
         edgeData: *mut CUgraphEdgeData,
         numDependencies: *mut usize,
     ) -> CUresult {
-        (culib().cuGraphNodeGetDependencies_v2)(hNode, dependencies, edgeData, numDependencies)
+        if let Some(__function) = (culib().cuGraphNodeGetDependencies_v2) {
+            __function(hNode, dependencies, edgeData, numDependencies)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-11040",
@@ -14785,7 +15509,11 @@ mod loaded {
         dependentNodes: *mut CUgraphNode,
         numDependentNodes: *mut usize,
     ) -> CUresult {
-        (culib().cuGraphNodeGetDependentNodes)(hNode, dependentNodes, numDependentNodes)
+        if let Some(__function) = (culib().cuGraphNodeGetDependentNodes) {
+            __function(hNode, dependentNodes, numDependentNodes)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12030",
@@ -14802,12 +15530,11 @@ mod loaded {
         edgeData: *mut CUgraphEdgeData,
         numDependentNodes: *mut usize,
     ) -> CUresult {
-        (culib().cuGraphNodeGetDependentNodes_v2)(
-            hNode,
-            dependentNodes,
-            edgeData,
-            numDependentNodes,
-        )
+        if let Some(__function) = (culib().cuGraphNodeGetDependentNodes_v2) {
+            __function(hNode, dependentNodes, edgeData, numDependentNodes)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-11060",
@@ -14829,10 +15556,18 @@ mod loaded {
         hNode: CUgraphNode,
         isEnabled: *mut ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuGraphNodeGetEnabled)(hGraphExec, hNode, isEnabled)
+        if let Some(__function) = (culib().cuGraphNodeGetEnabled) {
+            __function(hGraphExec, hNode, isEnabled)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphNodeGetType(hNode: CUgraphNode, type_: *mut CUgraphNodeType) -> CUresult {
-        (culib().cuGraphNodeGetType)(hNode, type_)
+        if let Some(__function) = (culib().cuGraphNodeGetType) {
+            __function(hNode, type_)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-11060",
@@ -14854,7 +15589,11 @@ mod loaded {
         hNode: CUgraphNode,
         isEnabled: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuGraphNodeSetEnabled)(hGraphExec, hNode, isEnabled)
+        if let Some(__function) = (culib().cuGraphNodeSetEnabled) {
+            __function(hGraphExec, hNode, isEnabled)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12020",
@@ -14870,14 +15609,22 @@ mod loaded {
         hNode: CUgraphNode,
         nodeParams: *mut CUgraphNodeParams,
     ) -> CUresult {
-        (culib().cuGraphNodeSetParams)(hNode, nodeParams)
+        if let Some(__function) = (culib().cuGraphNodeSetParams) {
+            __function(hNode, nodeParams)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphReleaseUserObject(
         graph: CUgraph,
         object: CUuserObject,
         count: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuGraphReleaseUserObject)(graph, object, count)
+        if let Some(__function) = (culib().cuGraphReleaseUserObject) {
+            __function(graph, object, count)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-11040",
@@ -14901,7 +15648,11 @@ mod loaded {
         to: *const CUgraphNode,
         numDependencies: usize,
     ) -> CUresult {
-        (culib().cuGraphRemoveDependencies)(hGraph, from, to, numDependencies)
+        if let Some(__function) = (culib().cuGraphRemoveDependencies) {
+            __function(hGraph, from, to, numDependencies)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12030",
@@ -14919,7 +15670,11 @@ mod loaded {
         edgeData: *const CUgraphEdgeData,
         numDependencies: usize,
     ) -> CUresult {
-        (culib().cuGraphRemoveDependencies_v2)(hGraph, from, to, edgeData, numDependencies)
+        if let Some(__function) = (culib().cuGraphRemoveDependencies_v2) {
+            __function(hGraph, from, to, edgeData, numDependencies)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphRetainUserObject(
         graph: CUgraph,
@@ -14927,36 +15682,60 @@ mod loaded {
         count: ::core::ffi::c_uint,
         flags: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuGraphRetainUserObject)(graph, object, count, flags)
+        if let Some(__function) = (culib().cuGraphRetainUserObject) {
+            __function(graph, object, count, flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphUpload(hGraphExec: CUgraphExec, hStream: CUstream) -> CUresult {
-        (culib().cuGraphUpload)(hGraphExec, hStream)
+        if let Some(__function) = (culib().cuGraphUpload) {
+            __function(hGraphExec, hStream)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphicsMapResources(
         count: ::core::ffi::c_uint,
         resources: *mut CUgraphicsResource,
         hStream: CUstream,
     ) -> CUresult {
-        (culib().cuGraphicsMapResources)(count, resources, hStream)
+        if let Some(__function) = (culib().cuGraphicsMapResources) {
+            __function(count, resources, hStream)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphicsResourceGetMappedMipmappedArray(
         pMipmappedArray: *mut CUmipmappedArray,
         resource: CUgraphicsResource,
     ) -> CUresult {
-        (culib().cuGraphicsResourceGetMappedMipmappedArray)(pMipmappedArray, resource)
+        if let Some(__function) = (culib().cuGraphicsResourceGetMappedMipmappedArray) {
+            __function(pMipmappedArray, resource)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphicsResourceGetMappedPointer_v2(
         pDevPtr: *mut CUdeviceptr,
         pSize: *mut usize,
         resource: CUgraphicsResource,
     ) -> CUresult {
-        (culib().cuGraphicsResourceGetMappedPointer_v2)(pDevPtr, pSize, resource)
+        if let Some(__function) = (culib().cuGraphicsResourceGetMappedPointer_v2) {
+            __function(pDevPtr, pSize, resource)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphicsResourceSetMapFlags_v2(
         resource: CUgraphicsResource,
         flags: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuGraphicsResourceSetMapFlags_v2)(resource, flags)
+        if let Some(__function) = (culib().cuGraphicsResourceSetMapFlags_v2) {
+            __function(resource, flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphicsSubResourceGetMappedArray(
         pArray: *mut CUarray,
@@ -14964,17 +15743,29 @@ mod loaded {
         arrayIndex: ::core::ffi::c_uint,
         mipLevel: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuGraphicsSubResourceGetMappedArray)(pArray, resource, arrayIndex, mipLevel)
+        if let Some(__function) = (culib().cuGraphicsSubResourceGetMappedArray) {
+            __function(pArray, resource, arrayIndex, mipLevel)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphicsUnmapResources(
         count: ::core::ffi::c_uint,
         resources: *mut CUgraphicsResource,
         hStream: CUstream,
     ) -> CUresult {
-        (culib().cuGraphicsUnmapResources)(count, resources, hStream)
+        if let Some(__function) = (culib().cuGraphicsUnmapResources) {
+            __function(count, resources, hStream)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuGraphicsUnregisterResource(resource: CUgraphicsResource) -> CUresult {
-        (culib().cuGraphicsUnregisterResource)(resource)
+        if let Some(__function) = (culib().cuGraphicsUnregisterResource) {
+            __function(resource)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12040",
@@ -14990,7 +15781,11 @@ mod loaded {
         dev: CUdevice,
         flags: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuGreenCtxCreate)(phCtx, desc, dev, flags)
+        if let Some(__function) = (culib().cuGreenCtxCreate) {
+            __function(phCtx, desc, dev, flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12040",
@@ -15001,7 +15796,11 @@ mod loaded {
         feature = "cuda-13000"
     ))]
     pub unsafe fn cuGreenCtxDestroy(hCtx: CUgreenCtx) -> CUresult {
-        (culib().cuGreenCtxDestroy)(hCtx)
+        if let Some(__function) = (culib().cuGreenCtxDestroy) {
+            __function(hCtx)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12040",
@@ -15016,14 +15815,22 @@ mod loaded {
         resource: *mut CUdevResource,
         type_: CUdevResourceType,
     ) -> CUresult {
-        (culib().cuGreenCtxGetDevResource)(hCtx, resource, type_)
+        if let Some(__function) = (culib().cuGreenCtxGetDevResource) {
+            __function(hCtx, resource, type_)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(feature = "cuda-13000"))]
     pub unsafe fn cuGreenCtxGetId(
         greenCtx: CUgreenCtx,
         greenCtxId: *mut ::core::ffi::c_ulonglong,
     ) -> CUresult {
-        (culib().cuGreenCtxGetId)(greenCtx, greenCtxId)
+        if let Some(__function) = (culib().cuGreenCtxGetId) {
+            __function(greenCtx, greenCtxId)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12040",
@@ -15034,7 +15841,11 @@ mod loaded {
         feature = "cuda-13000"
     ))]
     pub unsafe fn cuGreenCtxRecordEvent(hCtx: CUgreenCtx, hEvent: CUevent) -> CUresult {
-        (culib().cuGreenCtxRecordEvent)(hCtx, hEvent)
+        if let Some(__function) = (culib().cuGreenCtxRecordEvent) {
+            __function(hCtx, hEvent)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12050",
@@ -15049,7 +15860,11 @@ mod loaded {
         flags: ::core::ffi::c_uint,
         priority: ::core::ffi::c_int,
     ) -> CUresult {
-        (culib().cuGreenCtxStreamCreate)(phStream, greenCtx, flags, priority)
+        if let Some(__function) = (culib().cuGreenCtxStreamCreate) {
+            __function(phStream, greenCtx, flags, priority)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12040",
@@ -15060,44 +15875,80 @@ mod loaded {
         feature = "cuda-13000"
     ))]
     pub unsafe fn cuGreenCtxWaitEvent(hCtx: CUgreenCtx, hEvent: CUevent) -> CUresult {
-        (culib().cuGreenCtxWaitEvent)(hCtx, hEvent)
+        if let Some(__function) = (culib().cuGreenCtxWaitEvent) {
+            __function(hCtx, hEvent)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuImportExternalMemory(
         extMem_out: *mut CUexternalMemory,
         memHandleDesc: *const CUDA_EXTERNAL_MEMORY_HANDLE_DESC,
     ) -> CUresult {
-        (culib().cuImportExternalMemory)(extMem_out, memHandleDesc)
+        if let Some(__function) = (culib().cuImportExternalMemory) {
+            __function(extMem_out, memHandleDesc)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuImportExternalSemaphore(
         extSem_out: *mut CUexternalSemaphore,
         semHandleDesc: *const CUDA_EXTERNAL_SEMAPHORE_HANDLE_DESC,
     ) -> CUresult {
-        (culib().cuImportExternalSemaphore)(extSem_out, semHandleDesc)
+        if let Some(__function) = (culib().cuImportExternalSemaphore) {
+            __function(extSem_out, semHandleDesc)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuInit(Flags: ::core::ffi::c_uint) -> CUresult {
-        (culib().cuInit)(Flags)
+        if let Some(__function) = (culib().cuInit) {
+            __function(Flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuIpcCloseMemHandle(dptr: CUdeviceptr) -> CUresult {
-        (culib().cuIpcCloseMemHandle)(dptr)
+        if let Some(__function) = (culib().cuIpcCloseMemHandle) {
+            __function(dptr)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuIpcGetEventHandle(pHandle: *mut CUipcEventHandle, event: CUevent) -> CUresult {
-        (culib().cuIpcGetEventHandle)(pHandle, event)
+        if let Some(__function) = (culib().cuIpcGetEventHandle) {
+            __function(pHandle, event)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuIpcGetMemHandle(pHandle: *mut CUipcMemHandle, dptr: CUdeviceptr) -> CUresult {
-        (culib().cuIpcGetMemHandle)(pHandle, dptr)
+        if let Some(__function) = (culib().cuIpcGetMemHandle) {
+            __function(pHandle, dptr)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuIpcOpenEventHandle(
         phEvent: *mut CUevent,
         handle: CUipcEventHandle,
     ) -> CUresult {
-        (culib().cuIpcOpenEventHandle)(phEvent, handle)
+        if let Some(__function) = (culib().cuIpcOpenEventHandle) {
+            __function(phEvent, handle)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuIpcOpenMemHandle_v2(
         pdptr: *mut CUdeviceptr,
         handle: CUipcMemHandle,
         Flags: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuIpcOpenMemHandle_v2)(pdptr, handle, Flags)
+        if let Some(__function) = (culib().cuIpcOpenMemHandle_v2) {
+            __function(pdptr, handle, Flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12000",
@@ -15117,7 +15968,11 @@ mod loaded {
         kernel: CUkernel,
         dev: CUdevice,
     ) -> CUresult {
-        (culib().cuKernelGetAttribute)(pi, attrib, kernel, dev)
+        if let Some(__function) = (culib().cuKernelGetAttribute) {
+            __function(pi, attrib, kernel, dev)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12000",
@@ -15132,7 +15987,11 @@ mod loaded {
         feature = "cuda-13000"
     ))]
     pub unsafe fn cuKernelGetFunction(pFunc: *mut CUfunction, kernel: CUkernel) -> CUresult {
-        (culib().cuKernelGetFunction)(pFunc, kernel)
+        if let Some(__function) = (culib().cuKernelGetFunction) {
+            __function(pFunc, kernel)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12050",
@@ -15142,7 +16001,11 @@ mod loaded {
         feature = "cuda-13000"
     ))]
     pub unsafe fn cuKernelGetLibrary(pLib: *mut CUlibrary, kernel: CUkernel) -> CUresult {
-        (culib().cuKernelGetLibrary)(pLib, kernel)
+        if let Some(__function) = (culib().cuKernelGetLibrary) {
+            __function(pLib, kernel)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12030",
@@ -15157,7 +16020,11 @@ mod loaded {
         name: *mut *const ::core::ffi::c_char,
         hfunc: CUkernel,
     ) -> CUresult {
-        (culib().cuKernelGetName)(name, hfunc)
+        if let Some(__function) = (culib().cuKernelGetName) {
+            __function(name, hfunc)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12040",
@@ -15173,7 +16040,11 @@ mod loaded {
         paramOffset: *mut usize,
         paramSize: *mut usize,
     ) -> CUresult {
-        (culib().cuKernelGetParamInfo)(kernel, paramIndex, paramOffset, paramSize)
+        if let Some(__function) = (culib().cuKernelGetParamInfo) {
+            __function(kernel, paramIndex, paramOffset, paramSize)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12000",
@@ -15193,7 +16064,11 @@ mod loaded {
         kernel: CUkernel,
         dev: CUdevice,
     ) -> CUresult {
-        (culib().cuKernelSetAttribute)(attrib, val, kernel, dev)
+        if let Some(__function) = (culib().cuKernelSetAttribute) {
+            __function(attrib, val, kernel, dev)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12000",
@@ -15212,10 +16087,18 @@ mod loaded {
         config: CUfunc_cache,
         dev: CUdevice,
     ) -> CUresult {
-        (culib().cuKernelSetCacheConfig)(kernel, config, dev)
+        if let Some(__function) = (culib().cuKernelSetCacheConfig) {
+            __function(kernel, config, dev)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuLaunch(f: CUfunction) -> CUresult {
-        (culib().cuLaunch)(f)
+        if let Some(__function) = (culib().cuLaunch) {
+            __function(f)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuLaunchCooperativeKernel(
         f: CUfunction,
@@ -15229,32 +16112,44 @@ mod loaded {
         hStream: CUstream,
         kernelParams: *mut *mut ::core::ffi::c_void,
     ) -> CUresult {
-        (culib().cuLaunchCooperativeKernel)(
-            f,
-            gridDimX,
-            gridDimY,
-            gridDimZ,
-            blockDimX,
-            blockDimY,
-            blockDimZ,
-            sharedMemBytes,
-            hStream,
-            kernelParams,
-        )
+        if let Some(__function) = (culib().cuLaunchCooperativeKernel) {
+            __function(
+                f,
+                gridDimX,
+                gridDimY,
+                gridDimZ,
+                blockDimX,
+                blockDimY,
+                blockDimZ,
+                sharedMemBytes,
+                hStream,
+                kernelParams,
+            )
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuLaunchCooperativeKernelMultiDevice(
         launchParamsList: *mut CUDA_LAUNCH_PARAMS,
         numDevices: ::core::ffi::c_uint,
         flags: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuLaunchCooperativeKernelMultiDevice)(launchParamsList, numDevices, flags)
+        if let Some(__function) = (culib().cuLaunchCooperativeKernelMultiDevice) {
+            __function(launchParamsList, numDevices, flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuLaunchGrid(
         f: CUfunction,
         grid_width: ::core::ffi::c_int,
         grid_height: ::core::ffi::c_int,
     ) -> CUresult {
-        (culib().cuLaunchGrid)(f, grid_width, grid_height)
+        if let Some(__function) = (culib().cuLaunchGrid) {
+            __function(f, grid_width, grid_height)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuLaunchGridAsync(
         f: CUfunction,
@@ -15262,14 +16157,22 @@ mod loaded {
         grid_height: ::core::ffi::c_int,
         hStream: CUstream,
     ) -> CUresult {
-        (culib().cuLaunchGridAsync)(f, grid_width, grid_height, hStream)
+        if let Some(__function) = (culib().cuLaunchGridAsync) {
+            __function(f, grid_width, grid_height, hStream)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuLaunchHostFunc(
         hStream: CUstream,
         fn_: CUhostFn,
         userData: *mut ::core::ffi::c_void,
     ) -> CUresult {
-        (culib().cuLaunchHostFunc)(hStream, fn_, userData)
+        if let Some(__function) = (culib().cuLaunchHostFunc) {
+            __function(hStream, fn_, userData)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuLaunchKernel(
         f: CUfunction,
@@ -15284,19 +16187,23 @@ mod loaded {
         kernelParams: *mut *mut ::core::ffi::c_void,
         extra: *mut *mut ::core::ffi::c_void,
     ) -> CUresult {
-        (culib().cuLaunchKernel)(
-            f,
-            gridDimX,
-            gridDimY,
-            gridDimZ,
-            blockDimX,
-            blockDimY,
-            blockDimZ,
-            sharedMemBytes,
-            hStream,
-            kernelParams,
-            extra,
-        )
+        if let Some(__function) = (culib().cuLaunchKernel) {
+            __function(
+                f,
+                gridDimX,
+                gridDimY,
+                gridDimZ,
+                blockDimX,
+                blockDimY,
+                blockDimZ,
+                sharedMemBytes,
+                hStream,
+                kernelParams,
+                extra,
+            )
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-11080",
@@ -15317,7 +16224,11 @@ mod loaded {
         kernelParams: *mut *mut ::core::ffi::c_void,
         extra: *mut *mut ::core::ffi::c_void,
     ) -> CUresult {
-        (culib().cuLaunchKernelEx)(config, f, kernelParams, extra)
+        if let Some(__function) = (culib().cuLaunchKernelEx) {
+            __function(config, f, kernelParams, extra)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12040",
@@ -15332,7 +16243,11 @@ mod loaded {
         numKernels: ::core::ffi::c_uint,
         lib: CUlibrary,
     ) -> CUresult {
-        (culib().cuLibraryEnumerateKernels)(kernels, numKernels, lib)
+        if let Some(__function) = (culib().cuLibraryEnumerateKernels) {
+            __function(kernels, numKernels, lib)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12000",
@@ -15352,7 +16267,11 @@ mod loaded {
         library: CUlibrary,
         name: *const ::core::ffi::c_char,
     ) -> CUresult {
-        (culib().cuLibraryGetGlobal)(dptr, bytes, library, name)
+        if let Some(__function) = (culib().cuLibraryGetGlobal) {
+            __function(dptr, bytes, library, name)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12000",
@@ -15371,7 +16290,11 @@ mod loaded {
         library: CUlibrary,
         name: *const ::core::ffi::c_char,
     ) -> CUresult {
-        (culib().cuLibraryGetKernel)(pKernel, library, name)
+        if let Some(__function) = (culib().cuLibraryGetKernel) {
+            __function(pKernel, library, name)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12040",
@@ -15385,7 +16308,11 @@ mod loaded {
         count: *mut ::core::ffi::c_uint,
         lib: CUlibrary,
     ) -> CUresult {
-        (culib().cuLibraryGetKernelCount)(count, lib)
+        if let Some(__function) = (culib().cuLibraryGetKernelCount) {
+            __function(count, lib)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12000",
@@ -15405,7 +16332,11 @@ mod loaded {
         library: CUlibrary,
         name: *const ::core::ffi::c_char,
     ) -> CUresult {
-        (culib().cuLibraryGetManaged)(dptr, bytes, library, name)
+        if let Some(__function) = (culib().cuLibraryGetManaged) {
+            __function(dptr, bytes, library, name)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12000",
@@ -15420,7 +16351,11 @@ mod loaded {
         feature = "cuda-13000"
     ))]
     pub unsafe fn cuLibraryGetModule(pMod: *mut CUmodule, library: CUlibrary) -> CUresult {
-        (culib().cuLibraryGetModule)(pMod, library)
+        if let Some(__function) = (culib().cuLibraryGetModule) {
+            __function(pMod, library)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12000",
@@ -15439,7 +16374,11 @@ mod loaded {
         library: CUlibrary,
         symbol: *const ::core::ffi::c_char,
     ) -> CUresult {
-        (culib().cuLibraryGetUnifiedFunction)(fptr, library, symbol)
+        if let Some(__function) = (culib().cuLibraryGetUnifiedFunction) {
+            __function(fptr, library, symbol)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12000",
@@ -15463,16 +16402,20 @@ mod loaded {
         libraryOptionValues: *mut *mut ::core::ffi::c_void,
         numLibraryOptions: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuLibraryLoadData)(
-            library,
-            code,
-            jitOptions,
-            jitOptionsValues,
-            numJitOptions,
-            libraryOptions,
-            libraryOptionValues,
-            numLibraryOptions,
-        )
+        if let Some(__function) = (culib().cuLibraryLoadData) {
+            __function(
+                library,
+                code,
+                jitOptions,
+                jitOptionsValues,
+                numJitOptions,
+                libraryOptions,
+                libraryOptionValues,
+                numLibraryOptions,
+            )
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12000",
@@ -15496,16 +16439,20 @@ mod loaded {
         libraryOptionValues: *mut *mut ::core::ffi::c_void,
         numLibraryOptions: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuLibraryLoadFromFile)(
-            library,
-            fileName,
-            jitOptions,
-            jitOptionsValues,
-            numJitOptions,
-            libraryOptions,
-            libraryOptionValues,
-            numLibraryOptions,
-        )
+        if let Some(__function) = (culib().cuLibraryLoadFromFile) {
+            __function(
+                library,
+                fileName,
+                jitOptions,
+                jitOptionsValues,
+                numJitOptions,
+                libraryOptions,
+                libraryOptionValues,
+                numLibraryOptions,
+            )
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12000",
@@ -15520,7 +16467,11 @@ mod loaded {
         feature = "cuda-13000"
     ))]
     pub unsafe fn cuLibraryUnload(library: CUlibrary) -> CUresult {
-        (culib().cuLibraryUnload)(library)
+        if let Some(__function) = (culib().cuLibraryUnload) {
+            __function(library)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuLinkAddData_v2(
         state: CUlinkState,
@@ -15532,16 +16483,20 @@ mod loaded {
         options: *mut CUjit_option,
         optionValues: *mut *mut ::core::ffi::c_void,
     ) -> CUresult {
-        (culib().cuLinkAddData_v2)(
-            state,
-            type_,
-            data,
-            size,
-            name,
-            numOptions,
-            options,
-            optionValues,
-        )
+        if let Some(__function) = (culib().cuLinkAddData_v2) {
+            __function(
+                state,
+                type_,
+                data,
+                size,
+                name,
+                numOptions,
+                options,
+                optionValues,
+            )
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuLinkAddFile_v2(
         state: CUlinkState,
@@ -15551,14 +16506,22 @@ mod loaded {
         options: *mut CUjit_option,
         optionValues: *mut *mut ::core::ffi::c_void,
     ) -> CUresult {
-        (culib().cuLinkAddFile_v2)(state, type_, path, numOptions, options, optionValues)
+        if let Some(__function) = (culib().cuLinkAddFile_v2) {
+            __function(state, type_, path, numOptions, options, optionValues)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuLinkComplete(
         state: CUlinkState,
         cubinOut: *mut *mut ::core::ffi::c_void,
         sizeOut: *mut usize,
     ) -> CUresult {
-        (culib().cuLinkComplete)(state, cubinOut, sizeOut)
+        if let Some(__function) = (culib().cuLinkComplete) {
+            __function(state, cubinOut, sizeOut)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuLinkCreate_v2(
         numOptions: ::core::ffi::c_uint,
@@ -15566,17 +16529,29 @@ mod loaded {
         optionValues: *mut *mut ::core::ffi::c_void,
         stateOut: *mut CUlinkState,
     ) -> CUresult {
-        (culib().cuLinkCreate_v2)(numOptions, options, optionValues, stateOut)
+        if let Some(__function) = (culib().cuLinkCreate_v2) {
+            __function(numOptions, options, optionValues, stateOut)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuLinkDestroy(state: CUlinkState) -> CUresult {
-        (culib().cuLinkDestroy)(state)
+        if let Some(__function) = (culib().cuLinkDestroy) {
+            __function(state)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(feature = "cuda-12090", feature = "cuda-13000"))]
     pub unsafe fn cuLogsCurrent(
         iterator_out: *mut CUlogIterator,
         flags: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuLogsCurrent)(iterator_out, flags)
+        if let Some(__function) = (culib().cuLogsCurrent) {
+            __function(iterator_out, flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(feature = "cuda-12090", feature = "cuda-13000"))]
     pub unsafe fn cuLogsDumpToFile(
@@ -15584,7 +16559,11 @@ mod loaded {
         pathToFile: *const ::core::ffi::c_char,
         flags: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuLogsDumpToFile)(iterator, pathToFile, flags)
+        if let Some(__function) = (culib().cuLogsDumpToFile) {
+            __function(iterator, pathToFile, flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(feature = "cuda-12090", feature = "cuda-13000"))]
     pub unsafe fn cuLogsDumpToMemory(
@@ -15593,7 +16572,11 @@ mod loaded {
         size: *mut usize,
         flags: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuLogsDumpToMemory)(iterator, buffer, size, flags)
+        if let Some(__function) = (culib().cuLogsDumpToMemory) {
+            __function(iterator, buffer, size, flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(feature = "cuda-12090", feature = "cuda-13000"))]
     pub unsafe fn cuLogsRegisterCallback(
@@ -15601,14 +16584,26 @@ mod loaded {
         userData: *mut ::core::ffi::c_void,
         callback_out: *mut CUlogsCallbackHandle,
     ) -> CUresult {
-        (culib().cuLogsRegisterCallback)(callbackFunc, userData, callback_out)
+        if let Some(__function) = (culib().cuLogsRegisterCallback) {
+            __function(callbackFunc, userData, callback_out)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(feature = "cuda-12090", feature = "cuda-13000"))]
     pub unsafe fn cuLogsUnregisterCallback(callback: CUlogsCallbackHandle) -> CUresult {
-        (culib().cuLogsUnregisterCallback)(callback)
+        if let Some(__function) = (culib().cuLogsUnregisterCallback) {
+            __function(callback)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemAddressFree(ptr: CUdeviceptr, size: usize) -> CUresult {
-        (culib().cuMemAddressFree)(ptr, size)
+        if let Some(__function) = (culib().cuMemAddressFree) {
+            __function(ptr, size)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemAddressReserve(
         ptr: *mut CUdeviceptr,
@@ -15617,7 +16612,11 @@ mod loaded {
         addr: CUdeviceptr,
         flags: ::core::ffi::c_ulonglong,
     ) -> CUresult {
-        (culib().cuMemAddressReserve)(ptr, size, alignment, addr, flags)
+        if let Some(__function) = (culib().cuMemAddressReserve) {
+            __function(ptr, size, alignment, addr, flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-11040",
@@ -15641,7 +16640,11 @@ mod loaded {
         advice: CUmem_advise,
         device: CUdevice,
     ) -> CUresult {
-        (culib().cuMemAdvise)(devPtr, count, advice, device)
+        if let Some(__function) = (culib().cuMemAdvise) {
+            __function(devPtr, count, advice, device)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12020",
@@ -15659,14 +16662,22 @@ mod loaded {
         advice: CUmem_advise,
         location: CUmemLocation,
     ) -> CUresult {
-        (culib().cuMemAdvise_v2)(devPtr, count, advice, location)
+        if let Some(__function) = (culib().cuMemAdvise_v2) {
+            __function(devPtr, count, advice, location)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemAllocAsync(
         dptr: *mut CUdeviceptr,
         bytesize: usize,
         hStream: CUstream,
     ) -> CUresult {
-        (culib().cuMemAllocAsync)(dptr, bytesize, hStream)
+        if let Some(__function) = (culib().cuMemAllocAsync) {
+            __function(dptr, bytesize, hStream)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemAllocFromPoolAsync(
         dptr: *mut CUdeviceptr,
@@ -15674,20 +16685,32 @@ mod loaded {
         pool: CUmemoryPool,
         hStream: CUstream,
     ) -> CUresult {
-        (culib().cuMemAllocFromPoolAsync)(dptr, bytesize, pool, hStream)
+        if let Some(__function) = (culib().cuMemAllocFromPoolAsync) {
+            __function(dptr, bytesize, pool, hStream)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemAllocHost_v2(
         pp: *mut *mut ::core::ffi::c_void,
         bytesize: usize,
     ) -> CUresult {
-        (culib().cuMemAllocHost_v2)(pp, bytesize)
+        if let Some(__function) = (culib().cuMemAllocHost_v2) {
+            __function(pp, bytesize)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemAllocManaged(
         dptr: *mut CUdeviceptr,
         bytesize: usize,
         flags: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuMemAllocManaged)(dptr, bytesize, flags)
+        if let Some(__function) = (culib().cuMemAllocManaged) {
+            __function(dptr, bytesize, flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemAllocPitch_v2(
         dptr: *mut CUdeviceptr,
@@ -15696,10 +16719,18 @@ mod loaded {
         Height: usize,
         ElementSizeBytes: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuMemAllocPitch_v2)(dptr, pPitch, WidthInBytes, Height, ElementSizeBytes)
+        if let Some(__function) = (culib().cuMemAllocPitch_v2) {
+            __function(dptr, pPitch, WidthInBytes, Height, ElementSizeBytes)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemAlloc_v2(dptr: *mut CUdeviceptr, bytesize: usize) -> CUresult {
-        (culib().cuMemAlloc_v2)(dptr, bytesize)
+        if let Some(__function) = (culib().cuMemAlloc_v2) {
+            __function(dptr, bytesize)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(feature = "cuda-12080", feature = "cuda-12090", feature = "cuda-13000"))]
     pub unsafe fn cuMemBatchDecompressAsync(
@@ -15709,7 +16740,11 @@ mod loaded {
         errorIndex: *mut usize,
         stream: CUstream,
     ) -> CUresult {
-        (culib().cuMemBatchDecompressAsync)(paramsArray, count, flags, errorIndex, stream)
+        if let Some(__function) = (culib().cuMemBatchDecompressAsync) {
+            __function(paramsArray, count, flags, errorIndex, stream)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemCreate(
         handle: *mut CUmemGenericAllocationHandle,
@@ -15717,7 +16752,11 @@ mod loaded {
         prop: *const CUmemAllocationProp,
         flags: ::core::ffi::c_ulonglong,
     ) -> CUresult {
-        (culib().cuMemCreate)(handle, size, prop, flags)
+        if let Some(__function) = (culib().cuMemCreate) {
+            __function(handle, size, prop, flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(feature = "cuda-13000"))]
     pub unsafe fn cuMemDiscardAndPrefetchBatchAsync(
@@ -15730,16 +16769,20 @@ mod loaded {
         flags: ::core::ffi::c_ulonglong,
         hStream: CUstream,
     ) -> CUresult {
-        (culib().cuMemDiscardAndPrefetchBatchAsync)(
-            dptrs,
-            sizes,
-            count,
-            prefetchLocs,
-            prefetchLocIdxs,
-            numPrefetchLocs,
-            flags,
-            hStream,
-        )
+        if let Some(__function) = (culib().cuMemDiscardAndPrefetchBatchAsync) {
+            __function(
+                dptrs,
+                sizes,
+                count,
+                prefetchLocs,
+                prefetchLocIdxs,
+                numPrefetchLocs,
+                flags,
+                hStream,
+            )
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(feature = "cuda-13000"))]
     pub unsafe fn cuMemDiscardBatchAsync(
@@ -15749,7 +16792,11 @@ mod loaded {
         flags: ::core::ffi::c_ulonglong,
         hStream: CUstream,
     ) -> CUresult {
-        (culib().cuMemDiscardBatchAsync)(dptrs, sizes, count, flags, hStream)
+        if let Some(__function) = (culib().cuMemDiscardBatchAsync) {
+            __function(dptrs, sizes, count, flags, hStream)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemExportToShareableHandle(
         shareableHandle: *mut ::core::ffi::c_void,
@@ -15757,43 +16804,75 @@ mod loaded {
         handleType: CUmemAllocationHandleType,
         flags: ::core::ffi::c_ulonglong,
     ) -> CUresult {
-        (culib().cuMemExportToShareableHandle)(shareableHandle, handle, handleType, flags)
+        if let Some(__function) = (culib().cuMemExportToShareableHandle) {
+            __function(shareableHandle, handle, handleType, flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemFreeAsync(dptr: CUdeviceptr, hStream: CUstream) -> CUresult {
-        (culib().cuMemFreeAsync)(dptr, hStream)
+        if let Some(__function) = (culib().cuMemFreeAsync) {
+            __function(dptr, hStream)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemFreeHost(p: *mut ::core::ffi::c_void) -> CUresult {
-        (culib().cuMemFreeHost)(p)
+        if let Some(__function) = (culib().cuMemFreeHost) {
+            __function(p)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemFree_v2(dptr: CUdeviceptr) -> CUresult {
-        (culib().cuMemFree_v2)(dptr)
+        if let Some(__function) = (culib().cuMemFree_v2) {
+            __function(dptr)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemGetAccess(
         flags: *mut ::core::ffi::c_ulonglong,
         location: *const CUmemLocation,
         ptr: CUdeviceptr,
     ) -> CUresult {
-        (culib().cuMemGetAccess)(flags, location, ptr)
+        if let Some(__function) = (culib().cuMemGetAccess) {
+            __function(flags, location, ptr)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemGetAddressRange_v2(
         pbase: *mut CUdeviceptr,
         psize: *mut usize,
         dptr: CUdeviceptr,
     ) -> CUresult {
-        (culib().cuMemGetAddressRange_v2)(pbase, psize, dptr)
+        if let Some(__function) = (culib().cuMemGetAddressRange_v2) {
+            __function(pbase, psize, dptr)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemGetAllocationGranularity(
         granularity: *mut usize,
         prop: *const CUmemAllocationProp,
         option: CUmemAllocationGranularity_flags,
     ) -> CUresult {
-        (culib().cuMemGetAllocationGranularity)(granularity, prop, option)
+        if let Some(__function) = (culib().cuMemGetAllocationGranularity) {
+            __function(granularity, prop, option)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemGetAllocationPropertiesFromHandle(
         prop: *mut CUmemAllocationProp,
         handle: CUmemGenericAllocationHandle,
     ) -> CUresult {
-        (culib().cuMemGetAllocationPropertiesFromHandle)(prop, handle)
+        if let Some(__function) = (culib().cuMemGetAllocationPropertiesFromHandle) {
+            __function(prop, handle)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(feature = "cuda-13000"))]
     pub unsafe fn cuMemGetDefaultMemPool(
@@ -15801,7 +16880,11 @@ mod loaded {
         location: *mut CUmemLocation,
         type_: CUmemAllocationType,
     ) -> CUresult {
-        (culib().cuMemGetDefaultMemPool)(pool_out, location, type_)
+        if let Some(__function) = (culib().cuMemGetDefaultMemPool) {
+            __function(pool_out, location, type_)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-11070",
@@ -15824,10 +16907,18 @@ mod loaded {
         handleType: CUmemRangeHandleType,
         flags: ::core::ffi::c_ulonglong,
     ) -> CUresult {
-        (culib().cuMemGetHandleForAddressRange)(handle, dptr, size, handleType, flags)
+        if let Some(__function) = (culib().cuMemGetHandleForAddressRange) {
+            __function(handle, dptr, size, handleType, flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemGetInfo_v2(free: *mut usize, total: *mut usize) -> CUresult {
-        (culib().cuMemGetInfo_v2)(free, total)
+        if let Some(__function) = (culib().cuMemGetInfo_v2) {
+            __function(free, total)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(feature = "cuda-13000"))]
     pub unsafe fn cuMemGetMemPool(
@@ -15835,44 +16926,72 @@ mod loaded {
         location: *mut CUmemLocation,
         type_: CUmemAllocationType,
     ) -> CUresult {
-        (culib().cuMemGetMemPool)(pool, location, type_)
+        if let Some(__function) = (culib().cuMemGetMemPool) {
+            __function(pool, location, type_)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemHostAlloc(
         pp: *mut *mut ::core::ffi::c_void,
         bytesize: usize,
         Flags: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuMemHostAlloc)(pp, bytesize, Flags)
+        if let Some(__function) = (culib().cuMemHostAlloc) {
+            __function(pp, bytesize, Flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemHostGetDevicePointer_v2(
         pdptr: *mut CUdeviceptr,
         p: *mut ::core::ffi::c_void,
         Flags: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuMemHostGetDevicePointer_v2)(pdptr, p, Flags)
+        if let Some(__function) = (culib().cuMemHostGetDevicePointer_v2) {
+            __function(pdptr, p, Flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemHostGetFlags(
         pFlags: *mut ::core::ffi::c_uint,
         p: *mut ::core::ffi::c_void,
     ) -> CUresult {
-        (culib().cuMemHostGetFlags)(pFlags, p)
+        if let Some(__function) = (culib().cuMemHostGetFlags) {
+            __function(pFlags, p)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemHostRegister_v2(
         p: *mut ::core::ffi::c_void,
         bytesize: usize,
         Flags: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuMemHostRegister_v2)(p, bytesize, Flags)
+        if let Some(__function) = (culib().cuMemHostRegister_v2) {
+            __function(p, bytesize, Flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemHostUnregister(p: *mut ::core::ffi::c_void) -> CUresult {
-        (culib().cuMemHostUnregister)(p)
+        if let Some(__function) = (culib().cuMemHostUnregister) {
+            __function(p)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemImportFromShareableHandle(
         handle: *mut CUmemGenericAllocationHandle,
         osHandle: *mut ::core::ffi::c_void,
         shHandleType: CUmemAllocationHandleType,
     ) -> CUresult {
-        (culib().cuMemImportFromShareableHandle)(handle, osHandle, shHandleType)
+        if let Some(__function) = (culib().cuMemImportFromShareableHandle) {
+            __function(handle, osHandle, shHandleType)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemMap(
         ptr: CUdeviceptr,
@@ -15881,29 +17000,49 @@ mod loaded {
         handle: CUmemGenericAllocationHandle,
         flags: ::core::ffi::c_ulonglong,
     ) -> CUresult {
-        (culib().cuMemMap)(ptr, size, offset, handle, flags)
+        if let Some(__function) = (culib().cuMemMap) {
+            __function(ptr, size, offset, handle, flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemMapArrayAsync(
         mapInfoList: *mut CUarrayMapInfo,
         count: ::core::ffi::c_uint,
         hStream: CUstream,
     ) -> CUresult {
-        (culib().cuMemMapArrayAsync)(mapInfoList, count, hStream)
+        if let Some(__function) = (culib().cuMemMapArrayAsync) {
+            __function(mapInfoList, count, hStream)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemPoolCreate(
         pool: *mut CUmemoryPool,
         poolProps: *const CUmemPoolProps,
     ) -> CUresult {
-        (culib().cuMemPoolCreate)(pool, poolProps)
+        if let Some(__function) = (culib().cuMemPoolCreate) {
+            __function(pool, poolProps)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemPoolDestroy(pool: CUmemoryPool) -> CUresult {
-        (culib().cuMemPoolDestroy)(pool)
+        if let Some(__function) = (culib().cuMemPoolDestroy) {
+            __function(pool)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemPoolExportPointer(
         shareData_out: *mut CUmemPoolPtrExportData,
         ptr: CUdeviceptr,
     ) -> CUresult {
-        (culib().cuMemPoolExportPointer)(shareData_out, ptr)
+        if let Some(__function) = (culib().cuMemPoolExportPointer) {
+            __function(shareData_out, ptr)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemPoolExportToShareableHandle(
         handle_out: *mut ::core::ffi::c_void,
@@ -15911,21 +17050,33 @@ mod loaded {
         handleType: CUmemAllocationHandleType,
         flags: ::core::ffi::c_ulonglong,
     ) -> CUresult {
-        (culib().cuMemPoolExportToShareableHandle)(handle_out, pool, handleType, flags)
+        if let Some(__function) = (culib().cuMemPoolExportToShareableHandle) {
+            __function(handle_out, pool, handleType, flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemPoolGetAccess(
         flags: *mut CUmemAccess_flags,
         memPool: CUmemoryPool,
         location: *mut CUmemLocation,
     ) -> CUresult {
-        (culib().cuMemPoolGetAccess)(flags, memPool, location)
+        if let Some(__function) = (culib().cuMemPoolGetAccess) {
+            __function(flags, memPool, location)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemPoolGetAttribute(
         pool: CUmemoryPool,
         attr: CUmemPool_attribute,
         value: *mut ::core::ffi::c_void,
     ) -> CUresult {
-        (culib().cuMemPoolGetAttribute)(pool, attr, value)
+        if let Some(__function) = (culib().cuMemPoolGetAttribute) {
+            __function(pool, attr, value)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemPoolImportFromShareableHandle(
         pool_out: *mut CUmemoryPool,
@@ -15933,31 +17084,51 @@ mod loaded {
         handleType: CUmemAllocationHandleType,
         flags: ::core::ffi::c_ulonglong,
     ) -> CUresult {
-        (culib().cuMemPoolImportFromShareableHandle)(pool_out, handle, handleType, flags)
+        if let Some(__function) = (culib().cuMemPoolImportFromShareableHandle) {
+            __function(pool_out, handle, handleType, flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemPoolImportPointer(
         ptr_out: *mut CUdeviceptr,
         pool: CUmemoryPool,
         shareData: *mut CUmemPoolPtrExportData,
     ) -> CUresult {
-        (culib().cuMemPoolImportPointer)(ptr_out, pool, shareData)
+        if let Some(__function) = (culib().cuMemPoolImportPointer) {
+            __function(ptr_out, pool, shareData)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemPoolSetAccess(
         pool: CUmemoryPool,
         map: *const CUmemAccessDesc,
         count: usize,
     ) -> CUresult {
-        (culib().cuMemPoolSetAccess)(pool, map, count)
+        if let Some(__function) = (culib().cuMemPoolSetAccess) {
+            __function(pool, map, count)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemPoolSetAttribute(
         pool: CUmemoryPool,
         attr: CUmemPool_attribute,
         value: *mut ::core::ffi::c_void,
     ) -> CUresult {
-        (culib().cuMemPoolSetAttribute)(pool, attr, value)
+        if let Some(__function) = (culib().cuMemPoolSetAttribute) {
+            __function(pool, attr, value)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemPoolTrimTo(pool: CUmemoryPool, minBytesToKeep: usize) -> CUresult {
-        (culib().cuMemPoolTrimTo)(pool, minBytesToKeep)
+        if let Some(__function) = (culib().cuMemPoolTrimTo) {
+            __function(pool, minBytesToKeep)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-11040",
@@ -15981,7 +17152,11 @@ mod loaded {
         dstDevice: CUdevice,
         hStream: CUstream,
     ) -> CUresult {
-        (culib().cuMemPrefetchAsync)(devPtr, count, dstDevice, hStream)
+        if let Some(__function) = (culib().cuMemPrefetchAsync) {
+            __function(devPtr, count, dstDevice, hStream)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12020",
@@ -16000,7 +17175,11 @@ mod loaded {
         flags: ::core::ffi::c_uint,
         hStream: CUstream,
     ) -> CUresult {
-        (culib().cuMemPrefetchAsync_v2)(devPtr, count, location, flags, hStream)
+        if let Some(__function) = (culib().cuMemPrefetchAsync_v2) {
+            __function(devPtr, count, location, flags, hStream)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(feature = "cuda-13000"))]
     pub unsafe fn cuMemPrefetchBatchAsync(
@@ -16013,16 +17192,20 @@ mod loaded {
         flags: ::core::ffi::c_ulonglong,
         hStream: CUstream,
     ) -> CUresult {
-        (culib().cuMemPrefetchBatchAsync)(
-            dptrs,
-            sizes,
-            count,
-            prefetchLocs,
-            prefetchLocIdxs,
-            numPrefetchLocs,
-            flags,
-            hStream,
-        )
+        if let Some(__function) = (culib().cuMemPrefetchBatchAsync) {
+            __function(
+                dptrs,
+                sizes,
+                count,
+                prefetchLocs,
+                prefetchLocIdxs,
+                numPrefetchLocs,
+                flags,
+                hStream,
+            )
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemRangeGetAttribute(
         data: *mut ::core::ffi::c_void,
@@ -16031,7 +17214,11 @@ mod loaded {
         devPtr: CUdeviceptr,
         count: usize,
     ) -> CUresult {
-        (culib().cuMemRangeGetAttribute)(data, dataSize, attribute, devPtr, count)
+        if let Some(__function) = (culib().cuMemRangeGetAttribute) {
+            __function(data, dataSize, attribute, devPtr, count)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemRangeGetAttributes(
         data: *mut *mut ::core::ffi::c_void,
@@ -16041,16 +17228,28 @@ mod loaded {
         devPtr: CUdeviceptr,
         count: usize,
     ) -> CUresult {
-        (culib().cuMemRangeGetAttributes)(data, dataSizes, attributes, numAttributes, devPtr, count)
+        if let Some(__function) = (culib().cuMemRangeGetAttributes) {
+            __function(data, dataSizes, attributes, numAttributes, devPtr, count)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemRelease(handle: CUmemGenericAllocationHandle) -> CUresult {
-        (culib().cuMemRelease)(handle)
+        if let Some(__function) = (culib().cuMemRelease) {
+            __function(handle)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemRetainAllocationHandle(
         handle: *mut CUmemGenericAllocationHandle,
         addr: *mut ::core::ffi::c_void,
     ) -> CUresult {
-        (culib().cuMemRetainAllocationHandle)(handle, addr)
+        if let Some(__function) = (culib().cuMemRetainAllocationHandle) {
+            __function(handle, addr)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemSetAccess(
         ptr: CUdeviceptr,
@@ -16058,7 +17257,11 @@ mod loaded {
         desc: *const CUmemAccessDesc,
         count: usize,
     ) -> CUresult {
-        (culib().cuMemSetAccess)(ptr, size, desc, count)
+        if let Some(__function) = (culib().cuMemSetAccess) {
+            __function(ptr, size, desc, count)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(feature = "cuda-13000"))]
     pub unsafe fn cuMemSetMemPool(
@@ -16066,25 +17269,53 @@ mod loaded {
         type_: CUmemAllocationType,
         pool: CUmemoryPool,
     ) -> CUresult {
-        (culib().cuMemSetMemPool)(location, type_, pool)
+        if let Some(__function) = (culib().cuMemSetMemPool) {
+            __function(location, type_, pool)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemUnmap(ptr: CUdeviceptr, size: usize) -> CUresult {
-        (culib().cuMemUnmap)(ptr, size)
+        if let Some(__function) = (culib().cuMemUnmap) {
+            __function(ptr, size)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemcpy(dst: CUdeviceptr, src: CUdeviceptr, ByteCount: usize) -> CUresult {
-        (culib().cuMemcpy)(dst, src, ByteCount)
+        if let Some(__function) = (culib().cuMemcpy) {
+            __function(dst, src, ByteCount)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemcpy2DAsync_v2(pCopy: *const CUDA_MEMCPY2D, hStream: CUstream) -> CUresult {
-        (culib().cuMemcpy2DAsync_v2)(pCopy, hStream)
+        if let Some(__function) = (culib().cuMemcpy2DAsync_v2) {
+            __function(pCopy, hStream)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemcpy2DUnaligned_v2(pCopy: *const CUDA_MEMCPY2D) -> CUresult {
-        (culib().cuMemcpy2DUnaligned_v2)(pCopy)
+        if let Some(__function) = (culib().cuMemcpy2DUnaligned_v2) {
+            __function(pCopy)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemcpy2D_v2(pCopy: *const CUDA_MEMCPY2D) -> CUresult {
-        (culib().cuMemcpy2D_v2)(pCopy)
+        if let Some(__function) = (culib().cuMemcpy2D_v2) {
+            __function(pCopy)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemcpy3DAsync_v2(pCopy: *const CUDA_MEMCPY3D, hStream: CUstream) -> CUresult {
-        (culib().cuMemcpy3DAsync_v2)(pCopy, hStream)
+        if let Some(__function) = (culib().cuMemcpy3DAsync_v2) {
+            __function(pCopy, hStream)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(feature = "cuda-12080", feature = "cuda-12090"))]
     pub unsafe fn cuMemcpy3DBatchAsync(
@@ -16094,7 +17325,11 @@ mod loaded {
         flags: ::core::ffi::c_ulonglong,
         hStream: CUstream,
     ) -> CUresult {
-        (culib().cuMemcpy3DBatchAsync)(numOps, opList, failIdx, flags, hStream)
+        if let Some(__function) = (culib().cuMemcpy3DBatchAsync) {
+            __function(numOps, opList, failIdx, flags, hStream)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(feature = "cuda-13000"))]
     pub unsafe fn cuMemcpy3DBatchAsync_v2(
@@ -16103,19 +17338,35 @@ mod loaded {
         flags: ::core::ffi::c_ulonglong,
         hStream: CUstream,
     ) -> CUresult {
-        (culib().cuMemcpy3DBatchAsync_v2)(numOps, opList, flags, hStream)
+        if let Some(__function) = (culib().cuMemcpy3DBatchAsync_v2) {
+            __function(numOps, opList, flags, hStream)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemcpy3DPeer(pCopy: *const CUDA_MEMCPY3D_PEER) -> CUresult {
-        (culib().cuMemcpy3DPeer)(pCopy)
+        if let Some(__function) = (culib().cuMemcpy3DPeer) {
+            __function(pCopy)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemcpy3DPeerAsync(
         pCopy: *const CUDA_MEMCPY3D_PEER,
         hStream: CUstream,
     ) -> CUresult {
-        (culib().cuMemcpy3DPeerAsync)(pCopy, hStream)
+        if let Some(__function) = (culib().cuMemcpy3DPeerAsync) {
+            __function(pCopy, hStream)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemcpy3D_v2(pCopy: *const CUDA_MEMCPY3D) -> CUresult {
-        (culib().cuMemcpy3D_v2)(pCopy)
+        if let Some(__function) = (culib().cuMemcpy3D_v2) {
+            __function(pCopy)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemcpyAsync(
         dst: CUdeviceptr,
@@ -16123,7 +17374,11 @@ mod loaded {
         ByteCount: usize,
         hStream: CUstream,
     ) -> CUresult {
-        (culib().cuMemcpyAsync)(dst, src, ByteCount, hStream)
+        if let Some(__function) = (culib().cuMemcpyAsync) {
+            __function(dst, src, ByteCount, hStream)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemcpyAtoA_v2(
         dstArray: CUarray,
@@ -16132,7 +17387,11 @@ mod loaded {
         srcOffset: usize,
         ByteCount: usize,
     ) -> CUresult {
-        (culib().cuMemcpyAtoA_v2)(dstArray, dstOffset, srcArray, srcOffset, ByteCount)
+        if let Some(__function) = (culib().cuMemcpyAtoA_v2) {
+            __function(dstArray, dstOffset, srcArray, srcOffset, ByteCount)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemcpyAtoD_v2(
         dstDevice: CUdeviceptr,
@@ -16140,7 +17399,11 @@ mod loaded {
         srcOffset: usize,
         ByteCount: usize,
     ) -> CUresult {
-        (culib().cuMemcpyAtoD_v2)(dstDevice, srcArray, srcOffset, ByteCount)
+        if let Some(__function) = (culib().cuMemcpyAtoD_v2) {
+            __function(dstDevice, srcArray, srcOffset, ByteCount)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemcpyAtoHAsync_v2(
         dstHost: *mut ::core::ffi::c_void,
@@ -16149,7 +17412,11 @@ mod loaded {
         ByteCount: usize,
         hStream: CUstream,
     ) -> CUresult {
-        (culib().cuMemcpyAtoHAsync_v2)(dstHost, srcArray, srcOffset, ByteCount, hStream)
+        if let Some(__function) = (culib().cuMemcpyAtoHAsync_v2) {
+            __function(dstHost, srcArray, srcOffset, ByteCount, hStream)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemcpyAtoH_v2(
         dstHost: *mut ::core::ffi::c_void,
@@ -16157,7 +17424,11 @@ mod loaded {
         srcOffset: usize,
         ByteCount: usize,
     ) -> CUresult {
-        (culib().cuMemcpyAtoH_v2)(dstHost, srcArray, srcOffset, ByteCount)
+        if let Some(__function) = (culib().cuMemcpyAtoH_v2) {
+            __function(dstHost, srcArray, srcOffset, ByteCount)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(feature = "cuda-12080", feature = "cuda-12090"))]
     pub unsafe fn cuMemcpyBatchAsync(
@@ -16171,9 +17442,13 @@ mod loaded {
         failIdx: *mut usize,
         hStream: CUstream,
     ) -> CUresult {
-        (culib().cuMemcpyBatchAsync)(
-            dsts, srcs, sizes, count, attrs, attrsIdxs, numAttrs, failIdx, hStream,
-        )
+        if let Some(__function) = (culib().cuMemcpyBatchAsync) {
+            __function(
+                dsts, srcs, sizes, count, attrs, attrsIdxs, numAttrs, failIdx, hStream,
+            )
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(feature = "cuda-13000"))]
     pub unsafe fn cuMemcpyBatchAsync_v2(
@@ -16186,9 +17461,13 @@ mod loaded {
         numAttrs: usize,
         hStream: CUstream,
     ) -> CUresult {
-        (culib().cuMemcpyBatchAsync_v2)(
-            dsts, srcs, sizes, count, attrs, attrsIdxs, numAttrs, hStream,
-        )
+        if let Some(__function) = (culib().cuMemcpyBatchAsync_v2) {
+            __function(
+                dsts, srcs, sizes, count, attrs, attrsIdxs, numAttrs, hStream,
+            )
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemcpyDtoA_v2(
         dstArray: CUarray,
@@ -16196,7 +17475,11 @@ mod loaded {
         srcDevice: CUdeviceptr,
         ByteCount: usize,
     ) -> CUresult {
-        (culib().cuMemcpyDtoA_v2)(dstArray, dstOffset, srcDevice, ByteCount)
+        if let Some(__function) = (culib().cuMemcpyDtoA_v2) {
+            __function(dstArray, dstOffset, srcDevice, ByteCount)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemcpyDtoDAsync_v2(
         dstDevice: CUdeviceptr,
@@ -16204,14 +17487,22 @@ mod loaded {
         ByteCount: usize,
         hStream: CUstream,
     ) -> CUresult {
-        (culib().cuMemcpyDtoDAsync_v2)(dstDevice, srcDevice, ByteCount, hStream)
+        if let Some(__function) = (culib().cuMemcpyDtoDAsync_v2) {
+            __function(dstDevice, srcDevice, ByteCount, hStream)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemcpyDtoD_v2(
         dstDevice: CUdeviceptr,
         srcDevice: CUdeviceptr,
         ByteCount: usize,
     ) -> CUresult {
-        (culib().cuMemcpyDtoD_v2)(dstDevice, srcDevice, ByteCount)
+        if let Some(__function) = (culib().cuMemcpyDtoD_v2) {
+            __function(dstDevice, srcDevice, ByteCount)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemcpyDtoHAsync_v2(
         dstHost: *mut ::core::ffi::c_void,
@@ -16219,14 +17510,22 @@ mod loaded {
         ByteCount: usize,
         hStream: CUstream,
     ) -> CUresult {
-        (culib().cuMemcpyDtoHAsync_v2)(dstHost, srcDevice, ByteCount, hStream)
+        if let Some(__function) = (culib().cuMemcpyDtoHAsync_v2) {
+            __function(dstHost, srcDevice, ByteCount, hStream)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemcpyDtoH_v2(
         dstHost: *mut ::core::ffi::c_void,
         srcDevice: CUdeviceptr,
         ByteCount: usize,
     ) -> CUresult {
-        (culib().cuMemcpyDtoH_v2)(dstHost, srcDevice, ByteCount)
+        if let Some(__function) = (culib().cuMemcpyDtoH_v2) {
+            __function(dstHost, srcDevice, ByteCount)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemcpyHtoAAsync_v2(
         dstArray: CUarray,
@@ -16235,7 +17534,11 @@ mod loaded {
         ByteCount: usize,
         hStream: CUstream,
     ) -> CUresult {
-        (culib().cuMemcpyHtoAAsync_v2)(dstArray, dstOffset, srcHost, ByteCount, hStream)
+        if let Some(__function) = (culib().cuMemcpyHtoAAsync_v2) {
+            __function(dstArray, dstOffset, srcHost, ByteCount, hStream)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemcpyHtoA_v2(
         dstArray: CUarray,
@@ -16243,7 +17546,11 @@ mod loaded {
         srcHost: *const ::core::ffi::c_void,
         ByteCount: usize,
     ) -> CUresult {
-        (culib().cuMemcpyHtoA_v2)(dstArray, dstOffset, srcHost, ByteCount)
+        if let Some(__function) = (culib().cuMemcpyHtoA_v2) {
+            __function(dstArray, dstOffset, srcHost, ByteCount)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemcpyHtoDAsync_v2(
         dstDevice: CUdeviceptr,
@@ -16251,14 +17558,22 @@ mod loaded {
         ByteCount: usize,
         hStream: CUstream,
     ) -> CUresult {
-        (culib().cuMemcpyHtoDAsync_v2)(dstDevice, srcHost, ByteCount, hStream)
+        if let Some(__function) = (culib().cuMemcpyHtoDAsync_v2) {
+            __function(dstDevice, srcHost, ByteCount, hStream)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemcpyHtoD_v2(
         dstDevice: CUdeviceptr,
         srcHost: *const ::core::ffi::c_void,
         ByteCount: usize,
     ) -> CUresult {
-        (culib().cuMemcpyHtoD_v2)(dstDevice, srcHost, ByteCount)
+        if let Some(__function) = (culib().cuMemcpyHtoD_v2) {
+            __function(dstDevice, srcHost, ByteCount)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemcpyPeer(
         dstDevice: CUdeviceptr,
@@ -16267,7 +17582,11 @@ mod loaded {
         srcContext: CUcontext,
         ByteCount: usize,
     ) -> CUresult {
-        (culib().cuMemcpyPeer)(dstDevice, dstContext, srcDevice, srcContext, ByteCount)
+        if let Some(__function) = (culib().cuMemcpyPeer) {
+            __function(dstDevice, dstContext, srcDevice, srcContext, ByteCount)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemcpyPeerAsync(
         dstDevice: CUdeviceptr,
@@ -16277,9 +17596,13 @@ mod loaded {
         ByteCount: usize,
         hStream: CUstream,
     ) -> CUresult {
-        (culib().cuMemcpyPeerAsync)(
-            dstDevice, dstContext, srcDevice, srcContext, ByteCount, hStream,
-        )
+        if let Some(__function) = (culib().cuMemcpyPeerAsync) {
+            __function(
+                dstDevice, dstContext, srcDevice, srcContext, ByteCount, hStream,
+            )
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemsetD16Async(
         dstDevice: CUdeviceptr,
@@ -16287,14 +17610,22 @@ mod loaded {
         N: usize,
         hStream: CUstream,
     ) -> CUresult {
-        (culib().cuMemsetD16Async)(dstDevice, us, N, hStream)
+        if let Some(__function) = (culib().cuMemsetD16Async) {
+            __function(dstDevice, us, N, hStream)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemsetD16_v2(
         dstDevice: CUdeviceptr,
         us: ::core::ffi::c_ushort,
         N: usize,
     ) -> CUresult {
-        (culib().cuMemsetD16_v2)(dstDevice, us, N)
+        if let Some(__function) = (culib().cuMemsetD16_v2) {
+            __function(dstDevice, us, N)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemsetD2D16Async(
         dstDevice: CUdeviceptr,
@@ -16304,7 +17635,11 @@ mod loaded {
         Height: usize,
         hStream: CUstream,
     ) -> CUresult {
-        (culib().cuMemsetD2D16Async)(dstDevice, dstPitch, us, Width, Height, hStream)
+        if let Some(__function) = (culib().cuMemsetD2D16Async) {
+            __function(dstDevice, dstPitch, us, Width, Height, hStream)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemsetD2D16_v2(
         dstDevice: CUdeviceptr,
@@ -16313,7 +17648,11 @@ mod loaded {
         Width: usize,
         Height: usize,
     ) -> CUresult {
-        (culib().cuMemsetD2D16_v2)(dstDevice, dstPitch, us, Width, Height)
+        if let Some(__function) = (culib().cuMemsetD2D16_v2) {
+            __function(dstDevice, dstPitch, us, Width, Height)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemsetD2D32Async(
         dstDevice: CUdeviceptr,
@@ -16323,7 +17662,11 @@ mod loaded {
         Height: usize,
         hStream: CUstream,
     ) -> CUresult {
-        (culib().cuMemsetD2D32Async)(dstDevice, dstPitch, ui, Width, Height, hStream)
+        if let Some(__function) = (culib().cuMemsetD2D32Async) {
+            __function(dstDevice, dstPitch, ui, Width, Height, hStream)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemsetD2D32_v2(
         dstDevice: CUdeviceptr,
@@ -16332,7 +17675,11 @@ mod loaded {
         Width: usize,
         Height: usize,
     ) -> CUresult {
-        (culib().cuMemsetD2D32_v2)(dstDevice, dstPitch, ui, Width, Height)
+        if let Some(__function) = (culib().cuMemsetD2D32_v2) {
+            __function(dstDevice, dstPitch, ui, Width, Height)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemsetD2D8Async(
         dstDevice: CUdeviceptr,
@@ -16342,7 +17689,11 @@ mod loaded {
         Height: usize,
         hStream: CUstream,
     ) -> CUresult {
-        (culib().cuMemsetD2D8Async)(dstDevice, dstPitch, uc, Width, Height, hStream)
+        if let Some(__function) = (culib().cuMemsetD2D8Async) {
+            __function(dstDevice, dstPitch, uc, Width, Height, hStream)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemsetD2D8_v2(
         dstDevice: CUdeviceptr,
@@ -16351,7 +17702,11 @@ mod loaded {
         Width: usize,
         Height: usize,
     ) -> CUresult {
-        (culib().cuMemsetD2D8_v2)(dstDevice, dstPitch, uc, Width, Height)
+        if let Some(__function) = (culib().cuMemsetD2D8_v2) {
+            __function(dstDevice, dstPitch, uc, Width, Height)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemsetD32Async(
         dstDevice: CUdeviceptr,
@@ -16359,14 +17714,22 @@ mod loaded {
         N: usize,
         hStream: CUstream,
     ) -> CUresult {
-        (culib().cuMemsetD32Async)(dstDevice, ui, N, hStream)
+        if let Some(__function) = (culib().cuMemsetD32Async) {
+            __function(dstDevice, ui, N, hStream)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemsetD32_v2(
         dstDevice: CUdeviceptr,
         ui: ::core::ffi::c_uint,
         N: usize,
     ) -> CUresult {
-        (culib().cuMemsetD32_v2)(dstDevice, ui, N)
+        if let Some(__function) = (culib().cuMemsetD32_v2) {
+            __function(dstDevice, ui, N)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemsetD8Async(
         dstDevice: CUdeviceptr,
@@ -16374,31 +17737,51 @@ mod loaded {
         N: usize,
         hStream: CUstream,
     ) -> CUresult {
-        (culib().cuMemsetD8Async)(dstDevice, uc, N, hStream)
+        if let Some(__function) = (culib().cuMemsetD8Async) {
+            __function(dstDevice, uc, N, hStream)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMemsetD8_v2(
         dstDevice: CUdeviceptr,
         uc: ::core::ffi::c_uchar,
         N: usize,
     ) -> CUresult {
-        (culib().cuMemsetD8_v2)(dstDevice, uc, N)
+        if let Some(__function) = (culib().cuMemsetD8_v2) {
+            __function(dstDevice, uc, N)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMipmappedArrayCreate(
         pHandle: *mut CUmipmappedArray,
         pMipmappedArrayDesc: *const CUDA_ARRAY3D_DESCRIPTOR,
         numMipmapLevels: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuMipmappedArrayCreate)(pHandle, pMipmappedArrayDesc, numMipmapLevels)
+        if let Some(__function) = (culib().cuMipmappedArrayCreate) {
+            __function(pHandle, pMipmappedArrayDesc, numMipmapLevels)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMipmappedArrayDestroy(hMipmappedArray: CUmipmappedArray) -> CUresult {
-        (culib().cuMipmappedArrayDestroy)(hMipmappedArray)
+        if let Some(__function) = (culib().cuMipmappedArrayDestroy) {
+            __function(hMipmappedArray)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMipmappedArrayGetLevel(
         pLevelArray: *mut CUarray,
         hMipmappedArray: CUmipmappedArray,
         level: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuMipmappedArrayGetLevel)(pLevelArray, hMipmappedArray, level)
+        if let Some(__function) = (culib().cuMipmappedArrayGetLevel) {
+            __function(pLevelArray, hMipmappedArray, level)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-11060",
@@ -16420,13 +17803,21 @@ mod loaded {
         mipmap: CUmipmappedArray,
         device: CUdevice,
     ) -> CUresult {
-        (culib().cuMipmappedArrayGetMemoryRequirements)(memoryRequirements, mipmap, device)
+        if let Some(__function) = (culib().cuMipmappedArrayGetMemoryRequirements) {
+            __function(memoryRequirements, mipmap, device)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuMipmappedArrayGetSparseProperties(
         sparseProperties: *mut CUDA_ARRAY_SPARSE_PROPERTIES,
         mipmap: CUmipmappedArray,
     ) -> CUresult {
-        (culib().cuMipmappedArrayGetSparseProperties)(sparseProperties, mipmap)
+        if let Some(__function) = (culib().cuMipmappedArrayGetSparseProperties) {
+            __function(sparseProperties, mipmap)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12040",
@@ -16441,14 +17832,22 @@ mod loaded {
         numFunctions: ::core::ffi::c_uint,
         mod_: CUmodule,
     ) -> CUresult {
-        (culib().cuModuleEnumerateFunctions)(functions, numFunctions, mod_)
+        if let Some(__function) = (culib().cuModuleEnumerateFunctions) {
+            __function(functions, numFunctions, mod_)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuModuleGetFunction(
         hfunc: *mut CUfunction,
         hmod: CUmodule,
         name: *const ::core::ffi::c_char,
     ) -> CUresult {
-        (culib().cuModuleGetFunction)(hfunc, hmod, name)
+        if let Some(__function) = (culib().cuModuleGetFunction) {
+            __function(hfunc, hmod, name)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12040",
@@ -16462,7 +17861,11 @@ mod loaded {
         count: *mut ::core::ffi::c_uint,
         mod_: CUmodule,
     ) -> CUresult {
-        (culib().cuModuleGetFunctionCount)(count, mod_)
+        if let Some(__function) = (culib().cuModuleGetFunctionCount) {
+            __function(count, mod_)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuModuleGetGlobal_v2(
         dptr: *mut CUdeviceptr,
@@ -16470,7 +17873,11 @@ mod loaded {
         hmod: CUmodule,
         name: *const ::core::ffi::c_char,
     ) -> CUresult {
-        (culib().cuModuleGetGlobal_v2)(dptr, bytes, hmod, name)
+        if let Some(__function) = (culib().cuModuleGetGlobal_v2) {
+            __function(dptr, bytes, hmod, name)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-11070",
@@ -16487,33 +17894,53 @@ mod loaded {
         feature = "cuda-13000"
     ))]
     pub unsafe fn cuModuleGetLoadingMode(mode: *mut CUmoduleLoadingMode) -> CUresult {
-        (culib().cuModuleGetLoadingMode)(mode)
+        if let Some(__function) = (culib().cuModuleGetLoadingMode) {
+            __function(mode)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuModuleGetSurfRef(
         pSurfRef: *mut CUsurfref,
         hmod: CUmodule,
         name: *const ::core::ffi::c_char,
     ) -> CUresult {
-        (culib().cuModuleGetSurfRef)(pSurfRef, hmod, name)
+        if let Some(__function) = (culib().cuModuleGetSurfRef) {
+            __function(pSurfRef, hmod, name)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuModuleGetTexRef(
         pTexRef: *mut CUtexref,
         hmod: CUmodule,
         name: *const ::core::ffi::c_char,
     ) -> CUresult {
-        (culib().cuModuleGetTexRef)(pTexRef, hmod, name)
+        if let Some(__function) = (culib().cuModuleGetTexRef) {
+            __function(pTexRef, hmod, name)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuModuleLoad(
         module: *mut CUmodule,
         fname: *const ::core::ffi::c_char,
     ) -> CUresult {
-        (culib().cuModuleLoad)(module, fname)
+        if let Some(__function) = (culib().cuModuleLoad) {
+            __function(module, fname)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuModuleLoadData(
         module: *mut CUmodule,
         image: *const ::core::ffi::c_void,
     ) -> CUresult {
-        (culib().cuModuleLoadData)(module, image)
+        if let Some(__function) = (culib().cuModuleLoadData) {
+            __function(module, image)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuModuleLoadDataEx(
         module: *mut CUmodule,
@@ -16522,16 +17949,28 @@ mod loaded {
         options: *mut CUjit_option,
         optionValues: *mut *mut ::core::ffi::c_void,
     ) -> CUresult {
-        (culib().cuModuleLoadDataEx)(module, image, numOptions, options, optionValues)
+        if let Some(__function) = (culib().cuModuleLoadDataEx) {
+            __function(module, image, numOptions, options, optionValues)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuModuleLoadFatBinary(
         module: *mut CUmodule,
         fatCubin: *const ::core::ffi::c_void,
     ) -> CUresult {
-        (culib().cuModuleLoadFatBinary)(module, fatCubin)
+        if let Some(__function) = (culib().cuModuleLoadFatBinary) {
+            __function(module, fatCubin)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuModuleUnload(hmod: CUmodule) -> CUresult {
-        (culib().cuModuleUnload)(hmod)
+        if let Some(__function) = (culib().cuModuleUnload) {
+            __function(hmod)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12010",
@@ -16548,7 +17987,11 @@ mod loaded {
         mcHandle: CUmemGenericAllocationHandle,
         dev: CUdevice,
     ) -> CUresult {
-        (culib().cuMulticastAddDevice)(mcHandle, dev)
+        if let Some(__function) = (culib().cuMulticastAddDevice) {
+            __function(mcHandle, dev)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12010",
@@ -16568,7 +18011,11 @@ mod loaded {
         size: usize,
         flags: ::core::ffi::c_ulonglong,
     ) -> CUresult {
-        (culib().cuMulticastBindAddr)(mcHandle, mcOffset, memptr, size, flags)
+        if let Some(__function) = (culib().cuMulticastBindAddr) {
+            __function(mcHandle, mcOffset, memptr, size, flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12010",
@@ -16589,7 +18036,11 @@ mod loaded {
         size: usize,
         flags: ::core::ffi::c_ulonglong,
     ) -> CUresult {
-        (culib().cuMulticastBindMem)(mcHandle, mcOffset, memHandle, memOffset, size, flags)
+        if let Some(__function) = (culib().cuMulticastBindMem) {
+            __function(mcHandle, mcOffset, memHandle, memOffset, size, flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12010",
@@ -16606,7 +18057,11 @@ mod loaded {
         mcHandle: *mut CUmemGenericAllocationHandle,
         prop: *const CUmulticastObjectProp,
     ) -> CUresult {
-        (culib().cuMulticastCreate)(mcHandle, prop)
+        if let Some(__function) = (culib().cuMulticastCreate) {
+            __function(mcHandle, prop)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12010",
@@ -16624,7 +18079,11 @@ mod loaded {
         prop: *const CUmulticastObjectProp,
         option: CUmulticastGranularity_flags,
     ) -> CUresult {
-        (culib().cuMulticastGetGranularity)(granularity, prop, option)
+        if let Some(__function) = (culib().cuMulticastGetGranularity) {
+            __function(granularity, prop, option)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12010",
@@ -16643,7 +18102,11 @@ mod loaded {
         mcOffset: usize,
         size: usize,
     ) -> CUresult {
-        (culib().cuMulticastUnbind)(mcHandle, dev, mcOffset, size)
+        if let Some(__function) = (culib().cuMulticastUnbind) {
+            __function(mcHandle, dev, mcOffset, size)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuOccupancyAvailableDynamicSMemPerBlock(
         dynamicSmemSize: *mut usize,
@@ -16651,12 +18114,11 @@ mod loaded {
         numBlocks: ::core::ffi::c_int,
         blockSize: ::core::ffi::c_int,
     ) -> CUresult {
-        (culib().cuOccupancyAvailableDynamicSMemPerBlock)(
-            dynamicSmemSize,
-            func,
-            numBlocks,
-            blockSize,
-        )
+        if let Some(__function) = (culib().cuOccupancyAvailableDynamicSMemPerBlock) {
+            __function(dynamicSmemSize, func, numBlocks, blockSize)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuOccupancyMaxActiveBlocksPerMultiprocessor(
         numBlocks: *mut ::core::ffi::c_int,
@@ -16664,12 +18126,11 @@ mod loaded {
         blockSize: ::core::ffi::c_int,
         dynamicSMemSize: usize,
     ) -> CUresult {
-        (culib().cuOccupancyMaxActiveBlocksPerMultiprocessor)(
-            numBlocks,
-            func,
-            blockSize,
-            dynamicSMemSize,
-        )
+        if let Some(__function) = (culib().cuOccupancyMaxActiveBlocksPerMultiprocessor) {
+            __function(numBlocks, func, blockSize, dynamicSMemSize)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuOccupancyMaxActiveBlocksPerMultiprocessorWithFlags(
         numBlocks: *mut ::core::ffi::c_int,
@@ -16678,13 +18139,11 @@ mod loaded {
         dynamicSMemSize: usize,
         flags: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuOccupancyMaxActiveBlocksPerMultiprocessorWithFlags)(
-            numBlocks,
-            func,
-            blockSize,
-            dynamicSMemSize,
-            flags,
-        )
+        if let Some(__function) = (culib().cuOccupancyMaxActiveBlocksPerMultiprocessorWithFlags) {
+            __function(numBlocks, func, blockSize, dynamicSMemSize, flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-11080",
@@ -16704,7 +18163,11 @@ mod loaded {
         func: CUfunction,
         config: *const CUlaunchConfig,
     ) -> CUresult {
-        (culib().cuOccupancyMaxActiveClusters)(numClusters, func, config)
+        if let Some(__function) = (culib().cuOccupancyMaxActiveClusters) {
+            __function(numClusters, func, config)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuOccupancyMaxPotentialBlockSize(
         minGridSize: *mut ::core::ffi::c_int,
@@ -16714,14 +18177,18 @@ mod loaded {
         dynamicSMemSize: usize,
         blockSizeLimit: ::core::ffi::c_int,
     ) -> CUresult {
-        (culib().cuOccupancyMaxPotentialBlockSize)(
-            minGridSize,
-            blockSize,
-            func,
-            blockSizeToDynamicSMemSize,
-            dynamicSMemSize,
-            blockSizeLimit,
-        )
+        if let Some(__function) = (culib().cuOccupancyMaxPotentialBlockSize) {
+            __function(
+                minGridSize,
+                blockSize,
+                func,
+                blockSizeToDynamicSMemSize,
+                dynamicSMemSize,
+                blockSizeLimit,
+            )
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuOccupancyMaxPotentialBlockSizeWithFlags(
         minGridSize: *mut ::core::ffi::c_int,
@@ -16732,15 +18199,19 @@ mod loaded {
         blockSizeLimit: ::core::ffi::c_int,
         flags: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuOccupancyMaxPotentialBlockSizeWithFlags)(
-            minGridSize,
-            blockSize,
-            func,
-            blockSizeToDynamicSMemSize,
-            dynamicSMemSize,
-            blockSizeLimit,
-            flags,
-        )
+        if let Some(__function) = (culib().cuOccupancyMaxPotentialBlockSizeWithFlags) {
+            __function(
+                minGridSize,
+                blockSize,
+                func,
+                blockSizeToDynamicSMemSize,
+                dynamicSMemSize,
+                blockSizeLimit,
+                flags,
+            )
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-11080",
@@ -16760,31 +18231,51 @@ mod loaded {
         func: CUfunction,
         config: *const CUlaunchConfig,
     ) -> CUresult {
-        (culib().cuOccupancyMaxPotentialClusterSize)(clusterSize, func, config)
+        if let Some(__function) = (culib().cuOccupancyMaxPotentialClusterSize) {
+            __function(clusterSize, func, config)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuParamSetSize(hfunc: CUfunction, numbytes: ::core::ffi::c_uint) -> CUresult {
-        (culib().cuParamSetSize)(hfunc, numbytes)
+        if let Some(__function) = (culib().cuParamSetSize) {
+            __function(hfunc, numbytes)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuParamSetTexRef(
         hfunc: CUfunction,
         texunit: ::core::ffi::c_int,
         hTexRef: CUtexref,
     ) -> CUresult {
-        (culib().cuParamSetTexRef)(hfunc, texunit, hTexRef)
+        if let Some(__function) = (culib().cuParamSetTexRef) {
+            __function(hfunc, texunit, hTexRef)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuParamSetf(
         hfunc: CUfunction,
         offset: ::core::ffi::c_int,
         value: f32,
     ) -> CUresult {
-        (culib().cuParamSetf)(hfunc, offset, value)
+        if let Some(__function) = (culib().cuParamSetf) {
+            __function(hfunc, offset, value)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuParamSeti(
         hfunc: CUfunction,
         offset: ::core::ffi::c_int,
         value: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuParamSeti)(hfunc, offset, value)
+        if let Some(__function) = (culib().cuParamSeti) {
+            __function(hfunc, offset, value)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuParamSetv(
         hfunc: CUfunction,
@@ -16792,14 +18283,22 @@ mod loaded {
         ptr: *mut ::core::ffi::c_void,
         numbytes: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuParamSetv)(hfunc, offset, ptr, numbytes)
+        if let Some(__function) = (culib().cuParamSetv) {
+            __function(hfunc, offset, ptr, numbytes)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuPointerGetAttribute(
         data: *mut ::core::ffi::c_void,
         attribute: CUpointer_attribute,
         ptr: CUdeviceptr,
     ) -> CUresult {
-        (culib().cuPointerGetAttribute)(data, attribute, ptr)
+        if let Some(__function) = (culib().cuPointerGetAttribute) {
+            __function(data, attribute, ptr)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuPointerGetAttributes(
         numAttributes: ::core::ffi::c_uint,
@@ -16807,27 +18306,47 @@ mod loaded {
         data: *mut *mut ::core::ffi::c_void,
         ptr: CUdeviceptr,
     ) -> CUresult {
-        (culib().cuPointerGetAttributes)(numAttributes, attributes, data, ptr)
+        if let Some(__function) = (culib().cuPointerGetAttributes) {
+            __function(numAttributes, attributes, data, ptr)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuPointerSetAttribute(
         value: *const ::core::ffi::c_void,
         attribute: CUpointer_attribute,
         ptr: CUdeviceptr,
     ) -> CUresult {
-        (culib().cuPointerSetAttribute)(value, attribute, ptr)
+        if let Some(__function) = (culib().cuPointerSetAttribute) {
+            __function(value, attribute, ptr)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuProfilerInitialize(
         configFile: *const ::core::ffi::c_char,
         outputFile: *const ::core::ffi::c_char,
         outputMode: CUoutput_mode,
     ) -> CUresult {
-        (culib().cuProfilerInitialize)(configFile, outputFile, outputMode)
+        if let Some(__function) = (culib().cuProfilerInitialize) {
+            __function(configFile, outputFile, outputMode)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuProfilerStart() -> CUresult {
-        (culib().cuProfilerStart)()
+        if let Some(__function) = (culib().cuProfilerStart) {
+            __function()
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuProfilerStop() -> CUresult {
-        (culib().cuProfilerStop)()
+        if let Some(__function) = (culib().cuProfilerStop) {
+            __function()
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuSignalExternalSemaphoresAsync(
         extSemArray: *const CUexternalSemaphore,
@@ -16835,7 +18354,11 @@ mod loaded {
         numExtSems: ::core::ffi::c_uint,
         stream: CUstream,
     ) -> CUresult {
-        (culib().cuSignalExternalSemaphoresAsync)(extSemArray, paramsArray, numExtSems, stream)
+        if let Some(__function) = (culib().cuSignalExternalSemaphoresAsync) {
+            __function(extSemArray, paramsArray, numExtSems, stream)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuStreamAddCallback(
         hStream: CUstream,
@@ -16843,7 +18366,11 @@ mod loaded {
         userData: *mut ::core::ffi::c_void,
         flags: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuStreamAddCallback)(hStream, callback, userData, flags)
+        if let Some(__function) = (culib().cuStreamAddCallback) {
+            __function(hStream, callback, userData, flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuStreamAttachMemAsync(
         hStream: CUstream,
@@ -16851,7 +18378,11 @@ mod loaded {
         length: usize,
         flags: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuStreamAttachMemAsync)(hStream, dptr, length, flags)
+        if let Some(__function) = (culib().cuStreamAttachMemAsync) {
+            __function(hStream, dptr, length, flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-11040",
@@ -16866,7 +18397,11 @@ mod loaded {
         paramArray: *mut CUstreamBatchMemOpParams,
         flags: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuStreamBatchMemOp)(stream, count, paramArray, flags)
+        if let Some(__function) = (culib().cuStreamBatchMemOp) {
+            __function(stream, count, paramArray, flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-11070",
@@ -16888,7 +18423,11 @@ mod loaded {
         paramArray: *mut CUstreamBatchMemOpParams,
         flags: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuStreamBatchMemOp_v2)(stream, count, paramArray, flags)
+        if let Some(__function) = (culib().cuStreamBatchMemOp_v2) {
+            __function(stream, count, paramArray, flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12030",
@@ -16907,46 +18446,78 @@ mod loaded {
         numDependencies: usize,
         mode: CUstreamCaptureMode,
     ) -> CUresult {
-        (culib().cuStreamBeginCaptureToGraph)(
-            hStream,
-            hGraph,
-            dependencies,
-            dependencyData,
-            numDependencies,
-            mode,
-        )
+        if let Some(__function) = (culib().cuStreamBeginCaptureToGraph) {
+            __function(
+                hStream,
+                hGraph,
+                dependencies,
+                dependencyData,
+                numDependencies,
+                mode,
+            )
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuStreamBeginCapture_v2(
         hStream: CUstream,
         mode: CUstreamCaptureMode,
     ) -> CUresult {
-        (culib().cuStreamBeginCapture_v2)(hStream, mode)
+        if let Some(__function) = (culib().cuStreamBeginCapture_v2) {
+            __function(hStream, mode)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuStreamCopyAttributes(dst: CUstream, src: CUstream) -> CUresult {
-        (culib().cuStreamCopyAttributes)(dst, src)
+        if let Some(__function) = (culib().cuStreamCopyAttributes) {
+            __function(dst, src)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuStreamCreate(phStream: *mut CUstream, Flags: ::core::ffi::c_uint) -> CUresult {
-        (culib().cuStreamCreate)(phStream, Flags)
+        if let Some(__function) = (culib().cuStreamCreate) {
+            __function(phStream, Flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuStreamCreateWithPriority(
         phStream: *mut CUstream,
         flags: ::core::ffi::c_uint,
         priority: ::core::ffi::c_int,
     ) -> CUresult {
-        (culib().cuStreamCreateWithPriority)(phStream, flags, priority)
+        if let Some(__function) = (culib().cuStreamCreateWithPriority) {
+            __function(phStream, flags, priority)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuStreamDestroy_v2(hStream: CUstream) -> CUresult {
-        (culib().cuStreamDestroy_v2)(hStream)
+        if let Some(__function) = (culib().cuStreamDestroy_v2) {
+            __function(hStream)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuStreamEndCapture(hStream: CUstream, phGraph: *mut CUgraph) -> CUresult {
-        (culib().cuStreamEndCapture)(hStream, phGraph)
+        if let Some(__function) = (culib().cuStreamEndCapture) {
+            __function(hStream, phGraph)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuStreamGetAttribute(
         hStream: CUstream,
         attr: CUstreamAttrID,
         value_out: *mut CUstreamAttrValue,
     ) -> CUresult {
-        (culib().cuStreamGetAttribute)(hStream, attr, value_out)
+        if let Some(__function) = (culib().cuStreamGetAttribute) {
+            __function(hStream, attr, value_out)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-11040",
@@ -16960,7 +18531,11 @@ mod loaded {
         captureStatus_out: *mut CUstreamCaptureStatus,
         id_out: *mut cuuint64_t,
     ) -> CUresult {
-        (culib().cuStreamGetCaptureInfo)(hStream, captureStatus_out, id_out)
+        if let Some(__function) = (culib().cuStreamGetCaptureInfo) {
+            __function(hStream, captureStatus_out, id_out)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-11040",
@@ -16986,14 +18561,18 @@ mod loaded {
         dependencies_out: *mut *const CUgraphNode,
         numDependencies_out: *mut usize,
     ) -> CUresult {
-        (culib().cuStreamGetCaptureInfo_v2)(
-            hStream,
-            captureStatus_out,
-            id_out,
-            graph_out,
-            dependencies_out,
-            numDependencies_out,
-        )
+        if let Some(__function) = (culib().cuStreamGetCaptureInfo_v2) {
+            __function(
+                hStream,
+                captureStatus_out,
+                id_out,
+                graph_out,
+                dependencies_out,
+                numDependencies_out,
+            )
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12030",
@@ -17013,18 +18592,26 @@ mod loaded {
         edgeData_out: *mut *const CUgraphEdgeData,
         numDependencies_out: *mut usize,
     ) -> CUresult {
-        (culib().cuStreamGetCaptureInfo_v3)(
-            hStream,
-            captureStatus_out,
-            id_out,
-            graph_out,
-            dependencies_out,
-            edgeData_out,
-            numDependencies_out,
-        )
+        if let Some(__function) = (culib().cuStreamGetCaptureInfo_v3) {
+            __function(
+                hStream,
+                captureStatus_out,
+                id_out,
+                graph_out,
+                dependencies_out,
+                edgeData_out,
+                numDependencies_out,
+            )
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuStreamGetCtx(hStream: CUstream, pctx: *mut CUcontext) -> CUresult {
-        (culib().cuStreamGetCtx)(hStream, pctx)
+        if let Some(__function) = (culib().cuStreamGetCtx) {
+            __function(hStream, pctx)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12050",
@@ -17038,14 +18625,26 @@ mod loaded {
         pCtx: *mut CUcontext,
         pGreenCtx: *mut CUgreenCtx,
     ) -> CUresult {
-        (culib().cuStreamGetCtx_v2)(hStream, pCtx, pGreenCtx)
+        if let Some(__function) = (culib().cuStreamGetCtx_v2) {
+            __function(hStream, pCtx, pGreenCtx)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(feature = "cuda-12080", feature = "cuda-12090", feature = "cuda-13000"))]
     pub unsafe fn cuStreamGetDevice(hStream: CUstream, device: *mut CUdevice) -> CUresult {
-        (culib().cuStreamGetDevice)(hStream, device)
+        if let Some(__function) = (culib().cuStreamGetDevice) {
+            __function(hStream, device)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuStreamGetFlags(hStream: CUstream, flags: *mut ::core::ffi::c_uint) -> CUresult {
-        (culib().cuStreamGetFlags)(hStream, flags)
+        if let Some(__function) = (culib().cuStreamGetFlags) {
+            __function(hStream, flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12040",
@@ -17056,7 +18655,11 @@ mod loaded {
         feature = "cuda-13000"
     ))]
     pub unsafe fn cuStreamGetGreenCtx(hStream: CUstream, phCtx: *mut CUgreenCtx) -> CUresult {
-        (culib().cuStreamGetGreenCtx)(hStream, phCtx)
+        if let Some(__function) = (culib().cuStreamGetGreenCtx) {
+            __function(hStream, phCtx)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12000",
@@ -17074,32 +18677,56 @@ mod loaded {
         hStream: CUstream,
         streamId: *mut ::core::ffi::c_ulonglong,
     ) -> CUresult {
-        (culib().cuStreamGetId)(hStream, streamId)
+        if let Some(__function) = (culib().cuStreamGetId) {
+            __function(hStream, streamId)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuStreamGetPriority(
         hStream: CUstream,
         priority: *mut ::core::ffi::c_int,
     ) -> CUresult {
-        (culib().cuStreamGetPriority)(hStream, priority)
+        if let Some(__function) = (culib().cuStreamGetPriority) {
+            __function(hStream, priority)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuStreamIsCapturing(
         hStream: CUstream,
         captureStatus: *mut CUstreamCaptureStatus,
     ) -> CUresult {
-        (culib().cuStreamIsCapturing)(hStream, captureStatus)
+        if let Some(__function) = (culib().cuStreamIsCapturing) {
+            __function(hStream, captureStatus)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuStreamQuery(hStream: CUstream) -> CUresult {
-        (culib().cuStreamQuery)(hStream)
+        if let Some(__function) = (culib().cuStreamQuery) {
+            __function(hStream)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuStreamSetAttribute(
         hStream: CUstream,
         attr: CUstreamAttrID,
         value: *const CUstreamAttrValue,
     ) -> CUresult {
-        (culib().cuStreamSetAttribute)(hStream, attr, value)
+        if let Some(__function) = (culib().cuStreamSetAttribute) {
+            __function(hStream, attr, value)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuStreamSynchronize(hStream: CUstream) -> CUresult {
-        (culib().cuStreamSynchronize)(hStream)
+        if let Some(__function) = (culib().cuStreamSynchronize) {
+            __function(hStream)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-11040",
@@ -17123,7 +18750,11 @@ mod loaded {
         numDependencies: usize,
         flags: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuStreamUpdateCaptureDependencies)(hStream, dependencies, numDependencies, flags)
+        if let Some(__function) = (culib().cuStreamUpdateCaptureDependencies) {
+            __function(hStream, dependencies, numDependencies, flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12030",
@@ -17141,20 +18772,28 @@ mod loaded {
         numDependencies: usize,
         flags: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuStreamUpdateCaptureDependencies_v2)(
-            hStream,
-            dependencies,
-            dependencyData,
-            numDependencies,
-            flags,
-        )
+        if let Some(__function) = (culib().cuStreamUpdateCaptureDependencies_v2) {
+            __function(
+                hStream,
+                dependencies,
+                dependencyData,
+                numDependencies,
+                flags,
+            )
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuStreamWaitEvent(
         hStream: CUstream,
         hEvent: CUevent,
         Flags: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuStreamWaitEvent)(hStream, hEvent, Flags)
+        if let Some(__function) = (culib().cuStreamWaitEvent) {
+            __function(hStream, hEvent, Flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-11040",
@@ -17169,7 +18808,11 @@ mod loaded {
         value: cuuint32_t,
         flags: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuStreamWaitValue32)(stream, addr, value, flags)
+        if let Some(__function) = (culib().cuStreamWaitValue32) {
+            __function(stream, addr, value, flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-11070",
@@ -17191,7 +18834,11 @@ mod loaded {
         value: cuuint32_t,
         flags: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuStreamWaitValue32_v2)(stream, addr, value, flags)
+        if let Some(__function) = (culib().cuStreamWaitValue32_v2) {
+            __function(stream, addr, value, flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-11040",
@@ -17206,7 +18853,11 @@ mod loaded {
         value: cuuint64_t,
         flags: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuStreamWaitValue64)(stream, addr, value, flags)
+        if let Some(__function) = (culib().cuStreamWaitValue64) {
+            __function(stream, addr, value, flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-11070",
@@ -17228,7 +18879,11 @@ mod loaded {
         value: cuuint64_t,
         flags: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuStreamWaitValue64_v2)(stream, addr, value, flags)
+        if let Some(__function) = (culib().cuStreamWaitValue64_v2) {
+            __function(stream, addr, value, flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-11040",
@@ -17243,7 +18898,11 @@ mod loaded {
         value: cuuint32_t,
         flags: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuStreamWriteValue32)(stream, addr, value, flags)
+        if let Some(__function) = (culib().cuStreamWriteValue32) {
+            __function(stream, addr, value, flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-11070",
@@ -17265,7 +18924,11 @@ mod loaded {
         value: cuuint32_t,
         flags: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuStreamWriteValue32_v2)(stream, addr, value, flags)
+        if let Some(__function) = (culib().cuStreamWriteValue32_v2) {
+            __function(stream, addr, value, flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-11040",
@@ -17280,7 +18943,11 @@ mod loaded {
         value: cuuint64_t,
         flags: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuStreamWriteValue64)(stream, addr, value, flags)
+        if let Some(__function) = (culib().cuStreamWriteValue64) {
+            __function(stream, addr, value, flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-11070",
@@ -17302,32 +18969,56 @@ mod loaded {
         value: cuuint64_t,
         flags: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuStreamWriteValue64_v2)(stream, addr, value, flags)
+        if let Some(__function) = (culib().cuStreamWriteValue64_v2) {
+            __function(stream, addr, value, flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuSurfObjectCreate(
         pSurfObject: *mut CUsurfObject,
         pResDesc: *const CUDA_RESOURCE_DESC,
     ) -> CUresult {
-        (culib().cuSurfObjectCreate)(pSurfObject, pResDesc)
+        if let Some(__function) = (culib().cuSurfObjectCreate) {
+            __function(pSurfObject, pResDesc)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuSurfObjectDestroy(surfObject: CUsurfObject) -> CUresult {
-        (culib().cuSurfObjectDestroy)(surfObject)
+        if let Some(__function) = (culib().cuSurfObjectDestroy) {
+            __function(surfObject)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuSurfObjectGetResourceDesc(
         pResDesc: *mut CUDA_RESOURCE_DESC,
         surfObject: CUsurfObject,
     ) -> CUresult {
-        (culib().cuSurfObjectGetResourceDesc)(pResDesc, surfObject)
+        if let Some(__function) = (culib().cuSurfObjectGetResourceDesc) {
+            __function(pResDesc, surfObject)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuSurfRefGetArray(phArray: *mut CUarray, hSurfRef: CUsurfref) -> CUresult {
-        (culib().cuSurfRefGetArray)(phArray, hSurfRef)
+        if let Some(__function) = (culib().cuSurfRefGetArray) {
+            __function(phArray, hSurfRef)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuSurfRefSetArray(
         hSurfRef: CUsurfref,
         hArray: CUarray,
         Flags: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuSurfRefSetArray)(hSurfRef, hArray, Flags)
+        if let Some(__function) = (culib().cuSurfRefSetArray) {
+            __function(hSurfRef, hArray, Flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12000",
@@ -17358,23 +19049,27 @@ mod loaded {
         l2Promotion: CUtensorMapL2promotion,
         oobFill: CUtensorMapFloatOOBfill,
     ) -> CUresult {
-        (culib().cuTensorMapEncodeIm2col)(
-            tensorMap,
-            tensorDataType,
-            tensorRank,
-            globalAddress,
-            globalDim,
-            globalStrides,
-            pixelBoxLowerCorner,
-            pixelBoxUpperCorner,
-            channelsPerPixel,
-            pixelsPerColumn,
-            elementStrides,
-            interleave,
-            swizzle,
-            l2Promotion,
-            oobFill,
-        )
+        if let Some(__function) = (culib().cuTensorMapEncodeIm2col) {
+            __function(
+                tensorMap,
+                tensorDataType,
+                tensorRank,
+                globalAddress,
+                globalDim,
+                globalStrides,
+                pixelBoxLowerCorner,
+                pixelBoxUpperCorner,
+                channelsPerPixel,
+                pixelsPerColumn,
+                elementStrides,
+                interleave,
+                swizzle,
+                l2Promotion,
+                oobFill,
+            )
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(feature = "cuda-12080", feature = "cuda-12090", feature = "cuda-13000"))]
     pub unsafe fn cuTensorMapEncodeIm2colWide(
@@ -17395,24 +19090,28 @@ mod loaded {
         l2Promotion: CUtensorMapL2promotion,
         oobFill: CUtensorMapFloatOOBfill,
     ) -> CUresult {
-        (culib().cuTensorMapEncodeIm2colWide)(
-            tensorMap,
-            tensorDataType,
-            tensorRank,
-            globalAddress,
-            globalDim,
-            globalStrides,
-            pixelBoxLowerCornerWidth,
-            pixelBoxUpperCornerWidth,
-            channelsPerPixel,
-            pixelsPerColumn,
-            elementStrides,
-            interleave,
-            mode,
-            swizzle,
-            l2Promotion,
-            oobFill,
-        )
+        if let Some(__function) = (culib().cuTensorMapEncodeIm2colWide) {
+            __function(
+                tensorMap,
+                tensorDataType,
+                tensorRank,
+                globalAddress,
+                globalDim,
+                globalStrides,
+                pixelBoxLowerCornerWidth,
+                pixelBoxUpperCornerWidth,
+                channelsPerPixel,
+                pixelsPerColumn,
+                elementStrides,
+                interleave,
+                mode,
+                swizzle,
+                l2Promotion,
+                oobFill,
+            )
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12000",
@@ -17440,20 +19139,24 @@ mod loaded {
         l2Promotion: CUtensorMapL2promotion,
         oobFill: CUtensorMapFloatOOBfill,
     ) -> CUresult {
-        (culib().cuTensorMapEncodeTiled)(
-            tensorMap,
-            tensorDataType,
-            tensorRank,
-            globalAddress,
-            globalDim,
-            globalStrides,
-            boxDim,
-            elementStrides,
-            interleave,
-            swizzle,
-            l2Promotion,
-            oobFill,
-        )
+        if let Some(__function) = (culib().cuTensorMapEncodeTiled) {
+            __function(
+                tensorMap,
+                tensorDataType,
+                tensorRank,
+                globalAddress,
+                globalDim,
+                globalStrides,
+                boxDim,
+                elementStrides,
+                interleave,
+                swizzle,
+                l2Promotion,
+                oobFill,
+            )
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     #[cfg(any(
         feature = "cuda-12000",
@@ -17471,7 +19174,11 @@ mod loaded {
         tensorMap: *mut CUtensorMap,
         globalAddress: *mut ::core::ffi::c_void,
     ) -> CUresult {
-        (culib().cuTensorMapReplaceAddress)(tensorMap, globalAddress)
+        if let Some(__function) = (culib().cuTensorMapReplaceAddress) {
+            __function(tensorMap, globalAddress)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuTexObjectCreate(
         pTexObject: *mut CUtexObject,
@@ -17479,94 +19186,170 @@ mod loaded {
         pTexDesc: *const CUDA_TEXTURE_DESC,
         pResViewDesc: *const CUDA_RESOURCE_VIEW_DESC,
     ) -> CUresult {
-        (culib().cuTexObjectCreate)(pTexObject, pResDesc, pTexDesc, pResViewDesc)
+        if let Some(__function) = (culib().cuTexObjectCreate) {
+            __function(pTexObject, pResDesc, pTexDesc, pResViewDesc)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuTexObjectDestroy(texObject: CUtexObject) -> CUresult {
-        (culib().cuTexObjectDestroy)(texObject)
+        if let Some(__function) = (culib().cuTexObjectDestroy) {
+            __function(texObject)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuTexObjectGetResourceDesc(
         pResDesc: *mut CUDA_RESOURCE_DESC,
         texObject: CUtexObject,
     ) -> CUresult {
-        (culib().cuTexObjectGetResourceDesc)(pResDesc, texObject)
+        if let Some(__function) = (culib().cuTexObjectGetResourceDesc) {
+            __function(pResDesc, texObject)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuTexObjectGetResourceViewDesc(
         pResViewDesc: *mut CUDA_RESOURCE_VIEW_DESC,
         texObject: CUtexObject,
     ) -> CUresult {
-        (culib().cuTexObjectGetResourceViewDesc)(pResViewDesc, texObject)
+        if let Some(__function) = (culib().cuTexObjectGetResourceViewDesc) {
+            __function(pResViewDesc, texObject)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuTexObjectGetTextureDesc(
         pTexDesc: *mut CUDA_TEXTURE_DESC,
         texObject: CUtexObject,
     ) -> CUresult {
-        (culib().cuTexObjectGetTextureDesc)(pTexDesc, texObject)
+        if let Some(__function) = (culib().cuTexObjectGetTextureDesc) {
+            __function(pTexDesc, texObject)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuTexRefCreate(pTexRef: *mut CUtexref) -> CUresult {
-        (culib().cuTexRefCreate)(pTexRef)
+        if let Some(__function) = (culib().cuTexRefCreate) {
+            __function(pTexRef)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuTexRefDestroy(hTexRef: CUtexref) -> CUresult {
-        (culib().cuTexRefDestroy)(hTexRef)
+        if let Some(__function) = (culib().cuTexRefDestroy) {
+            __function(hTexRef)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuTexRefGetAddressMode(
         pam: *mut CUaddress_mode,
         hTexRef: CUtexref,
         dim: ::core::ffi::c_int,
     ) -> CUresult {
-        (culib().cuTexRefGetAddressMode)(pam, hTexRef, dim)
+        if let Some(__function) = (culib().cuTexRefGetAddressMode) {
+            __function(pam, hTexRef, dim)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuTexRefGetAddress_v2(pdptr: *mut CUdeviceptr, hTexRef: CUtexref) -> CUresult {
-        (culib().cuTexRefGetAddress_v2)(pdptr, hTexRef)
+        if let Some(__function) = (culib().cuTexRefGetAddress_v2) {
+            __function(pdptr, hTexRef)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuTexRefGetArray(phArray: *mut CUarray, hTexRef: CUtexref) -> CUresult {
-        (culib().cuTexRefGetArray)(phArray, hTexRef)
+        if let Some(__function) = (culib().cuTexRefGetArray) {
+            __function(phArray, hTexRef)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuTexRefGetBorderColor(pBorderColor: *mut f32, hTexRef: CUtexref) -> CUresult {
-        (culib().cuTexRefGetBorderColor)(pBorderColor, hTexRef)
+        if let Some(__function) = (culib().cuTexRefGetBorderColor) {
+            __function(pBorderColor, hTexRef)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuTexRefGetFilterMode(pfm: *mut CUfilter_mode, hTexRef: CUtexref) -> CUresult {
-        (culib().cuTexRefGetFilterMode)(pfm, hTexRef)
+        if let Some(__function) = (culib().cuTexRefGetFilterMode) {
+            __function(pfm, hTexRef)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuTexRefGetFlags(
         pFlags: *mut ::core::ffi::c_uint,
         hTexRef: CUtexref,
     ) -> CUresult {
-        (culib().cuTexRefGetFlags)(pFlags, hTexRef)
+        if let Some(__function) = (culib().cuTexRefGetFlags) {
+            __function(pFlags, hTexRef)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuTexRefGetFormat(
         pFormat: *mut CUarray_format,
         pNumChannels: *mut ::core::ffi::c_int,
         hTexRef: CUtexref,
     ) -> CUresult {
-        (culib().cuTexRefGetFormat)(pFormat, pNumChannels, hTexRef)
+        if let Some(__function) = (culib().cuTexRefGetFormat) {
+            __function(pFormat, pNumChannels, hTexRef)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuTexRefGetMaxAnisotropy(
         pmaxAniso: *mut ::core::ffi::c_int,
         hTexRef: CUtexref,
     ) -> CUresult {
-        (culib().cuTexRefGetMaxAnisotropy)(pmaxAniso, hTexRef)
+        if let Some(__function) = (culib().cuTexRefGetMaxAnisotropy) {
+            __function(pmaxAniso, hTexRef)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuTexRefGetMipmapFilterMode(
         pfm: *mut CUfilter_mode,
         hTexRef: CUtexref,
     ) -> CUresult {
-        (culib().cuTexRefGetMipmapFilterMode)(pfm, hTexRef)
+        if let Some(__function) = (culib().cuTexRefGetMipmapFilterMode) {
+            __function(pfm, hTexRef)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuTexRefGetMipmapLevelBias(pbias: *mut f32, hTexRef: CUtexref) -> CUresult {
-        (culib().cuTexRefGetMipmapLevelBias)(pbias, hTexRef)
+        if let Some(__function) = (culib().cuTexRefGetMipmapLevelBias) {
+            __function(pbias, hTexRef)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuTexRefGetMipmapLevelClamp(
         pminMipmapLevelClamp: *mut f32,
         pmaxMipmapLevelClamp: *mut f32,
         hTexRef: CUtexref,
     ) -> CUresult {
-        (culib().cuTexRefGetMipmapLevelClamp)(pminMipmapLevelClamp, pmaxMipmapLevelClamp, hTexRef)
+        if let Some(__function) = (culib().cuTexRefGetMipmapLevelClamp) {
+            __function(pminMipmapLevelClamp, pmaxMipmapLevelClamp, hTexRef)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuTexRefGetMipmappedArray(
         phMipmappedArray: *mut CUmipmappedArray,
         hTexRef: CUtexref,
     ) -> CUresult {
-        (culib().cuTexRefGetMipmappedArray)(phMipmappedArray, hTexRef)
+        if let Some(__function) = (culib().cuTexRefGetMipmappedArray) {
+            __function(phMipmappedArray, hTexRef)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuTexRefSetAddress2D_v3(
         hTexRef: CUtexref,
@@ -17574,14 +19357,22 @@ mod loaded {
         dptr: CUdeviceptr,
         Pitch: usize,
     ) -> CUresult {
-        (culib().cuTexRefSetAddress2D_v3)(hTexRef, desc, dptr, Pitch)
+        if let Some(__function) = (culib().cuTexRefSetAddress2D_v3) {
+            __function(hTexRef, desc, dptr, Pitch)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuTexRefSetAddressMode(
         hTexRef: CUtexref,
         dim: ::core::ffi::c_int,
         am: CUaddress_mode,
     ) -> CUresult {
-        (culib().cuTexRefSetAddressMode)(hTexRef, dim, am)
+        if let Some(__function) = (culib().cuTexRefSetAddressMode) {
+            __function(hTexRef, dim, am)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuTexRefSetAddress_v2(
         ByteOffset: *mut usize,
@@ -17589,59 +19380,107 @@ mod loaded {
         dptr: CUdeviceptr,
         bytes: usize,
     ) -> CUresult {
-        (culib().cuTexRefSetAddress_v2)(ByteOffset, hTexRef, dptr, bytes)
+        if let Some(__function) = (culib().cuTexRefSetAddress_v2) {
+            __function(ByteOffset, hTexRef, dptr, bytes)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuTexRefSetArray(
         hTexRef: CUtexref,
         hArray: CUarray,
         Flags: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuTexRefSetArray)(hTexRef, hArray, Flags)
+        if let Some(__function) = (culib().cuTexRefSetArray) {
+            __function(hTexRef, hArray, Flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuTexRefSetBorderColor(hTexRef: CUtexref, pBorderColor: *mut f32) -> CUresult {
-        (culib().cuTexRefSetBorderColor)(hTexRef, pBorderColor)
+        if let Some(__function) = (culib().cuTexRefSetBorderColor) {
+            __function(hTexRef, pBorderColor)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuTexRefSetFilterMode(hTexRef: CUtexref, fm: CUfilter_mode) -> CUresult {
-        (culib().cuTexRefSetFilterMode)(hTexRef, fm)
+        if let Some(__function) = (culib().cuTexRefSetFilterMode) {
+            __function(hTexRef, fm)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuTexRefSetFlags(hTexRef: CUtexref, Flags: ::core::ffi::c_uint) -> CUresult {
-        (culib().cuTexRefSetFlags)(hTexRef, Flags)
+        if let Some(__function) = (culib().cuTexRefSetFlags) {
+            __function(hTexRef, Flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuTexRefSetFormat(
         hTexRef: CUtexref,
         fmt: CUarray_format,
         NumPackedComponents: ::core::ffi::c_int,
     ) -> CUresult {
-        (culib().cuTexRefSetFormat)(hTexRef, fmt, NumPackedComponents)
+        if let Some(__function) = (culib().cuTexRefSetFormat) {
+            __function(hTexRef, fmt, NumPackedComponents)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuTexRefSetMaxAnisotropy(
         hTexRef: CUtexref,
         maxAniso: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuTexRefSetMaxAnisotropy)(hTexRef, maxAniso)
+        if let Some(__function) = (culib().cuTexRefSetMaxAnisotropy) {
+            __function(hTexRef, maxAniso)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuTexRefSetMipmapFilterMode(hTexRef: CUtexref, fm: CUfilter_mode) -> CUresult {
-        (culib().cuTexRefSetMipmapFilterMode)(hTexRef, fm)
+        if let Some(__function) = (culib().cuTexRefSetMipmapFilterMode) {
+            __function(hTexRef, fm)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuTexRefSetMipmapLevelBias(hTexRef: CUtexref, bias: f32) -> CUresult {
-        (culib().cuTexRefSetMipmapLevelBias)(hTexRef, bias)
+        if let Some(__function) = (culib().cuTexRefSetMipmapLevelBias) {
+            __function(hTexRef, bias)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuTexRefSetMipmapLevelClamp(
         hTexRef: CUtexref,
         minMipmapLevelClamp: f32,
         maxMipmapLevelClamp: f32,
     ) -> CUresult {
-        (culib().cuTexRefSetMipmapLevelClamp)(hTexRef, minMipmapLevelClamp, maxMipmapLevelClamp)
+        if let Some(__function) = (culib().cuTexRefSetMipmapLevelClamp) {
+            __function(hTexRef, minMipmapLevelClamp, maxMipmapLevelClamp)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuTexRefSetMipmappedArray(
         hTexRef: CUtexref,
         hMipmappedArray: CUmipmappedArray,
         Flags: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuTexRefSetMipmappedArray)(hTexRef, hMipmappedArray, Flags)
+        if let Some(__function) = (culib().cuTexRefSetMipmappedArray) {
+            __function(hTexRef, hMipmappedArray, Flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuThreadExchangeStreamCaptureMode(mode: *mut CUstreamCaptureMode) -> CUresult {
-        (culib().cuThreadExchangeStreamCaptureMode)(mode)
+        if let Some(__function) = (culib().cuThreadExchangeStreamCaptureMode) {
+            __function(mode)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuUserObjectCreate(
         object_out: *mut CUuserObject,
@@ -17650,16 +19489,28 @@ mod loaded {
         initialRefcount: ::core::ffi::c_uint,
         flags: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuUserObjectCreate)(object_out, ptr, destroy, initialRefcount, flags)
+        if let Some(__function) = (culib().cuUserObjectCreate) {
+            __function(object_out, ptr, destroy, initialRefcount, flags)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuUserObjectRelease(
         object: CUuserObject,
         count: ::core::ffi::c_uint,
     ) -> CUresult {
-        (culib().cuUserObjectRelease)(object, count)
+        if let Some(__function) = (culib().cuUserObjectRelease) {
+            __function(object, count)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuUserObjectRetain(object: CUuserObject, count: ::core::ffi::c_uint) -> CUresult {
-        (culib().cuUserObjectRetain)(object, count)
+        if let Some(__function) = (culib().cuUserObjectRetain) {
+            __function(object, count)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub unsafe fn cuWaitExternalSemaphoresAsync(
         extSemArray: *const CUexternalSemaphore,
@@ -17667,27 +19518,39 @@ mod loaded {
         numExtSems: ::core::ffi::c_uint,
         stream: CUstream,
     ) -> CUresult {
-        (culib().cuWaitExternalSemaphoresAsync)(extSemArray, paramsArray, numExtSems, stream)
+        if let Some(__function) = (culib().cuWaitExternalSemaphoresAsync) {
+            __function(extSemArray, paramsArray, numExtSems, stream)
+        } else {
+            CUresult::CUDA_ERROR_CALL_REQUIRES_NEWER_DRIVER
+        }
     }
     pub struct Lib {
         __library: ::libloading::Library,
-        pub cuArray3DCreate_v2: unsafe extern "C" fn(
-            pHandle: *mut CUarray,
-            pAllocateArray: *const CUDA_ARRAY3D_DESCRIPTOR,
-        ) -> CUresult,
-        pub cuArray3DGetDescriptor_v2: unsafe extern "C" fn(
-            pArrayDescriptor: *mut CUDA_ARRAY3D_DESCRIPTOR,
-            hArray: CUarray,
-        ) -> CUresult,
-        pub cuArrayCreate_v2: unsafe extern "C" fn(
-            pHandle: *mut CUarray,
-            pAllocateArray: *const CUDA_ARRAY_DESCRIPTOR,
-        ) -> CUresult,
-        pub cuArrayDestroy: unsafe extern "C" fn(hArray: CUarray) -> CUresult,
-        pub cuArrayGetDescriptor_v2: unsafe extern "C" fn(
-            pArrayDescriptor: *mut CUDA_ARRAY_DESCRIPTOR,
-            hArray: CUarray,
-        ) -> CUresult,
+        pub cuArray3DCreate_v2: Option<
+            unsafe extern "C" fn(
+                pHandle: *mut CUarray,
+                pAllocateArray: *const CUDA_ARRAY3D_DESCRIPTOR,
+            ) -> CUresult,
+        >,
+        pub cuArray3DGetDescriptor_v2: Option<
+            unsafe extern "C" fn(
+                pArrayDescriptor: *mut CUDA_ARRAY3D_DESCRIPTOR,
+                hArray: CUarray,
+            ) -> CUresult,
+        >,
+        pub cuArrayCreate_v2: Option<
+            unsafe extern "C" fn(
+                pHandle: *mut CUarray,
+                pAllocateArray: *const CUDA_ARRAY_DESCRIPTOR,
+            ) -> CUresult,
+        >,
+        pub cuArrayDestroy: Option<unsafe extern "C" fn(hArray: CUarray) -> CUresult>,
+        pub cuArrayGetDescriptor_v2: Option<
+            unsafe extern "C" fn(
+                pArrayDescriptor: *mut CUDA_ARRAY_DESCRIPTOR,
+                hArray: CUarray,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-11060",
             feature = "cuda-11070",
@@ -17703,20 +19566,26 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuArrayGetMemoryRequirements: unsafe extern "C" fn(
-            memoryRequirements: *mut CUDA_ARRAY_MEMORY_REQUIREMENTS,
-            array: CUarray,
-            device: CUdevice,
-        ) -> CUresult,
-        pub cuArrayGetPlane: unsafe extern "C" fn(
-            pPlaneArray: *mut CUarray,
-            hArray: CUarray,
-            planeIdx: ::core::ffi::c_uint,
-        ) -> CUresult,
-        pub cuArrayGetSparseProperties: unsafe extern "C" fn(
-            sparseProperties: *mut CUDA_ARRAY_SPARSE_PROPERTIES,
-            array: CUarray,
-        ) -> CUresult,
+        pub cuArrayGetMemoryRequirements: Option<
+            unsafe extern "C" fn(
+                memoryRequirements: *mut CUDA_ARRAY_MEMORY_REQUIREMENTS,
+                array: CUarray,
+                device: CUdevice,
+            ) -> CUresult,
+        >,
+        pub cuArrayGetPlane: Option<
+            unsafe extern "C" fn(
+                pPlaneArray: *mut CUarray,
+                hArray: CUarray,
+                planeIdx: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
+        pub cuArrayGetSparseProperties: Option<
+            unsafe extern "C" fn(
+                sparseProperties: *mut CUDA_ARRAY_SPARSE_PROPERTIES,
+                array: CUarray,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12010",
             feature = "cuda-12020",
@@ -17728,11 +19597,13 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuCoredumpGetAttribute: unsafe extern "C" fn(
-            attrib: CUcoredumpSettings,
-            value: *mut ::core::ffi::c_void,
-            size: *mut usize,
-        ) -> CUresult,
+        pub cuCoredumpGetAttribute: Option<
+            unsafe extern "C" fn(
+                attrib: CUcoredumpSettings,
+                value: *mut ::core::ffi::c_void,
+                size: *mut usize,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12010",
             feature = "cuda-12020",
@@ -17744,11 +19615,13 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuCoredumpGetAttributeGlobal: unsafe extern "C" fn(
-            attrib: CUcoredumpSettings,
-            value: *mut ::core::ffi::c_void,
-            size: *mut usize,
-        ) -> CUresult,
+        pub cuCoredumpGetAttributeGlobal: Option<
+            unsafe extern "C" fn(
+                attrib: CUcoredumpSettings,
+                value: *mut ::core::ffi::c_void,
+                size: *mut usize,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12010",
             feature = "cuda-12020",
@@ -17760,11 +19633,13 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuCoredumpSetAttribute: unsafe extern "C" fn(
-            attrib: CUcoredumpSettings,
-            value: *mut ::core::ffi::c_void,
-            size: *mut usize,
-        ) -> CUresult,
+        pub cuCoredumpSetAttribute: Option<
+            unsafe extern "C" fn(
+                attrib: CUcoredumpSettings,
+                value: *mut ::core::ffi::c_void,
+                size: *mut usize,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12010",
             feature = "cuda-12020",
@@ -17776,13 +19651,16 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuCoredumpSetAttributeGlobal: unsafe extern "C" fn(
-            attrib: CUcoredumpSettings,
-            value: *mut ::core::ffi::c_void,
-            size: *mut usize,
-        ) -> CUresult,
-        pub cuCtxAttach:
+        pub cuCoredumpSetAttributeGlobal: Option<
+            unsafe extern "C" fn(
+                attrib: CUcoredumpSettings,
+                value: *mut ::core::ffi::c_void,
+                size: *mut usize,
+            ) -> CUresult,
+        >,
+        pub cuCtxAttach: Option<
             unsafe extern "C" fn(pctx: *mut CUcontext, flags: ::core::ffi::c_uint) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-11040",
             feature = "cuda-11050",
@@ -17799,11 +19677,13 @@ mod loaded {
             feature = "cuda-12080",
             feature = "cuda-12090"
         ))]
-        pub cuCtxCreate_v2: unsafe extern "C" fn(
-            pctx: *mut CUcontext,
-            flags: ::core::ffi::c_uint,
-            dev: CUdevice,
-        ) -> CUresult,
+        pub cuCtxCreate_v2: Option<
+            unsafe extern "C" fn(
+                pctx: *mut CUcontext,
+                flags: ::core::ffi::c_uint,
+                dev: CUdevice,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-11040",
             feature = "cuda-11050",
@@ -17820,13 +19700,15 @@ mod loaded {
             feature = "cuda-12080",
             feature = "cuda-12090"
         ))]
-        pub cuCtxCreate_v3: unsafe extern "C" fn(
-            pctx: *mut CUcontext,
-            paramsArray: *mut CUexecAffinityParam,
-            numParams: ::core::ffi::c_int,
-            flags: ::core::ffi::c_uint,
-            dev: CUdevice,
-        ) -> CUresult,
+        pub cuCtxCreate_v3: Option<
+            unsafe extern "C" fn(
+                pctx: *mut CUcontext,
+                paramsArray: *mut CUexecAffinityParam,
+                numParams: ::core::ffi::c_int,
+                flags: ::core::ffi::c_uint,
+                dev: CUdevice,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12050",
             feature = "cuda-12060",
@@ -17834,17 +19716,21 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuCtxCreate_v4: unsafe extern "C" fn(
-            pctx: *mut CUcontext,
-            ctxCreateParams: *mut CUctxCreateParams,
-            flags: ::core::ffi::c_uint,
-            dev: CUdevice,
-        ) -> CUresult,
-        pub cuCtxDestroy_v2: unsafe extern "C" fn(ctx: CUcontext) -> CUresult,
-        pub cuCtxDetach: unsafe extern "C" fn(ctx: CUcontext) -> CUresult,
-        pub cuCtxDisablePeerAccess: unsafe extern "C" fn(peerContext: CUcontext) -> CUresult,
-        pub cuCtxEnablePeerAccess:
+        pub cuCtxCreate_v4: Option<
+            unsafe extern "C" fn(
+                pctx: *mut CUcontext,
+                ctxCreateParams: *mut CUctxCreateParams,
+                flags: ::core::ffi::c_uint,
+                dev: CUdevice,
+            ) -> CUresult,
+        >,
+        pub cuCtxDestroy_v2: Option<unsafe extern "C" fn(ctx: CUcontext) -> CUresult>,
+        pub cuCtxDetach: Option<unsafe extern "C" fn(ctx: CUcontext) -> CUresult>,
+        pub cuCtxDisablePeerAccess:
+            Option<unsafe extern "C" fn(peerContext: CUcontext) -> CUresult>,
+        pub cuCtxEnablePeerAccess: Option<
             unsafe extern "C" fn(peerContext: CUcontext, Flags: ::core::ffi::c_uint) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12040",
             feature = "cuda-12050",
@@ -17854,11 +19740,13 @@ mod loaded {
             feature = "cuda-13000"
         ))]
         pub cuCtxFromGreenCtx:
-            unsafe extern "C" fn(pContext: *mut CUcontext, hCtx: CUgreenCtx) -> CUresult,
-        pub cuCtxGetApiVersion:
+            Option<unsafe extern "C" fn(pContext: *mut CUcontext, hCtx: CUgreenCtx) -> CUresult>,
+        pub cuCtxGetApiVersion: Option<
             unsafe extern "C" fn(ctx: CUcontext, version: *mut ::core::ffi::c_uint) -> CUresult,
-        pub cuCtxGetCacheConfig: unsafe extern "C" fn(pconfig: *mut CUfunc_cache) -> CUresult,
-        pub cuCtxGetCurrent: unsafe extern "C" fn(pctx: *mut CUcontext) -> CUresult,
+        >,
+        pub cuCtxGetCacheConfig:
+            Option<unsafe extern "C" fn(pconfig: *mut CUfunc_cache) -> CUresult>,
+        pub cuCtxGetCurrent: Option<unsafe extern "C" fn(pctx: *mut CUcontext) -> CUresult>,
         #[cfg(any(
             feature = "cuda-12040",
             feature = "cuda-12050",
@@ -17867,20 +19755,25 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuCtxGetDevResource: unsafe extern "C" fn(
-            hCtx: CUcontext,
-            resource: *mut CUdevResource,
-            type_: CUdevResourceType,
-        ) -> CUresult,
-        pub cuCtxGetDevice: unsafe extern "C" fn(device: *mut CUdevice) -> CUresult,
+        pub cuCtxGetDevResource: Option<
+            unsafe extern "C" fn(
+                hCtx: CUcontext,
+                resource: *mut CUdevResource,
+                type_: CUdevResourceType,
+            ) -> CUresult,
+        >,
+        pub cuCtxGetDevice: Option<unsafe extern "C" fn(device: *mut CUdevice) -> CUresult>,
         #[cfg(any(feature = "cuda-13000"))]
         pub cuCtxGetDevice_v2:
-            unsafe extern "C" fn(device: *mut CUdevice, ctx: CUcontext) -> CUresult,
-        pub cuCtxGetExecAffinity: unsafe extern "C" fn(
-            pExecAffinity: *mut CUexecAffinityParam,
-            type_: CUexecAffinityType,
-        ) -> CUresult,
-        pub cuCtxGetFlags: unsafe extern "C" fn(flags: *mut ::core::ffi::c_uint) -> CUresult,
+            Option<unsafe extern "C" fn(device: *mut CUdevice, ctx: CUcontext) -> CUresult>,
+        pub cuCtxGetExecAffinity: Option<
+            unsafe extern "C" fn(
+                pExecAffinity: *mut CUexecAffinityParam,
+                type_: CUexecAffinityType,
+            ) -> CUresult,
+        >,
+        pub cuCtxGetFlags:
+            Option<unsafe extern "C" fn(flags: *mut ::core::ffi::c_uint) -> CUresult>,
         #[cfg(any(
             feature = "cuda-12000",
             feature = "cuda-12010",
@@ -17893,16 +19786,21 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuCtxGetId:
+        pub cuCtxGetId: Option<
             unsafe extern "C" fn(ctx: CUcontext, ctxId: *mut ::core::ffi::c_ulonglong) -> CUresult,
-        pub cuCtxGetLimit: unsafe extern "C" fn(pvalue: *mut usize, limit: CUlimit) -> CUresult,
-        pub cuCtxGetSharedMemConfig: unsafe extern "C" fn(pConfig: *mut CUsharedconfig) -> CUresult,
-        pub cuCtxGetStreamPriorityRange: unsafe extern "C" fn(
-            leastPriority: *mut ::core::ffi::c_int,
-            greatestPriority: *mut ::core::ffi::c_int,
-        ) -> CUresult,
-        pub cuCtxPopCurrent_v2: unsafe extern "C" fn(pctx: *mut CUcontext) -> CUresult,
-        pub cuCtxPushCurrent_v2: unsafe extern "C" fn(ctx: CUcontext) -> CUresult,
+        >,
+        pub cuCtxGetLimit:
+            Option<unsafe extern "C" fn(pvalue: *mut usize, limit: CUlimit) -> CUresult>,
+        pub cuCtxGetSharedMemConfig:
+            Option<unsafe extern "C" fn(pConfig: *mut CUsharedconfig) -> CUresult>,
+        pub cuCtxGetStreamPriorityRange: Option<
+            unsafe extern "C" fn(
+                leastPriority: *mut ::core::ffi::c_int,
+                greatestPriority: *mut ::core::ffi::c_int,
+            ) -> CUresult,
+        >,
+        pub cuCtxPopCurrent_v2: Option<unsafe extern "C" fn(pctx: *mut CUcontext) -> CUresult>,
+        pub cuCtxPushCurrent_v2: Option<unsafe extern "C" fn(ctx: CUcontext) -> CUresult>,
         #[cfg(any(
             feature = "cuda-12050",
             feature = "cuda-12060",
@@ -17910,10 +19808,11 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuCtxRecordEvent: unsafe extern "C" fn(hCtx: CUcontext, hEvent: CUevent) -> CUresult,
-        pub cuCtxResetPersistingL2Cache: unsafe extern "C" fn() -> CUresult,
-        pub cuCtxSetCacheConfig: unsafe extern "C" fn(config: CUfunc_cache) -> CUresult,
-        pub cuCtxSetCurrent: unsafe extern "C" fn(ctx: CUcontext) -> CUresult,
+        pub cuCtxRecordEvent:
+            Option<unsafe extern "C" fn(hCtx: CUcontext, hEvent: CUevent) -> CUresult>,
+        pub cuCtxResetPersistingL2Cache: Option<unsafe extern "C" fn() -> CUresult>,
+        pub cuCtxSetCacheConfig: Option<unsafe extern "C" fn(config: CUfunc_cache) -> CUresult>,
+        pub cuCtxSetCurrent: Option<unsafe extern "C" fn(ctx: CUcontext) -> CUresult>,
         #[cfg(any(
             feature = "cuda-12010",
             feature = "cuda-12020",
@@ -17925,12 +19824,13 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuCtxSetFlags: unsafe extern "C" fn(flags: ::core::ffi::c_uint) -> CUresult,
-        pub cuCtxSetLimit: unsafe extern "C" fn(limit: CUlimit, value: usize) -> CUresult,
-        pub cuCtxSetSharedMemConfig: unsafe extern "C" fn(config: CUsharedconfig) -> CUresult,
-        pub cuCtxSynchronize: unsafe extern "C" fn() -> CUresult,
+        pub cuCtxSetFlags: Option<unsafe extern "C" fn(flags: ::core::ffi::c_uint) -> CUresult>,
+        pub cuCtxSetLimit: Option<unsafe extern "C" fn(limit: CUlimit, value: usize) -> CUresult>,
+        pub cuCtxSetSharedMemConfig:
+            Option<unsafe extern "C" fn(config: CUsharedconfig) -> CUresult>,
+        pub cuCtxSynchronize: Option<unsafe extern "C" fn() -> CUresult>,
         #[cfg(any(feature = "cuda-13000"))]
-        pub cuCtxSynchronize_v2: unsafe extern "C" fn(ctx: CUcontext) -> CUresult,
+        pub cuCtxSynchronize_v2: Option<unsafe extern "C" fn(ctx: CUcontext) -> CUresult>,
         #[cfg(any(
             feature = "cuda-12050",
             feature = "cuda-12060",
@@ -17938,10 +19838,12 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuCtxWaitEvent: unsafe extern "C" fn(hCtx: CUcontext, hEvent: CUevent) -> CUresult,
-        pub cuDestroyExternalMemory: unsafe extern "C" fn(extMem: CUexternalMemory) -> CUresult,
+        pub cuCtxWaitEvent:
+            Option<unsafe extern "C" fn(hCtx: CUcontext, hEvent: CUevent) -> CUresult>,
+        pub cuDestroyExternalMemory:
+            Option<unsafe extern "C" fn(extMem: CUexternalMemory) -> CUresult>,
         pub cuDestroyExternalSemaphore:
-            unsafe extern "C" fn(extSem: CUexternalSemaphore) -> CUresult,
+            Option<unsafe extern "C" fn(extSem: CUexternalSemaphore) -> CUresult>,
         #[cfg(any(
             feature = "cuda-12040",
             feature = "cuda-12050",
@@ -17950,11 +19852,13 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuDevResourceGenerateDesc: unsafe extern "C" fn(
-            phDesc: *mut CUdevResourceDesc,
-            resources: *mut CUdevResource,
-            nbResources: ::core::ffi::c_uint,
-        ) -> CUresult,
+        pub cuDevResourceGenerateDesc: Option<
+            unsafe extern "C" fn(
+                phDesc: *mut CUdevResourceDesc,
+                resources: *mut CUdevResource,
+                nbResources: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12040",
             feature = "cuda-12050",
@@ -17963,38 +19867,50 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuDevSmResourceSplitByCount: unsafe extern "C" fn(
-            result: *mut CUdevResource,
-            nbGroups: *mut ::core::ffi::c_uint,
-            input: *const CUdevResource,
-            remaining: *mut CUdevResource,
-            useFlags: ::core::ffi::c_uint,
-            minCount: ::core::ffi::c_uint,
-        ) -> CUresult,
-        pub cuDeviceCanAccessPeer: unsafe extern "C" fn(
-            canAccessPeer: *mut ::core::ffi::c_int,
-            dev: CUdevice,
-            peerDev: CUdevice,
-        ) -> CUresult,
-        pub cuDeviceComputeCapability: unsafe extern "C" fn(
-            major: *mut ::core::ffi::c_int,
-            minor: *mut ::core::ffi::c_int,
-            dev: CUdevice,
-        ) -> CUresult,
-        pub cuDeviceGet:
+        pub cuDevSmResourceSplitByCount: Option<
+            unsafe extern "C" fn(
+                result: *mut CUdevResource,
+                nbGroups: *mut ::core::ffi::c_uint,
+                input: *const CUdevResource,
+                remaining: *mut CUdevResource,
+                useFlags: ::core::ffi::c_uint,
+                minCount: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
+        pub cuDeviceCanAccessPeer: Option<
+            unsafe extern "C" fn(
+                canAccessPeer: *mut ::core::ffi::c_int,
+                dev: CUdevice,
+                peerDev: CUdevice,
+            ) -> CUresult,
+        >,
+        pub cuDeviceComputeCapability: Option<
+            unsafe extern "C" fn(
+                major: *mut ::core::ffi::c_int,
+                minor: *mut ::core::ffi::c_int,
+                dev: CUdevice,
+            ) -> CUresult,
+        >,
+        pub cuDeviceGet: Option<
             unsafe extern "C" fn(device: *mut CUdevice, ordinal: ::core::ffi::c_int) -> CUresult,
-        pub cuDeviceGetAttribute: unsafe extern "C" fn(
-            pi: *mut ::core::ffi::c_int,
-            attrib: CUdevice_attribute,
-            dev: CUdevice,
-        ) -> CUresult,
-        pub cuDeviceGetByPCIBusId: unsafe extern "C" fn(
-            dev: *mut CUdevice,
-            pciBusId: *const ::core::ffi::c_char,
-        ) -> CUresult,
-        pub cuDeviceGetCount: unsafe extern "C" fn(count: *mut ::core::ffi::c_int) -> CUresult,
+        >,
+        pub cuDeviceGetAttribute: Option<
+            unsafe extern "C" fn(
+                pi: *mut ::core::ffi::c_int,
+                attrib: CUdevice_attribute,
+                dev: CUdevice,
+            ) -> CUresult,
+        >,
+        pub cuDeviceGetByPCIBusId: Option<
+            unsafe extern "C" fn(
+                dev: *mut CUdevice,
+                pciBusId: *const ::core::ffi::c_char,
+            ) -> CUresult,
+        >,
+        pub cuDeviceGetCount:
+            Option<unsafe extern "C" fn(count: *mut ::core::ffi::c_int) -> CUresult>,
         pub cuDeviceGetDefaultMemPool:
-            unsafe extern "C" fn(pool_out: *mut CUmemoryPool, dev: CUdevice) -> CUresult,
+            Option<unsafe extern "C" fn(pool_out: *mut CUmemoryPool, dev: CUdevice) -> CUresult>,
         #[cfg(any(
             feature = "cuda-12040",
             feature = "cuda-12050",
@@ -18003,67 +19919,87 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuDeviceGetDevResource: unsafe extern "C" fn(
-            device: CUdevice,
-            resource: *mut CUdevResource,
-            type_: CUdevResourceType,
-        ) -> CUresult,
-        pub cuDeviceGetExecAffinitySupport: unsafe extern "C" fn(
-            pi: *mut ::core::ffi::c_int,
-            type_: CUexecAffinityType,
-            dev: CUdevice,
-        ) -> CUresult,
-        pub cuDeviceGetGraphMemAttribute: unsafe extern "C" fn(
-            device: CUdevice,
-            attr: CUgraphMem_attribute,
-            value: *mut ::core::ffi::c_void,
-        ) -> CUresult,
+        pub cuDeviceGetDevResource: Option<
+            unsafe extern "C" fn(
+                device: CUdevice,
+                resource: *mut CUdevResource,
+                type_: CUdevResourceType,
+            ) -> CUresult,
+        >,
+        pub cuDeviceGetExecAffinitySupport: Option<
+            unsafe extern "C" fn(
+                pi: *mut ::core::ffi::c_int,
+                type_: CUexecAffinityType,
+                dev: CUdevice,
+            ) -> CUresult,
+        >,
+        pub cuDeviceGetGraphMemAttribute: Option<
+            unsafe extern "C" fn(
+                device: CUdevice,
+                attr: CUgraphMem_attribute,
+                value: *mut ::core::ffi::c_void,
+            ) -> CUresult,
+        >,
         #[cfg(any(feature = "cuda-13000"))]
-        pub cuDeviceGetHostAtomicCapabilities: unsafe extern "C" fn(
-            capabilities: *mut ::core::ffi::c_uint,
-            operations: *const CUatomicOperation,
-            count: ::core::ffi::c_uint,
-            dev: CUdevice,
-        ) -> CUresult,
-        pub cuDeviceGetLuid: unsafe extern "C" fn(
-            luid: *mut ::core::ffi::c_char,
-            deviceNodeMask: *mut ::core::ffi::c_uint,
-            dev: CUdevice,
-        ) -> CUresult,
+        pub cuDeviceGetHostAtomicCapabilities: Option<
+            unsafe extern "C" fn(
+                capabilities: *mut ::core::ffi::c_uint,
+                operations: *const CUatomicOperation,
+                count: ::core::ffi::c_uint,
+                dev: CUdevice,
+            ) -> CUresult,
+        >,
+        pub cuDeviceGetLuid: Option<
+            unsafe extern "C" fn(
+                luid: *mut ::core::ffi::c_char,
+                deviceNodeMask: *mut ::core::ffi::c_uint,
+                dev: CUdevice,
+            ) -> CUresult,
+        >,
         pub cuDeviceGetMemPool:
-            unsafe extern "C" fn(pool: *mut CUmemoryPool, dev: CUdevice) -> CUresult,
-        pub cuDeviceGetName: unsafe extern "C" fn(
-            name: *mut ::core::ffi::c_char,
-            len: ::core::ffi::c_int,
-            dev: CUdevice,
-        ) -> CUresult,
+            Option<unsafe extern "C" fn(pool: *mut CUmemoryPool, dev: CUdevice) -> CUresult>,
+        pub cuDeviceGetName: Option<
+            unsafe extern "C" fn(
+                name: *mut ::core::ffi::c_char,
+                len: ::core::ffi::c_int,
+                dev: CUdevice,
+            ) -> CUresult,
+        >,
         #[cfg(any(feature = "cuda-13000"))]
-        pub cuDeviceGetP2PAtomicCapabilities: unsafe extern "C" fn(
-            capabilities: *mut ::core::ffi::c_uint,
-            operations: *const CUatomicOperation,
-            count: ::core::ffi::c_uint,
-            srcDevice: CUdevice,
-            dstDevice: CUdevice,
-        ) -> CUresult,
-        pub cuDeviceGetP2PAttribute: unsafe extern "C" fn(
-            value: *mut ::core::ffi::c_int,
-            attrib: CUdevice_P2PAttribute,
-            srcDevice: CUdevice,
-            dstDevice: CUdevice,
-        ) -> CUresult,
-        pub cuDeviceGetPCIBusId: unsafe extern "C" fn(
-            pciBusId: *mut ::core::ffi::c_char,
-            len: ::core::ffi::c_int,
-            dev: CUdevice,
-        ) -> CUresult,
+        pub cuDeviceGetP2PAtomicCapabilities: Option<
+            unsafe extern "C" fn(
+                capabilities: *mut ::core::ffi::c_uint,
+                operations: *const CUatomicOperation,
+                count: ::core::ffi::c_uint,
+                srcDevice: CUdevice,
+                dstDevice: CUdevice,
+            ) -> CUresult,
+        >,
+        pub cuDeviceGetP2PAttribute: Option<
+            unsafe extern "C" fn(
+                value: *mut ::core::ffi::c_int,
+                attrib: CUdevice_P2PAttribute,
+                srcDevice: CUdevice,
+                dstDevice: CUdevice,
+            ) -> CUresult,
+        >,
+        pub cuDeviceGetPCIBusId: Option<
+            unsafe extern "C" fn(
+                pciBusId: *mut ::core::ffi::c_char,
+                len: ::core::ffi::c_int,
+                dev: CUdevice,
+            ) -> CUresult,
+        >,
         pub cuDeviceGetProperties:
-            unsafe extern "C" fn(prop: *mut CUdevprop, dev: CUdevice) -> CUresult,
-        pub cuDeviceGetTexture1DLinearMaxWidth: unsafe extern "C" fn(
-            maxWidthInElements: *mut usize,
-            format: CUarray_format,
-            numChannels: ::core::ffi::c_uint,
-            dev: CUdevice,
-        ) -> CUresult,
+            Option<unsafe extern "C" fn(prop: *mut CUdevprop, dev: CUdevice) -> CUresult>,
+        pub cuDeviceGetTexture1DLinearMaxWidth: Option<
+            unsafe extern "C" fn(
+                maxWidthInElements: *mut usize,
+                format: CUarray_format,
+                numChannels: ::core::ffi::c_uint,
+                dev: CUdevice,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-11040",
             feature = "cuda-11050",
@@ -18080,20 +20016,24 @@ mod loaded {
             feature = "cuda-12080",
             feature = "cuda-12090"
         ))]
-        pub cuDeviceGetUuid: unsafe extern "C" fn(uuid: *mut CUuuid, dev: CUdevice) -> CUresult,
-        pub cuDeviceGetUuid_v2: unsafe extern "C" fn(uuid: *mut CUuuid, dev: CUdevice) -> CUresult,
-        pub cuDeviceGraphMemTrim: unsafe extern "C" fn(device: CUdevice) -> CUresult,
-        pub cuDevicePrimaryCtxGetState: unsafe extern "C" fn(
-            dev: CUdevice,
-            flags: *mut ::core::ffi::c_uint,
-            active: *mut ::core::ffi::c_int,
-        ) -> CUresult,
-        pub cuDevicePrimaryCtxRelease_v2: unsafe extern "C" fn(dev: CUdevice) -> CUresult,
-        pub cuDevicePrimaryCtxReset_v2: unsafe extern "C" fn(dev: CUdevice) -> CUresult,
+        pub cuDeviceGetUuid:
+            Option<unsafe extern "C" fn(uuid: *mut CUuuid, dev: CUdevice) -> CUresult>,
+        pub cuDeviceGetUuid_v2:
+            Option<unsafe extern "C" fn(uuid: *mut CUuuid, dev: CUdevice) -> CUresult>,
+        pub cuDeviceGraphMemTrim: Option<unsafe extern "C" fn(device: CUdevice) -> CUresult>,
+        pub cuDevicePrimaryCtxGetState: Option<
+            unsafe extern "C" fn(
+                dev: CUdevice,
+                flags: *mut ::core::ffi::c_uint,
+                active: *mut ::core::ffi::c_int,
+            ) -> CUresult,
+        >,
+        pub cuDevicePrimaryCtxRelease_v2: Option<unsafe extern "C" fn(dev: CUdevice) -> CUresult>,
+        pub cuDevicePrimaryCtxReset_v2: Option<unsafe extern "C" fn(dev: CUdevice) -> CUresult>,
         pub cuDevicePrimaryCtxRetain:
-            unsafe extern "C" fn(pctx: *mut CUcontext, dev: CUdevice) -> CUresult,
+            Option<unsafe extern "C" fn(pctx: *mut CUcontext, dev: CUdevice) -> CUresult>,
         pub cuDevicePrimaryCtxSetFlags_v2:
-            unsafe extern "C" fn(dev: CUdevice, flags: ::core::ffi::c_uint) -> CUresult,
+            Option<unsafe extern "C" fn(dev: CUdevice, flags: ::core::ffi::c_uint) -> CUresult>,
         #[cfg(any(
             feature = "cuda-12040",
             feature = "cuda-12050",
@@ -18102,19 +20042,25 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuDeviceRegisterAsyncNotification: unsafe extern "C" fn(
-            device: CUdevice,
-            callbackFunc: CUasyncCallback,
-            userData: *mut ::core::ffi::c_void,
-            callback: *mut CUasyncCallbackHandle,
-        ) -> CUresult,
-        pub cuDeviceSetGraphMemAttribute: unsafe extern "C" fn(
-            device: CUdevice,
-            attr: CUgraphMem_attribute,
-            value: *mut ::core::ffi::c_void,
-        ) -> CUresult,
-        pub cuDeviceSetMemPool: unsafe extern "C" fn(dev: CUdevice, pool: CUmemoryPool) -> CUresult,
-        pub cuDeviceTotalMem_v2: unsafe extern "C" fn(bytes: *mut usize, dev: CUdevice) -> CUresult,
+        pub cuDeviceRegisterAsyncNotification: Option<
+            unsafe extern "C" fn(
+                device: CUdevice,
+                callbackFunc: CUasyncCallback,
+                userData: *mut ::core::ffi::c_void,
+                callback: *mut CUasyncCallbackHandle,
+            ) -> CUresult,
+        >,
+        pub cuDeviceSetGraphMemAttribute: Option<
+            unsafe extern "C" fn(
+                device: CUdevice,
+                attr: CUgraphMem_attribute,
+                value: *mut ::core::ffi::c_void,
+            ) -> CUresult,
+        >,
+        pub cuDeviceSetMemPool:
+            Option<unsafe extern "C" fn(dev: CUdevice, pool: CUmemoryPool) -> CUresult>,
+        pub cuDeviceTotalMem_v2:
+            Option<unsafe extern "C" fn(bytes: *mut usize, dev: CUdevice) -> CUresult>,
         #[cfg(any(
             feature = "cuda-12040",
             feature = "cuda-12050",
@@ -18123,13 +20069,15 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuDeviceUnregisterAsyncNotification:
+        pub cuDeviceUnregisterAsyncNotification: Option<
             unsafe extern "C" fn(device: CUdevice, callback: CUasyncCallbackHandle) -> CUresult,
+        >,
         pub cuDriverGetVersion:
-            unsafe extern "C" fn(driverVersion: *mut ::core::ffi::c_int) -> CUresult,
-        pub cuEventCreate:
+            Option<unsafe extern "C" fn(driverVersion: *mut ::core::ffi::c_int) -> CUresult>,
+        pub cuEventCreate: Option<
             unsafe extern "C" fn(phEvent: *mut CUevent, Flags: ::core::ffi::c_uint) -> CUresult,
-        pub cuEventDestroy_v2: unsafe extern "C" fn(hEvent: CUevent) -> CUresult,
+        >,
+        pub cuEventDestroy_v2: Option<unsafe extern "C" fn(hEvent: CUevent) -> CUresult>,
         #[cfg(any(
             feature = "cuda-11040",
             feature = "cuda-11050",
@@ -18146,46 +20094,61 @@ mod loaded {
             feature = "cuda-12080",
             feature = "cuda-12090"
         ))]
-        pub cuEventElapsedTime: unsafe extern "C" fn(
-            pMilliseconds: *mut f32,
-            hStart: CUevent,
-            hEnd: CUevent,
-        ) -> CUresult,
+        pub cuEventElapsedTime: Option<
+            unsafe extern "C" fn(
+                pMilliseconds: *mut f32,
+                hStart: CUevent,
+                hEnd: CUevent,
+            ) -> CUresult,
+        >,
         #[cfg(any(feature = "cuda-12080", feature = "cuda-12090", feature = "cuda-13000"))]
-        pub cuEventElapsedTime_v2: unsafe extern "C" fn(
-            pMilliseconds: *mut f32,
-            hStart: CUevent,
-            hEnd: CUevent,
-        ) -> CUresult,
-        pub cuEventQuery: unsafe extern "C" fn(hEvent: CUevent) -> CUresult,
-        pub cuEventRecord: unsafe extern "C" fn(hEvent: CUevent, hStream: CUstream) -> CUresult,
-        pub cuEventRecordWithFlags: unsafe extern "C" fn(
-            hEvent: CUevent,
-            hStream: CUstream,
-            flags: ::core::ffi::c_uint,
-        ) -> CUresult,
-        pub cuEventSynchronize: unsafe extern "C" fn(hEvent: CUevent) -> CUresult,
-        pub cuExternalMemoryGetMappedBuffer: unsafe extern "C" fn(
-            devPtr: *mut CUdeviceptr,
-            extMem: CUexternalMemory,
-            bufferDesc: *const CUDA_EXTERNAL_MEMORY_BUFFER_DESC,
-        ) -> CUresult,
-        pub cuExternalMemoryGetMappedMipmappedArray: unsafe extern "C" fn(
-            mipmap: *mut CUmipmappedArray,
-            extMem: CUexternalMemory,
-            mipmapDesc: *const CUDA_EXTERNAL_MEMORY_MIPMAPPED_ARRAY_DESC,
-        ) -> CUresult,
-        pub cuFlushGPUDirectRDMAWrites: unsafe extern "C" fn(
-            target: CUflushGPUDirectRDMAWritesTarget,
-            scope: CUflushGPUDirectRDMAWritesScope,
-        ) -> CUresult,
-        pub cuFuncGetAttribute: unsafe extern "C" fn(
-            pi: *mut ::core::ffi::c_int,
-            attrib: CUfunction_attribute,
-            hfunc: CUfunction,
-        ) -> CUresult,
+        pub cuEventElapsedTime_v2: Option<
+            unsafe extern "C" fn(
+                pMilliseconds: *mut f32,
+                hStart: CUevent,
+                hEnd: CUevent,
+            ) -> CUresult,
+        >,
+        pub cuEventQuery: Option<unsafe extern "C" fn(hEvent: CUevent) -> CUresult>,
+        pub cuEventRecord:
+            Option<unsafe extern "C" fn(hEvent: CUevent, hStream: CUstream) -> CUresult>,
+        pub cuEventRecordWithFlags: Option<
+            unsafe extern "C" fn(
+                hEvent: CUevent,
+                hStream: CUstream,
+                flags: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
+        pub cuEventSynchronize: Option<unsafe extern "C" fn(hEvent: CUevent) -> CUresult>,
+        pub cuExternalMemoryGetMappedBuffer: Option<
+            unsafe extern "C" fn(
+                devPtr: *mut CUdeviceptr,
+                extMem: CUexternalMemory,
+                bufferDesc: *const CUDA_EXTERNAL_MEMORY_BUFFER_DESC,
+            ) -> CUresult,
+        >,
+        pub cuExternalMemoryGetMappedMipmappedArray: Option<
+            unsafe extern "C" fn(
+                mipmap: *mut CUmipmappedArray,
+                extMem: CUexternalMemory,
+                mipmapDesc: *const CUDA_EXTERNAL_MEMORY_MIPMAPPED_ARRAY_DESC,
+            ) -> CUresult,
+        >,
+        pub cuFlushGPUDirectRDMAWrites: Option<
+            unsafe extern "C" fn(
+                target: CUflushGPUDirectRDMAWritesTarget,
+                scope: CUflushGPUDirectRDMAWritesScope,
+            ) -> CUresult,
+        >,
+        pub cuFuncGetAttribute: Option<
+            unsafe extern "C" fn(
+                pi: *mut ::core::ffi::c_int,
+                attrib: CUfunction_attribute,
+                hfunc: CUfunction,
+            ) -> CUresult,
+        >,
         pub cuFuncGetModule:
-            unsafe extern "C" fn(hmod: *mut CUmodule, hfunc: CUfunction) -> CUresult,
+            Option<unsafe extern "C" fn(hmod: *mut CUmodule, hfunc: CUfunction) -> CUresult>,
         #[cfg(any(
             feature = "cuda-12030",
             feature = "cuda-12040",
@@ -18195,10 +20158,12 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuFuncGetName: unsafe extern "C" fn(
-            name: *mut *const ::core::ffi::c_char,
-            hfunc: CUfunction,
-        ) -> CUresult,
+        pub cuFuncGetName: Option<
+            unsafe extern "C" fn(
+                name: *mut *const ::core::ffi::c_char,
+                hfunc: CUfunction,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12040",
             feature = "cuda-12050",
@@ -18207,12 +20172,14 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuFuncGetParamInfo: unsafe extern "C" fn(
-            func: CUfunction,
-            paramIndex: usize,
-            paramOffset: *mut usize,
-            paramSize: *mut usize,
-        ) -> CUresult,
+        pub cuFuncGetParamInfo: Option<
+            unsafe extern "C" fn(
+                func: CUfunction,
+                paramIndex: usize,
+                paramOffset: *mut usize,
+                paramSize: *mut usize,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12040",
             feature = "cuda-12050",
@@ -18221,10 +20188,12 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuFuncIsLoaded: unsafe extern "C" fn(
-            state: *mut CUfunctionLoadingState,
-            function: CUfunction,
-        ) -> CUresult,
+        pub cuFuncIsLoaded: Option<
+            unsafe extern "C" fn(
+                state: *mut CUfunctionLoadingState,
+                function: CUfunction,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12040",
             feature = "cuda-12050",
@@ -18233,36 +20202,46 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuFuncLoad: unsafe extern "C" fn(function: CUfunction) -> CUresult,
-        pub cuFuncSetAttribute: unsafe extern "C" fn(
-            hfunc: CUfunction,
-            attrib: CUfunction_attribute,
-            value: ::core::ffi::c_int,
-        ) -> CUresult,
-        pub cuFuncSetBlockShape: unsafe extern "C" fn(
-            hfunc: CUfunction,
-            x: ::core::ffi::c_int,
-            y: ::core::ffi::c_int,
-            z: ::core::ffi::c_int,
-        ) -> CUresult,
+        pub cuFuncLoad: Option<unsafe extern "C" fn(function: CUfunction) -> CUresult>,
+        pub cuFuncSetAttribute: Option<
+            unsafe extern "C" fn(
+                hfunc: CUfunction,
+                attrib: CUfunction_attribute,
+                value: ::core::ffi::c_int,
+            ) -> CUresult,
+        >,
+        pub cuFuncSetBlockShape: Option<
+            unsafe extern "C" fn(
+                hfunc: CUfunction,
+                x: ::core::ffi::c_int,
+                y: ::core::ffi::c_int,
+                z: ::core::ffi::c_int,
+            ) -> CUresult,
+        >,
         pub cuFuncSetCacheConfig:
-            unsafe extern "C" fn(hfunc: CUfunction, config: CUfunc_cache) -> CUresult,
+            Option<unsafe extern "C" fn(hfunc: CUfunction, config: CUfunc_cache) -> CUresult>,
         pub cuFuncSetSharedMemConfig:
-            unsafe extern "C" fn(hfunc: CUfunction, config: CUsharedconfig) -> CUresult,
+            Option<unsafe extern "C" fn(hfunc: CUfunction, config: CUsharedconfig) -> CUresult>,
         pub cuFuncSetSharedSize:
-            unsafe extern "C" fn(hfunc: CUfunction, bytes: ::core::ffi::c_uint) -> CUresult,
-        pub cuGetErrorName: unsafe extern "C" fn(
-            error: CUresult,
-            pStr: *mut *const ::core::ffi::c_char,
-        ) -> CUresult,
-        pub cuGetErrorString: unsafe extern "C" fn(
-            error: CUresult,
-            pStr: *mut *const ::core::ffi::c_char,
-        ) -> CUresult,
-        pub cuGetExportTable: unsafe extern "C" fn(
-            ppExportTable: *mut *const ::core::ffi::c_void,
-            pExportTableId: *const CUuuid,
-        ) -> CUresult,
+            Option<unsafe extern "C" fn(hfunc: CUfunction, bytes: ::core::ffi::c_uint) -> CUresult>,
+        pub cuGetErrorName: Option<
+            unsafe extern "C" fn(
+                error: CUresult,
+                pStr: *mut *const ::core::ffi::c_char,
+            ) -> CUresult,
+        >,
+        pub cuGetErrorString: Option<
+            unsafe extern "C" fn(
+                error: CUresult,
+                pStr: *mut *const ::core::ffi::c_char,
+            ) -> CUresult,
+        >,
+        pub cuGetExportTable: Option<
+            unsafe extern "C" fn(
+                ppExportTable: *mut *const ::core::ffi::c_void,
+                pExportTableId: *const CUuuid,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-11040",
             feature = "cuda-11050",
@@ -18270,12 +20249,14 @@ mod loaded {
             feature = "cuda-11070",
             feature = "cuda-11080"
         ))]
-        pub cuGetProcAddress: unsafe extern "C" fn(
-            symbol: *const ::core::ffi::c_char,
-            pfn: *mut *mut ::core::ffi::c_void,
-            cudaVersion: ::core::ffi::c_int,
-            flags: cuuint64_t,
-        ) -> CUresult,
+        pub cuGetProcAddress: Option<
+            unsafe extern "C" fn(
+                symbol: *const ::core::ffi::c_char,
+                pfn: *mut *mut ::core::ffi::c_void,
+                cudaVersion: ::core::ffi::c_int,
+                flags: cuuint64_t,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12000",
             feature = "cuda-12010",
@@ -18288,13 +20269,15 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuGetProcAddress_v2: unsafe extern "C" fn(
-            symbol: *const ::core::ffi::c_char,
-            pfn: *mut *mut ::core::ffi::c_void,
-            cudaVersion: ::core::ffi::c_int,
-            flags: cuuint64_t,
-            symbolStatus: *mut CUdriverProcAddressQueryResult,
-        ) -> CUresult,
+        pub cuGetProcAddress_v2: Option<
+            unsafe extern "C" fn(
+                symbol: *const ::core::ffi::c_char,
+                pfn: *mut *mut ::core::ffi::c_void,
+                cudaVersion: ::core::ffi::c_int,
+                flags: cuuint64_t,
+                symbolStatus: *mut CUdriverProcAddressQueryResult,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-11070",
             feature = "cuda-11080",
@@ -18309,20 +20292,24 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuGraphAddBatchMemOpNode: unsafe extern "C" fn(
-            phGraphNode: *mut CUgraphNode,
-            hGraph: CUgraph,
-            dependencies: *const CUgraphNode,
-            numDependencies: usize,
-            nodeParams: *const CUDA_BATCH_MEM_OP_NODE_PARAMS,
-        ) -> CUresult,
-        pub cuGraphAddChildGraphNode: unsafe extern "C" fn(
-            phGraphNode: *mut CUgraphNode,
-            hGraph: CUgraph,
-            dependencies: *const CUgraphNode,
-            numDependencies: usize,
-            childGraph: CUgraph,
-        ) -> CUresult,
+        pub cuGraphAddBatchMemOpNode: Option<
+            unsafe extern "C" fn(
+                phGraphNode: *mut CUgraphNode,
+                hGraph: CUgraph,
+                dependencies: *const CUgraphNode,
+                numDependencies: usize,
+                nodeParams: *const CUDA_BATCH_MEM_OP_NODE_PARAMS,
+            ) -> CUresult,
+        >,
+        pub cuGraphAddChildGraphNode: Option<
+            unsafe extern "C" fn(
+                phGraphNode: *mut CUgraphNode,
+                hGraph: CUgraph,
+                dependencies: *const CUgraphNode,
+                numDependencies: usize,
+                childGraph: CUgraph,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-11040",
             feature = "cuda-11050",
@@ -18339,12 +20326,14 @@ mod loaded {
             feature = "cuda-12080",
             feature = "cuda-12090"
         ))]
-        pub cuGraphAddDependencies: unsafe extern "C" fn(
-            hGraph: CUgraph,
-            from: *const CUgraphNode,
-            to: *const CUgraphNode,
-            numDependencies: usize,
-        ) -> CUresult,
+        pub cuGraphAddDependencies: Option<
+            unsafe extern "C" fn(
+                hGraph: CUgraph,
+                from: *const CUgraphNode,
+                to: *const CUgraphNode,
+                numDependencies: usize,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12030",
             feature = "cuda-12040",
@@ -18354,54 +20343,68 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuGraphAddDependencies_v2: unsafe extern "C" fn(
-            hGraph: CUgraph,
-            from: *const CUgraphNode,
-            to: *const CUgraphNode,
-            edgeData: *const CUgraphEdgeData,
-            numDependencies: usize,
-        ) -> CUresult,
-        pub cuGraphAddEmptyNode: unsafe extern "C" fn(
-            phGraphNode: *mut CUgraphNode,
-            hGraph: CUgraph,
-            dependencies: *const CUgraphNode,
-            numDependencies: usize,
-        ) -> CUresult,
-        pub cuGraphAddEventRecordNode: unsafe extern "C" fn(
-            phGraphNode: *mut CUgraphNode,
-            hGraph: CUgraph,
-            dependencies: *const CUgraphNode,
-            numDependencies: usize,
-            event: CUevent,
-        ) -> CUresult,
-        pub cuGraphAddEventWaitNode: unsafe extern "C" fn(
-            phGraphNode: *mut CUgraphNode,
-            hGraph: CUgraph,
-            dependencies: *const CUgraphNode,
-            numDependencies: usize,
-            event: CUevent,
-        ) -> CUresult,
-        pub cuGraphAddExternalSemaphoresSignalNode: unsafe extern "C" fn(
-            phGraphNode: *mut CUgraphNode,
-            hGraph: CUgraph,
-            dependencies: *const CUgraphNode,
-            numDependencies: usize,
-            nodeParams: *const CUDA_EXT_SEM_SIGNAL_NODE_PARAMS,
-        ) -> CUresult,
-        pub cuGraphAddExternalSemaphoresWaitNode: unsafe extern "C" fn(
-            phGraphNode: *mut CUgraphNode,
-            hGraph: CUgraph,
-            dependencies: *const CUgraphNode,
-            numDependencies: usize,
-            nodeParams: *const CUDA_EXT_SEM_WAIT_NODE_PARAMS,
-        ) -> CUresult,
-        pub cuGraphAddHostNode: unsafe extern "C" fn(
-            phGraphNode: *mut CUgraphNode,
-            hGraph: CUgraph,
-            dependencies: *const CUgraphNode,
-            numDependencies: usize,
-            nodeParams: *const CUDA_HOST_NODE_PARAMS,
-        ) -> CUresult,
+        pub cuGraphAddDependencies_v2: Option<
+            unsafe extern "C" fn(
+                hGraph: CUgraph,
+                from: *const CUgraphNode,
+                to: *const CUgraphNode,
+                edgeData: *const CUgraphEdgeData,
+                numDependencies: usize,
+            ) -> CUresult,
+        >,
+        pub cuGraphAddEmptyNode: Option<
+            unsafe extern "C" fn(
+                phGraphNode: *mut CUgraphNode,
+                hGraph: CUgraph,
+                dependencies: *const CUgraphNode,
+                numDependencies: usize,
+            ) -> CUresult,
+        >,
+        pub cuGraphAddEventRecordNode: Option<
+            unsafe extern "C" fn(
+                phGraphNode: *mut CUgraphNode,
+                hGraph: CUgraph,
+                dependencies: *const CUgraphNode,
+                numDependencies: usize,
+                event: CUevent,
+            ) -> CUresult,
+        >,
+        pub cuGraphAddEventWaitNode: Option<
+            unsafe extern "C" fn(
+                phGraphNode: *mut CUgraphNode,
+                hGraph: CUgraph,
+                dependencies: *const CUgraphNode,
+                numDependencies: usize,
+                event: CUevent,
+            ) -> CUresult,
+        >,
+        pub cuGraphAddExternalSemaphoresSignalNode: Option<
+            unsafe extern "C" fn(
+                phGraphNode: *mut CUgraphNode,
+                hGraph: CUgraph,
+                dependencies: *const CUgraphNode,
+                numDependencies: usize,
+                nodeParams: *const CUDA_EXT_SEM_SIGNAL_NODE_PARAMS,
+            ) -> CUresult,
+        >,
+        pub cuGraphAddExternalSemaphoresWaitNode: Option<
+            unsafe extern "C" fn(
+                phGraphNode: *mut CUgraphNode,
+                hGraph: CUgraph,
+                dependencies: *const CUgraphNode,
+                numDependencies: usize,
+                nodeParams: *const CUDA_EXT_SEM_WAIT_NODE_PARAMS,
+            ) -> CUresult,
+        >,
+        pub cuGraphAddHostNode: Option<
+            unsafe extern "C" fn(
+                phGraphNode: *mut CUgraphNode,
+                hGraph: CUgraph,
+                dependencies: *const CUgraphNode,
+                numDependencies: usize,
+                nodeParams: *const CUDA_HOST_NODE_PARAMS,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-11040",
             feature = "cuda-11050",
@@ -18409,13 +20412,15 @@ mod loaded {
             feature = "cuda-11070",
             feature = "cuda-11080"
         ))]
-        pub cuGraphAddKernelNode: unsafe extern "C" fn(
-            phGraphNode: *mut CUgraphNode,
-            hGraph: CUgraph,
-            dependencies: *const CUgraphNode,
-            numDependencies: usize,
-            nodeParams: *const CUDA_KERNEL_NODE_PARAMS,
-        ) -> CUresult,
+        pub cuGraphAddKernelNode: Option<
+            unsafe extern "C" fn(
+                phGraphNode: *mut CUgraphNode,
+                hGraph: CUgraph,
+                dependencies: *const CUgraphNode,
+                numDependencies: usize,
+                nodeParams: *const CUDA_KERNEL_NODE_PARAMS,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12000",
             feature = "cuda-12010",
@@ -18428,43 +20433,53 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuGraphAddKernelNode_v2: unsafe extern "C" fn(
-            phGraphNode: *mut CUgraphNode,
-            hGraph: CUgraph,
-            dependencies: *const CUgraphNode,
-            numDependencies: usize,
-            nodeParams: *const CUDA_KERNEL_NODE_PARAMS,
-        ) -> CUresult,
-        pub cuGraphAddMemAllocNode: unsafe extern "C" fn(
-            phGraphNode: *mut CUgraphNode,
-            hGraph: CUgraph,
-            dependencies: *const CUgraphNode,
-            numDependencies: usize,
-            nodeParams: *mut CUDA_MEM_ALLOC_NODE_PARAMS,
-        ) -> CUresult,
-        pub cuGraphAddMemFreeNode: unsafe extern "C" fn(
-            phGraphNode: *mut CUgraphNode,
-            hGraph: CUgraph,
-            dependencies: *const CUgraphNode,
-            numDependencies: usize,
-            dptr: CUdeviceptr,
-        ) -> CUresult,
-        pub cuGraphAddMemcpyNode: unsafe extern "C" fn(
-            phGraphNode: *mut CUgraphNode,
-            hGraph: CUgraph,
-            dependencies: *const CUgraphNode,
-            numDependencies: usize,
-            copyParams: *const CUDA_MEMCPY3D,
-            ctx: CUcontext,
-        ) -> CUresult,
-        pub cuGraphAddMemsetNode: unsafe extern "C" fn(
-            phGraphNode: *mut CUgraphNode,
-            hGraph: CUgraph,
-            dependencies: *const CUgraphNode,
-            numDependencies: usize,
-            memsetParams: *const CUDA_MEMSET_NODE_PARAMS,
-            ctx: CUcontext,
-        ) -> CUresult,
+        pub cuGraphAddKernelNode_v2: Option<
+            unsafe extern "C" fn(
+                phGraphNode: *mut CUgraphNode,
+                hGraph: CUgraph,
+                dependencies: *const CUgraphNode,
+                numDependencies: usize,
+                nodeParams: *const CUDA_KERNEL_NODE_PARAMS,
+            ) -> CUresult,
+        >,
+        pub cuGraphAddMemAllocNode: Option<
+            unsafe extern "C" fn(
+                phGraphNode: *mut CUgraphNode,
+                hGraph: CUgraph,
+                dependencies: *const CUgraphNode,
+                numDependencies: usize,
+                nodeParams: *mut CUDA_MEM_ALLOC_NODE_PARAMS,
+            ) -> CUresult,
+        >,
+        pub cuGraphAddMemFreeNode: Option<
+            unsafe extern "C" fn(
+                phGraphNode: *mut CUgraphNode,
+                hGraph: CUgraph,
+                dependencies: *const CUgraphNode,
+                numDependencies: usize,
+                dptr: CUdeviceptr,
+            ) -> CUresult,
+        >,
+        pub cuGraphAddMemcpyNode: Option<
+            unsafe extern "C" fn(
+                phGraphNode: *mut CUgraphNode,
+                hGraph: CUgraph,
+                dependencies: *const CUgraphNode,
+                numDependencies: usize,
+                copyParams: *const CUDA_MEMCPY3D,
+                ctx: CUcontext,
+            ) -> CUresult,
+        >,
+        pub cuGraphAddMemsetNode: Option<
+            unsafe extern "C" fn(
+                phGraphNode: *mut CUgraphNode,
+                hGraph: CUgraph,
+                dependencies: *const CUgraphNode,
+                numDependencies: usize,
+                memsetParams: *const CUDA_MEMSET_NODE_PARAMS,
+                ctx: CUcontext,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12020",
             feature = "cuda-12030",
@@ -18474,13 +20489,15 @@ mod loaded {
             feature = "cuda-12080",
             feature = "cuda-12090"
         ))]
-        pub cuGraphAddNode: unsafe extern "C" fn(
-            phGraphNode: *mut CUgraphNode,
-            hGraph: CUgraph,
-            dependencies: *const CUgraphNode,
-            numDependencies: usize,
-            nodeParams: *mut CUgraphNodeParams,
-        ) -> CUresult,
+        pub cuGraphAddNode: Option<
+            unsafe extern "C" fn(
+                phGraphNode: *mut CUgraphNode,
+                hGraph: CUgraph,
+                dependencies: *const CUgraphNode,
+                numDependencies: usize,
+                nodeParams: *mut CUgraphNodeParams,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12030",
             feature = "cuda-12040",
@@ -18490,32 +20507,16 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuGraphAddNode_v2: unsafe extern "C" fn(
-            phGraphNode: *mut CUgraphNode,
-            hGraph: CUgraph,
-            dependencies: *const CUgraphNode,
-            dependencyData: *const CUgraphEdgeData,
-            numDependencies: usize,
-            nodeParams: *mut CUgraphNodeParams,
-        ) -> CUresult,
-        #[cfg(any(
-            feature = "cuda-11070",
-            feature = "cuda-11080",
-            feature = "cuda-12000",
-            feature = "cuda-12010",
-            feature = "cuda-12020",
-            feature = "cuda-12030",
-            feature = "cuda-12040",
-            feature = "cuda-12050",
-            feature = "cuda-12060",
-            feature = "cuda-12080",
-            feature = "cuda-12090",
-            feature = "cuda-13000"
-        ))]
-        pub cuGraphBatchMemOpNodeGetParams: unsafe extern "C" fn(
-            hNode: CUgraphNode,
-            nodeParams_out: *mut CUDA_BATCH_MEM_OP_NODE_PARAMS,
-        ) -> CUresult,
+        pub cuGraphAddNode_v2: Option<
+            unsafe extern "C" fn(
+                phGraphNode: *mut CUgraphNode,
+                hGraph: CUgraph,
+                dependencies: *const CUgraphNode,
+                dependencyData: *const CUgraphEdgeData,
+                numDependencies: usize,
+                nodeParams: *mut CUgraphNodeParams,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-11070",
             feature = "cuda-11080",
@@ -18530,14 +20531,37 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuGraphBatchMemOpNodeSetParams: unsafe extern "C" fn(
-            hNode: CUgraphNode,
-            nodeParams: *const CUDA_BATCH_MEM_OP_NODE_PARAMS,
-        ) -> CUresult,
+        pub cuGraphBatchMemOpNodeGetParams: Option<
+            unsafe extern "C" fn(
+                hNode: CUgraphNode,
+                nodeParams_out: *mut CUDA_BATCH_MEM_OP_NODE_PARAMS,
+            ) -> CUresult,
+        >,
+        #[cfg(any(
+            feature = "cuda-11070",
+            feature = "cuda-11080",
+            feature = "cuda-12000",
+            feature = "cuda-12010",
+            feature = "cuda-12020",
+            feature = "cuda-12030",
+            feature = "cuda-12040",
+            feature = "cuda-12050",
+            feature = "cuda-12060",
+            feature = "cuda-12080",
+            feature = "cuda-12090",
+            feature = "cuda-13000"
+        ))]
+        pub cuGraphBatchMemOpNodeSetParams: Option<
+            unsafe extern "C" fn(
+                hNode: CUgraphNode,
+                nodeParams: *const CUDA_BATCH_MEM_OP_NODE_PARAMS,
+            ) -> CUresult,
+        >,
         pub cuGraphChildGraphNodeGetGraph:
-            unsafe extern "C" fn(hNode: CUgraphNode, phGraph: *mut CUgraph) -> CUresult,
-        pub cuGraphClone:
+            Option<unsafe extern "C" fn(hNode: CUgraphNode, phGraph: *mut CUgraph) -> CUresult>,
+        pub cuGraphClone: Option<
             unsafe extern "C" fn(phGraphClone: *mut CUgraph, originalGraph: CUgraph) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12030",
             feature = "cuda-12040",
@@ -18547,30 +20571,35 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuGraphConditionalHandleCreate: unsafe extern "C" fn(
-            pHandle_out: *mut CUgraphConditionalHandle,
-            hGraph: CUgraph,
-            ctx: CUcontext,
-            defaultLaunchValue: ::core::ffi::c_uint,
-            flags: ::core::ffi::c_uint,
-        ) -> CUresult,
-        pub cuGraphCreate:
+        pub cuGraphConditionalHandleCreate: Option<
+            unsafe extern "C" fn(
+                pHandle_out: *mut CUgraphConditionalHandle,
+                hGraph: CUgraph,
+                ctx: CUcontext,
+                defaultLaunchValue: ::core::ffi::c_uint,
+                flags: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
+        pub cuGraphCreate: Option<
             unsafe extern "C" fn(phGraph: *mut CUgraph, flags: ::core::ffi::c_uint) -> CUresult,
-        pub cuGraphDebugDotPrint: unsafe extern "C" fn(
-            hGraph: CUgraph,
-            path: *const ::core::ffi::c_char,
-            flags: ::core::ffi::c_uint,
-        ) -> CUresult,
-        pub cuGraphDestroy: unsafe extern "C" fn(hGraph: CUgraph) -> CUresult,
-        pub cuGraphDestroyNode: unsafe extern "C" fn(hNode: CUgraphNode) -> CUresult,
+        >,
+        pub cuGraphDebugDotPrint: Option<
+            unsafe extern "C" fn(
+                hGraph: CUgraph,
+                path: *const ::core::ffi::c_char,
+                flags: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
+        pub cuGraphDestroy: Option<unsafe extern "C" fn(hGraph: CUgraph) -> CUresult>,
+        pub cuGraphDestroyNode: Option<unsafe extern "C" fn(hNode: CUgraphNode) -> CUresult>,
         pub cuGraphEventRecordNodeGetEvent:
-            unsafe extern "C" fn(hNode: CUgraphNode, event_out: *mut CUevent) -> CUresult,
+            Option<unsafe extern "C" fn(hNode: CUgraphNode, event_out: *mut CUevent) -> CUresult>,
         pub cuGraphEventRecordNodeSetEvent:
-            unsafe extern "C" fn(hNode: CUgraphNode, event: CUevent) -> CUresult,
+            Option<unsafe extern "C" fn(hNode: CUgraphNode, event: CUevent) -> CUresult>,
         pub cuGraphEventWaitNodeGetEvent:
-            unsafe extern "C" fn(hNode: CUgraphNode, event_out: *mut CUevent) -> CUresult,
+            Option<unsafe extern "C" fn(hNode: CUgraphNode, event_out: *mut CUevent) -> CUresult>,
         pub cuGraphEventWaitNodeSetEvent:
-            unsafe extern "C" fn(hNode: CUgraphNode, event: CUevent) -> CUresult,
+            Option<unsafe extern "C" fn(hNode: CUgraphNode, event: CUevent) -> CUresult>,
         #[cfg(any(
             feature = "cuda-11070",
             feature = "cuda-11080",
@@ -18585,39 +20614,49 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuGraphExecBatchMemOpNodeSetParams: unsafe extern "C" fn(
-            hGraphExec: CUgraphExec,
-            hNode: CUgraphNode,
-            nodeParams: *const CUDA_BATCH_MEM_OP_NODE_PARAMS,
-        ) -> CUresult,
-        pub cuGraphExecChildGraphNodeSetParams: unsafe extern "C" fn(
-            hGraphExec: CUgraphExec,
-            hNode: CUgraphNode,
-            childGraph: CUgraph,
-        ) -> CUresult,
-        pub cuGraphExecDestroy: unsafe extern "C" fn(hGraphExec: CUgraphExec) -> CUresult,
-        pub cuGraphExecEventRecordNodeSetEvent: unsafe extern "C" fn(
-            hGraphExec: CUgraphExec,
-            hNode: CUgraphNode,
-            event: CUevent,
-        ) -> CUresult,
-        pub cuGraphExecEventWaitNodeSetEvent: unsafe extern "C" fn(
-            hGraphExec: CUgraphExec,
-            hNode: CUgraphNode,
-            event: CUevent,
-        ) -> CUresult,
-        pub cuGraphExecExternalSemaphoresSignalNodeSetParams: unsafe extern "C" fn(
-            hGraphExec: CUgraphExec,
-            hNode: CUgraphNode,
-            nodeParams: *const CUDA_EXT_SEM_SIGNAL_NODE_PARAMS,
-        )
-            -> CUresult,
-        pub cuGraphExecExternalSemaphoresWaitNodeSetParams: unsafe extern "C" fn(
-            hGraphExec: CUgraphExec,
-            hNode: CUgraphNode,
-            nodeParams: *const CUDA_EXT_SEM_WAIT_NODE_PARAMS,
-        )
-            -> CUresult,
+        pub cuGraphExecBatchMemOpNodeSetParams: Option<
+            unsafe extern "C" fn(
+                hGraphExec: CUgraphExec,
+                hNode: CUgraphNode,
+                nodeParams: *const CUDA_BATCH_MEM_OP_NODE_PARAMS,
+            ) -> CUresult,
+        >,
+        pub cuGraphExecChildGraphNodeSetParams: Option<
+            unsafe extern "C" fn(
+                hGraphExec: CUgraphExec,
+                hNode: CUgraphNode,
+                childGraph: CUgraph,
+            ) -> CUresult,
+        >,
+        pub cuGraphExecDestroy: Option<unsafe extern "C" fn(hGraphExec: CUgraphExec) -> CUresult>,
+        pub cuGraphExecEventRecordNodeSetEvent: Option<
+            unsafe extern "C" fn(
+                hGraphExec: CUgraphExec,
+                hNode: CUgraphNode,
+                event: CUevent,
+            ) -> CUresult,
+        >,
+        pub cuGraphExecEventWaitNodeSetEvent: Option<
+            unsafe extern "C" fn(
+                hGraphExec: CUgraphExec,
+                hNode: CUgraphNode,
+                event: CUevent,
+            ) -> CUresult,
+        >,
+        pub cuGraphExecExternalSemaphoresSignalNodeSetParams: Option<
+            unsafe extern "C" fn(
+                hGraphExec: CUgraphExec,
+                hNode: CUgraphNode,
+                nodeParams: *const CUDA_EXT_SEM_SIGNAL_NODE_PARAMS,
+            ) -> CUresult,
+        >,
+        pub cuGraphExecExternalSemaphoresWaitNodeSetParams: Option<
+            unsafe extern "C" fn(
+                hGraphExec: CUgraphExec,
+                hNode: CUgraphNode,
+                nodeParams: *const CUDA_EXT_SEM_WAIT_NODE_PARAMS,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12000",
             feature = "cuda-12010",
@@ -18630,13 +20669,16 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuGraphExecGetFlags:
+        pub cuGraphExecGetFlags: Option<
             unsafe extern "C" fn(hGraphExec: CUgraphExec, flags: *mut cuuint64_t) -> CUresult,
-        pub cuGraphExecHostNodeSetParams: unsafe extern "C" fn(
-            hGraphExec: CUgraphExec,
-            hNode: CUgraphNode,
-            nodeParams: *const CUDA_HOST_NODE_PARAMS,
-        ) -> CUresult,
+        >,
+        pub cuGraphExecHostNodeSetParams: Option<
+            unsafe extern "C" fn(
+                hGraphExec: CUgraphExec,
+                hNode: CUgraphNode,
+                nodeParams: *const CUDA_HOST_NODE_PARAMS,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-11040",
             feature = "cuda-11050",
@@ -18644,11 +20686,13 @@ mod loaded {
             feature = "cuda-11070",
             feature = "cuda-11080"
         ))]
-        pub cuGraphExecKernelNodeSetParams: unsafe extern "C" fn(
-            hGraphExec: CUgraphExec,
-            hNode: CUgraphNode,
-            nodeParams: *const CUDA_KERNEL_NODE_PARAMS,
-        ) -> CUresult,
+        pub cuGraphExecKernelNodeSetParams: Option<
+            unsafe extern "C" fn(
+                hGraphExec: CUgraphExec,
+                hNode: CUgraphNode,
+                nodeParams: *const CUDA_KERNEL_NODE_PARAMS,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12000",
             feature = "cuda-12010",
@@ -18661,23 +20705,29 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuGraphExecKernelNodeSetParams_v2: unsafe extern "C" fn(
-            hGraphExec: CUgraphExec,
-            hNode: CUgraphNode,
-            nodeParams: *const CUDA_KERNEL_NODE_PARAMS,
-        ) -> CUresult,
-        pub cuGraphExecMemcpyNodeSetParams: unsafe extern "C" fn(
-            hGraphExec: CUgraphExec,
-            hNode: CUgraphNode,
-            copyParams: *const CUDA_MEMCPY3D,
-            ctx: CUcontext,
-        ) -> CUresult,
-        pub cuGraphExecMemsetNodeSetParams: unsafe extern "C" fn(
-            hGraphExec: CUgraphExec,
-            hNode: CUgraphNode,
-            memsetParams: *const CUDA_MEMSET_NODE_PARAMS,
-            ctx: CUcontext,
-        ) -> CUresult,
+        pub cuGraphExecKernelNodeSetParams_v2: Option<
+            unsafe extern "C" fn(
+                hGraphExec: CUgraphExec,
+                hNode: CUgraphNode,
+                nodeParams: *const CUDA_KERNEL_NODE_PARAMS,
+            ) -> CUresult,
+        >,
+        pub cuGraphExecMemcpyNodeSetParams: Option<
+            unsafe extern "C" fn(
+                hGraphExec: CUgraphExec,
+                hNode: CUgraphNode,
+                copyParams: *const CUDA_MEMCPY3D,
+                ctx: CUcontext,
+            ) -> CUresult,
+        >,
+        pub cuGraphExecMemsetNodeSetParams: Option<
+            unsafe extern "C" fn(
+                hGraphExec: CUgraphExec,
+                hNode: CUgraphNode,
+                memsetParams: *const CUDA_MEMSET_NODE_PARAMS,
+                ctx: CUcontext,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12020",
             feature = "cuda-12030",
@@ -18688,11 +20738,13 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuGraphExecNodeSetParams: unsafe extern "C" fn(
-            hGraphExec: CUgraphExec,
-            hNode: CUgraphNode,
-            nodeParams: *mut CUgraphNodeParams,
-        ) -> CUresult,
+        pub cuGraphExecNodeSetParams: Option<
+            unsafe extern "C" fn(
+                hGraphExec: CUgraphExec,
+                hNode: CUgraphNode,
+                nodeParams: *mut CUgraphNodeParams,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-11040",
             feature = "cuda-11050",
@@ -18700,12 +20752,14 @@ mod loaded {
             feature = "cuda-11070",
             feature = "cuda-11080"
         ))]
-        pub cuGraphExecUpdate: unsafe extern "C" fn(
-            hGraphExec: CUgraphExec,
-            hGraph: CUgraph,
-            hErrorNode_out: *mut CUgraphNode,
-            updateResult_out: *mut CUgraphExecUpdateResult,
-        ) -> CUresult,
+        pub cuGraphExecUpdate: Option<
+            unsafe extern "C" fn(
+                hGraphExec: CUgraphExec,
+                hGraph: CUgraph,
+                hErrorNode_out: *mut CUgraphNode,
+                updateResult_out: *mut CUgraphExecUpdateResult,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12000",
             feature = "cuda-12010",
@@ -18718,27 +20772,37 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuGraphExecUpdate_v2: unsafe extern "C" fn(
-            hGraphExec: CUgraphExec,
-            hGraph: CUgraph,
-            resultInfo: *mut CUgraphExecUpdateResultInfo,
-        ) -> CUresult,
-        pub cuGraphExternalSemaphoresSignalNodeGetParams: unsafe extern "C" fn(
-            hNode: CUgraphNode,
-            params_out: *mut CUDA_EXT_SEM_SIGNAL_NODE_PARAMS,
-        ) -> CUresult,
-        pub cuGraphExternalSemaphoresSignalNodeSetParams: unsafe extern "C" fn(
-            hNode: CUgraphNode,
-            nodeParams: *const CUDA_EXT_SEM_SIGNAL_NODE_PARAMS,
-        ) -> CUresult,
-        pub cuGraphExternalSemaphoresWaitNodeGetParams: unsafe extern "C" fn(
-            hNode: CUgraphNode,
-            params_out: *mut CUDA_EXT_SEM_WAIT_NODE_PARAMS,
-        ) -> CUresult,
-        pub cuGraphExternalSemaphoresWaitNodeSetParams: unsafe extern "C" fn(
-            hNode: CUgraphNode,
-            nodeParams: *const CUDA_EXT_SEM_WAIT_NODE_PARAMS,
-        ) -> CUresult,
+        pub cuGraphExecUpdate_v2: Option<
+            unsafe extern "C" fn(
+                hGraphExec: CUgraphExec,
+                hGraph: CUgraph,
+                resultInfo: *mut CUgraphExecUpdateResultInfo,
+            ) -> CUresult,
+        >,
+        pub cuGraphExternalSemaphoresSignalNodeGetParams: Option<
+            unsafe extern "C" fn(
+                hNode: CUgraphNode,
+                params_out: *mut CUDA_EXT_SEM_SIGNAL_NODE_PARAMS,
+            ) -> CUresult,
+        >,
+        pub cuGraphExternalSemaphoresSignalNodeSetParams: Option<
+            unsafe extern "C" fn(
+                hNode: CUgraphNode,
+                nodeParams: *const CUDA_EXT_SEM_SIGNAL_NODE_PARAMS,
+            ) -> CUresult,
+        >,
+        pub cuGraphExternalSemaphoresWaitNodeGetParams: Option<
+            unsafe extern "C" fn(
+                hNode: CUgraphNode,
+                params_out: *mut CUDA_EXT_SEM_WAIT_NODE_PARAMS,
+            ) -> CUresult,
+        >,
+        pub cuGraphExternalSemaphoresWaitNodeSetParams: Option<
+            unsafe extern "C" fn(
+                hNode: CUgraphNode,
+                nodeParams: *const CUDA_EXT_SEM_WAIT_NODE_PARAMS,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-11040",
             feature = "cuda-11050",
@@ -18755,12 +20819,14 @@ mod loaded {
             feature = "cuda-12080",
             feature = "cuda-12090"
         ))]
-        pub cuGraphGetEdges: unsafe extern "C" fn(
-            hGraph: CUgraph,
-            from: *mut CUgraphNode,
-            to: *mut CUgraphNode,
-            numEdges: *mut usize,
-        ) -> CUresult,
+        pub cuGraphGetEdges: Option<
+            unsafe extern "C" fn(
+                hGraph: CUgraph,
+                from: *mut CUgraphNode,
+                to: *mut CUgraphNode,
+                numEdges: *mut usize,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12030",
             feature = "cuda-12040",
@@ -18770,36 +20836,48 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuGraphGetEdges_v2: unsafe extern "C" fn(
-            hGraph: CUgraph,
-            from: *mut CUgraphNode,
-            to: *mut CUgraphNode,
-            edgeData: *mut CUgraphEdgeData,
-            numEdges: *mut usize,
-        ) -> CUresult,
-        pub cuGraphGetNodes: unsafe extern "C" fn(
-            hGraph: CUgraph,
-            nodes: *mut CUgraphNode,
-            numNodes: *mut usize,
-        ) -> CUresult,
-        pub cuGraphGetRootNodes: unsafe extern "C" fn(
-            hGraph: CUgraph,
-            rootNodes: *mut CUgraphNode,
-            numRootNodes: *mut usize,
-        ) -> CUresult,
-        pub cuGraphHostNodeGetParams: unsafe extern "C" fn(
-            hNode: CUgraphNode,
-            nodeParams: *mut CUDA_HOST_NODE_PARAMS,
-        ) -> CUresult,
-        pub cuGraphHostNodeSetParams: unsafe extern "C" fn(
-            hNode: CUgraphNode,
-            nodeParams: *const CUDA_HOST_NODE_PARAMS,
-        ) -> CUresult,
-        pub cuGraphInstantiateWithFlags: unsafe extern "C" fn(
-            phGraphExec: *mut CUgraphExec,
-            hGraph: CUgraph,
-            flags: ::core::ffi::c_ulonglong,
-        ) -> CUresult,
+        pub cuGraphGetEdges_v2: Option<
+            unsafe extern "C" fn(
+                hGraph: CUgraph,
+                from: *mut CUgraphNode,
+                to: *mut CUgraphNode,
+                edgeData: *mut CUgraphEdgeData,
+                numEdges: *mut usize,
+            ) -> CUresult,
+        >,
+        pub cuGraphGetNodes: Option<
+            unsafe extern "C" fn(
+                hGraph: CUgraph,
+                nodes: *mut CUgraphNode,
+                numNodes: *mut usize,
+            ) -> CUresult,
+        >,
+        pub cuGraphGetRootNodes: Option<
+            unsafe extern "C" fn(
+                hGraph: CUgraph,
+                rootNodes: *mut CUgraphNode,
+                numRootNodes: *mut usize,
+            ) -> CUresult,
+        >,
+        pub cuGraphHostNodeGetParams: Option<
+            unsafe extern "C" fn(
+                hNode: CUgraphNode,
+                nodeParams: *mut CUDA_HOST_NODE_PARAMS,
+            ) -> CUresult,
+        >,
+        pub cuGraphHostNodeSetParams: Option<
+            unsafe extern "C" fn(
+                hNode: CUgraphNode,
+                nodeParams: *const CUDA_HOST_NODE_PARAMS,
+            ) -> CUresult,
+        >,
+        pub cuGraphInstantiateWithFlags: Option<
+            unsafe extern "C" fn(
+                phGraphExec: *mut CUgraphExec,
+                hGraph: CUgraph,
+                flags: ::core::ffi::c_ulonglong,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12000",
             feature = "cuda-12010",
@@ -18812,11 +20890,13 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuGraphInstantiateWithParams: unsafe extern "C" fn(
-            phGraphExec: *mut CUgraphExec,
-            hGraph: CUgraph,
-            instantiateParams: *mut CUDA_GRAPH_INSTANTIATE_PARAMS,
-        ) -> CUresult,
+        pub cuGraphInstantiateWithParams: Option<
+            unsafe extern "C" fn(
+                phGraphExec: *mut CUgraphExec,
+                hGraph: CUgraph,
+                instantiateParams: *mut CUDA_GRAPH_INSTANTIATE_PARAMS,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-11040",
             feature = "cuda-11050",
@@ -18824,20 +20904,24 @@ mod loaded {
             feature = "cuda-11070",
             feature = "cuda-11080"
         ))]
-        pub cuGraphInstantiate_v2: unsafe extern "C" fn(
-            phGraphExec: *mut CUgraphExec,
-            hGraph: CUgraph,
-            phErrorNode: *mut CUgraphNode,
-            logBuffer: *mut ::core::ffi::c_char,
-            bufferSize: usize,
-        ) -> CUresult,
+        pub cuGraphInstantiate_v2: Option<
+            unsafe extern "C" fn(
+                phGraphExec: *mut CUgraphExec,
+                hGraph: CUgraph,
+                phErrorNode: *mut CUgraphNode,
+                logBuffer: *mut ::core::ffi::c_char,
+                bufferSize: usize,
+            ) -> CUresult,
+        >,
         pub cuGraphKernelNodeCopyAttributes:
-            unsafe extern "C" fn(dst: CUgraphNode, src: CUgraphNode) -> CUresult,
-        pub cuGraphKernelNodeGetAttribute: unsafe extern "C" fn(
-            hNode: CUgraphNode,
-            attr: CUkernelNodeAttrID,
-            value_out: *mut CUkernelNodeAttrValue,
-        ) -> CUresult,
+            Option<unsafe extern "C" fn(dst: CUgraphNode, src: CUgraphNode) -> CUresult>,
+        pub cuGraphKernelNodeGetAttribute: Option<
+            unsafe extern "C" fn(
+                hNode: CUgraphNode,
+                attr: CUkernelNodeAttrID,
+                value_out: *mut CUkernelNodeAttrValue,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-11040",
             feature = "cuda-11050",
@@ -18845,10 +20929,12 @@ mod loaded {
             feature = "cuda-11070",
             feature = "cuda-11080"
         ))]
-        pub cuGraphKernelNodeGetParams: unsafe extern "C" fn(
-            hNode: CUgraphNode,
-            nodeParams: *mut CUDA_KERNEL_NODE_PARAMS,
-        ) -> CUresult,
+        pub cuGraphKernelNodeGetParams: Option<
+            unsafe extern "C" fn(
+                hNode: CUgraphNode,
+                nodeParams: *mut CUDA_KERNEL_NODE_PARAMS,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12000",
             feature = "cuda-12010",
@@ -18861,15 +20947,19 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuGraphKernelNodeGetParams_v2: unsafe extern "C" fn(
-            hNode: CUgraphNode,
-            nodeParams: *mut CUDA_KERNEL_NODE_PARAMS,
-        ) -> CUresult,
-        pub cuGraphKernelNodeSetAttribute: unsafe extern "C" fn(
-            hNode: CUgraphNode,
-            attr: CUkernelNodeAttrID,
-            value: *const CUkernelNodeAttrValue,
-        ) -> CUresult,
+        pub cuGraphKernelNodeGetParams_v2: Option<
+            unsafe extern "C" fn(
+                hNode: CUgraphNode,
+                nodeParams: *mut CUDA_KERNEL_NODE_PARAMS,
+            ) -> CUresult,
+        >,
+        pub cuGraphKernelNodeSetAttribute: Option<
+            unsafe extern "C" fn(
+                hNode: CUgraphNode,
+                attr: CUkernelNodeAttrID,
+                value: *const CUkernelNodeAttrValue,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-11040",
             feature = "cuda-11050",
@@ -18877,10 +20967,12 @@ mod loaded {
             feature = "cuda-11070",
             feature = "cuda-11080"
         ))]
-        pub cuGraphKernelNodeSetParams: unsafe extern "C" fn(
-            hNode: CUgraphNode,
-            nodeParams: *const CUDA_KERNEL_NODE_PARAMS,
-        ) -> CUresult,
+        pub cuGraphKernelNodeSetParams: Option<
+            unsafe extern "C" fn(
+                hNode: CUgraphNode,
+                nodeParams: *const CUDA_KERNEL_NODE_PARAMS,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12000",
             feature = "cuda-12010",
@@ -18893,35 +20985,48 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuGraphKernelNodeSetParams_v2: unsafe extern "C" fn(
-            hNode: CUgraphNode,
-            nodeParams: *const CUDA_KERNEL_NODE_PARAMS,
-        ) -> CUresult,
+        pub cuGraphKernelNodeSetParams_v2: Option<
+            unsafe extern "C" fn(
+                hNode: CUgraphNode,
+                nodeParams: *const CUDA_KERNEL_NODE_PARAMS,
+            ) -> CUresult,
+        >,
         pub cuGraphLaunch:
-            unsafe extern "C" fn(hGraphExec: CUgraphExec, hStream: CUstream) -> CUresult,
-        pub cuGraphMemAllocNodeGetParams: unsafe extern "C" fn(
-            hNode: CUgraphNode,
-            params_out: *mut CUDA_MEM_ALLOC_NODE_PARAMS,
-        ) -> CUresult,
-        pub cuGraphMemFreeNodeGetParams:
+            Option<unsafe extern "C" fn(hGraphExec: CUgraphExec, hStream: CUstream) -> CUresult>,
+        pub cuGraphMemAllocNodeGetParams: Option<
+            unsafe extern "C" fn(
+                hNode: CUgraphNode,
+                params_out: *mut CUDA_MEM_ALLOC_NODE_PARAMS,
+            ) -> CUresult,
+        >,
+        pub cuGraphMemFreeNodeGetParams: Option<
             unsafe extern "C" fn(hNode: CUgraphNode, dptr_out: *mut CUdeviceptr) -> CUresult,
-        pub cuGraphMemcpyNodeGetParams:
+        >,
+        pub cuGraphMemcpyNodeGetParams: Option<
             unsafe extern "C" fn(hNode: CUgraphNode, nodeParams: *mut CUDA_MEMCPY3D) -> CUresult,
-        pub cuGraphMemcpyNodeSetParams:
+        >,
+        pub cuGraphMemcpyNodeSetParams: Option<
             unsafe extern "C" fn(hNode: CUgraphNode, nodeParams: *const CUDA_MEMCPY3D) -> CUresult,
-        pub cuGraphMemsetNodeGetParams: unsafe extern "C" fn(
-            hNode: CUgraphNode,
-            nodeParams: *mut CUDA_MEMSET_NODE_PARAMS,
-        ) -> CUresult,
-        pub cuGraphMemsetNodeSetParams: unsafe extern "C" fn(
-            hNode: CUgraphNode,
-            nodeParams: *const CUDA_MEMSET_NODE_PARAMS,
-        ) -> CUresult,
-        pub cuGraphNodeFindInClone: unsafe extern "C" fn(
-            phNode: *mut CUgraphNode,
-            hOriginalNode: CUgraphNode,
-            hClonedGraph: CUgraph,
-        ) -> CUresult,
+        >,
+        pub cuGraphMemsetNodeGetParams: Option<
+            unsafe extern "C" fn(
+                hNode: CUgraphNode,
+                nodeParams: *mut CUDA_MEMSET_NODE_PARAMS,
+            ) -> CUresult,
+        >,
+        pub cuGraphMemsetNodeSetParams: Option<
+            unsafe extern "C" fn(
+                hNode: CUgraphNode,
+                nodeParams: *const CUDA_MEMSET_NODE_PARAMS,
+            ) -> CUresult,
+        >,
+        pub cuGraphNodeFindInClone: Option<
+            unsafe extern "C" fn(
+                phNode: *mut CUgraphNode,
+                hOriginalNode: CUgraphNode,
+                hClonedGraph: CUgraph,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-11040",
             feature = "cuda-11050",
@@ -18938,11 +21043,13 @@ mod loaded {
             feature = "cuda-12080",
             feature = "cuda-12090"
         ))]
-        pub cuGraphNodeGetDependencies: unsafe extern "C" fn(
-            hNode: CUgraphNode,
-            dependencies: *mut CUgraphNode,
-            numDependencies: *mut usize,
-        ) -> CUresult,
+        pub cuGraphNodeGetDependencies: Option<
+            unsafe extern "C" fn(
+                hNode: CUgraphNode,
+                dependencies: *mut CUgraphNode,
+                numDependencies: *mut usize,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12030",
             feature = "cuda-12040",
@@ -18952,12 +21059,14 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuGraphNodeGetDependencies_v2: unsafe extern "C" fn(
-            hNode: CUgraphNode,
-            dependencies: *mut CUgraphNode,
-            edgeData: *mut CUgraphEdgeData,
-            numDependencies: *mut usize,
-        ) -> CUresult,
+        pub cuGraphNodeGetDependencies_v2: Option<
+            unsafe extern "C" fn(
+                hNode: CUgraphNode,
+                dependencies: *mut CUgraphNode,
+                edgeData: *mut CUgraphEdgeData,
+                numDependencies: *mut usize,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-11040",
             feature = "cuda-11050",
@@ -18974,11 +21083,13 @@ mod loaded {
             feature = "cuda-12080",
             feature = "cuda-12090"
         ))]
-        pub cuGraphNodeGetDependentNodes: unsafe extern "C" fn(
-            hNode: CUgraphNode,
-            dependentNodes: *mut CUgraphNode,
-            numDependentNodes: *mut usize,
-        ) -> CUresult,
+        pub cuGraphNodeGetDependentNodes: Option<
+            unsafe extern "C" fn(
+                hNode: CUgraphNode,
+                dependentNodes: *mut CUgraphNode,
+                numDependentNodes: *mut usize,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12030",
             feature = "cuda-12040",
@@ -18988,12 +21099,14 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuGraphNodeGetDependentNodes_v2: unsafe extern "C" fn(
-            hNode: CUgraphNode,
-            dependentNodes: *mut CUgraphNode,
-            edgeData: *mut CUgraphEdgeData,
-            numDependentNodes: *mut usize,
-        ) -> CUresult,
+        pub cuGraphNodeGetDependentNodes_v2: Option<
+            unsafe extern "C" fn(
+                hNode: CUgraphNode,
+                dependentNodes: *mut CUgraphNode,
+                edgeData: *mut CUgraphEdgeData,
+                numDependentNodes: *mut usize,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-11060",
             feature = "cuda-11070",
@@ -19009,13 +21122,16 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuGraphNodeGetEnabled: unsafe extern "C" fn(
-            hGraphExec: CUgraphExec,
-            hNode: CUgraphNode,
-            isEnabled: *mut ::core::ffi::c_uint,
-        ) -> CUresult,
-        pub cuGraphNodeGetType:
+        pub cuGraphNodeGetEnabled: Option<
+            unsafe extern "C" fn(
+                hGraphExec: CUgraphExec,
+                hNode: CUgraphNode,
+                isEnabled: *mut ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
+        pub cuGraphNodeGetType: Option<
             unsafe extern "C" fn(hNode: CUgraphNode, type_: *mut CUgraphNodeType) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-11060",
             feature = "cuda-11070",
@@ -19031,11 +21147,13 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuGraphNodeSetEnabled: unsafe extern "C" fn(
-            hGraphExec: CUgraphExec,
-            hNode: CUgraphNode,
-            isEnabled: ::core::ffi::c_uint,
-        ) -> CUresult,
+        pub cuGraphNodeSetEnabled: Option<
+            unsafe extern "C" fn(
+                hGraphExec: CUgraphExec,
+                hNode: CUgraphNode,
+                isEnabled: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12020",
             feature = "cuda-12030",
@@ -19046,15 +21164,19 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuGraphNodeSetParams: unsafe extern "C" fn(
-            hNode: CUgraphNode,
-            nodeParams: *mut CUgraphNodeParams,
-        ) -> CUresult,
-        pub cuGraphReleaseUserObject: unsafe extern "C" fn(
-            graph: CUgraph,
-            object: CUuserObject,
-            count: ::core::ffi::c_uint,
-        ) -> CUresult,
+        pub cuGraphNodeSetParams: Option<
+            unsafe extern "C" fn(
+                hNode: CUgraphNode,
+                nodeParams: *mut CUgraphNodeParams,
+            ) -> CUresult,
+        >,
+        pub cuGraphReleaseUserObject: Option<
+            unsafe extern "C" fn(
+                graph: CUgraph,
+                object: CUuserObject,
+                count: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-11040",
             feature = "cuda-11050",
@@ -19071,12 +21193,14 @@ mod loaded {
             feature = "cuda-12080",
             feature = "cuda-12090"
         ))]
-        pub cuGraphRemoveDependencies: unsafe extern "C" fn(
-            hGraph: CUgraph,
-            from: *const CUgraphNode,
-            to: *const CUgraphNode,
-            numDependencies: usize,
-        ) -> CUresult,
+        pub cuGraphRemoveDependencies: Option<
+            unsafe extern "C" fn(
+                hGraph: CUgraph,
+                from: *const CUgraphNode,
+                to: *const CUgraphNode,
+                numDependencies: usize,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12030",
             feature = "cuda-12040",
@@ -19086,52 +21210,68 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuGraphRemoveDependencies_v2: unsafe extern "C" fn(
-            hGraph: CUgraph,
-            from: *const CUgraphNode,
-            to: *const CUgraphNode,
-            edgeData: *const CUgraphEdgeData,
-            numDependencies: usize,
-        ) -> CUresult,
-        pub cuGraphRetainUserObject: unsafe extern "C" fn(
-            graph: CUgraph,
-            object: CUuserObject,
-            count: ::core::ffi::c_uint,
-            flags: ::core::ffi::c_uint,
-        ) -> CUresult,
+        pub cuGraphRemoveDependencies_v2: Option<
+            unsafe extern "C" fn(
+                hGraph: CUgraph,
+                from: *const CUgraphNode,
+                to: *const CUgraphNode,
+                edgeData: *const CUgraphEdgeData,
+                numDependencies: usize,
+            ) -> CUresult,
+        >,
+        pub cuGraphRetainUserObject: Option<
+            unsafe extern "C" fn(
+                graph: CUgraph,
+                object: CUuserObject,
+                count: ::core::ffi::c_uint,
+                flags: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
         pub cuGraphUpload:
-            unsafe extern "C" fn(hGraphExec: CUgraphExec, hStream: CUstream) -> CUresult,
-        pub cuGraphicsMapResources: unsafe extern "C" fn(
-            count: ::core::ffi::c_uint,
-            resources: *mut CUgraphicsResource,
-            hStream: CUstream,
-        ) -> CUresult,
-        pub cuGraphicsResourceGetMappedMipmappedArray: unsafe extern "C" fn(
-            pMipmappedArray: *mut CUmipmappedArray,
-            resource: CUgraphicsResource,
-        ) -> CUresult,
-        pub cuGraphicsResourceGetMappedPointer_v2: unsafe extern "C" fn(
-            pDevPtr: *mut CUdeviceptr,
-            pSize: *mut usize,
-            resource: CUgraphicsResource,
-        ) -> CUresult,
-        pub cuGraphicsResourceSetMapFlags_v2: unsafe extern "C" fn(
-            resource: CUgraphicsResource,
-            flags: ::core::ffi::c_uint,
-        ) -> CUresult,
-        pub cuGraphicsSubResourceGetMappedArray: unsafe extern "C" fn(
-            pArray: *mut CUarray,
-            resource: CUgraphicsResource,
-            arrayIndex: ::core::ffi::c_uint,
-            mipLevel: ::core::ffi::c_uint,
-        ) -> CUresult,
-        pub cuGraphicsUnmapResources: unsafe extern "C" fn(
-            count: ::core::ffi::c_uint,
-            resources: *mut CUgraphicsResource,
-            hStream: CUstream,
-        ) -> CUresult,
+            Option<unsafe extern "C" fn(hGraphExec: CUgraphExec, hStream: CUstream) -> CUresult>,
+        pub cuGraphicsMapResources: Option<
+            unsafe extern "C" fn(
+                count: ::core::ffi::c_uint,
+                resources: *mut CUgraphicsResource,
+                hStream: CUstream,
+            ) -> CUresult,
+        >,
+        pub cuGraphicsResourceGetMappedMipmappedArray: Option<
+            unsafe extern "C" fn(
+                pMipmappedArray: *mut CUmipmappedArray,
+                resource: CUgraphicsResource,
+            ) -> CUresult,
+        >,
+        pub cuGraphicsResourceGetMappedPointer_v2: Option<
+            unsafe extern "C" fn(
+                pDevPtr: *mut CUdeviceptr,
+                pSize: *mut usize,
+                resource: CUgraphicsResource,
+            ) -> CUresult,
+        >,
+        pub cuGraphicsResourceSetMapFlags_v2: Option<
+            unsafe extern "C" fn(
+                resource: CUgraphicsResource,
+                flags: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
+        pub cuGraphicsSubResourceGetMappedArray: Option<
+            unsafe extern "C" fn(
+                pArray: *mut CUarray,
+                resource: CUgraphicsResource,
+                arrayIndex: ::core::ffi::c_uint,
+                mipLevel: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
+        pub cuGraphicsUnmapResources: Option<
+            unsafe extern "C" fn(
+                count: ::core::ffi::c_uint,
+                resources: *mut CUgraphicsResource,
+                hStream: CUstream,
+            ) -> CUresult,
+        >,
         pub cuGraphicsUnregisterResource:
-            unsafe extern "C" fn(resource: CUgraphicsResource) -> CUresult,
+            Option<unsafe extern "C" fn(resource: CUgraphicsResource) -> CUresult>,
         #[cfg(any(
             feature = "cuda-12040",
             feature = "cuda-12050",
@@ -19140,12 +21280,14 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuGreenCtxCreate: unsafe extern "C" fn(
-            phCtx: *mut CUgreenCtx,
-            desc: CUdevResourceDesc,
-            dev: CUdevice,
-            flags: ::core::ffi::c_uint,
-        ) -> CUresult,
+        pub cuGreenCtxCreate: Option<
+            unsafe extern "C" fn(
+                phCtx: *mut CUgreenCtx,
+                desc: CUdevResourceDesc,
+                dev: CUdevice,
+                flags: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12040",
             feature = "cuda-12050",
@@ -19154,7 +21296,7 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuGreenCtxDestroy: unsafe extern "C" fn(hCtx: CUgreenCtx) -> CUresult,
+        pub cuGreenCtxDestroy: Option<unsafe extern "C" fn(hCtx: CUgreenCtx) -> CUresult>,
         #[cfg(any(
             feature = "cuda-12040",
             feature = "cuda-12050",
@@ -19163,16 +21305,20 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuGreenCtxGetDevResource: unsafe extern "C" fn(
-            hCtx: CUgreenCtx,
-            resource: *mut CUdevResource,
-            type_: CUdevResourceType,
-        ) -> CUresult,
+        pub cuGreenCtxGetDevResource: Option<
+            unsafe extern "C" fn(
+                hCtx: CUgreenCtx,
+                resource: *mut CUdevResource,
+                type_: CUdevResourceType,
+            ) -> CUresult,
+        >,
         #[cfg(any(feature = "cuda-13000"))]
-        pub cuGreenCtxGetId: unsafe extern "C" fn(
-            greenCtx: CUgreenCtx,
-            greenCtxId: *mut ::core::ffi::c_ulonglong,
-        ) -> CUresult,
+        pub cuGreenCtxGetId: Option<
+            unsafe extern "C" fn(
+                greenCtx: CUgreenCtx,
+                greenCtxId: *mut ::core::ffi::c_ulonglong,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12040",
             feature = "cuda-12050",
@@ -19182,7 +21328,7 @@ mod loaded {
             feature = "cuda-13000"
         ))]
         pub cuGreenCtxRecordEvent:
-            unsafe extern "C" fn(hCtx: CUgreenCtx, hEvent: CUevent) -> CUresult,
+            Option<unsafe extern "C" fn(hCtx: CUgreenCtx, hEvent: CUevent) -> CUresult>,
         #[cfg(any(
             feature = "cuda-12050",
             feature = "cuda-12060",
@@ -19190,12 +21336,14 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuGreenCtxStreamCreate: unsafe extern "C" fn(
-            phStream: *mut CUstream,
-            greenCtx: CUgreenCtx,
-            flags: ::core::ffi::c_uint,
-            priority: ::core::ffi::c_int,
-        ) -> CUresult,
+        pub cuGreenCtxStreamCreate: Option<
+            unsafe extern "C" fn(
+                phStream: *mut CUstream,
+                greenCtx: CUgreenCtx,
+                flags: ::core::ffi::c_uint,
+                priority: ::core::ffi::c_int,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12040",
             feature = "cuda-12050",
@@ -19205,28 +21353,37 @@ mod loaded {
             feature = "cuda-13000"
         ))]
         pub cuGreenCtxWaitEvent:
-            unsafe extern "C" fn(hCtx: CUgreenCtx, hEvent: CUevent) -> CUresult,
-        pub cuImportExternalMemory: unsafe extern "C" fn(
-            extMem_out: *mut CUexternalMemory,
-            memHandleDesc: *const CUDA_EXTERNAL_MEMORY_HANDLE_DESC,
-        ) -> CUresult,
-        pub cuImportExternalSemaphore: unsafe extern "C" fn(
-            extSem_out: *mut CUexternalSemaphore,
-            semHandleDesc: *const CUDA_EXTERNAL_SEMAPHORE_HANDLE_DESC,
-        ) -> CUresult,
-        pub cuInit: unsafe extern "C" fn(Flags: ::core::ffi::c_uint) -> CUresult,
-        pub cuIpcCloseMemHandle: unsafe extern "C" fn(dptr: CUdeviceptr) -> CUresult,
-        pub cuIpcGetEventHandle:
+            Option<unsafe extern "C" fn(hCtx: CUgreenCtx, hEvent: CUevent) -> CUresult>,
+        pub cuImportExternalMemory: Option<
+            unsafe extern "C" fn(
+                extMem_out: *mut CUexternalMemory,
+                memHandleDesc: *const CUDA_EXTERNAL_MEMORY_HANDLE_DESC,
+            ) -> CUresult,
+        >,
+        pub cuImportExternalSemaphore: Option<
+            unsafe extern "C" fn(
+                extSem_out: *mut CUexternalSemaphore,
+                semHandleDesc: *const CUDA_EXTERNAL_SEMAPHORE_HANDLE_DESC,
+            ) -> CUresult,
+        >,
+        pub cuInit: Option<unsafe extern "C" fn(Flags: ::core::ffi::c_uint) -> CUresult>,
+        pub cuIpcCloseMemHandle: Option<unsafe extern "C" fn(dptr: CUdeviceptr) -> CUresult>,
+        pub cuIpcGetEventHandle: Option<
             unsafe extern "C" fn(pHandle: *mut CUipcEventHandle, event: CUevent) -> CUresult,
-        pub cuIpcGetMemHandle:
+        >,
+        pub cuIpcGetMemHandle: Option<
             unsafe extern "C" fn(pHandle: *mut CUipcMemHandle, dptr: CUdeviceptr) -> CUresult,
-        pub cuIpcOpenEventHandle:
+        >,
+        pub cuIpcOpenEventHandle: Option<
             unsafe extern "C" fn(phEvent: *mut CUevent, handle: CUipcEventHandle) -> CUresult,
-        pub cuIpcOpenMemHandle_v2: unsafe extern "C" fn(
-            pdptr: *mut CUdeviceptr,
-            handle: CUipcMemHandle,
-            Flags: ::core::ffi::c_uint,
-        ) -> CUresult,
+        >,
+        pub cuIpcOpenMemHandle_v2: Option<
+            unsafe extern "C" fn(
+                pdptr: *mut CUdeviceptr,
+                handle: CUipcMemHandle,
+                Flags: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12000",
             feature = "cuda-12010",
@@ -19239,12 +21396,14 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuKernelGetAttribute: unsafe extern "C" fn(
-            pi: *mut ::core::ffi::c_int,
-            attrib: CUfunction_attribute,
-            kernel: CUkernel,
-            dev: CUdevice,
-        ) -> CUresult,
+        pub cuKernelGetAttribute: Option<
+            unsafe extern "C" fn(
+                pi: *mut ::core::ffi::c_int,
+                attrib: CUfunction_attribute,
+                kernel: CUkernel,
+                dev: CUdevice,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12000",
             feature = "cuda-12010",
@@ -19258,7 +21417,7 @@ mod loaded {
             feature = "cuda-13000"
         ))]
         pub cuKernelGetFunction:
-            unsafe extern "C" fn(pFunc: *mut CUfunction, kernel: CUkernel) -> CUresult,
+            Option<unsafe extern "C" fn(pFunc: *mut CUfunction, kernel: CUkernel) -> CUresult>,
         #[cfg(any(
             feature = "cuda-12050",
             feature = "cuda-12060",
@@ -19267,7 +21426,7 @@ mod loaded {
             feature = "cuda-13000"
         ))]
         pub cuKernelGetLibrary:
-            unsafe extern "C" fn(pLib: *mut CUlibrary, kernel: CUkernel) -> CUresult,
+            Option<unsafe extern "C" fn(pLib: *mut CUlibrary, kernel: CUkernel) -> CUresult>,
         #[cfg(any(
             feature = "cuda-12030",
             feature = "cuda-12040",
@@ -19277,10 +21436,12 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuKernelGetName: unsafe extern "C" fn(
-            name: *mut *const ::core::ffi::c_char,
-            hfunc: CUkernel,
-        ) -> CUresult,
+        pub cuKernelGetName: Option<
+            unsafe extern "C" fn(
+                name: *mut *const ::core::ffi::c_char,
+                hfunc: CUkernel,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12040",
             feature = "cuda-12050",
@@ -19289,12 +21450,14 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuKernelGetParamInfo: unsafe extern "C" fn(
-            kernel: CUkernel,
-            paramIndex: usize,
-            paramOffset: *mut usize,
-            paramSize: *mut usize,
-        ) -> CUresult,
+        pub cuKernelGetParamInfo: Option<
+            unsafe extern "C" fn(
+                kernel: CUkernel,
+                paramIndex: usize,
+                paramOffset: *mut usize,
+                paramSize: *mut usize,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12000",
             feature = "cuda-12010",
@@ -19307,12 +21470,14 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuKernelSetAttribute: unsafe extern "C" fn(
-            attrib: CUfunction_attribute,
-            val: ::core::ffi::c_int,
-            kernel: CUkernel,
-            dev: CUdevice,
-        ) -> CUresult,
+        pub cuKernelSetAttribute: Option<
+            unsafe extern "C" fn(
+                attrib: CUfunction_attribute,
+                val: ::core::ffi::c_int,
+                kernel: CUkernel,
+                dev: CUdevice,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12000",
             feature = "cuda-12010",
@@ -19325,55 +21490,68 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuKernelSetCacheConfig:
+        pub cuKernelSetCacheConfig: Option<
             unsafe extern "C" fn(kernel: CUkernel, config: CUfunc_cache, dev: CUdevice) -> CUresult,
-        pub cuLaunch: unsafe extern "C" fn(f: CUfunction) -> CUresult,
-        pub cuLaunchCooperativeKernel: unsafe extern "C" fn(
-            f: CUfunction,
-            gridDimX: ::core::ffi::c_uint,
-            gridDimY: ::core::ffi::c_uint,
-            gridDimZ: ::core::ffi::c_uint,
-            blockDimX: ::core::ffi::c_uint,
-            blockDimY: ::core::ffi::c_uint,
-            blockDimZ: ::core::ffi::c_uint,
-            sharedMemBytes: ::core::ffi::c_uint,
-            hStream: CUstream,
-            kernelParams: *mut *mut ::core::ffi::c_void,
-        ) -> CUresult,
-        pub cuLaunchCooperativeKernelMultiDevice: unsafe extern "C" fn(
-            launchParamsList: *mut CUDA_LAUNCH_PARAMS,
-            numDevices: ::core::ffi::c_uint,
-            flags: ::core::ffi::c_uint,
-        ) -> CUresult,
-        pub cuLaunchGrid: unsafe extern "C" fn(
-            f: CUfunction,
-            grid_width: ::core::ffi::c_int,
-            grid_height: ::core::ffi::c_int,
-        ) -> CUresult,
-        pub cuLaunchGridAsync: unsafe extern "C" fn(
-            f: CUfunction,
-            grid_width: ::core::ffi::c_int,
-            grid_height: ::core::ffi::c_int,
-            hStream: CUstream,
-        ) -> CUresult,
-        pub cuLaunchHostFunc: unsafe extern "C" fn(
-            hStream: CUstream,
-            fn_: CUhostFn,
-            userData: *mut ::core::ffi::c_void,
-        ) -> CUresult,
-        pub cuLaunchKernel: unsafe extern "C" fn(
-            f: CUfunction,
-            gridDimX: ::core::ffi::c_uint,
-            gridDimY: ::core::ffi::c_uint,
-            gridDimZ: ::core::ffi::c_uint,
-            blockDimX: ::core::ffi::c_uint,
-            blockDimY: ::core::ffi::c_uint,
-            blockDimZ: ::core::ffi::c_uint,
-            sharedMemBytes: ::core::ffi::c_uint,
-            hStream: CUstream,
-            kernelParams: *mut *mut ::core::ffi::c_void,
-            extra: *mut *mut ::core::ffi::c_void,
-        ) -> CUresult,
+        >,
+        pub cuLaunch: Option<unsafe extern "C" fn(f: CUfunction) -> CUresult>,
+        pub cuLaunchCooperativeKernel: Option<
+            unsafe extern "C" fn(
+                f: CUfunction,
+                gridDimX: ::core::ffi::c_uint,
+                gridDimY: ::core::ffi::c_uint,
+                gridDimZ: ::core::ffi::c_uint,
+                blockDimX: ::core::ffi::c_uint,
+                blockDimY: ::core::ffi::c_uint,
+                blockDimZ: ::core::ffi::c_uint,
+                sharedMemBytes: ::core::ffi::c_uint,
+                hStream: CUstream,
+                kernelParams: *mut *mut ::core::ffi::c_void,
+            ) -> CUresult,
+        >,
+        pub cuLaunchCooperativeKernelMultiDevice: Option<
+            unsafe extern "C" fn(
+                launchParamsList: *mut CUDA_LAUNCH_PARAMS,
+                numDevices: ::core::ffi::c_uint,
+                flags: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
+        pub cuLaunchGrid: Option<
+            unsafe extern "C" fn(
+                f: CUfunction,
+                grid_width: ::core::ffi::c_int,
+                grid_height: ::core::ffi::c_int,
+            ) -> CUresult,
+        >,
+        pub cuLaunchGridAsync: Option<
+            unsafe extern "C" fn(
+                f: CUfunction,
+                grid_width: ::core::ffi::c_int,
+                grid_height: ::core::ffi::c_int,
+                hStream: CUstream,
+            ) -> CUresult,
+        >,
+        pub cuLaunchHostFunc: Option<
+            unsafe extern "C" fn(
+                hStream: CUstream,
+                fn_: CUhostFn,
+                userData: *mut ::core::ffi::c_void,
+            ) -> CUresult,
+        >,
+        pub cuLaunchKernel: Option<
+            unsafe extern "C" fn(
+                f: CUfunction,
+                gridDimX: ::core::ffi::c_uint,
+                gridDimY: ::core::ffi::c_uint,
+                gridDimZ: ::core::ffi::c_uint,
+                blockDimX: ::core::ffi::c_uint,
+                blockDimY: ::core::ffi::c_uint,
+                blockDimZ: ::core::ffi::c_uint,
+                sharedMemBytes: ::core::ffi::c_uint,
+                hStream: CUstream,
+                kernelParams: *mut *mut ::core::ffi::c_void,
+                extra: *mut *mut ::core::ffi::c_void,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-11080",
             feature = "cuda-12000",
@@ -19387,12 +21565,14 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuLaunchKernelEx: unsafe extern "C" fn(
-            config: *const CUlaunchConfig,
-            f: CUfunction,
-            kernelParams: *mut *mut ::core::ffi::c_void,
-            extra: *mut *mut ::core::ffi::c_void,
-        ) -> CUresult,
+        pub cuLaunchKernelEx: Option<
+            unsafe extern "C" fn(
+                config: *const CUlaunchConfig,
+                f: CUfunction,
+                kernelParams: *mut *mut ::core::ffi::c_void,
+                extra: *mut *mut ::core::ffi::c_void,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12040",
             feature = "cuda-12050",
@@ -19401,29 +21581,13 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuLibraryEnumerateKernels: unsafe extern "C" fn(
-            kernels: *mut CUkernel,
-            numKernels: ::core::ffi::c_uint,
-            lib: CUlibrary,
-        ) -> CUresult,
-        #[cfg(any(
-            feature = "cuda-12000",
-            feature = "cuda-12010",
-            feature = "cuda-12020",
-            feature = "cuda-12030",
-            feature = "cuda-12040",
-            feature = "cuda-12050",
-            feature = "cuda-12060",
-            feature = "cuda-12080",
-            feature = "cuda-12090",
-            feature = "cuda-13000"
-        ))]
-        pub cuLibraryGetGlobal: unsafe extern "C" fn(
-            dptr: *mut CUdeviceptr,
-            bytes: *mut usize,
-            library: CUlibrary,
-            name: *const ::core::ffi::c_char,
-        ) -> CUresult,
+        pub cuLibraryEnumerateKernels: Option<
+            unsafe extern "C" fn(
+                kernels: *mut CUkernel,
+                numKernels: ::core::ffi::c_uint,
+                lib: CUlibrary,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12000",
             feature = "cuda-12010",
@@ -19436,11 +21600,33 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuLibraryGetKernel: unsafe extern "C" fn(
-            pKernel: *mut CUkernel,
-            library: CUlibrary,
-            name: *const ::core::ffi::c_char,
-        ) -> CUresult,
+        pub cuLibraryGetGlobal: Option<
+            unsafe extern "C" fn(
+                dptr: *mut CUdeviceptr,
+                bytes: *mut usize,
+                library: CUlibrary,
+                name: *const ::core::ffi::c_char,
+            ) -> CUresult,
+        >,
+        #[cfg(any(
+            feature = "cuda-12000",
+            feature = "cuda-12010",
+            feature = "cuda-12020",
+            feature = "cuda-12030",
+            feature = "cuda-12040",
+            feature = "cuda-12050",
+            feature = "cuda-12060",
+            feature = "cuda-12080",
+            feature = "cuda-12090",
+            feature = "cuda-13000"
+        ))]
+        pub cuLibraryGetKernel: Option<
+            unsafe extern "C" fn(
+                pKernel: *mut CUkernel,
+                library: CUlibrary,
+                name: *const ::core::ffi::c_char,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12040",
             feature = "cuda-12050",
@@ -19449,8 +21635,9 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuLibraryGetKernelCount:
+        pub cuLibraryGetKernelCount: Option<
             unsafe extern "C" fn(count: *mut ::core::ffi::c_uint, lib: CUlibrary) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12000",
             feature = "cuda-12010",
@@ -19463,12 +21650,14 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuLibraryGetManaged: unsafe extern "C" fn(
-            dptr: *mut CUdeviceptr,
-            bytes: *mut usize,
-            library: CUlibrary,
-            name: *const ::core::ffi::c_char,
-        ) -> CUresult,
+        pub cuLibraryGetManaged: Option<
+            unsafe extern "C" fn(
+                dptr: *mut CUdeviceptr,
+                bytes: *mut usize,
+                library: CUlibrary,
+                name: *const ::core::ffi::c_char,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12000",
             feature = "cuda-12010",
@@ -19482,7 +21671,7 @@ mod loaded {
             feature = "cuda-13000"
         ))]
         pub cuLibraryGetModule:
-            unsafe extern "C" fn(pMod: *mut CUmodule, library: CUlibrary) -> CUresult,
+            Option<unsafe extern "C" fn(pMod: *mut CUmodule, library: CUlibrary) -> CUresult>,
         #[cfg(any(
             feature = "cuda-12000",
             feature = "cuda-12010",
@@ -19495,11 +21684,13 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuLibraryGetUnifiedFunction: unsafe extern "C" fn(
-            fptr: *mut *mut ::core::ffi::c_void,
-            library: CUlibrary,
-            symbol: *const ::core::ffi::c_char,
-        ) -> CUresult,
+        pub cuLibraryGetUnifiedFunction: Option<
+            unsafe extern "C" fn(
+                fptr: *mut *mut ::core::ffi::c_void,
+                library: CUlibrary,
+                symbol: *const ::core::ffi::c_char,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12000",
             feature = "cuda-12010",
@@ -19512,16 +21703,18 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuLibraryLoadData: unsafe extern "C" fn(
-            library: *mut CUlibrary,
-            code: *const ::core::ffi::c_void,
-            jitOptions: *mut CUjit_option,
-            jitOptionsValues: *mut *mut ::core::ffi::c_void,
-            numJitOptions: ::core::ffi::c_uint,
-            libraryOptions: *mut CUlibraryOption,
-            libraryOptionValues: *mut *mut ::core::ffi::c_void,
-            numLibraryOptions: ::core::ffi::c_uint,
-        ) -> CUresult,
+        pub cuLibraryLoadData: Option<
+            unsafe extern "C" fn(
+                library: *mut CUlibrary,
+                code: *const ::core::ffi::c_void,
+                jitOptions: *mut CUjit_option,
+                jitOptionsValues: *mut *mut ::core::ffi::c_void,
+                numJitOptions: ::core::ffi::c_uint,
+                libraryOptions: *mut CUlibraryOption,
+                libraryOptionValues: *mut *mut ::core::ffi::c_void,
+                numLibraryOptions: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12000",
             feature = "cuda-12010",
@@ -19534,16 +21727,18 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuLibraryLoadFromFile: unsafe extern "C" fn(
-            library: *mut CUlibrary,
-            fileName: *const ::core::ffi::c_char,
-            jitOptions: *mut CUjit_option,
-            jitOptionsValues: *mut *mut ::core::ffi::c_void,
-            numJitOptions: ::core::ffi::c_uint,
-            libraryOptions: *mut CUlibraryOption,
-            libraryOptionValues: *mut *mut ::core::ffi::c_void,
-            numLibraryOptions: ::core::ffi::c_uint,
-        ) -> CUresult,
+        pub cuLibraryLoadFromFile: Option<
+            unsafe extern "C" fn(
+                library: *mut CUlibrary,
+                fileName: *const ::core::ffi::c_char,
+                jitOptions: *mut CUjit_option,
+                jitOptionsValues: *mut *mut ::core::ffi::c_void,
+                numJitOptions: ::core::ffi::c_uint,
+                libraryOptions: *mut CUlibraryOption,
+                libraryOptionValues: *mut *mut ::core::ffi::c_void,
+                numLibraryOptions: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12000",
             feature = "cuda-12010",
@@ -19556,72 +21751,91 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuLibraryUnload: unsafe extern "C" fn(library: CUlibrary) -> CUresult,
-        pub cuLinkAddData_v2: unsafe extern "C" fn(
-            state: CUlinkState,
-            type_: CUjitInputType,
-            data: *mut ::core::ffi::c_void,
-            size: usize,
-            name: *const ::core::ffi::c_char,
-            numOptions: ::core::ffi::c_uint,
-            options: *mut CUjit_option,
-            optionValues: *mut *mut ::core::ffi::c_void,
-        ) -> CUresult,
-        pub cuLinkAddFile_v2: unsafe extern "C" fn(
-            state: CUlinkState,
-            type_: CUjitInputType,
-            path: *const ::core::ffi::c_char,
-            numOptions: ::core::ffi::c_uint,
-            options: *mut CUjit_option,
-            optionValues: *mut *mut ::core::ffi::c_void,
-        ) -> CUresult,
-        pub cuLinkComplete: unsafe extern "C" fn(
-            state: CUlinkState,
-            cubinOut: *mut *mut ::core::ffi::c_void,
-            sizeOut: *mut usize,
-        ) -> CUresult,
-        pub cuLinkCreate_v2: unsafe extern "C" fn(
-            numOptions: ::core::ffi::c_uint,
-            options: *mut CUjit_option,
-            optionValues: *mut *mut ::core::ffi::c_void,
-            stateOut: *mut CUlinkState,
-        ) -> CUresult,
-        pub cuLinkDestroy: unsafe extern "C" fn(state: CUlinkState) -> CUresult,
+        pub cuLibraryUnload: Option<unsafe extern "C" fn(library: CUlibrary) -> CUresult>,
+        pub cuLinkAddData_v2: Option<
+            unsafe extern "C" fn(
+                state: CUlinkState,
+                type_: CUjitInputType,
+                data: *mut ::core::ffi::c_void,
+                size: usize,
+                name: *const ::core::ffi::c_char,
+                numOptions: ::core::ffi::c_uint,
+                options: *mut CUjit_option,
+                optionValues: *mut *mut ::core::ffi::c_void,
+            ) -> CUresult,
+        >,
+        pub cuLinkAddFile_v2: Option<
+            unsafe extern "C" fn(
+                state: CUlinkState,
+                type_: CUjitInputType,
+                path: *const ::core::ffi::c_char,
+                numOptions: ::core::ffi::c_uint,
+                options: *mut CUjit_option,
+                optionValues: *mut *mut ::core::ffi::c_void,
+            ) -> CUresult,
+        >,
+        pub cuLinkComplete: Option<
+            unsafe extern "C" fn(
+                state: CUlinkState,
+                cubinOut: *mut *mut ::core::ffi::c_void,
+                sizeOut: *mut usize,
+            ) -> CUresult,
+        >,
+        pub cuLinkCreate_v2: Option<
+            unsafe extern "C" fn(
+                numOptions: ::core::ffi::c_uint,
+                options: *mut CUjit_option,
+                optionValues: *mut *mut ::core::ffi::c_void,
+                stateOut: *mut CUlinkState,
+            ) -> CUresult,
+        >,
+        pub cuLinkDestroy: Option<unsafe extern "C" fn(state: CUlinkState) -> CUresult>,
         #[cfg(any(feature = "cuda-12090", feature = "cuda-13000"))]
-        pub cuLogsCurrent: unsafe extern "C" fn(
-            iterator_out: *mut CUlogIterator,
-            flags: ::core::ffi::c_uint,
-        ) -> CUresult,
+        pub cuLogsCurrent: Option<
+            unsafe extern "C" fn(
+                iterator_out: *mut CUlogIterator,
+                flags: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
         #[cfg(any(feature = "cuda-12090", feature = "cuda-13000"))]
-        pub cuLogsDumpToFile: unsafe extern "C" fn(
-            iterator: *mut CUlogIterator,
-            pathToFile: *const ::core::ffi::c_char,
-            flags: ::core::ffi::c_uint,
-        ) -> CUresult,
+        pub cuLogsDumpToFile: Option<
+            unsafe extern "C" fn(
+                iterator: *mut CUlogIterator,
+                pathToFile: *const ::core::ffi::c_char,
+                flags: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
         #[cfg(any(feature = "cuda-12090", feature = "cuda-13000"))]
-        pub cuLogsDumpToMemory: unsafe extern "C" fn(
-            iterator: *mut CUlogIterator,
-            buffer: *mut ::core::ffi::c_char,
-            size: *mut usize,
-            flags: ::core::ffi::c_uint,
-        ) -> CUresult,
+        pub cuLogsDumpToMemory: Option<
+            unsafe extern "C" fn(
+                iterator: *mut CUlogIterator,
+                buffer: *mut ::core::ffi::c_char,
+                size: *mut usize,
+                flags: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
         #[cfg(any(feature = "cuda-12090", feature = "cuda-13000"))]
-        pub cuLogsRegisterCallback: unsafe extern "C" fn(
-            callbackFunc: CUlogsCallback,
-            userData: *mut ::core::ffi::c_void,
-            callback_out: *mut CUlogsCallbackHandle,
-        ) -> CUresult,
+        pub cuLogsRegisterCallback: Option<
+            unsafe extern "C" fn(
+                callbackFunc: CUlogsCallback,
+                userData: *mut ::core::ffi::c_void,
+                callback_out: *mut CUlogsCallbackHandle,
+            ) -> CUresult,
+        >,
         #[cfg(any(feature = "cuda-12090", feature = "cuda-13000"))]
         pub cuLogsUnregisterCallback:
-            unsafe extern "C" fn(callback: CUlogsCallbackHandle) -> CUresult,
-        pub cuMemAddressFree: unsafe extern "C" fn(ptr: CUdeviceptr, size: usize) -> CUresult,
-        pub cuMemAddressReserve: unsafe extern "C" fn(
-            ptr: *mut CUdeviceptr,
-            size: usize,
-            alignment: usize,
-            addr: CUdeviceptr,
-            flags: ::core::ffi::c_ulonglong,
-        ) -> CUresult,
+            Option<unsafe extern "C" fn(callback: CUlogsCallbackHandle) -> CUresult>,
+        pub cuMemAddressFree:
+            Option<unsafe extern "C" fn(ptr: CUdeviceptr, size: usize) -> CUresult>,
+        pub cuMemAddressReserve: Option<
+            unsafe extern "C" fn(
+                ptr: *mut CUdeviceptr,
+                size: usize,
+                alignment: usize,
+                addr: CUdeviceptr,
+                flags: ::core::ffi::c_ulonglong,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-11040",
             feature = "cuda-11050",
@@ -19638,12 +21852,14 @@ mod loaded {
             feature = "cuda-12080",
             feature = "cuda-12090"
         ))]
-        pub cuMemAdvise: unsafe extern "C" fn(
-            devPtr: CUdeviceptr,
-            count: usize,
-            advice: CUmem_advise,
-            device: CUdevice,
-        ) -> CUresult,
+        pub cuMemAdvise: Option<
+            unsafe extern "C" fn(
+                devPtr: CUdeviceptr,
+                count: usize,
+                advice: CUmem_advise,
+                device: CUdevice,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12020",
             feature = "cuda-12030",
@@ -19654,106 +21870,138 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuMemAdvise_v2: unsafe extern "C" fn(
-            devPtr: CUdeviceptr,
-            count: usize,
-            advice: CUmem_advise,
-            location: CUmemLocation,
-        ) -> CUresult,
-        pub cuMemAllocAsync: unsafe extern "C" fn(
-            dptr: *mut CUdeviceptr,
-            bytesize: usize,
-            hStream: CUstream,
-        ) -> CUresult,
-        pub cuMemAllocFromPoolAsync: unsafe extern "C" fn(
-            dptr: *mut CUdeviceptr,
-            bytesize: usize,
-            pool: CUmemoryPool,
-            hStream: CUstream,
-        ) -> CUresult,
-        pub cuMemAllocHost_v2:
+        pub cuMemAdvise_v2: Option<
+            unsafe extern "C" fn(
+                devPtr: CUdeviceptr,
+                count: usize,
+                advice: CUmem_advise,
+                location: CUmemLocation,
+            ) -> CUresult,
+        >,
+        pub cuMemAllocAsync: Option<
+            unsafe extern "C" fn(
+                dptr: *mut CUdeviceptr,
+                bytesize: usize,
+                hStream: CUstream,
+            ) -> CUresult,
+        >,
+        pub cuMemAllocFromPoolAsync: Option<
+            unsafe extern "C" fn(
+                dptr: *mut CUdeviceptr,
+                bytesize: usize,
+                pool: CUmemoryPool,
+                hStream: CUstream,
+            ) -> CUresult,
+        >,
+        pub cuMemAllocHost_v2: Option<
             unsafe extern "C" fn(pp: *mut *mut ::core::ffi::c_void, bytesize: usize) -> CUresult,
-        pub cuMemAllocManaged: unsafe extern "C" fn(
-            dptr: *mut CUdeviceptr,
-            bytesize: usize,
-            flags: ::core::ffi::c_uint,
-        ) -> CUresult,
-        pub cuMemAllocPitch_v2: unsafe extern "C" fn(
-            dptr: *mut CUdeviceptr,
-            pPitch: *mut usize,
-            WidthInBytes: usize,
-            Height: usize,
-            ElementSizeBytes: ::core::ffi::c_uint,
-        ) -> CUresult,
+        >,
+        pub cuMemAllocManaged: Option<
+            unsafe extern "C" fn(
+                dptr: *mut CUdeviceptr,
+                bytesize: usize,
+                flags: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
+        pub cuMemAllocPitch_v2: Option<
+            unsafe extern "C" fn(
+                dptr: *mut CUdeviceptr,
+                pPitch: *mut usize,
+                WidthInBytes: usize,
+                Height: usize,
+                ElementSizeBytes: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
         pub cuMemAlloc_v2:
-            unsafe extern "C" fn(dptr: *mut CUdeviceptr, bytesize: usize) -> CUresult,
+            Option<unsafe extern "C" fn(dptr: *mut CUdeviceptr, bytesize: usize) -> CUresult>,
         #[cfg(any(feature = "cuda-12080", feature = "cuda-12090", feature = "cuda-13000"))]
-        pub cuMemBatchDecompressAsync: unsafe extern "C" fn(
-            paramsArray: *mut CUmemDecompressParams,
-            count: usize,
-            flags: ::core::ffi::c_uint,
-            errorIndex: *mut usize,
-            stream: CUstream,
-        ) -> CUresult,
-        pub cuMemCreate: unsafe extern "C" fn(
-            handle: *mut CUmemGenericAllocationHandle,
-            size: usize,
-            prop: *const CUmemAllocationProp,
-            flags: ::core::ffi::c_ulonglong,
-        ) -> CUresult,
+        pub cuMemBatchDecompressAsync: Option<
+            unsafe extern "C" fn(
+                paramsArray: *mut CUmemDecompressParams,
+                count: usize,
+                flags: ::core::ffi::c_uint,
+                errorIndex: *mut usize,
+                stream: CUstream,
+            ) -> CUresult,
+        >,
+        pub cuMemCreate: Option<
+            unsafe extern "C" fn(
+                handle: *mut CUmemGenericAllocationHandle,
+                size: usize,
+                prop: *const CUmemAllocationProp,
+                flags: ::core::ffi::c_ulonglong,
+            ) -> CUresult,
+        >,
         #[cfg(any(feature = "cuda-13000"))]
-        pub cuMemDiscardAndPrefetchBatchAsync: unsafe extern "C" fn(
-            dptrs: *mut CUdeviceptr,
-            sizes: *mut usize,
-            count: usize,
-            prefetchLocs: *mut CUmemLocation,
-            prefetchLocIdxs: *mut usize,
-            numPrefetchLocs: usize,
-            flags: ::core::ffi::c_ulonglong,
-            hStream: CUstream,
-        ) -> CUresult,
+        pub cuMemDiscardAndPrefetchBatchAsync: Option<
+            unsafe extern "C" fn(
+                dptrs: *mut CUdeviceptr,
+                sizes: *mut usize,
+                count: usize,
+                prefetchLocs: *mut CUmemLocation,
+                prefetchLocIdxs: *mut usize,
+                numPrefetchLocs: usize,
+                flags: ::core::ffi::c_ulonglong,
+                hStream: CUstream,
+            ) -> CUresult,
+        >,
         #[cfg(any(feature = "cuda-13000"))]
-        pub cuMemDiscardBatchAsync: unsafe extern "C" fn(
-            dptrs: *mut CUdeviceptr,
-            sizes: *mut usize,
-            count: usize,
-            flags: ::core::ffi::c_ulonglong,
-            hStream: CUstream,
-        ) -> CUresult,
-        pub cuMemExportToShareableHandle: unsafe extern "C" fn(
-            shareableHandle: *mut ::core::ffi::c_void,
-            handle: CUmemGenericAllocationHandle,
-            handleType: CUmemAllocationHandleType,
-            flags: ::core::ffi::c_ulonglong,
-        ) -> CUresult,
-        pub cuMemFreeAsync: unsafe extern "C" fn(dptr: CUdeviceptr, hStream: CUstream) -> CUresult,
-        pub cuMemFreeHost: unsafe extern "C" fn(p: *mut ::core::ffi::c_void) -> CUresult,
-        pub cuMemFree_v2: unsafe extern "C" fn(dptr: CUdeviceptr) -> CUresult,
-        pub cuMemGetAccess: unsafe extern "C" fn(
-            flags: *mut ::core::ffi::c_ulonglong,
-            location: *const CUmemLocation,
-            ptr: CUdeviceptr,
-        ) -> CUresult,
-        pub cuMemGetAddressRange_v2: unsafe extern "C" fn(
-            pbase: *mut CUdeviceptr,
-            psize: *mut usize,
-            dptr: CUdeviceptr,
-        ) -> CUresult,
-        pub cuMemGetAllocationGranularity: unsafe extern "C" fn(
-            granularity: *mut usize,
-            prop: *const CUmemAllocationProp,
-            option: CUmemAllocationGranularity_flags,
-        ) -> CUresult,
-        pub cuMemGetAllocationPropertiesFromHandle: unsafe extern "C" fn(
-            prop: *mut CUmemAllocationProp,
-            handle: CUmemGenericAllocationHandle,
-        ) -> CUresult,
+        pub cuMemDiscardBatchAsync: Option<
+            unsafe extern "C" fn(
+                dptrs: *mut CUdeviceptr,
+                sizes: *mut usize,
+                count: usize,
+                flags: ::core::ffi::c_ulonglong,
+                hStream: CUstream,
+            ) -> CUresult,
+        >,
+        pub cuMemExportToShareableHandle: Option<
+            unsafe extern "C" fn(
+                shareableHandle: *mut ::core::ffi::c_void,
+                handle: CUmemGenericAllocationHandle,
+                handleType: CUmemAllocationHandleType,
+                flags: ::core::ffi::c_ulonglong,
+            ) -> CUresult,
+        >,
+        pub cuMemFreeAsync:
+            Option<unsafe extern "C" fn(dptr: CUdeviceptr, hStream: CUstream) -> CUresult>,
+        pub cuMemFreeHost: Option<unsafe extern "C" fn(p: *mut ::core::ffi::c_void) -> CUresult>,
+        pub cuMemFree_v2: Option<unsafe extern "C" fn(dptr: CUdeviceptr) -> CUresult>,
+        pub cuMemGetAccess: Option<
+            unsafe extern "C" fn(
+                flags: *mut ::core::ffi::c_ulonglong,
+                location: *const CUmemLocation,
+                ptr: CUdeviceptr,
+            ) -> CUresult,
+        >,
+        pub cuMemGetAddressRange_v2: Option<
+            unsafe extern "C" fn(
+                pbase: *mut CUdeviceptr,
+                psize: *mut usize,
+                dptr: CUdeviceptr,
+            ) -> CUresult,
+        >,
+        pub cuMemGetAllocationGranularity: Option<
+            unsafe extern "C" fn(
+                granularity: *mut usize,
+                prop: *const CUmemAllocationProp,
+                option: CUmemAllocationGranularity_flags,
+            ) -> CUresult,
+        >,
+        pub cuMemGetAllocationPropertiesFromHandle: Option<
+            unsafe extern "C" fn(
+                prop: *mut CUmemAllocationProp,
+                handle: CUmemGenericAllocationHandle,
+            ) -> CUresult,
+        >,
         #[cfg(any(feature = "cuda-13000"))]
-        pub cuMemGetDefaultMemPool: unsafe extern "C" fn(
-            pool_out: *mut CUmemoryPool,
-            location: *mut CUmemLocation,
-            type_: CUmemAllocationType,
-        ) -> CUresult,
+        pub cuMemGetDefaultMemPool: Option<
+            unsafe extern "C" fn(
+                pool_out: *mut CUmemoryPool,
+                location: *mut CUmemLocation,
+                type_: CUmemAllocationType,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-11070",
             feature = "cuda-11080",
@@ -19768,105 +22016,143 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuMemGetHandleForAddressRange: unsafe extern "C" fn(
-            handle: *mut ::core::ffi::c_void,
-            dptr: CUdeviceptr,
-            size: usize,
-            handleType: CUmemRangeHandleType,
-            flags: ::core::ffi::c_ulonglong,
-        ) -> CUresult,
-        pub cuMemGetInfo_v2: unsafe extern "C" fn(free: *mut usize, total: *mut usize) -> CUresult,
+        pub cuMemGetHandleForAddressRange: Option<
+            unsafe extern "C" fn(
+                handle: *mut ::core::ffi::c_void,
+                dptr: CUdeviceptr,
+                size: usize,
+                handleType: CUmemRangeHandleType,
+                flags: ::core::ffi::c_ulonglong,
+            ) -> CUresult,
+        >,
+        pub cuMemGetInfo_v2:
+            Option<unsafe extern "C" fn(free: *mut usize, total: *mut usize) -> CUresult>,
         #[cfg(any(feature = "cuda-13000"))]
-        pub cuMemGetMemPool: unsafe extern "C" fn(
-            pool: *mut CUmemoryPool,
-            location: *mut CUmemLocation,
-            type_: CUmemAllocationType,
-        ) -> CUresult,
-        pub cuMemHostAlloc: unsafe extern "C" fn(
-            pp: *mut *mut ::core::ffi::c_void,
-            bytesize: usize,
-            Flags: ::core::ffi::c_uint,
-        ) -> CUresult,
-        pub cuMemHostGetDevicePointer_v2: unsafe extern "C" fn(
-            pdptr: *mut CUdeviceptr,
-            p: *mut ::core::ffi::c_void,
-            Flags: ::core::ffi::c_uint,
-        ) -> CUresult,
-        pub cuMemHostGetFlags: unsafe extern "C" fn(
-            pFlags: *mut ::core::ffi::c_uint,
-            p: *mut ::core::ffi::c_void,
-        ) -> CUresult,
-        pub cuMemHostRegister_v2: unsafe extern "C" fn(
-            p: *mut ::core::ffi::c_void,
-            bytesize: usize,
-            Flags: ::core::ffi::c_uint,
-        ) -> CUresult,
-        pub cuMemHostUnregister: unsafe extern "C" fn(p: *mut ::core::ffi::c_void) -> CUresult,
-        pub cuMemImportFromShareableHandle: unsafe extern "C" fn(
-            handle: *mut CUmemGenericAllocationHandle,
-            osHandle: *mut ::core::ffi::c_void,
-            shHandleType: CUmemAllocationHandleType,
-        ) -> CUresult,
-        pub cuMemMap: unsafe extern "C" fn(
-            ptr: CUdeviceptr,
-            size: usize,
-            offset: usize,
-            handle: CUmemGenericAllocationHandle,
-            flags: ::core::ffi::c_ulonglong,
-        ) -> CUresult,
-        pub cuMemMapArrayAsync: unsafe extern "C" fn(
-            mapInfoList: *mut CUarrayMapInfo,
-            count: ::core::ffi::c_uint,
-            hStream: CUstream,
-        ) -> CUresult,
-        pub cuMemPoolCreate: unsafe extern "C" fn(
-            pool: *mut CUmemoryPool,
-            poolProps: *const CUmemPoolProps,
-        ) -> CUresult,
-        pub cuMemPoolDestroy: unsafe extern "C" fn(pool: CUmemoryPool) -> CUresult,
-        pub cuMemPoolExportPointer: unsafe extern "C" fn(
-            shareData_out: *mut CUmemPoolPtrExportData,
-            ptr: CUdeviceptr,
-        ) -> CUresult,
-        pub cuMemPoolExportToShareableHandle: unsafe extern "C" fn(
-            handle_out: *mut ::core::ffi::c_void,
-            pool: CUmemoryPool,
-            handleType: CUmemAllocationHandleType,
-            flags: ::core::ffi::c_ulonglong,
-        ) -> CUresult,
-        pub cuMemPoolGetAccess: unsafe extern "C" fn(
-            flags: *mut CUmemAccess_flags,
-            memPool: CUmemoryPool,
-            location: *mut CUmemLocation,
-        ) -> CUresult,
-        pub cuMemPoolGetAttribute: unsafe extern "C" fn(
-            pool: CUmemoryPool,
-            attr: CUmemPool_attribute,
-            value: *mut ::core::ffi::c_void,
-        ) -> CUresult,
-        pub cuMemPoolImportFromShareableHandle: unsafe extern "C" fn(
-            pool_out: *mut CUmemoryPool,
-            handle: *mut ::core::ffi::c_void,
-            handleType: CUmemAllocationHandleType,
-            flags: ::core::ffi::c_ulonglong,
-        ) -> CUresult,
-        pub cuMemPoolImportPointer: unsafe extern "C" fn(
-            ptr_out: *mut CUdeviceptr,
-            pool: CUmemoryPool,
-            shareData: *mut CUmemPoolPtrExportData,
-        ) -> CUresult,
-        pub cuMemPoolSetAccess: unsafe extern "C" fn(
-            pool: CUmemoryPool,
-            map: *const CUmemAccessDesc,
-            count: usize,
-        ) -> CUresult,
-        pub cuMemPoolSetAttribute: unsafe extern "C" fn(
-            pool: CUmemoryPool,
-            attr: CUmemPool_attribute,
-            value: *mut ::core::ffi::c_void,
-        ) -> CUresult,
+        pub cuMemGetMemPool: Option<
+            unsafe extern "C" fn(
+                pool: *mut CUmemoryPool,
+                location: *mut CUmemLocation,
+                type_: CUmemAllocationType,
+            ) -> CUresult,
+        >,
+        pub cuMemHostAlloc: Option<
+            unsafe extern "C" fn(
+                pp: *mut *mut ::core::ffi::c_void,
+                bytesize: usize,
+                Flags: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
+        pub cuMemHostGetDevicePointer_v2: Option<
+            unsafe extern "C" fn(
+                pdptr: *mut CUdeviceptr,
+                p: *mut ::core::ffi::c_void,
+                Flags: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
+        pub cuMemHostGetFlags: Option<
+            unsafe extern "C" fn(
+                pFlags: *mut ::core::ffi::c_uint,
+                p: *mut ::core::ffi::c_void,
+            ) -> CUresult,
+        >,
+        pub cuMemHostRegister_v2: Option<
+            unsafe extern "C" fn(
+                p: *mut ::core::ffi::c_void,
+                bytesize: usize,
+                Flags: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
+        pub cuMemHostUnregister:
+            Option<unsafe extern "C" fn(p: *mut ::core::ffi::c_void) -> CUresult>,
+        pub cuMemImportFromShareableHandle: Option<
+            unsafe extern "C" fn(
+                handle: *mut CUmemGenericAllocationHandle,
+                osHandle: *mut ::core::ffi::c_void,
+                shHandleType: CUmemAllocationHandleType,
+            ) -> CUresult,
+        >,
+        pub cuMemMap: Option<
+            unsafe extern "C" fn(
+                ptr: CUdeviceptr,
+                size: usize,
+                offset: usize,
+                handle: CUmemGenericAllocationHandle,
+                flags: ::core::ffi::c_ulonglong,
+            ) -> CUresult,
+        >,
+        pub cuMemMapArrayAsync: Option<
+            unsafe extern "C" fn(
+                mapInfoList: *mut CUarrayMapInfo,
+                count: ::core::ffi::c_uint,
+                hStream: CUstream,
+            ) -> CUresult,
+        >,
+        pub cuMemPoolCreate: Option<
+            unsafe extern "C" fn(
+                pool: *mut CUmemoryPool,
+                poolProps: *const CUmemPoolProps,
+            ) -> CUresult,
+        >,
+        pub cuMemPoolDestroy: Option<unsafe extern "C" fn(pool: CUmemoryPool) -> CUresult>,
+        pub cuMemPoolExportPointer: Option<
+            unsafe extern "C" fn(
+                shareData_out: *mut CUmemPoolPtrExportData,
+                ptr: CUdeviceptr,
+            ) -> CUresult,
+        >,
+        pub cuMemPoolExportToShareableHandle: Option<
+            unsafe extern "C" fn(
+                handle_out: *mut ::core::ffi::c_void,
+                pool: CUmemoryPool,
+                handleType: CUmemAllocationHandleType,
+                flags: ::core::ffi::c_ulonglong,
+            ) -> CUresult,
+        >,
+        pub cuMemPoolGetAccess: Option<
+            unsafe extern "C" fn(
+                flags: *mut CUmemAccess_flags,
+                memPool: CUmemoryPool,
+                location: *mut CUmemLocation,
+            ) -> CUresult,
+        >,
+        pub cuMemPoolGetAttribute: Option<
+            unsafe extern "C" fn(
+                pool: CUmemoryPool,
+                attr: CUmemPool_attribute,
+                value: *mut ::core::ffi::c_void,
+            ) -> CUresult,
+        >,
+        pub cuMemPoolImportFromShareableHandle: Option<
+            unsafe extern "C" fn(
+                pool_out: *mut CUmemoryPool,
+                handle: *mut ::core::ffi::c_void,
+                handleType: CUmemAllocationHandleType,
+                flags: ::core::ffi::c_ulonglong,
+            ) -> CUresult,
+        >,
+        pub cuMemPoolImportPointer: Option<
+            unsafe extern "C" fn(
+                ptr_out: *mut CUdeviceptr,
+                pool: CUmemoryPool,
+                shareData: *mut CUmemPoolPtrExportData,
+            ) -> CUresult,
+        >,
+        pub cuMemPoolSetAccess: Option<
+            unsafe extern "C" fn(
+                pool: CUmemoryPool,
+                map: *const CUmemAccessDesc,
+                count: usize,
+            ) -> CUresult,
+        >,
+        pub cuMemPoolSetAttribute: Option<
+            unsafe extern "C" fn(
+                pool: CUmemoryPool,
+                attr: CUmemPool_attribute,
+                value: *mut ::core::ffi::c_void,
+            ) -> CUresult,
+        >,
         pub cuMemPoolTrimTo:
-            unsafe extern "C" fn(pool: CUmemoryPool, minBytesToKeep: usize) -> CUresult,
+            Option<unsafe extern "C" fn(pool: CUmemoryPool, minBytesToKeep: usize) -> CUresult>,
         #[cfg(any(
             feature = "cuda-11040",
             feature = "cuda-11050",
@@ -19883,12 +22169,14 @@ mod loaded {
             feature = "cuda-12080",
             feature = "cuda-12090"
         ))]
-        pub cuMemPrefetchAsync: unsafe extern "C" fn(
-            devPtr: CUdeviceptr,
-            count: usize,
-            dstDevice: CUdevice,
-            hStream: CUstream,
-        ) -> CUresult,
+        pub cuMemPrefetchAsync: Option<
+            unsafe extern "C" fn(
+                devPtr: CUdeviceptr,
+                count: usize,
+                dstDevice: CUdevice,
+                hStream: CUstream,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12020",
             feature = "cuda-12030",
@@ -19899,296 +22187,385 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuMemPrefetchAsync_v2: unsafe extern "C" fn(
-            devPtr: CUdeviceptr,
-            count: usize,
-            location: CUmemLocation,
-            flags: ::core::ffi::c_uint,
-            hStream: CUstream,
-        ) -> CUresult,
+        pub cuMemPrefetchAsync_v2: Option<
+            unsafe extern "C" fn(
+                devPtr: CUdeviceptr,
+                count: usize,
+                location: CUmemLocation,
+                flags: ::core::ffi::c_uint,
+                hStream: CUstream,
+            ) -> CUresult,
+        >,
         #[cfg(any(feature = "cuda-13000"))]
-        pub cuMemPrefetchBatchAsync: unsafe extern "C" fn(
-            dptrs: *mut CUdeviceptr,
-            sizes: *mut usize,
-            count: usize,
-            prefetchLocs: *mut CUmemLocation,
-            prefetchLocIdxs: *mut usize,
-            numPrefetchLocs: usize,
-            flags: ::core::ffi::c_ulonglong,
-            hStream: CUstream,
-        ) -> CUresult,
-        pub cuMemRangeGetAttribute: unsafe extern "C" fn(
-            data: *mut ::core::ffi::c_void,
-            dataSize: usize,
-            attribute: CUmem_range_attribute,
-            devPtr: CUdeviceptr,
-            count: usize,
-        ) -> CUresult,
-        pub cuMemRangeGetAttributes: unsafe extern "C" fn(
-            data: *mut *mut ::core::ffi::c_void,
-            dataSizes: *mut usize,
-            attributes: *mut CUmem_range_attribute,
-            numAttributes: usize,
-            devPtr: CUdeviceptr,
-            count: usize,
-        ) -> CUresult,
-        pub cuMemRelease: unsafe extern "C" fn(handle: CUmemGenericAllocationHandle) -> CUresult,
-        pub cuMemRetainAllocationHandle: unsafe extern "C" fn(
-            handle: *mut CUmemGenericAllocationHandle,
-            addr: *mut ::core::ffi::c_void,
-        ) -> CUresult,
-        pub cuMemSetAccess: unsafe extern "C" fn(
-            ptr: CUdeviceptr,
-            size: usize,
-            desc: *const CUmemAccessDesc,
-            count: usize,
-        ) -> CUresult,
+        pub cuMemPrefetchBatchAsync: Option<
+            unsafe extern "C" fn(
+                dptrs: *mut CUdeviceptr,
+                sizes: *mut usize,
+                count: usize,
+                prefetchLocs: *mut CUmemLocation,
+                prefetchLocIdxs: *mut usize,
+                numPrefetchLocs: usize,
+                flags: ::core::ffi::c_ulonglong,
+                hStream: CUstream,
+            ) -> CUresult,
+        >,
+        pub cuMemRangeGetAttribute: Option<
+            unsafe extern "C" fn(
+                data: *mut ::core::ffi::c_void,
+                dataSize: usize,
+                attribute: CUmem_range_attribute,
+                devPtr: CUdeviceptr,
+                count: usize,
+            ) -> CUresult,
+        >,
+        pub cuMemRangeGetAttributes: Option<
+            unsafe extern "C" fn(
+                data: *mut *mut ::core::ffi::c_void,
+                dataSizes: *mut usize,
+                attributes: *mut CUmem_range_attribute,
+                numAttributes: usize,
+                devPtr: CUdeviceptr,
+                count: usize,
+            ) -> CUresult,
+        >,
+        pub cuMemRelease:
+            Option<unsafe extern "C" fn(handle: CUmemGenericAllocationHandle) -> CUresult>,
+        pub cuMemRetainAllocationHandle: Option<
+            unsafe extern "C" fn(
+                handle: *mut CUmemGenericAllocationHandle,
+                addr: *mut ::core::ffi::c_void,
+            ) -> CUresult,
+        >,
+        pub cuMemSetAccess: Option<
+            unsafe extern "C" fn(
+                ptr: CUdeviceptr,
+                size: usize,
+                desc: *const CUmemAccessDesc,
+                count: usize,
+            ) -> CUresult,
+        >,
         #[cfg(any(feature = "cuda-13000"))]
-        pub cuMemSetMemPool: unsafe extern "C" fn(
-            location: *mut CUmemLocation,
-            type_: CUmemAllocationType,
-            pool: CUmemoryPool,
-        ) -> CUresult,
-        pub cuMemUnmap: unsafe extern "C" fn(ptr: CUdeviceptr, size: usize) -> CUresult,
-        pub cuMemcpy:
+        pub cuMemSetMemPool: Option<
+            unsafe extern "C" fn(
+                location: *mut CUmemLocation,
+                type_: CUmemAllocationType,
+                pool: CUmemoryPool,
+            ) -> CUresult,
+        >,
+        pub cuMemUnmap: Option<unsafe extern "C" fn(ptr: CUdeviceptr, size: usize) -> CUresult>,
+        pub cuMemcpy: Option<
             unsafe extern "C" fn(dst: CUdeviceptr, src: CUdeviceptr, ByteCount: usize) -> CUresult,
-        pub cuMemcpy2DAsync_v2:
+        >,
+        pub cuMemcpy2DAsync_v2: Option<
             unsafe extern "C" fn(pCopy: *const CUDA_MEMCPY2D, hStream: CUstream) -> CUresult,
-        pub cuMemcpy2DUnaligned_v2: unsafe extern "C" fn(pCopy: *const CUDA_MEMCPY2D) -> CUresult,
-        pub cuMemcpy2D_v2: unsafe extern "C" fn(pCopy: *const CUDA_MEMCPY2D) -> CUresult,
-        pub cuMemcpy3DAsync_v2:
+        >,
+        pub cuMemcpy2DUnaligned_v2:
+            Option<unsafe extern "C" fn(pCopy: *const CUDA_MEMCPY2D) -> CUresult>,
+        pub cuMemcpy2D_v2: Option<unsafe extern "C" fn(pCopy: *const CUDA_MEMCPY2D) -> CUresult>,
+        pub cuMemcpy3DAsync_v2: Option<
             unsafe extern "C" fn(pCopy: *const CUDA_MEMCPY3D, hStream: CUstream) -> CUresult,
+        >,
         #[cfg(any(feature = "cuda-12080", feature = "cuda-12090"))]
-        pub cuMemcpy3DBatchAsync: unsafe extern "C" fn(
-            numOps: usize,
-            opList: *mut CUDA_MEMCPY3D_BATCH_OP,
-            failIdx: *mut usize,
-            flags: ::core::ffi::c_ulonglong,
-            hStream: CUstream,
-        ) -> CUresult,
+        pub cuMemcpy3DBatchAsync: Option<
+            unsafe extern "C" fn(
+                numOps: usize,
+                opList: *mut CUDA_MEMCPY3D_BATCH_OP,
+                failIdx: *mut usize,
+                flags: ::core::ffi::c_ulonglong,
+                hStream: CUstream,
+            ) -> CUresult,
+        >,
         #[cfg(any(feature = "cuda-13000"))]
-        pub cuMemcpy3DBatchAsync_v2: unsafe extern "C" fn(
-            numOps: usize,
-            opList: *mut CUDA_MEMCPY3D_BATCH_OP,
-            flags: ::core::ffi::c_ulonglong,
-            hStream: CUstream,
-        ) -> CUresult,
-        pub cuMemcpy3DPeer: unsafe extern "C" fn(pCopy: *const CUDA_MEMCPY3D_PEER) -> CUresult,
-        pub cuMemcpy3DPeerAsync:
+        pub cuMemcpy3DBatchAsync_v2: Option<
+            unsafe extern "C" fn(
+                numOps: usize,
+                opList: *mut CUDA_MEMCPY3D_BATCH_OP,
+                flags: ::core::ffi::c_ulonglong,
+                hStream: CUstream,
+            ) -> CUresult,
+        >,
+        pub cuMemcpy3DPeer:
+            Option<unsafe extern "C" fn(pCopy: *const CUDA_MEMCPY3D_PEER) -> CUresult>,
+        pub cuMemcpy3DPeerAsync: Option<
             unsafe extern "C" fn(pCopy: *const CUDA_MEMCPY3D_PEER, hStream: CUstream) -> CUresult,
-        pub cuMemcpy3D_v2: unsafe extern "C" fn(pCopy: *const CUDA_MEMCPY3D) -> CUresult,
-        pub cuMemcpyAsync: unsafe extern "C" fn(
-            dst: CUdeviceptr,
-            src: CUdeviceptr,
-            ByteCount: usize,
-            hStream: CUstream,
-        ) -> CUresult,
-        pub cuMemcpyAtoA_v2: unsafe extern "C" fn(
-            dstArray: CUarray,
-            dstOffset: usize,
-            srcArray: CUarray,
-            srcOffset: usize,
-            ByteCount: usize,
-        ) -> CUresult,
-        pub cuMemcpyAtoD_v2: unsafe extern "C" fn(
-            dstDevice: CUdeviceptr,
-            srcArray: CUarray,
-            srcOffset: usize,
-            ByteCount: usize,
-        ) -> CUresult,
-        pub cuMemcpyAtoHAsync_v2: unsafe extern "C" fn(
-            dstHost: *mut ::core::ffi::c_void,
-            srcArray: CUarray,
-            srcOffset: usize,
-            ByteCount: usize,
-            hStream: CUstream,
-        ) -> CUresult,
-        pub cuMemcpyAtoH_v2: unsafe extern "C" fn(
-            dstHost: *mut ::core::ffi::c_void,
-            srcArray: CUarray,
-            srcOffset: usize,
-            ByteCount: usize,
-        ) -> CUresult,
+        >,
+        pub cuMemcpy3D_v2: Option<unsafe extern "C" fn(pCopy: *const CUDA_MEMCPY3D) -> CUresult>,
+        pub cuMemcpyAsync: Option<
+            unsafe extern "C" fn(
+                dst: CUdeviceptr,
+                src: CUdeviceptr,
+                ByteCount: usize,
+                hStream: CUstream,
+            ) -> CUresult,
+        >,
+        pub cuMemcpyAtoA_v2: Option<
+            unsafe extern "C" fn(
+                dstArray: CUarray,
+                dstOffset: usize,
+                srcArray: CUarray,
+                srcOffset: usize,
+                ByteCount: usize,
+            ) -> CUresult,
+        >,
+        pub cuMemcpyAtoD_v2: Option<
+            unsafe extern "C" fn(
+                dstDevice: CUdeviceptr,
+                srcArray: CUarray,
+                srcOffset: usize,
+                ByteCount: usize,
+            ) -> CUresult,
+        >,
+        pub cuMemcpyAtoHAsync_v2: Option<
+            unsafe extern "C" fn(
+                dstHost: *mut ::core::ffi::c_void,
+                srcArray: CUarray,
+                srcOffset: usize,
+                ByteCount: usize,
+                hStream: CUstream,
+            ) -> CUresult,
+        >,
+        pub cuMemcpyAtoH_v2: Option<
+            unsafe extern "C" fn(
+                dstHost: *mut ::core::ffi::c_void,
+                srcArray: CUarray,
+                srcOffset: usize,
+                ByteCount: usize,
+            ) -> CUresult,
+        >,
         #[cfg(any(feature = "cuda-12080", feature = "cuda-12090"))]
-        pub cuMemcpyBatchAsync: unsafe extern "C" fn(
-            dsts: *mut CUdeviceptr,
-            srcs: *mut CUdeviceptr,
-            sizes: *mut usize,
-            count: usize,
-            attrs: *mut CUmemcpyAttributes,
-            attrsIdxs: *mut usize,
-            numAttrs: usize,
-            failIdx: *mut usize,
-            hStream: CUstream,
-        ) -> CUresult,
+        pub cuMemcpyBatchAsync: Option<
+            unsafe extern "C" fn(
+                dsts: *mut CUdeviceptr,
+                srcs: *mut CUdeviceptr,
+                sizes: *mut usize,
+                count: usize,
+                attrs: *mut CUmemcpyAttributes,
+                attrsIdxs: *mut usize,
+                numAttrs: usize,
+                failIdx: *mut usize,
+                hStream: CUstream,
+            ) -> CUresult,
+        >,
         #[cfg(any(feature = "cuda-13000"))]
-        pub cuMemcpyBatchAsync_v2: unsafe extern "C" fn(
-            dsts: *mut CUdeviceptr,
-            srcs: *mut CUdeviceptr,
-            sizes: *mut usize,
-            count: usize,
-            attrs: *mut CUmemcpyAttributes,
-            attrsIdxs: *mut usize,
-            numAttrs: usize,
-            hStream: CUstream,
-        ) -> CUresult,
-        pub cuMemcpyDtoA_v2: unsafe extern "C" fn(
-            dstArray: CUarray,
-            dstOffset: usize,
-            srcDevice: CUdeviceptr,
-            ByteCount: usize,
-        ) -> CUresult,
-        pub cuMemcpyDtoDAsync_v2: unsafe extern "C" fn(
-            dstDevice: CUdeviceptr,
-            srcDevice: CUdeviceptr,
-            ByteCount: usize,
-            hStream: CUstream,
-        ) -> CUresult,
-        pub cuMemcpyDtoD_v2: unsafe extern "C" fn(
-            dstDevice: CUdeviceptr,
-            srcDevice: CUdeviceptr,
-            ByteCount: usize,
-        ) -> CUresult,
-        pub cuMemcpyDtoHAsync_v2: unsafe extern "C" fn(
-            dstHost: *mut ::core::ffi::c_void,
-            srcDevice: CUdeviceptr,
-            ByteCount: usize,
-            hStream: CUstream,
-        ) -> CUresult,
-        pub cuMemcpyDtoH_v2: unsafe extern "C" fn(
-            dstHost: *mut ::core::ffi::c_void,
-            srcDevice: CUdeviceptr,
-            ByteCount: usize,
-        ) -> CUresult,
-        pub cuMemcpyHtoAAsync_v2: unsafe extern "C" fn(
-            dstArray: CUarray,
-            dstOffset: usize,
-            srcHost: *const ::core::ffi::c_void,
-            ByteCount: usize,
-            hStream: CUstream,
-        ) -> CUresult,
-        pub cuMemcpyHtoA_v2: unsafe extern "C" fn(
-            dstArray: CUarray,
-            dstOffset: usize,
-            srcHost: *const ::core::ffi::c_void,
-            ByteCount: usize,
-        ) -> CUresult,
-        pub cuMemcpyHtoDAsync_v2: unsafe extern "C" fn(
-            dstDevice: CUdeviceptr,
-            srcHost: *const ::core::ffi::c_void,
-            ByteCount: usize,
-            hStream: CUstream,
-        ) -> CUresult,
-        pub cuMemcpyHtoD_v2: unsafe extern "C" fn(
-            dstDevice: CUdeviceptr,
-            srcHost: *const ::core::ffi::c_void,
-            ByteCount: usize,
-        ) -> CUresult,
-        pub cuMemcpyPeer: unsafe extern "C" fn(
-            dstDevice: CUdeviceptr,
-            dstContext: CUcontext,
-            srcDevice: CUdeviceptr,
-            srcContext: CUcontext,
-            ByteCount: usize,
-        ) -> CUresult,
-        pub cuMemcpyPeerAsync: unsafe extern "C" fn(
-            dstDevice: CUdeviceptr,
-            dstContext: CUcontext,
-            srcDevice: CUdeviceptr,
-            srcContext: CUcontext,
-            ByteCount: usize,
-            hStream: CUstream,
-        ) -> CUresult,
-        pub cuMemsetD16Async: unsafe extern "C" fn(
-            dstDevice: CUdeviceptr,
-            us: ::core::ffi::c_ushort,
-            N: usize,
-            hStream: CUstream,
-        ) -> CUresult,
-        pub cuMemsetD16_v2: unsafe extern "C" fn(
-            dstDevice: CUdeviceptr,
-            us: ::core::ffi::c_ushort,
-            N: usize,
-        ) -> CUresult,
-        pub cuMemsetD2D16Async: unsafe extern "C" fn(
-            dstDevice: CUdeviceptr,
-            dstPitch: usize,
-            us: ::core::ffi::c_ushort,
-            Width: usize,
-            Height: usize,
-            hStream: CUstream,
-        ) -> CUresult,
-        pub cuMemsetD2D16_v2: unsafe extern "C" fn(
-            dstDevice: CUdeviceptr,
-            dstPitch: usize,
-            us: ::core::ffi::c_ushort,
-            Width: usize,
-            Height: usize,
-        ) -> CUresult,
-        pub cuMemsetD2D32Async: unsafe extern "C" fn(
-            dstDevice: CUdeviceptr,
-            dstPitch: usize,
-            ui: ::core::ffi::c_uint,
-            Width: usize,
-            Height: usize,
-            hStream: CUstream,
-        ) -> CUresult,
-        pub cuMemsetD2D32_v2: unsafe extern "C" fn(
-            dstDevice: CUdeviceptr,
-            dstPitch: usize,
-            ui: ::core::ffi::c_uint,
-            Width: usize,
-            Height: usize,
-        ) -> CUresult,
-        pub cuMemsetD2D8Async: unsafe extern "C" fn(
-            dstDevice: CUdeviceptr,
-            dstPitch: usize,
-            uc: ::core::ffi::c_uchar,
-            Width: usize,
-            Height: usize,
-            hStream: CUstream,
-        ) -> CUresult,
-        pub cuMemsetD2D8_v2: unsafe extern "C" fn(
-            dstDevice: CUdeviceptr,
-            dstPitch: usize,
-            uc: ::core::ffi::c_uchar,
-            Width: usize,
-            Height: usize,
-        ) -> CUresult,
-        pub cuMemsetD32Async: unsafe extern "C" fn(
-            dstDevice: CUdeviceptr,
-            ui: ::core::ffi::c_uint,
-            N: usize,
-            hStream: CUstream,
-        ) -> CUresult,
-        pub cuMemsetD32_v2: unsafe extern "C" fn(
-            dstDevice: CUdeviceptr,
-            ui: ::core::ffi::c_uint,
-            N: usize,
-        ) -> CUresult,
-        pub cuMemsetD8Async: unsafe extern "C" fn(
-            dstDevice: CUdeviceptr,
-            uc: ::core::ffi::c_uchar,
-            N: usize,
-            hStream: CUstream,
-        ) -> CUresult,
-        pub cuMemsetD8_v2: unsafe extern "C" fn(
-            dstDevice: CUdeviceptr,
-            uc: ::core::ffi::c_uchar,
-            N: usize,
-        ) -> CUresult,
-        pub cuMipmappedArrayCreate: unsafe extern "C" fn(
-            pHandle: *mut CUmipmappedArray,
-            pMipmappedArrayDesc: *const CUDA_ARRAY3D_DESCRIPTOR,
-            numMipmapLevels: ::core::ffi::c_uint,
-        ) -> CUresult,
+        pub cuMemcpyBatchAsync_v2: Option<
+            unsafe extern "C" fn(
+                dsts: *mut CUdeviceptr,
+                srcs: *mut CUdeviceptr,
+                sizes: *mut usize,
+                count: usize,
+                attrs: *mut CUmemcpyAttributes,
+                attrsIdxs: *mut usize,
+                numAttrs: usize,
+                hStream: CUstream,
+            ) -> CUresult,
+        >,
+        pub cuMemcpyDtoA_v2: Option<
+            unsafe extern "C" fn(
+                dstArray: CUarray,
+                dstOffset: usize,
+                srcDevice: CUdeviceptr,
+                ByteCount: usize,
+            ) -> CUresult,
+        >,
+        pub cuMemcpyDtoDAsync_v2: Option<
+            unsafe extern "C" fn(
+                dstDevice: CUdeviceptr,
+                srcDevice: CUdeviceptr,
+                ByteCount: usize,
+                hStream: CUstream,
+            ) -> CUresult,
+        >,
+        pub cuMemcpyDtoD_v2: Option<
+            unsafe extern "C" fn(
+                dstDevice: CUdeviceptr,
+                srcDevice: CUdeviceptr,
+                ByteCount: usize,
+            ) -> CUresult,
+        >,
+        pub cuMemcpyDtoHAsync_v2: Option<
+            unsafe extern "C" fn(
+                dstHost: *mut ::core::ffi::c_void,
+                srcDevice: CUdeviceptr,
+                ByteCount: usize,
+                hStream: CUstream,
+            ) -> CUresult,
+        >,
+        pub cuMemcpyDtoH_v2: Option<
+            unsafe extern "C" fn(
+                dstHost: *mut ::core::ffi::c_void,
+                srcDevice: CUdeviceptr,
+                ByteCount: usize,
+            ) -> CUresult,
+        >,
+        pub cuMemcpyHtoAAsync_v2: Option<
+            unsafe extern "C" fn(
+                dstArray: CUarray,
+                dstOffset: usize,
+                srcHost: *const ::core::ffi::c_void,
+                ByteCount: usize,
+                hStream: CUstream,
+            ) -> CUresult,
+        >,
+        pub cuMemcpyHtoA_v2: Option<
+            unsafe extern "C" fn(
+                dstArray: CUarray,
+                dstOffset: usize,
+                srcHost: *const ::core::ffi::c_void,
+                ByteCount: usize,
+            ) -> CUresult,
+        >,
+        pub cuMemcpyHtoDAsync_v2: Option<
+            unsafe extern "C" fn(
+                dstDevice: CUdeviceptr,
+                srcHost: *const ::core::ffi::c_void,
+                ByteCount: usize,
+                hStream: CUstream,
+            ) -> CUresult,
+        >,
+        pub cuMemcpyHtoD_v2: Option<
+            unsafe extern "C" fn(
+                dstDevice: CUdeviceptr,
+                srcHost: *const ::core::ffi::c_void,
+                ByteCount: usize,
+            ) -> CUresult,
+        >,
+        pub cuMemcpyPeer: Option<
+            unsafe extern "C" fn(
+                dstDevice: CUdeviceptr,
+                dstContext: CUcontext,
+                srcDevice: CUdeviceptr,
+                srcContext: CUcontext,
+                ByteCount: usize,
+            ) -> CUresult,
+        >,
+        pub cuMemcpyPeerAsync: Option<
+            unsafe extern "C" fn(
+                dstDevice: CUdeviceptr,
+                dstContext: CUcontext,
+                srcDevice: CUdeviceptr,
+                srcContext: CUcontext,
+                ByteCount: usize,
+                hStream: CUstream,
+            ) -> CUresult,
+        >,
+        pub cuMemsetD16Async: Option<
+            unsafe extern "C" fn(
+                dstDevice: CUdeviceptr,
+                us: ::core::ffi::c_ushort,
+                N: usize,
+                hStream: CUstream,
+            ) -> CUresult,
+        >,
+        pub cuMemsetD16_v2: Option<
+            unsafe extern "C" fn(
+                dstDevice: CUdeviceptr,
+                us: ::core::ffi::c_ushort,
+                N: usize,
+            ) -> CUresult,
+        >,
+        pub cuMemsetD2D16Async: Option<
+            unsafe extern "C" fn(
+                dstDevice: CUdeviceptr,
+                dstPitch: usize,
+                us: ::core::ffi::c_ushort,
+                Width: usize,
+                Height: usize,
+                hStream: CUstream,
+            ) -> CUresult,
+        >,
+        pub cuMemsetD2D16_v2: Option<
+            unsafe extern "C" fn(
+                dstDevice: CUdeviceptr,
+                dstPitch: usize,
+                us: ::core::ffi::c_ushort,
+                Width: usize,
+                Height: usize,
+            ) -> CUresult,
+        >,
+        pub cuMemsetD2D32Async: Option<
+            unsafe extern "C" fn(
+                dstDevice: CUdeviceptr,
+                dstPitch: usize,
+                ui: ::core::ffi::c_uint,
+                Width: usize,
+                Height: usize,
+                hStream: CUstream,
+            ) -> CUresult,
+        >,
+        pub cuMemsetD2D32_v2: Option<
+            unsafe extern "C" fn(
+                dstDevice: CUdeviceptr,
+                dstPitch: usize,
+                ui: ::core::ffi::c_uint,
+                Width: usize,
+                Height: usize,
+            ) -> CUresult,
+        >,
+        pub cuMemsetD2D8Async: Option<
+            unsafe extern "C" fn(
+                dstDevice: CUdeviceptr,
+                dstPitch: usize,
+                uc: ::core::ffi::c_uchar,
+                Width: usize,
+                Height: usize,
+                hStream: CUstream,
+            ) -> CUresult,
+        >,
+        pub cuMemsetD2D8_v2: Option<
+            unsafe extern "C" fn(
+                dstDevice: CUdeviceptr,
+                dstPitch: usize,
+                uc: ::core::ffi::c_uchar,
+                Width: usize,
+                Height: usize,
+            ) -> CUresult,
+        >,
+        pub cuMemsetD32Async: Option<
+            unsafe extern "C" fn(
+                dstDevice: CUdeviceptr,
+                ui: ::core::ffi::c_uint,
+                N: usize,
+                hStream: CUstream,
+            ) -> CUresult,
+        >,
+        pub cuMemsetD32_v2: Option<
+            unsafe extern "C" fn(
+                dstDevice: CUdeviceptr,
+                ui: ::core::ffi::c_uint,
+                N: usize,
+            ) -> CUresult,
+        >,
+        pub cuMemsetD8Async: Option<
+            unsafe extern "C" fn(
+                dstDevice: CUdeviceptr,
+                uc: ::core::ffi::c_uchar,
+                N: usize,
+                hStream: CUstream,
+            ) -> CUresult,
+        >,
+        pub cuMemsetD8_v2: Option<
+            unsafe extern "C" fn(
+                dstDevice: CUdeviceptr,
+                uc: ::core::ffi::c_uchar,
+                N: usize,
+            ) -> CUresult,
+        >,
+        pub cuMipmappedArrayCreate: Option<
+            unsafe extern "C" fn(
+                pHandle: *mut CUmipmappedArray,
+                pMipmappedArrayDesc: *const CUDA_ARRAY3D_DESCRIPTOR,
+                numMipmapLevels: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
         pub cuMipmappedArrayDestroy:
-            unsafe extern "C" fn(hMipmappedArray: CUmipmappedArray) -> CUresult,
-        pub cuMipmappedArrayGetLevel: unsafe extern "C" fn(
-            pLevelArray: *mut CUarray,
-            hMipmappedArray: CUmipmappedArray,
-            level: ::core::ffi::c_uint,
-        ) -> CUresult,
+            Option<unsafe extern "C" fn(hMipmappedArray: CUmipmappedArray) -> CUresult>,
+        pub cuMipmappedArrayGetLevel: Option<
+            unsafe extern "C" fn(
+                pLevelArray: *mut CUarray,
+                hMipmappedArray: CUmipmappedArray,
+                level: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-11060",
             feature = "cuda-11070",
@@ -20204,15 +22581,19 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuMipmappedArrayGetMemoryRequirements: unsafe extern "C" fn(
-            memoryRequirements: *mut CUDA_ARRAY_MEMORY_REQUIREMENTS,
-            mipmap: CUmipmappedArray,
-            device: CUdevice,
-        ) -> CUresult,
-        pub cuMipmappedArrayGetSparseProperties: unsafe extern "C" fn(
-            sparseProperties: *mut CUDA_ARRAY_SPARSE_PROPERTIES,
-            mipmap: CUmipmappedArray,
-        ) -> CUresult,
+        pub cuMipmappedArrayGetMemoryRequirements: Option<
+            unsafe extern "C" fn(
+                memoryRequirements: *mut CUDA_ARRAY_MEMORY_REQUIREMENTS,
+                mipmap: CUmipmappedArray,
+                device: CUdevice,
+            ) -> CUresult,
+        >,
+        pub cuMipmappedArrayGetSparseProperties: Option<
+            unsafe extern "C" fn(
+                sparseProperties: *mut CUDA_ARRAY_SPARSE_PROPERTIES,
+                mipmap: CUmipmappedArray,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12040",
             feature = "cuda-12050",
@@ -20221,16 +22602,20 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuModuleEnumerateFunctions: unsafe extern "C" fn(
-            functions: *mut CUfunction,
-            numFunctions: ::core::ffi::c_uint,
-            mod_: CUmodule,
-        ) -> CUresult,
-        pub cuModuleGetFunction: unsafe extern "C" fn(
-            hfunc: *mut CUfunction,
-            hmod: CUmodule,
-            name: *const ::core::ffi::c_char,
-        ) -> CUresult,
+        pub cuModuleEnumerateFunctions: Option<
+            unsafe extern "C" fn(
+                functions: *mut CUfunction,
+                numFunctions: ::core::ffi::c_uint,
+                mod_: CUmodule,
+            ) -> CUresult,
+        >,
+        pub cuModuleGetFunction: Option<
+            unsafe extern "C" fn(
+                hfunc: *mut CUfunction,
+                hmod: CUmodule,
+                name: *const ::core::ffi::c_char,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12040",
             feature = "cuda-12050",
@@ -20239,14 +22624,17 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuModuleGetFunctionCount:
+        pub cuModuleGetFunctionCount: Option<
             unsafe extern "C" fn(count: *mut ::core::ffi::c_uint, mod_: CUmodule) -> CUresult,
-        pub cuModuleGetGlobal_v2: unsafe extern "C" fn(
-            dptr: *mut CUdeviceptr,
-            bytes: *mut usize,
-            hmod: CUmodule,
-            name: *const ::core::ffi::c_char,
-        ) -> CUresult,
+        >,
+        pub cuModuleGetGlobal_v2: Option<
+            unsafe extern "C" fn(
+                dptr: *mut CUdeviceptr,
+                bytes: *mut usize,
+                hmod: CUmodule,
+                name: *const ::core::ffi::c_char,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-11070",
             feature = "cuda-11080",
@@ -20262,37 +22650,49 @@ mod loaded {
             feature = "cuda-13000"
         ))]
         pub cuModuleGetLoadingMode:
-            unsafe extern "C" fn(mode: *mut CUmoduleLoadingMode) -> CUresult,
-        pub cuModuleGetSurfRef: unsafe extern "C" fn(
-            pSurfRef: *mut CUsurfref,
-            hmod: CUmodule,
-            name: *const ::core::ffi::c_char,
-        ) -> CUresult,
-        pub cuModuleGetTexRef: unsafe extern "C" fn(
-            pTexRef: *mut CUtexref,
-            hmod: CUmodule,
-            name: *const ::core::ffi::c_char,
-        ) -> CUresult,
-        pub cuModuleLoad: unsafe extern "C" fn(
-            module: *mut CUmodule,
-            fname: *const ::core::ffi::c_char,
-        ) -> CUresult,
-        pub cuModuleLoadData: unsafe extern "C" fn(
-            module: *mut CUmodule,
-            image: *const ::core::ffi::c_void,
-        ) -> CUresult,
-        pub cuModuleLoadDataEx: unsafe extern "C" fn(
-            module: *mut CUmodule,
-            image: *const ::core::ffi::c_void,
-            numOptions: ::core::ffi::c_uint,
-            options: *mut CUjit_option,
-            optionValues: *mut *mut ::core::ffi::c_void,
-        ) -> CUresult,
-        pub cuModuleLoadFatBinary: unsafe extern "C" fn(
-            module: *mut CUmodule,
-            fatCubin: *const ::core::ffi::c_void,
-        ) -> CUresult,
-        pub cuModuleUnload: unsafe extern "C" fn(hmod: CUmodule) -> CUresult,
+            Option<unsafe extern "C" fn(mode: *mut CUmoduleLoadingMode) -> CUresult>,
+        pub cuModuleGetSurfRef: Option<
+            unsafe extern "C" fn(
+                pSurfRef: *mut CUsurfref,
+                hmod: CUmodule,
+                name: *const ::core::ffi::c_char,
+            ) -> CUresult,
+        >,
+        pub cuModuleGetTexRef: Option<
+            unsafe extern "C" fn(
+                pTexRef: *mut CUtexref,
+                hmod: CUmodule,
+                name: *const ::core::ffi::c_char,
+            ) -> CUresult,
+        >,
+        pub cuModuleLoad: Option<
+            unsafe extern "C" fn(
+                module: *mut CUmodule,
+                fname: *const ::core::ffi::c_char,
+            ) -> CUresult,
+        >,
+        pub cuModuleLoadData: Option<
+            unsafe extern "C" fn(
+                module: *mut CUmodule,
+                image: *const ::core::ffi::c_void,
+            ) -> CUresult,
+        >,
+        pub cuModuleLoadDataEx: Option<
+            unsafe extern "C" fn(
+                module: *mut CUmodule,
+                image: *const ::core::ffi::c_void,
+                numOptions: ::core::ffi::c_uint,
+                options: *mut CUjit_option,
+                optionValues: *mut *mut ::core::ffi::c_void,
+            ) -> CUresult,
+        >,
+        pub cuModuleLoadFatBinary: Option<
+            unsafe extern "C" fn(
+                module: *mut CUmodule,
+                fatCubin: *const ::core::ffi::c_void,
+            ) -> CUresult,
+        >,
+        pub cuModuleUnload: Option<unsafe extern "C" fn(hmod: CUmodule) -> CUresult>,
         #[cfg(any(
             feature = "cuda-12010",
             feature = "cuda-12020",
@@ -20304,8 +22704,9 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuMulticastAddDevice:
+        pub cuMulticastAddDevice: Option<
             unsafe extern "C" fn(mcHandle: CUmemGenericAllocationHandle, dev: CUdevice) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12010",
             feature = "cuda-12020",
@@ -20317,13 +22718,15 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuMulticastBindAddr: unsafe extern "C" fn(
-            mcHandle: CUmemGenericAllocationHandle,
-            mcOffset: usize,
-            memptr: CUdeviceptr,
-            size: usize,
-            flags: ::core::ffi::c_ulonglong,
-        ) -> CUresult,
+        pub cuMulticastBindAddr: Option<
+            unsafe extern "C" fn(
+                mcHandle: CUmemGenericAllocationHandle,
+                mcOffset: usize,
+                memptr: CUdeviceptr,
+                size: usize,
+                flags: ::core::ffi::c_ulonglong,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12010",
             feature = "cuda-12020",
@@ -20335,14 +22738,16 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuMulticastBindMem: unsafe extern "C" fn(
-            mcHandle: CUmemGenericAllocationHandle,
-            mcOffset: usize,
-            memHandle: CUmemGenericAllocationHandle,
-            memOffset: usize,
-            size: usize,
-            flags: ::core::ffi::c_ulonglong,
-        ) -> CUresult,
+        pub cuMulticastBindMem: Option<
+            unsafe extern "C" fn(
+                mcHandle: CUmemGenericAllocationHandle,
+                mcOffset: usize,
+                memHandle: CUmemGenericAllocationHandle,
+                memOffset: usize,
+                size: usize,
+                flags: ::core::ffi::c_ulonglong,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12010",
             feature = "cuda-12020",
@@ -20354,10 +22759,12 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuMulticastCreate: unsafe extern "C" fn(
-            mcHandle: *mut CUmemGenericAllocationHandle,
-            prop: *const CUmulticastObjectProp,
-        ) -> CUresult,
+        pub cuMulticastCreate: Option<
+            unsafe extern "C" fn(
+                mcHandle: *mut CUmemGenericAllocationHandle,
+                prop: *const CUmulticastObjectProp,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12010",
             feature = "cuda-12020",
@@ -20369,11 +22776,13 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuMulticastGetGranularity: unsafe extern "C" fn(
-            granularity: *mut usize,
-            prop: *const CUmulticastObjectProp,
-            option: CUmulticastGranularity_flags,
-        ) -> CUresult,
+        pub cuMulticastGetGranularity: Option<
+            unsafe extern "C" fn(
+                granularity: *mut usize,
+                prop: *const CUmulticastObjectProp,
+                option: CUmulticastGranularity_flags,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12010",
             feature = "cuda-12020",
@@ -20385,67 +22794,39 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuMulticastUnbind: unsafe extern "C" fn(
-            mcHandle: CUmemGenericAllocationHandle,
-            dev: CUdevice,
-            mcOffset: usize,
-            size: usize,
-        ) -> CUresult,
-        pub cuOccupancyAvailableDynamicSMemPerBlock: unsafe extern "C" fn(
-            dynamicSmemSize: *mut usize,
-            func: CUfunction,
-            numBlocks: ::core::ffi::c_int,
-            blockSize: ::core::ffi::c_int,
-        ) -> CUresult,
-        pub cuOccupancyMaxActiveBlocksPerMultiprocessor: unsafe extern "C" fn(
-            numBlocks: *mut ::core::ffi::c_int,
-            func: CUfunction,
-            blockSize: ::core::ffi::c_int,
-            dynamicSMemSize: usize,
-        ) -> CUresult,
-        pub cuOccupancyMaxActiveBlocksPerMultiprocessorWithFlags: unsafe extern "C" fn(
-            numBlocks: *mut ::core::ffi::c_int,
-            func: CUfunction,
-            blockSize: ::core::ffi::c_int,
-            dynamicSMemSize: usize,
-            flags: ::core::ffi::c_uint,
-        )
-            -> CUresult,
-        #[cfg(any(
-            feature = "cuda-11080",
-            feature = "cuda-12000",
-            feature = "cuda-12010",
-            feature = "cuda-12020",
-            feature = "cuda-12030",
-            feature = "cuda-12040",
-            feature = "cuda-12050",
-            feature = "cuda-12060",
-            feature = "cuda-12080",
-            feature = "cuda-12090",
-            feature = "cuda-13000"
-        ))]
-        pub cuOccupancyMaxActiveClusters: unsafe extern "C" fn(
-            numClusters: *mut ::core::ffi::c_int,
-            func: CUfunction,
-            config: *const CUlaunchConfig,
-        ) -> CUresult,
-        pub cuOccupancyMaxPotentialBlockSize: unsafe extern "C" fn(
-            minGridSize: *mut ::core::ffi::c_int,
-            blockSize: *mut ::core::ffi::c_int,
-            func: CUfunction,
-            blockSizeToDynamicSMemSize: CUoccupancyB2DSize,
-            dynamicSMemSize: usize,
-            blockSizeLimit: ::core::ffi::c_int,
-        ) -> CUresult,
-        pub cuOccupancyMaxPotentialBlockSizeWithFlags: unsafe extern "C" fn(
-            minGridSize: *mut ::core::ffi::c_int,
-            blockSize: *mut ::core::ffi::c_int,
-            func: CUfunction,
-            blockSizeToDynamicSMemSize: CUoccupancyB2DSize,
-            dynamicSMemSize: usize,
-            blockSizeLimit: ::core::ffi::c_int,
-            flags: ::core::ffi::c_uint,
-        ) -> CUresult,
+        pub cuMulticastUnbind: Option<
+            unsafe extern "C" fn(
+                mcHandle: CUmemGenericAllocationHandle,
+                dev: CUdevice,
+                mcOffset: usize,
+                size: usize,
+            ) -> CUresult,
+        >,
+        pub cuOccupancyAvailableDynamicSMemPerBlock: Option<
+            unsafe extern "C" fn(
+                dynamicSmemSize: *mut usize,
+                func: CUfunction,
+                numBlocks: ::core::ffi::c_int,
+                blockSize: ::core::ffi::c_int,
+            ) -> CUresult,
+        >,
+        pub cuOccupancyMaxActiveBlocksPerMultiprocessor: Option<
+            unsafe extern "C" fn(
+                numBlocks: *mut ::core::ffi::c_int,
+                func: CUfunction,
+                blockSize: ::core::ffi::c_int,
+                dynamicSMemSize: usize,
+            ) -> CUresult,
+        >,
+        pub cuOccupancyMaxActiveBlocksPerMultiprocessorWithFlags: Option<
+            unsafe extern "C" fn(
+                numBlocks: *mut ::core::ffi::c_int,
+                func: CUfunction,
+                blockSize: ::core::ffi::c_int,
+                dynamicSMemSize: usize,
+                flags: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-11080",
             feature = "cuda-12000",
@@ -20459,75 +22840,141 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuOccupancyMaxPotentialClusterSize: unsafe extern "C" fn(
-            clusterSize: *mut ::core::ffi::c_int,
-            func: CUfunction,
-            config: *const CUlaunchConfig,
-        ) -> CUresult,
-        pub cuParamSetSize:
+        pub cuOccupancyMaxActiveClusters: Option<
+            unsafe extern "C" fn(
+                numClusters: *mut ::core::ffi::c_int,
+                func: CUfunction,
+                config: *const CUlaunchConfig,
+            ) -> CUresult,
+        >,
+        pub cuOccupancyMaxPotentialBlockSize: Option<
+            unsafe extern "C" fn(
+                minGridSize: *mut ::core::ffi::c_int,
+                blockSize: *mut ::core::ffi::c_int,
+                func: CUfunction,
+                blockSizeToDynamicSMemSize: CUoccupancyB2DSize,
+                dynamicSMemSize: usize,
+                blockSizeLimit: ::core::ffi::c_int,
+            ) -> CUresult,
+        >,
+        pub cuOccupancyMaxPotentialBlockSizeWithFlags: Option<
+            unsafe extern "C" fn(
+                minGridSize: *mut ::core::ffi::c_int,
+                blockSize: *mut ::core::ffi::c_int,
+                func: CUfunction,
+                blockSizeToDynamicSMemSize: CUoccupancyB2DSize,
+                dynamicSMemSize: usize,
+                blockSizeLimit: ::core::ffi::c_int,
+                flags: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
+        #[cfg(any(
+            feature = "cuda-11080",
+            feature = "cuda-12000",
+            feature = "cuda-12010",
+            feature = "cuda-12020",
+            feature = "cuda-12030",
+            feature = "cuda-12040",
+            feature = "cuda-12050",
+            feature = "cuda-12060",
+            feature = "cuda-12080",
+            feature = "cuda-12090",
+            feature = "cuda-13000"
+        ))]
+        pub cuOccupancyMaxPotentialClusterSize: Option<
+            unsafe extern "C" fn(
+                clusterSize: *mut ::core::ffi::c_int,
+                func: CUfunction,
+                config: *const CUlaunchConfig,
+            ) -> CUresult,
+        >,
+        pub cuParamSetSize: Option<
             unsafe extern "C" fn(hfunc: CUfunction, numbytes: ::core::ffi::c_uint) -> CUresult,
-        pub cuParamSetTexRef: unsafe extern "C" fn(
-            hfunc: CUfunction,
-            texunit: ::core::ffi::c_int,
-            hTexRef: CUtexref,
-        ) -> CUresult,
-        pub cuParamSetf: unsafe extern "C" fn(
-            hfunc: CUfunction,
-            offset: ::core::ffi::c_int,
-            value: f32,
-        ) -> CUresult,
-        pub cuParamSeti: unsafe extern "C" fn(
-            hfunc: CUfunction,
-            offset: ::core::ffi::c_int,
-            value: ::core::ffi::c_uint,
-        ) -> CUresult,
-        pub cuParamSetv: unsafe extern "C" fn(
-            hfunc: CUfunction,
-            offset: ::core::ffi::c_int,
-            ptr: *mut ::core::ffi::c_void,
-            numbytes: ::core::ffi::c_uint,
-        ) -> CUresult,
-        pub cuPointerGetAttribute: unsafe extern "C" fn(
-            data: *mut ::core::ffi::c_void,
-            attribute: CUpointer_attribute,
-            ptr: CUdeviceptr,
-        ) -> CUresult,
-        pub cuPointerGetAttributes: unsafe extern "C" fn(
-            numAttributes: ::core::ffi::c_uint,
-            attributes: *mut CUpointer_attribute,
-            data: *mut *mut ::core::ffi::c_void,
-            ptr: CUdeviceptr,
-        ) -> CUresult,
-        pub cuPointerSetAttribute: unsafe extern "C" fn(
-            value: *const ::core::ffi::c_void,
-            attribute: CUpointer_attribute,
-            ptr: CUdeviceptr,
-        ) -> CUresult,
-        pub cuProfilerInitialize: unsafe extern "C" fn(
-            configFile: *const ::core::ffi::c_char,
-            outputFile: *const ::core::ffi::c_char,
-            outputMode: CUoutput_mode,
-        ) -> CUresult,
-        pub cuProfilerStart: unsafe extern "C" fn() -> CUresult,
-        pub cuProfilerStop: unsafe extern "C" fn() -> CUresult,
-        pub cuSignalExternalSemaphoresAsync: unsafe extern "C" fn(
-            extSemArray: *const CUexternalSemaphore,
-            paramsArray: *const CUDA_EXTERNAL_SEMAPHORE_SIGNAL_PARAMS,
-            numExtSems: ::core::ffi::c_uint,
-            stream: CUstream,
-        ) -> CUresult,
-        pub cuStreamAddCallback: unsafe extern "C" fn(
-            hStream: CUstream,
-            callback: CUstreamCallback,
-            userData: *mut ::core::ffi::c_void,
-            flags: ::core::ffi::c_uint,
-        ) -> CUresult,
-        pub cuStreamAttachMemAsync: unsafe extern "C" fn(
-            hStream: CUstream,
-            dptr: CUdeviceptr,
-            length: usize,
-            flags: ::core::ffi::c_uint,
-        ) -> CUresult,
+        >,
+        pub cuParamSetTexRef: Option<
+            unsafe extern "C" fn(
+                hfunc: CUfunction,
+                texunit: ::core::ffi::c_int,
+                hTexRef: CUtexref,
+            ) -> CUresult,
+        >,
+        pub cuParamSetf: Option<
+            unsafe extern "C" fn(
+                hfunc: CUfunction,
+                offset: ::core::ffi::c_int,
+                value: f32,
+            ) -> CUresult,
+        >,
+        pub cuParamSeti: Option<
+            unsafe extern "C" fn(
+                hfunc: CUfunction,
+                offset: ::core::ffi::c_int,
+                value: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
+        pub cuParamSetv: Option<
+            unsafe extern "C" fn(
+                hfunc: CUfunction,
+                offset: ::core::ffi::c_int,
+                ptr: *mut ::core::ffi::c_void,
+                numbytes: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
+        pub cuPointerGetAttribute: Option<
+            unsafe extern "C" fn(
+                data: *mut ::core::ffi::c_void,
+                attribute: CUpointer_attribute,
+                ptr: CUdeviceptr,
+            ) -> CUresult,
+        >,
+        pub cuPointerGetAttributes: Option<
+            unsafe extern "C" fn(
+                numAttributes: ::core::ffi::c_uint,
+                attributes: *mut CUpointer_attribute,
+                data: *mut *mut ::core::ffi::c_void,
+                ptr: CUdeviceptr,
+            ) -> CUresult,
+        >,
+        pub cuPointerSetAttribute: Option<
+            unsafe extern "C" fn(
+                value: *const ::core::ffi::c_void,
+                attribute: CUpointer_attribute,
+                ptr: CUdeviceptr,
+            ) -> CUresult,
+        >,
+        pub cuProfilerInitialize: Option<
+            unsafe extern "C" fn(
+                configFile: *const ::core::ffi::c_char,
+                outputFile: *const ::core::ffi::c_char,
+                outputMode: CUoutput_mode,
+            ) -> CUresult,
+        >,
+        pub cuProfilerStart: Option<unsafe extern "C" fn() -> CUresult>,
+        pub cuProfilerStop: Option<unsafe extern "C" fn() -> CUresult>,
+        pub cuSignalExternalSemaphoresAsync: Option<
+            unsafe extern "C" fn(
+                extSemArray: *const CUexternalSemaphore,
+                paramsArray: *const CUDA_EXTERNAL_SEMAPHORE_SIGNAL_PARAMS,
+                numExtSems: ::core::ffi::c_uint,
+                stream: CUstream,
+            ) -> CUresult,
+        >,
+        pub cuStreamAddCallback: Option<
+            unsafe extern "C" fn(
+                hStream: CUstream,
+                callback: CUstreamCallback,
+                userData: *mut ::core::ffi::c_void,
+                flags: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
+        pub cuStreamAttachMemAsync: Option<
+            unsafe extern "C" fn(
+                hStream: CUstream,
+                dptr: CUdeviceptr,
+                length: usize,
+                flags: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-11040",
             feature = "cuda-11050",
@@ -20535,12 +22982,14 @@ mod loaded {
             feature = "cuda-11070",
             feature = "cuda-11080"
         ))]
-        pub cuStreamBatchMemOp: unsafe extern "C" fn(
-            stream: CUstream,
-            count: ::core::ffi::c_uint,
-            paramArray: *mut CUstreamBatchMemOpParams,
-            flags: ::core::ffi::c_uint,
-        ) -> CUresult,
+        pub cuStreamBatchMemOp: Option<
+            unsafe extern "C" fn(
+                stream: CUstream,
+                count: ::core::ffi::c_uint,
+                paramArray: *mut CUstreamBatchMemOpParams,
+                flags: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-11070",
             feature = "cuda-11080",
@@ -20555,12 +23004,14 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuStreamBatchMemOp_v2: unsafe extern "C" fn(
-            stream: CUstream,
-            count: ::core::ffi::c_uint,
-            paramArray: *mut CUstreamBatchMemOpParams,
-            flags: ::core::ffi::c_uint,
-        ) -> CUresult,
+        pub cuStreamBatchMemOp_v2: Option<
+            unsafe extern "C" fn(
+                stream: CUstream,
+                count: ::core::ffi::c_uint,
+                paramArray: *mut CUstreamBatchMemOpParams,
+                flags: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12030",
             feature = "cuda-12040",
@@ -20570,32 +23021,40 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuStreamBeginCaptureToGraph: unsafe extern "C" fn(
-            hStream: CUstream,
-            hGraph: CUgraph,
-            dependencies: *const CUgraphNode,
-            dependencyData: *const CUgraphEdgeData,
-            numDependencies: usize,
-            mode: CUstreamCaptureMode,
-        ) -> CUresult,
+        pub cuStreamBeginCaptureToGraph: Option<
+            unsafe extern "C" fn(
+                hStream: CUstream,
+                hGraph: CUgraph,
+                dependencies: *const CUgraphNode,
+                dependencyData: *const CUgraphEdgeData,
+                numDependencies: usize,
+                mode: CUstreamCaptureMode,
+            ) -> CUresult,
+        >,
         pub cuStreamBeginCapture_v2:
-            unsafe extern "C" fn(hStream: CUstream, mode: CUstreamCaptureMode) -> CUresult,
-        pub cuStreamCopyAttributes: unsafe extern "C" fn(dst: CUstream, src: CUstream) -> CUresult,
-        pub cuStreamCreate:
+            Option<unsafe extern "C" fn(hStream: CUstream, mode: CUstreamCaptureMode) -> CUresult>,
+        pub cuStreamCopyAttributes:
+            Option<unsafe extern "C" fn(dst: CUstream, src: CUstream) -> CUresult>,
+        pub cuStreamCreate: Option<
             unsafe extern "C" fn(phStream: *mut CUstream, Flags: ::core::ffi::c_uint) -> CUresult,
-        pub cuStreamCreateWithPriority: unsafe extern "C" fn(
-            phStream: *mut CUstream,
-            flags: ::core::ffi::c_uint,
-            priority: ::core::ffi::c_int,
-        ) -> CUresult,
-        pub cuStreamDestroy_v2: unsafe extern "C" fn(hStream: CUstream) -> CUresult,
+        >,
+        pub cuStreamCreateWithPriority: Option<
+            unsafe extern "C" fn(
+                phStream: *mut CUstream,
+                flags: ::core::ffi::c_uint,
+                priority: ::core::ffi::c_int,
+            ) -> CUresult,
+        >,
+        pub cuStreamDestroy_v2: Option<unsafe extern "C" fn(hStream: CUstream) -> CUresult>,
         pub cuStreamEndCapture:
-            unsafe extern "C" fn(hStream: CUstream, phGraph: *mut CUgraph) -> CUresult,
-        pub cuStreamGetAttribute: unsafe extern "C" fn(
-            hStream: CUstream,
-            attr: CUstreamAttrID,
-            value_out: *mut CUstreamAttrValue,
-        ) -> CUresult,
+            Option<unsafe extern "C" fn(hStream: CUstream, phGraph: *mut CUgraph) -> CUresult>,
+        pub cuStreamGetAttribute: Option<
+            unsafe extern "C" fn(
+                hStream: CUstream,
+                attr: CUstreamAttrID,
+                value_out: *mut CUstreamAttrValue,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-11040",
             feature = "cuda-11050",
@@ -20603,11 +23062,13 @@ mod loaded {
             feature = "cuda-11070",
             feature = "cuda-11080"
         ))]
-        pub cuStreamGetCaptureInfo: unsafe extern "C" fn(
-            hStream: CUstream,
-            captureStatus_out: *mut CUstreamCaptureStatus,
-            id_out: *mut cuuint64_t,
-        ) -> CUresult,
+        pub cuStreamGetCaptureInfo: Option<
+            unsafe extern "C" fn(
+                hStream: CUstream,
+                captureStatus_out: *mut CUstreamCaptureStatus,
+                id_out: *mut cuuint64_t,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-11040",
             feature = "cuda-11050",
@@ -20624,14 +23085,16 @@ mod loaded {
             feature = "cuda-12080",
             feature = "cuda-12090"
         ))]
-        pub cuStreamGetCaptureInfo_v2: unsafe extern "C" fn(
-            hStream: CUstream,
-            captureStatus_out: *mut CUstreamCaptureStatus,
-            id_out: *mut cuuint64_t,
-            graph_out: *mut CUgraph,
-            dependencies_out: *mut *const CUgraphNode,
-            numDependencies_out: *mut usize,
-        ) -> CUresult,
+        pub cuStreamGetCaptureInfo_v2: Option<
+            unsafe extern "C" fn(
+                hStream: CUstream,
+                captureStatus_out: *mut CUstreamCaptureStatus,
+                id_out: *mut cuuint64_t,
+                graph_out: *mut CUgraph,
+                dependencies_out: *mut *const CUgraphNode,
+                numDependencies_out: *mut usize,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12030",
             feature = "cuda-12040",
@@ -20641,17 +23104,19 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuStreamGetCaptureInfo_v3: unsafe extern "C" fn(
-            hStream: CUstream,
-            captureStatus_out: *mut CUstreamCaptureStatus,
-            id_out: *mut cuuint64_t,
-            graph_out: *mut CUgraph,
-            dependencies_out: *mut *const CUgraphNode,
-            edgeData_out: *mut *const CUgraphEdgeData,
-            numDependencies_out: *mut usize,
-        ) -> CUresult,
+        pub cuStreamGetCaptureInfo_v3: Option<
+            unsafe extern "C" fn(
+                hStream: CUstream,
+                captureStatus_out: *mut CUstreamCaptureStatus,
+                id_out: *mut cuuint64_t,
+                graph_out: *mut CUgraph,
+                dependencies_out: *mut *const CUgraphNode,
+                edgeData_out: *mut *const CUgraphEdgeData,
+                numDependencies_out: *mut usize,
+            ) -> CUresult,
+        >,
         pub cuStreamGetCtx:
-            unsafe extern "C" fn(hStream: CUstream, pctx: *mut CUcontext) -> CUresult,
+            Option<unsafe extern "C" fn(hStream: CUstream, pctx: *mut CUcontext) -> CUresult>,
         #[cfg(any(
             feature = "cuda-12050",
             feature = "cuda-12060",
@@ -20659,16 +23124,19 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuStreamGetCtx_v2: unsafe extern "C" fn(
-            hStream: CUstream,
-            pCtx: *mut CUcontext,
-            pGreenCtx: *mut CUgreenCtx,
-        ) -> CUresult,
+        pub cuStreamGetCtx_v2: Option<
+            unsafe extern "C" fn(
+                hStream: CUstream,
+                pCtx: *mut CUcontext,
+                pGreenCtx: *mut CUgreenCtx,
+            ) -> CUresult,
+        >,
         #[cfg(any(feature = "cuda-12080", feature = "cuda-12090", feature = "cuda-13000"))]
         pub cuStreamGetDevice:
-            unsafe extern "C" fn(hStream: CUstream, device: *mut CUdevice) -> CUresult,
-        pub cuStreamGetFlags:
+            Option<unsafe extern "C" fn(hStream: CUstream, device: *mut CUdevice) -> CUresult>,
+        pub cuStreamGetFlags: Option<
             unsafe extern "C" fn(hStream: CUstream, flags: *mut ::core::ffi::c_uint) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12040",
             feature = "cuda-12050",
@@ -20678,7 +23146,7 @@ mod loaded {
             feature = "cuda-13000"
         ))]
         pub cuStreamGetGreenCtx:
-            unsafe extern "C" fn(hStream: CUstream, phCtx: *mut CUgreenCtx) -> CUresult,
+            Option<unsafe extern "C" fn(hStream: CUstream, phCtx: *mut CUgreenCtx) -> CUresult>,
         #[cfg(any(
             feature = "cuda-12000",
             feature = "cuda-12010",
@@ -20691,23 +23159,30 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuStreamGetId: unsafe extern "C" fn(
-            hStream: CUstream,
-            streamId: *mut ::core::ffi::c_ulonglong,
-        ) -> CUresult,
-        pub cuStreamGetPriority:
+        pub cuStreamGetId: Option<
+            unsafe extern "C" fn(
+                hStream: CUstream,
+                streamId: *mut ::core::ffi::c_ulonglong,
+            ) -> CUresult,
+        >,
+        pub cuStreamGetPriority: Option<
             unsafe extern "C" fn(hStream: CUstream, priority: *mut ::core::ffi::c_int) -> CUresult,
-        pub cuStreamIsCapturing: unsafe extern "C" fn(
-            hStream: CUstream,
-            captureStatus: *mut CUstreamCaptureStatus,
-        ) -> CUresult,
-        pub cuStreamQuery: unsafe extern "C" fn(hStream: CUstream) -> CUresult,
-        pub cuStreamSetAttribute: unsafe extern "C" fn(
-            hStream: CUstream,
-            attr: CUstreamAttrID,
-            value: *const CUstreamAttrValue,
-        ) -> CUresult,
-        pub cuStreamSynchronize: unsafe extern "C" fn(hStream: CUstream) -> CUresult,
+        >,
+        pub cuStreamIsCapturing: Option<
+            unsafe extern "C" fn(
+                hStream: CUstream,
+                captureStatus: *mut CUstreamCaptureStatus,
+            ) -> CUresult,
+        >,
+        pub cuStreamQuery: Option<unsafe extern "C" fn(hStream: CUstream) -> CUresult>,
+        pub cuStreamSetAttribute: Option<
+            unsafe extern "C" fn(
+                hStream: CUstream,
+                attr: CUstreamAttrID,
+                value: *const CUstreamAttrValue,
+            ) -> CUresult,
+        >,
+        pub cuStreamSynchronize: Option<unsafe extern "C" fn(hStream: CUstream) -> CUresult>,
         #[cfg(any(
             feature = "cuda-11040",
             feature = "cuda-11050",
@@ -20724,12 +23199,14 @@ mod loaded {
             feature = "cuda-12080",
             feature = "cuda-12090"
         ))]
-        pub cuStreamUpdateCaptureDependencies: unsafe extern "C" fn(
-            hStream: CUstream,
-            dependencies: *mut CUgraphNode,
-            numDependencies: usize,
-            flags: ::core::ffi::c_uint,
-        ) -> CUresult,
+        pub cuStreamUpdateCaptureDependencies: Option<
+            unsafe extern "C" fn(
+                hStream: CUstream,
+                dependencies: *mut CUgraphNode,
+                numDependencies: usize,
+                flags: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12030",
             feature = "cuda-12040",
@@ -20739,18 +23216,22 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuStreamUpdateCaptureDependencies_v2: unsafe extern "C" fn(
-            hStream: CUstream,
-            dependencies: *mut CUgraphNode,
-            dependencyData: *const CUgraphEdgeData,
-            numDependencies: usize,
-            flags: ::core::ffi::c_uint,
-        ) -> CUresult,
-        pub cuStreamWaitEvent: unsafe extern "C" fn(
-            hStream: CUstream,
-            hEvent: CUevent,
-            Flags: ::core::ffi::c_uint,
-        ) -> CUresult,
+        pub cuStreamUpdateCaptureDependencies_v2: Option<
+            unsafe extern "C" fn(
+                hStream: CUstream,
+                dependencies: *mut CUgraphNode,
+                dependencyData: *const CUgraphEdgeData,
+                numDependencies: usize,
+                flags: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
+        pub cuStreamWaitEvent: Option<
+            unsafe extern "C" fn(
+                hStream: CUstream,
+                hEvent: CUevent,
+                Flags: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-11040",
             feature = "cuda-11050",
@@ -20758,12 +23239,14 @@ mod loaded {
             feature = "cuda-11070",
             feature = "cuda-11080"
         ))]
-        pub cuStreamWaitValue32: unsafe extern "C" fn(
-            stream: CUstream,
-            addr: CUdeviceptr,
-            value: cuuint32_t,
-            flags: ::core::ffi::c_uint,
-        ) -> CUresult,
+        pub cuStreamWaitValue32: Option<
+            unsafe extern "C" fn(
+                stream: CUstream,
+                addr: CUdeviceptr,
+                value: cuuint32_t,
+                flags: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-11070",
             feature = "cuda-11080",
@@ -20778,12 +23261,14 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuStreamWaitValue32_v2: unsafe extern "C" fn(
-            stream: CUstream,
-            addr: CUdeviceptr,
-            value: cuuint32_t,
-            flags: ::core::ffi::c_uint,
-        ) -> CUresult,
+        pub cuStreamWaitValue32_v2: Option<
+            unsafe extern "C" fn(
+                stream: CUstream,
+                addr: CUdeviceptr,
+                value: cuuint32_t,
+                flags: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-11040",
             feature = "cuda-11050",
@@ -20791,12 +23276,14 @@ mod loaded {
             feature = "cuda-11070",
             feature = "cuda-11080"
         ))]
-        pub cuStreamWaitValue64: unsafe extern "C" fn(
-            stream: CUstream,
-            addr: CUdeviceptr,
-            value: cuuint64_t,
-            flags: ::core::ffi::c_uint,
-        ) -> CUresult,
+        pub cuStreamWaitValue64: Option<
+            unsafe extern "C" fn(
+                stream: CUstream,
+                addr: CUdeviceptr,
+                value: cuuint64_t,
+                flags: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-11070",
             feature = "cuda-11080",
@@ -20811,12 +23298,14 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuStreamWaitValue64_v2: unsafe extern "C" fn(
-            stream: CUstream,
-            addr: CUdeviceptr,
-            value: cuuint64_t,
-            flags: ::core::ffi::c_uint,
-        ) -> CUresult,
+        pub cuStreamWaitValue64_v2: Option<
+            unsafe extern "C" fn(
+                stream: CUstream,
+                addr: CUdeviceptr,
+                value: cuuint64_t,
+                flags: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-11040",
             feature = "cuda-11050",
@@ -20824,12 +23313,14 @@ mod loaded {
             feature = "cuda-11070",
             feature = "cuda-11080"
         ))]
-        pub cuStreamWriteValue32: unsafe extern "C" fn(
-            stream: CUstream,
-            addr: CUdeviceptr,
-            value: cuuint32_t,
-            flags: ::core::ffi::c_uint,
-        ) -> CUresult,
+        pub cuStreamWriteValue32: Option<
+            unsafe extern "C" fn(
+                stream: CUstream,
+                addr: CUdeviceptr,
+                value: cuuint32_t,
+                flags: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-11070",
             feature = "cuda-11080",
@@ -20844,12 +23335,14 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuStreamWriteValue32_v2: unsafe extern "C" fn(
-            stream: CUstream,
-            addr: CUdeviceptr,
-            value: cuuint32_t,
-            flags: ::core::ffi::c_uint,
-        ) -> CUresult,
+        pub cuStreamWriteValue32_v2: Option<
+            unsafe extern "C" fn(
+                stream: CUstream,
+                addr: CUdeviceptr,
+                value: cuuint32_t,
+                flags: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-11040",
             feature = "cuda-11050",
@@ -20857,12 +23350,14 @@ mod loaded {
             feature = "cuda-11070",
             feature = "cuda-11080"
         ))]
-        pub cuStreamWriteValue64: unsafe extern "C" fn(
-            stream: CUstream,
-            addr: CUdeviceptr,
-            value: cuuint64_t,
-            flags: ::core::ffi::c_uint,
-        ) -> CUresult,
+        pub cuStreamWriteValue64: Option<
+            unsafe extern "C" fn(
+                stream: CUstream,
+                addr: CUdeviceptr,
+                value: cuuint64_t,
+                flags: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-11070",
             feature = "cuda-11080",
@@ -20877,28 +23372,36 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuStreamWriteValue64_v2: unsafe extern "C" fn(
-            stream: CUstream,
-            addr: CUdeviceptr,
-            value: cuuint64_t,
-            flags: ::core::ffi::c_uint,
-        ) -> CUresult,
-        pub cuSurfObjectCreate: unsafe extern "C" fn(
-            pSurfObject: *mut CUsurfObject,
-            pResDesc: *const CUDA_RESOURCE_DESC,
-        ) -> CUresult,
-        pub cuSurfObjectDestroy: unsafe extern "C" fn(surfObject: CUsurfObject) -> CUresult,
-        pub cuSurfObjectGetResourceDesc: unsafe extern "C" fn(
-            pResDesc: *mut CUDA_RESOURCE_DESC,
-            surfObject: CUsurfObject,
-        ) -> CUresult,
+        pub cuStreamWriteValue64_v2: Option<
+            unsafe extern "C" fn(
+                stream: CUstream,
+                addr: CUdeviceptr,
+                value: cuuint64_t,
+                flags: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
+        pub cuSurfObjectCreate: Option<
+            unsafe extern "C" fn(
+                pSurfObject: *mut CUsurfObject,
+                pResDesc: *const CUDA_RESOURCE_DESC,
+            ) -> CUresult,
+        >,
+        pub cuSurfObjectDestroy: Option<unsafe extern "C" fn(surfObject: CUsurfObject) -> CUresult>,
+        pub cuSurfObjectGetResourceDesc: Option<
+            unsafe extern "C" fn(
+                pResDesc: *mut CUDA_RESOURCE_DESC,
+                surfObject: CUsurfObject,
+            ) -> CUresult,
+        >,
         pub cuSurfRefGetArray:
-            unsafe extern "C" fn(phArray: *mut CUarray, hSurfRef: CUsurfref) -> CUresult,
-        pub cuSurfRefSetArray: unsafe extern "C" fn(
-            hSurfRef: CUsurfref,
-            hArray: CUarray,
-            Flags: ::core::ffi::c_uint,
-        ) -> CUresult,
+            Option<unsafe extern "C" fn(phArray: *mut CUarray, hSurfRef: CUsurfref) -> CUresult>,
+        pub cuSurfRefSetArray: Option<
+            unsafe extern "C" fn(
+                hSurfRef: CUsurfref,
+                hArray: CUarray,
+                Flags: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12000",
             feature = "cuda-12010",
@@ -20911,42 +23414,46 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuTensorMapEncodeIm2col: unsafe extern "C" fn(
-            tensorMap: *mut CUtensorMap,
-            tensorDataType: CUtensorMapDataType,
-            tensorRank: cuuint32_t,
-            globalAddress: *mut ::core::ffi::c_void,
-            globalDim: *const cuuint64_t,
-            globalStrides: *const cuuint64_t,
-            pixelBoxLowerCorner: *const ::core::ffi::c_int,
-            pixelBoxUpperCorner: *const ::core::ffi::c_int,
-            channelsPerPixel: cuuint32_t,
-            pixelsPerColumn: cuuint32_t,
-            elementStrides: *const cuuint32_t,
-            interleave: CUtensorMapInterleave,
-            swizzle: CUtensorMapSwizzle,
-            l2Promotion: CUtensorMapL2promotion,
-            oobFill: CUtensorMapFloatOOBfill,
-        ) -> CUresult,
+        pub cuTensorMapEncodeIm2col: Option<
+            unsafe extern "C" fn(
+                tensorMap: *mut CUtensorMap,
+                tensorDataType: CUtensorMapDataType,
+                tensorRank: cuuint32_t,
+                globalAddress: *mut ::core::ffi::c_void,
+                globalDim: *const cuuint64_t,
+                globalStrides: *const cuuint64_t,
+                pixelBoxLowerCorner: *const ::core::ffi::c_int,
+                pixelBoxUpperCorner: *const ::core::ffi::c_int,
+                channelsPerPixel: cuuint32_t,
+                pixelsPerColumn: cuuint32_t,
+                elementStrides: *const cuuint32_t,
+                interleave: CUtensorMapInterleave,
+                swizzle: CUtensorMapSwizzle,
+                l2Promotion: CUtensorMapL2promotion,
+                oobFill: CUtensorMapFloatOOBfill,
+            ) -> CUresult,
+        >,
         #[cfg(any(feature = "cuda-12080", feature = "cuda-12090", feature = "cuda-13000"))]
-        pub cuTensorMapEncodeIm2colWide: unsafe extern "C" fn(
-            tensorMap: *mut CUtensorMap,
-            tensorDataType: CUtensorMapDataType,
-            tensorRank: cuuint32_t,
-            globalAddress: *mut ::core::ffi::c_void,
-            globalDim: *const cuuint64_t,
-            globalStrides: *const cuuint64_t,
-            pixelBoxLowerCornerWidth: ::core::ffi::c_int,
-            pixelBoxUpperCornerWidth: ::core::ffi::c_int,
-            channelsPerPixel: cuuint32_t,
-            pixelsPerColumn: cuuint32_t,
-            elementStrides: *const cuuint32_t,
-            interleave: CUtensorMapInterleave,
-            mode: CUtensorMapIm2ColWideMode,
-            swizzle: CUtensorMapSwizzle,
-            l2Promotion: CUtensorMapL2promotion,
-            oobFill: CUtensorMapFloatOOBfill,
-        ) -> CUresult,
+        pub cuTensorMapEncodeIm2colWide: Option<
+            unsafe extern "C" fn(
+                tensorMap: *mut CUtensorMap,
+                tensorDataType: CUtensorMapDataType,
+                tensorRank: cuuint32_t,
+                globalAddress: *mut ::core::ffi::c_void,
+                globalDim: *const cuuint64_t,
+                globalStrides: *const cuuint64_t,
+                pixelBoxLowerCornerWidth: ::core::ffi::c_int,
+                pixelBoxUpperCornerWidth: ::core::ffi::c_int,
+                channelsPerPixel: cuuint32_t,
+                pixelsPerColumn: cuuint32_t,
+                elementStrides: *const cuuint32_t,
+                interleave: CUtensorMapInterleave,
+                mode: CUtensorMapIm2ColWideMode,
+                swizzle: CUtensorMapSwizzle,
+                l2Promotion: CUtensorMapL2promotion,
+                oobFill: CUtensorMapFloatOOBfill,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12000",
             feature = "cuda-12010",
@@ -20959,20 +23466,22 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuTensorMapEncodeTiled: unsafe extern "C" fn(
-            tensorMap: *mut CUtensorMap,
-            tensorDataType: CUtensorMapDataType,
-            tensorRank: cuuint32_t,
-            globalAddress: *mut ::core::ffi::c_void,
-            globalDim: *const cuuint64_t,
-            globalStrides: *const cuuint64_t,
-            boxDim: *const cuuint32_t,
-            elementStrides: *const cuuint32_t,
-            interleave: CUtensorMapInterleave,
-            swizzle: CUtensorMapSwizzle,
-            l2Promotion: CUtensorMapL2promotion,
-            oobFill: CUtensorMapFloatOOBfill,
-        ) -> CUresult,
+        pub cuTensorMapEncodeTiled: Option<
+            unsafe extern "C" fn(
+                tensorMap: *mut CUtensorMap,
+                tensorDataType: CUtensorMapDataType,
+                tensorRank: cuuint32_t,
+                globalAddress: *mut ::core::ffi::c_void,
+                globalDim: *const cuuint64_t,
+                globalStrides: *const cuuint64_t,
+                boxDim: *const cuuint32_t,
+                elementStrides: *const cuuint32_t,
+                interleave: CUtensorMapInterleave,
+                swizzle: CUtensorMapSwizzle,
+                l2Promotion: CUtensorMapL2promotion,
+                oobFill: CUtensorMapFloatOOBfill,
+            ) -> CUresult,
+        >,
         #[cfg(any(
             feature = "cuda-12000",
             feature = "cuda-12010",
@@ -20985,134 +23494,175 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuTensorMapReplaceAddress: unsafe extern "C" fn(
-            tensorMap: *mut CUtensorMap,
-            globalAddress: *mut ::core::ffi::c_void,
-        ) -> CUresult,
-        pub cuTexObjectCreate: unsafe extern "C" fn(
-            pTexObject: *mut CUtexObject,
-            pResDesc: *const CUDA_RESOURCE_DESC,
-            pTexDesc: *const CUDA_TEXTURE_DESC,
-            pResViewDesc: *const CUDA_RESOURCE_VIEW_DESC,
-        ) -> CUresult,
-        pub cuTexObjectDestroy: unsafe extern "C" fn(texObject: CUtexObject) -> CUresult,
-        pub cuTexObjectGetResourceDesc: unsafe extern "C" fn(
-            pResDesc: *mut CUDA_RESOURCE_DESC,
-            texObject: CUtexObject,
-        ) -> CUresult,
-        pub cuTexObjectGetResourceViewDesc: unsafe extern "C" fn(
-            pResViewDesc: *mut CUDA_RESOURCE_VIEW_DESC,
-            texObject: CUtexObject,
-        ) -> CUresult,
-        pub cuTexObjectGetTextureDesc: unsafe extern "C" fn(
-            pTexDesc: *mut CUDA_TEXTURE_DESC,
-            texObject: CUtexObject,
-        ) -> CUresult,
-        pub cuTexRefCreate: unsafe extern "C" fn(pTexRef: *mut CUtexref) -> CUresult,
-        pub cuTexRefDestroy: unsafe extern "C" fn(hTexRef: CUtexref) -> CUresult,
-        pub cuTexRefGetAddressMode: unsafe extern "C" fn(
-            pam: *mut CUaddress_mode,
-            hTexRef: CUtexref,
-            dim: ::core::ffi::c_int,
-        ) -> CUresult,
+        pub cuTensorMapReplaceAddress: Option<
+            unsafe extern "C" fn(
+                tensorMap: *mut CUtensorMap,
+                globalAddress: *mut ::core::ffi::c_void,
+            ) -> CUresult,
+        >,
+        pub cuTexObjectCreate: Option<
+            unsafe extern "C" fn(
+                pTexObject: *mut CUtexObject,
+                pResDesc: *const CUDA_RESOURCE_DESC,
+                pTexDesc: *const CUDA_TEXTURE_DESC,
+                pResViewDesc: *const CUDA_RESOURCE_VIEW_DESC,
+            ) -> CUresult,
+        >,
+        pub cuTexObjectDestroy: Option<unsafe extern "C" fn(texObject: CUtexObject) -> CUresult>,
+        pub cuTexObjectGetResourceDesc: Option<
+            unsafe extern "C" fn(
+                pResDesc: *mut CUDA_RESOURCE_DESC,
+                texObject: CUtexObject,
+            ) -> CUresult,
+        >,
+        pub cuTexObjectGetResourceViewDesc: Option<
+            unsafe extern "C" fn(
+                pResViewDesc: *mut CUDA_RESOURCE_VIEW_DESC,
+                texObject: CUtexObject,
+            ) -> CUresult,
+        >,
+        pub cuTexObjectGetTextureDesc: Option<
+            unsafe extern "C" fn(
+                pTexDesc: *mut CUDA_TEXTURE_DESC,
+                texObject: CUtexObject,
+            ) -> CUresult,
+        >,
+        pub cuTexRefCreate: Option<unsafe extern "C" fn(pTexRef: *mut CUtexref) -> CUresult>,
+        pub cuTexRefDestroy: Option<unsafe extern "C" fn(hTexRef: CUtexref) -> CUresult>,
+        pub cuTexRefGetAddressMode: Option<
+            unsafe extern "C" fn(
+                pam: *mut CUaddress_mode,
+                hTexRef: CUtexref,
+                dim: ::core::ffi::c_int,
+            ) -> CUresult,
+        >,
         pub cuTexRefGetAddress_v2:
-            unsafe extern "C" fn(pdptr: *mut CUdeviceptr, hTexRef: CUtexref) -> CUresult,
+            Option<unsafe extern "C" fn(pdptr: *mut CUdeviceptr, hTexRef: CUtexref) -> CUresult>,
         pub cuTexRefGetArray:
-            unsafe extern "C" fn(phArray: *mut CUarray, hTexRef: CUtexref) -> CUresult,
+            Option<unsafe extern "C" fn(phArray: *mut CUarray, hTexRef: CUtexref) -> CUresult>,
         pub cuTexRefGetBorderColor:
-            unsafe extern "C" fn(pBorderColor: *mut f32, hTexRef: CUtexref) -> CUresult,
+            Option<unsafe extern "C" fn(pBorderColor: *mut f32, hTexRef: CUtexref) -> CUresult>,
         pub cuTexRefGetFilterMode:
-            unsafe extern "C" fn(pfm: *mut CUfilter_mode, hTexRef: CUtexref) -> CUresult,
-        pub cuTexRefGetFlags:
+            Option<unsafe extern "C" fn(pfm: *mut CUfilter_mode, hTexRef: CUtexref) -> CUresult>,
+        pub cuTexRefGetFlags: Option<
             unsafe extern "C" fn(pFlags: *mut ::core::ffi::c_uint, hTexRef: CUtexref) -> CUresult,
-        pub cuTexRefGetFormat: unsafe extern "C" fn(
-            pFormat: *mut CUarray_format,
-            pNumChannels: *mut ::core::ffi::c_int,
-            hTexRef: CUtexref,
-        ) -> CUresult,
-        pub cuTexRefGetMaxAnisotropy:
+        >,
+        pub cuTexRefGetFormat: Option<
+            unsafe extern "C" fn(
+                pFormat: *mut CUarray_format,
+                pNumChannels: *mut ::core::ffi::c_int,
+                hTexRef: CUtexref,
+            ) -> CUresult,
+        >,
+        pub cuTexRefGetMaxAnisotropy: Option<
             unsafe extern "C" fn(pmaxAniso: *mut ::core::ffi::c_int, hTexRef: CUtexref) -> CUresult,
+        >,
         pub cuTexRefGetMipmapFilterMode:
-            unsafe extern "C" fn(pfm: *mut CUfilter_mode, hTexRef: CUtexref) -> CUresult,
+            Option<unsafe extern "C" fn(pfm: *mut CUfilter_mode, hTexRef: CUtexref) -> CUresult>,
         pub cuTexRefGetMipmapLevelBias:
-            unsafe extern "C" fn(pbias: *mut f32, hTexRef: CUtexref) -> CUresult,
-        pub cuTexRefGetMipmapLevelClamp: unsafe extern "C" fn(
-            pminMipmapLevelClamp: *mut f32,
-            pmaxMipmapLevelClamp: *mut f32,
-            hTexRef: CUtexref,
-        ) -> CUresult,
-        pub cuTexRefGetMipmappedArray: unsafe extern "C" fn(
-            phMipmappedArray: *mut CUmipmappedArray,
-            hTexRef: CUtexref,
-        ) -> CUresult,
-        pub cuTexRefSetAddress2D_v3: unsafe extern "C" fn(
-            hTexRef: CUtexref,
-            desc: *const CUDA_ARRAY_DESCRIPTOR,
-            dptr: CUdeviceptr,
-            Pitch: usize,
-        ) -> CUresult,
-        pub cuTexRefSetAddressMode: unsafe extern "C" fn(
-            hTexRef: CUtexref,
-            dim: ::core::ffi::c_int,
-            am: CUaddress_mode,
-        ) -> CUresult,
-        pub cuTexRefSetAddress_v2: unsafe extern "C" fn(
-            ByteOffset: *mut usize,
-            hTexRef: CUtexref,
-            dptr: CUdeviceptr,
-            bytes: usize,
-        ) -> CUresult,
-        pub cuTexRefSetArray: unsafe extern "C" fn(
-            hTexRef: CUtexref,
-            hArray: CUarray,
-            Flags: ::core::ffi::c_uint,
-        ) -> CUresult,
+            Option<unsafe extern "C" fn(pbias: *mut f32, hTexRef: CUtexref) -> CUresult>,
+        pub cuTexRefGetMipmapLevelClamp: Option<
+            unsafe extern "C" fn(
+                pminMipmapLevelClamp: *mut f32,
+                pmaxMipmapLevelClamp: *mut f32,
+                hTexRef: CUtexref,
+            ) -> CUresult,
+        >,
+        pub cuTexRefGetMipmappedArray: Option<
+            unsafe extern "C" fn(
+                phMipmappedArray: *mut CUmipmappedArray,
+                hTexRef: CUtexref,
+            ) -> CUresult,
+        >,
+        pub cuTexRefSetAddress2D_v3: Option<
+            unsafe extern "C" fn(
+                hTexRef: CUtexref,
+                desc: *const CUDA_ARRAY_DESCRIPTOR,
+                dptr: CUdeviceptr,
+                Pitch: usize,
+            ) -> CUresult,
+        >,
+        pub cuTexRefSetAddressMode: Option<
+            unsafe extern "C" fn(
+                hTexRef: CUtexref,
+                dim: ::core::ffi::c_int,
+                am: CUaddress_mode,
+            ) -> CUresult,
+        >,
+        pub cuTexRefSetAddress_v2: Option<
+            unsafe extern "C" fn(
+                ByteOffset: *mut usize,
+                hTexRef: CUtexref,
+                dptr: CUdeviceptr,
+                bytes: usize,
+            ) -> CUresult,
+        >,
+        pub cuTexRefSetArray: Option<
+            unsafe extern "C" fn(
+                hTexRef: CUtexref,
+                hArray: CUarray,
+                Flags: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
         pub cuTexRefSetBorderColor:
-            unsafe extern "C" fn(hTexRef: CUtexref, pBorderColor: *mut f32) -> CUresult,
+            Option<unsafe extern "C" fn(hTexRef: CUtexref, pBorderColor: *mut f32) -> CUresult>,
         pub cuTexRefSetFilterMode:
-            unsafe extern "C" fn(hTexRef: CUtexref, fm: CUfilter_mode) -> CUresult,
+            Option<unsafe extern "C" fn(hTexRef: CUtexref, fm: CUfilter_mode) -> CUresult>,
         pub cuTexRefSetFlags:
-            unsafe extern "C" fn(hTexRef: CUtexref, Flags: ::core::ffi::c_uint) -> CUresult,
-        pub cuTexRefSetFormat: unsafe extern "C" fn(
-            hTexRef: CUtexref,
-            fmt: CUarray_format,
-            NumPackedComponents: ::core::ffi::c_int,
-        ) -> CUresult,
-        pub cuTexRefSetMaxAnisotropy:
+            Option<unsafe extern "C" fn(hTexRef: CUtexref, Flags: ::core::ffi::c_uint) -> CUresult>,
+        pub cuTexRefSetFormat: Option<
+            unsafe extern "C" fn(
+                hTexRef: CUtexref,
+                fmt: CUarray_format,
+                NumPackedComponents: ::core::ffi::c_int,
+            ) -> CUresult,
+        >,
+        pub cuTexRefSetMaxAnisotropy: Option<
             unsafe extern "C" fn(hTexRef: CUtexref, maxAniso: ::core::ffi::c_uint) -> CUresult,
+        >,
         pub cuTexRefSetMipmapFilterMode:
-            unsafe extern "C" fn(hTexRef: CUtexref, fm: CUfilter_mode) -> CUresult,
+            Option<unsafe extern "C" fn(hTexRef: CUtexref, fm: CUfilter_mode) -> CUresult>,
         pub cuTexRefSetMipmapLevelBias:
-            unsafe extern "C" fn(hTexRef: CUtexref, bias: f32) -> CUresult,
-        pub cuTexRefSetMipmapLevelClamp: unsafe extern "C" fn(
-            hTexRef: CUtexref,
-            minMipmapLevelClamp: f32,
-            maxMipmapLevelClamp: f32,
-        ) -> CUresult,
-        pub cuTexRefSetMipmappedArray: unsafe extern "C" fn(
-            hTexRef: CUtexref,
-            hMipmappedArray: CUmipmappedArray,
-            Flags: ::core::ffi::c_uint,
-        ) -> CUresult,
+            Option<unsafe extern "C" fn(hTexRef: CUtexref, bias: f32) -> CUresult>,
+        pub cuTexRefSetMipmapLevelClamp: Option<
+            unsafe extern "C" fn(
+                hTexRef: CUtexref,
+                minMipmapLevelClamp: f32,
+                maxMipmapLevelClamp: f32,
+            ) -> CUresult,
+        >,
+        pub cuTexRefSetMipmappedArray: Option<
+            unsafe extern "C" fn(
+                hTexRef: CUtexref,
+                hMipmappedArray: CUmipmappedArray,
+                Flags: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
         pub cuThreadExchangeStreamCaptureMode:
-            unsafe extern "C" fn(mode: *mut CUstreamCaptureMode) -> CUresult,
-        pub cuUserObjectCreate: unsafe extern "C" fn(
-            object_out: *mut CUuserObject,
-            ptr: *mut ::core::ffi::c_void,
-            destroy: CUhostFn,
-            initialRefcount: ::core::ffi::c_uint,
-            flags: ::core::ffi::c_uint,
-        ) -> CUresult,
-        pub cuUserObjectRelease:
+            Option<unsafe extern "C" fn(mode: *mut CUstreamCaptureMode) -> CUresult>,
+        pub cuUserObjectCreate: Option<
+            unsafe extern "C" fn(
+                object_out: *mut CUuserObject,
+                ptr: *mut ::core::ffi::c_void,
+                destroy: CUhostFn,
+                initialRefcount: ::core::ffi::c_uint,
+                flags: ::core::ffi::c_uint,
+            ) -> CUresult,
+        >,
+        pub cuUserObjectRelease: Option<
             unsafe extern "C" fn(object: CUuserObject, count: ::core::ffi::c_uint) -> CUresult,
-        pub cuUserObjectRetain:
+        >,
+        pub cuUserObjectRetain: Option<
             unsafe extern "C" fn(object: CUuserObject, count: ::core::ffi::c_uint) -> CUresult,
-        pub cuWaitExternalSemaphoresAsync: unsafe extern "C" fn(
-            extSemArray: *const CUexternalSemaphore,
-            paramsArray: *const CUDA_EXTERNAL_SEMAPHORE_WAIT_PARAMS,
-            numExtSems: ::core::ffi::c_uint,
-            stream: CUstream,
-        ) -> CUresult,
+        >,
+        pub cuWaitExternalSemaphoresAsync: Option<
+            unsafe extern "C" fn(
+                extSemArray: *const CUexternalSemaphore,
+                paramsArray: *const CUDA_EXTERNAL_SEMAPHORE_WAIT_PARAMS,
+                numExtSems: ::core::ffi::c_uint,
+                stream: CUstream,
+            ) -> CUresult,
+        >,
     }
     impl Lib {
         pub unsafe fn new<P>(path: P) -> Result<Self, ::libloading::Error>
@@ -21127,26 +23677,17 @@ mod loaded {
             L: Into<::libloading::Library>,
         {
             let __library = library.into();
-            let cuArray3DCreate_v2 = __library
-                .get(b"cuArray3DCreate_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuArray3DCreate_v2 = __library.get(b"cuArray3DCreate_v2\0").ok().map(|sym| *sym);
             let cuArray3DGetDescriptor_v2 = __library
                 .get(b"cuArray3DGetDescriptor_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuArrayCreate_v2 = __library
-                .get(b"cuArrayCreate_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuArrayDestroy = __library
-                .get(b"cuArrayDestroy\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuArrayCreate_v2 = __library.get(b"cuArrayCreate_v2\0").ok().map(|sym| *sym);
+            let cuArrayDestroy = __library.get(b"cuArrayDestroy\0").ok().map(|sym| *sym);
             let cuArrayGetDescriptor_v2 = __library
                 .get(b"cuArrayGetDescriptor_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11060",
                 feature = "cuda-11070",
@@ -21164,16 +23705,13 @@ mod loaded {
             ))]
             let cuArrayGetMemoryRequirements = __library
                 .get(b"cuArrayGetMemoryRequirements\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuArrayGetPlane = __library
-                .get(b"cuArrayGetPlane\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuArrayGetPlane = __library.get(b"cuArrayGetPlane\0").ok().map(|sym| *sym);
             let cuArrayGetSparseProperties = __library
                 .get(b"cuArrayGetSparseProperties\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12010",
                 feature = "cuda-12020",
@@ -21187,8 +23725,8 @@ mod loaded {
             ))]
             let cuCoredumpGetAttribute = __library
                 .get(b"cuCoredumpGetAttribute\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12010",
                 feature = "cuda-12020",
@@ -21202,8 +23740,8 @@ mod loaded {
             ))]
             let cuCoredumpGetAttributeGlobal = __library
                 .get(b"cuCoredumpGetAttributeGlobal\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12010",
                 feature = "cuda-12020",
@@ -21217,8 +23755,8 @@ mod loaded {
             ))]
             let cuCoredumpSetAttribute = __library
                 .get(b"cuCoredumpSetAttribute\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12010",
                 feature = "cuda-12020",
@@ -21232,12 +23770,9 @@ mod loaded {
             ))]
             let cuCoredumpSetAttributeGlobal = __library
                 .get(b"cuCoredumpSetAttributeGlobal\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuCtxAttach = __library
-                .get(b"cuCtxAttach\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuCtxAttach = __library.get(b"cuCtxAttach\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11040",
                 feature = "cuda-11050",
@@ -21254,10 +23789,7 @@ mod loaded {
                 feature = "cuda-12080",
                 feature = "cuda-12090"
             ))]
-            let cuCtxCreate_v2 = __library
-                .get(b"cuCtxCreate_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuCtxCreate_v2 = __library.get(b"cuCtxCreate_v2\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11040",
                 feature = "cuda-11050",
@@ -21274,10 +23806,7 @@ mod loaded {
                 feature = "cuda-12080",
                 feature = "cuda-12090"
             ))]
-            let cuCtxCreate_v3 = __library
-                .get(b"cuCtxCreate_v3\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuCtxCreate_v3 = __library.get(b"cuCtxCreate_v3\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12050",
                 feature = "cuda-12060",
@@ -21285,26 +23814,17 @@ mod loaded {
                 feature = "cuda-12090",
                 feature = "cuda-13000"
             ))]
-            let cuCtxCreate_v4 = __library
-                .get(b"cuCtxCreate_v4\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuCtxDestroy_v2 = __library
-                .get(b"cuCtxDestroy_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuCtxDetach = __library
-                .get(b"cuCtxDetach\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuCtxCreate_v4 = __library.get(b"cuCtxCreate_v4\0").ok().map(|sym| *sym);
+            let cuCtxDestroy_v2 = __library.get(b"cuCtxDestroy_v2\0").ok().map(|sym| *sym);
+            let cuCtxDetach = __library.get(b"cuCtxDetach\0").ok().map(|sym| *sym);
             let cuCtxDisablePeerAccess = __library
                 .get(b"cuCtxDisablePeerAccess\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuCtxEnablePeerAccess = __library
                 .get(b"cuCtxEnablePeerAccess\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12040",
                 feature = "cuda-12050",
@@ -21313,22 +23833,10 @@ mod loaded {
                 feature = "cuda-12090",
                 feature = "cuda-13000"
             ))]
-            let cuCtxFromGreenCtx = __library
-                .get(b"cuCtxFromGreenCtx\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuCtxGetApiVersion = __library
-                .get(b"cuCtxGetApiVersion\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuCtxGetCacheConfig = __library
-                .get(b"cuCtxGetCacheConfig\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuCtxGetCurrent = __library
-                .get(b"cuCtxGetCurrent\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuCtxFromGreenCtx = __library.get(b"cuCtxFromGreenCtx\0").ok().map(|sym| *sym);
+            let cuCtxGetApiVersion = __library.get(b"cuCtxGetApiVersion\0").ok().map(|sym| *sym);
+            let cuCtxGetCacheConfig = __library.get(b"cuCtxGetCacheConfig\0").ok().map(|sym| *sym);
+            let cuCtxGetCurrent = __library.get(b"cuCtxGetCurrent\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12040",
                 feature = "cuda-12050",
@@ -21337,27 +23845,15 @@ mod loaded {
                 feature = "cuda-12090",
                 feature = "cuda-13000"
             ))]
-            let cuCtxGetDevResource = __library
-                .get(b"cuCtxGetDevResource\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuCtxGetDevice = __library
-                .get(b"cuCtxGetDevice\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuCtxGetDevResource = __library.get(b"cuCtxGetDevResource\0").ok().map(|sym| *sym);
+            let cuCtxGetDevice = __library.get(b"cuCtxGetDevice\0").ok().map(|sym| *sym);
             #[cfg(any(feature = "cuda-13000"))]
-            let cuCtxGetDevice_v2 = __library
-                .get(b"cuCtxGetDevice_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuCtxGetDevice_v2 = __library.get(b"cuCtxGetDevice_v2\0").ok().map(|sym| *sym);
             let cuCtxGetExecAffinity = __library
                 .get(b"cuCtxGetExecAffinity\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuCtxGetFlags = __library
-                .get(b"cuCtxGetFlags\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuCtxGetFlags = __library.get(b"cuCtxGetFlags\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12000",
                 feature = "cuda-12010",
@@ -21370,30 +23866,18 @@ mod loaded {
                 feature = "cuda-12090",
                 feature = "cuda-13000"
             ))]
-            let cuCtxGetId = __library
-                .get(b"cuCtxGetId\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuCtxGetLimit = __library
-                .get(b"cuCtxGetLimit\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuCtxGetId = __library.get(b"cuCtxGetId\0").ok().map(|sym| *sym);
+            let cuCtxGetLimit = __library.get(b"cuCtxGetLimit\0").ok().map(|sym| *sym);
             let cuCtxGetSharedMemConfig = __library
                 .get(b"cuCtxGetSharedMemConfig\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuCtxGetStreamPriorityRange = __library
                 .get(b"cuCtxGetStreamPriorityRange\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuCtxPopCurrent_v2 = __library
-                .get(b"cuCtxPopCurrent_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuCtxPushCurrent_v2 = __library
-                .get(b"cuCtxPushCurrent_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuCtxPopCurrent_v2 = __library.get(b"cuCtxPopCurrent_v2\0").ok().map(|sym| *sym);
+            let cuCtxPushCurrent_v2 = __library.get(b"cuCtxPushCurrent_v2\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12050",
                 feature = "cuda-12060",
@@ -21401,22 +23885,13 @@ mod loaded {
                 feature = "cuda-12090",
                 feature = "cuda-13000"
             ))]
-            let cuCtxRecordEvent = __library
-                .get(b"cuCtxRecordEvent\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuCtxRecordEvent = __library.get(b"cuCtxRecordEvent\0").ok().map(|sym| *sym);
             let cuCtxResetPersistingL2Cache = __library
                 .get(b"cuCtxResetPersistingL2Cache\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuCtxSetCacheConfig = __library
-                .get(b"cuCtxSetCacheConfig\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuCtxSetCurrent = __library
-                .get(b"cuCtxSetCurrent\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuCtxSetCacheConfig = __library.get(b"cuCtxSetCacheConfig\0").ok().map(|sym| *sym);
+            let cuCtxSetCurrent = __library.get(b"cuCtxSetCurrent\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12010",
                 feature = "cuda-12020",
@@ -21428,27 +23903,15 @@ mod loaded {
                 feature = "cuda-12090",
                 feature = "cuda-13000"
             ))]
-            let cuCtxSetFlags = __library
-                .get(b"cuCtxSetFlags\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuCtxSetLimit = __library
-                .get(b"cuCtxSetLimit\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuCtxSetFlags = __library.get(b"cuCtxSetFlags\0").ok().map(|sym| *sym);
+            let cuCtxSetLimit = __library.get(b"cuCtxSetLimit\0").ok().map(|sym| *sym);
             let cuCtxSetSharedMemConfig = __library
                 .get(b"cuCtxSetSharedMemConfig\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuCtxSynchronize = __library
-                .get(b"cuCtxSynchronize\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuCtxSynchronize = __library.get(b"cuCtxSynchronize\0").ok().map(|sym| *sym);
             #[cfg(any(feature = "cuda-13000"))]
-            let cuCtxSynchronize_v2 = __library
-                .get(b"cuCtxSynchronize_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuCtxSynchronize_v2 = __library.get(b"cuCtxSynchronize_v2\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12050",
                 feature = "cuda-12060",
@@ -21456,18 +23919,15 @@ mod loaded {
                 feature = "cuda-12090",
                 feature = "cuda-13000"
             ))]
-            let cuCtxWaitEvent = __library
-                .get(b"cuCtxWaitEvent\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuCtxWaitEvent = __library.get(b"cuCtxWaitEvent\0").ok().map(|sym| *sym);
             let cuDestroyExternalMemory = __library
                 .get(b"cuDestroyExternalMemory\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuDestroyExternalSemaphore = __library
                 .get(b"cuDestroyExternalSemaphore\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12040",
                 feature = "cuda-12050",
@@ -21478,8 +23938,8 @@ mod loaded {
             ))]
             let cuDevResourceGenerateDesc = __library
                 .get(b"cuDevResourceGenerateDesc\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12040",
                 feature = "cuda-12050",
@@ -21490,36 +23950,30 @@ mod loaded {
             ))]
             let cuDevSmResourceSplitByCount = __library
                 .get(b"cuDevSmResourceSplitByCount\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuDeviceCanAccessPeer = __library
                 .get(b"cuDeviceCanAccessPeer\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuDeviceComputeCapability = __library
                 .get(b"cuDeviceComputeCapability\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuDeviceGet = __library
-                .get(b"cuDeviceGet\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuDeviceGet = __library.get(b"cuDeviceGet\0").ok().map(|sym| *sym);
             let cuDeviceGetAttribute = __library
                 .get(b"cuDeviceGetAttribute\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuDeviceGetByPCIBusId = __library
                 .get(b"cuDeviceGetByPCIBusId\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuDeviceGetCount = __library
-                .get(b"cuDeviceGetCount\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuDeviceGetCount = __library.get(b"cuDeviceGetCount\0").ok().map(|sym| *sym);
             let cuDeviceGetDefaultMemPool = __library
                 .get(b"cuDeviceGetDefaultMemPool\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12040",
                 feature = "cuda-12050",
@@ -21530,54 +23984,42 @@ mod loaded {
             ))]
             let cuDeviceGetDevResource = __library
                 .get(b"cuDeviceGetDevResource\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuDeviceGetExecAffinitySupport = __library
                 .get(b"cuDeviceGetExecAffinitySupport\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuDeviceGetGraphMemAttribute = __library
                 .get(b"cuDeviceGetGraphMemAttribute\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(feature = "cuda-13000"))]
             let cuDeviceGetHostAtomicCapabilities = __library
                 .get(b"cuDeviceGetHostAtomicCapabilities\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuDeviceGetLuid = __library
-                .get(b"cuDeviceGetLuid\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuDeviceGetMemPool = __library
-                .get(b"cuDeviceGetMemPool\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuDeviceGetName = __library
-                .get(b"cuDeviceGetName\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuDeviceGetLuid = __library.get(b"cuDeviceGetLuid\0").ok().map(|sym| *sym);
+            let cuDeviceGetMemPool = __library.get(b"cuDeviceGetMemPool\0").ok().map(|sym| *sym);
+            let cuDeviceGetName = __library.get(b"cuDeviceGetName\0").ok().map(|sym| *sym);
             #[cfg(any(feature = "cuda-13000"))]
             let cuDeviceGetP2PAtomicCapabilities = __library
                 .get(b"cuDeviceGetP2PAtomicCapabilities\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuDeviceGetP2PAttribute = __library
                 .get(b"cuDeviceGetP2PAttribute\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuDeviceGetPCIBusId = __library
-                .get(b"cuDeviceGetPCIBusId\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuDeviceGetPCIBusId = __library.get(b"cuDeviceGetPCIBusId\0").ok().map(|sym| *sym);
             let cuDeviceGetProperties = __library
                 .get(b"cuDeviceGetProperties\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuDeviceGetTexture1DLinearMaxWidth = __library
                 .get(b"cuDeviceGetTexture1DLinearMaxWidth\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11040",
                 feature = "cuda-11050",
@@ -21594,38 +24036,32 @@ mod loaded {
                 feature = "cuda-12080",
                 feature = "cuda-12090"
             ))]
-            let cuDeviceGetUuid = __library
-                .get(b"cuDeviceGetUuid\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuDeviceGetUuid_v2 = __library
-                .get(b"cuDeviceGetUuid_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuDeviceGetUuid = __library.get(b"cuDeviceGetUuid\0").ok().map(|sym| *sym);
+            let cuDeviceGetUuid_v2 = __library.get(b"cuDeviceGetUuid_v2\0").ok().map(|sym| *sym);
             let cuDeviceGraphMemTrim = __library
                 .get(b"cuDeviceGraphMemTrim\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuDevicePrimaryCtxGetState = __library
                 .get(b"cuDevicePrimaryCtxGetState\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuDevicePrimaryCtxRelease_v2 = __library
                 .get(b"cuDevicePrimaryCtxRelease_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuDevicePrimaryCtxReset_v2 = __library
                 .get(b"cuDevicePrimaryCtxReset_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuDevicePrimaryCtxRetain = __library
                 .get(b"cuDevicePrimaryCtxRetain\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuDevicePrimaryCtxSetFlags_v2 = __library
                 .get(b"cuDevicePrimaryCtxSetFlags_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12040",
                 feature = "cuda-12050",
@@ -21636,20 +24072,14 @@ mod loaded {
             ))]
             let cuDeviceRegisterAsyncNotification = __library
                 .get(b"cuDeviceRegisterAsyncNotification\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuDeviceSetGraphMemAttribute = __library
                 .get(b"cuDeviceSetGraphMemAttribute\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuDeviceSetMemPool = __library
-                .get(b"cuDeviceSetMemPool\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuDeviceTotalMem_v2 = __library
-                .get(b"cuDeviceTotalMem_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuDeviceSetMemPool = __library.get(b"cuDeviceSetMemPool\0").ok().map(|sym| *sym);
+            let cuDeviceTotalMem_v2 = __library.get(b"cuDeviceTotalMem_v2\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12040",
                 feature = "cuda-12050",
@@ -21660,20 +24090,11 @@ mod loaded {
             ))]
             let cuDeviceUnregisterAsyncNotification = __library
                 .get(b"cuDeviceUnregisterAsyncNotification\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuDriverGetVersion = __library
-                .get(b"cuDriverGetVersion\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuEventCreate = __library
-                .get(b"cuEventCreate\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuEventDestroy_v2 = __library
-                .get(b"cuEventDestroy_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuDriverGetVersion = __library.get(b"cuDriverGetVersion\0").ok().map(|sym| *sym);
+            let cuEventCreate = __library.get(b"cuEventCreate\0").ok().map(|sym| *sym);
+            let cuEventDestroy_v2 = __library.get(b"cuEventDestroy_v2\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11040",
                 feature = "cuda-11050",
@@ -21690,51 +24111,33 @@ mod loaded {
                 feature = "cuda-12080",
                 feature = "cuda-12090"
             ))]
-            let cuEventElapsedTime = __library
-                .get(b"cuEventElapsedTime\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuEventElapsedTime = __library.get(b"cuEventElapsedTime\0").ok().map(|sym| *sym);
             #[cfg(any(feature = "cuda-12080", feature = "cuda-12090", feature = "cuda-13000"))]
             let cuEventElapsedTime_v2 = __library
                 .get(b"cuEventElapsedTime_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuEventQuery = __library
-                .get(b"cuEventQuery\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuEventRecord = __library
-                .get(b"cuEventRecord\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuEventQuery = __library.get(b"cuEventQuery\0").ok().map(|sym| *sym);
+            let cuEventRecord = __library.get(b"cuEventRecord\0").ok().map(|sym| *sym);
             let cuEventRecordWithFlags = __library
                 .get(b"cuEventRecordWithFlags\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuEventSynchronize = __library
-                .get(b"cuEventSynchronize\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuEventSynchronize = __library.get(b"cuEventSynchronize\0").ok().map(|sym| *sym);
             let cuExternalMemoryGetMappedBuffer = __library
                 .get(b"cuExternalMemoryGetMappedBuffer\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuExternalMemoryGetMappedMipmappedArray = __library
                 .get(b"cuExternalMemoryGetMappedMipmappedArray\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuFlushGPUDirectRDMAWrites = __library
                 .get(b"cuFlushGPUDirectRDMAWrites\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuFuncGetAttribute = __library
-                .get(b"cuFuncGetAttribute\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuFuncGetModule = __library
-                .get(b"cuFuncGetModule\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuFuncGetAttribute = __library.get(b"cuFuncGetAttribute\0").ok().map(|sym| *sym);
+            let cuFuncGetModule = __library.get(b"cuFuncGetModule\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12030",
                 feature = "cuda-12040",
@@ -21744,10 +24147,7 @@ mod loaded {
                 feature = "cuda-12090",
                 feature = "cuda-13000"
             ))]
-            let cuFuncGetName = __library
-                .get(b"cuFuncGetName\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuFuncGetName = __library.get(b"cuFuncGetName\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12040",
                 feature = "cuda-12050",
@@ -21756,10 +24156,7 @@ mod loaded {
                 feature = "cuda-12090",
                 feature = "cuda-13000"
             ))]
-            let cuFuncGetParamInfo = __library
-                .get(b"cuFuncGetParamInfo\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuFuncGetParamInfo = __library.get(b"cuFuncGetParamInfo\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12040",
                 feature = "cuda-12050",
@@ -21768,10 +24165,7 @@ mod loaded {
                 feature = "cuda-12090",
                 feature = "cuda-13000"
             ))]
-            let cuFuncIsLoaded = __library
-                .get(b"cuFuncIsLoaded\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuFuncIsLoaded = __library.get(b"cuFuncIsLoaded\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12040",
                 feature = "cuda-12050",
@@ -21780,42 +24174,21 @@ mod loaded {
                 feature = "cuda-12090",
                 feature = "cuda-13000"
             ))]
-            let cuFuncLoad = __library
-                .get(b"cuFuncLoad\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuFuncSetAttribute = __library
-                .get(b"cuFuncSetAttribute\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuFuncSetBlockShape = __library
-                .get(b"cuFuncSetBlockShape\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuFuncLoad = __library.get(b"cuFuncLoad\0").ok().map(|sym| *sym);
+            let cuFuncSetAttribute = __library.get(b"cuFuncSetAttribute\0").ok().map(|sym| *sym);
+            let cuFuncSetBlockShape = __library.get(b"cuFuncSetBlockShape\0").ok().map(|sym| *sym);
             let cuFuncSetCacheConfig = __library
                 .get(b"cuFuncSetCacheConfig\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuFuncSetSharedMemConfig = __library
                 .get(b"cuFuncSetSharedMemConfig\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuFuncSetSharedSize = __library
-                .get(b"cuFuncSetSharedSize\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuGetErrorName = __library
-                .get(b"cuGetErrorName\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuGetErrorString = __library
-                .get(b"cuGetErrorString\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuGetExportTable = __library
-                .get(b"cuGetExportTable\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuFuncSetSharedSize = __library.get(b"cuFuncSetSharedSize\0").ok().map(|sym| *sym);
+            let cuGetErrorName = __library.get(b"cuGetErrorName\0").ok().map(|sym| *sym);
+            let cuGetErrorString = __library.get(b"cuGetErrorString\0").ok().map(|sym| *sym);
+            let cuGetExportTable = __library.get(b"cuGetExportTable\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11040",
                 feature = "cuda-11050",
@@ -21823,10 +24196,7 @@ mod loaded {
                 feature = "cuda-11070",
                 feature = "cuda-11080"
             ))]
-            let cuGetProcAddress = __library
-                .get(b"cuGetProcAddress\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuGetProcAddress = __library.get(b"cuGetProcAddress\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12000",
                 feature = "cuda-12010",
@@ -21839,10 +24209,7 @@ mod loaded {
                 feature = "cuda-12090",
                 feature = "cuda-13000"
             ))]
-            let cuGetProcAddress_v2 = __library
-                .get(b"cuGetProcAddress_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuGetProcAddress_v2 = __library.get(b"cuGetProcAddress_v2\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11070",
                 feature = "cuda-11080",
@@ -21859,12 +24226,12 @@ mod loaded {
             ))]
             let cuGraphAddBatchMemOpNode = __library
                 .get(b"cuGraphAddBatchMemOpNode\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuGraphAddChildGraphNode = __library
                 .get(b"cuGraphAddChildGraphNode\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11040",
                 feature = "cuda-11050",
@@ -21883,8 +24250,8 @@ mod loaded {
             ))]
             let cuGraphAddDependencies = __library
                 .get(b"cuGraphAddDependencies\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12030",
                 feature = "cuda-12040",
@@ -21896,32 +24263,26 @@ mod loaded {
             ))]
             let cuGraphAddDependencies_v2 = __library
                 .get(b"cuGraphAddDependencies_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuGraphAddEmptyNode = __library
-                .get(b"cuGraphAddEmptyNode\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuGraphAddEmptyNode = __library.get(b"cuGraphAddEmptyNode\0").ok().map(|sym| *sym);
             let cuGraphAddEventRecordNode = __library
                 .get(b"cuGraphAddEventRecordNode\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuGraphAddEventWaitNode = __library
                 .get(b"cuGraphAddEventWaitNode\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuGraphAddExternalSemaphoresSignalNode = __library
                 .get(b"cuGraphAddExternalSemaphoresSignalNode\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuGraphAddExternalSemaphoresWaitNode = __library
                 .get(b"cuGraphAddExternalSemaphoresWaitNode\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuGraphAddHostNode = __library
-                .get(b"cuGraphAddHostNode\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuGraphAddHostNode = __library.get(b"cuGraphAddHostNode\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11040",
                 feature = "cuda-11050",
@@ -21931,8 +24292,8 @@ mod loaded {
             ))]
             let cuGraphAddKernelNode = __library
                 .get(b"cuGraphAddKernelNode\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12000",
                 feature = "cuda-12010",
@@ -21947,24 +24308,24 @@ mod loaded {
             ))]
             let cuGraphAddKernelNode_v2 = __library
                 .get(b"cuGraphAddKernelNode_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuGraphAddMemAllocNode = __library
                 .get(b"cuGraphAddMemAllocNode\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuGraphAddMemFreeNode = __library
                 .get(b"cuGraphAddMemFreeNode\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuGraphAddMemcpyNode = __library
                 .get(b"cuGraphAddMemcpyNode\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuGraphAddMemsetNode = __library
                 .get(b"cuGraphAddMemsetNode\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12020",
                 feature = "cuda-12030",
@@ -21974,10 +24335,7 @@ mod loaded {
                 feature = "cuda-12080",
                 feature = "cuda-12090"
             ))]
-            let cuGraphAddNode = __library
-                .get(b"cuGraphAddNode\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuGraphAddNode = __library.get(b"cuGraphAddNode\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12030",
                 feature = "cuda-12040",
@@ -21987,10 +24345,7 @@ mod loaded {
                 feature = "cuda-12090",
                 feature = "cuda-13000"
             ))]
-            let cuGraphAddNode_v2 = __library
-                .get(b"cuGraphAddNode_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuGraphAddNode_v2 = __library.get(b"cuGraphAddNode_v2\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11070",
                 feature = "cuda-11080",
@@ -22007,8 +24362,8 @@ mod loaded {
             ))]
             let cuGraphBatchMemOpNodeGetParams = __library
                 .get(b"cuGraphBatchMemOpNodeGetParams\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11070",
                 feature = "cuda-11080",
@@ -22025,16 +24380,13 @@ mod loaded {
             ))]
             let cuGraphBatchMemOpNodeSetParams = __library
                 .get(b"cuGraphBatchMemOpNodeSetParams\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuGraphChildGraphNodeGetGraph = __library
                 .get(b"cuGraphChildGraphNodeGetGraph\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuGraphClone = __library
-                .get(b"cuGraphClone\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuGraphClone = __library.get(b"cuGraphClone\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12030",
                 feature = "cuda-12040",
@@ -22046,40 +24398,31 @@ mod loaded {
             ))]
             let cuGraphConditionalHandleCreate = __library
                 .get(b"cuGraphConditionalHandleCreate\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuGraphCreate = __library
-                .get(b"cuGraphCreate\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuGraphCreate = __library.get(b"cuGraphCreate\0").ok().map(|sym| *sym);
             let cuGraphDebugDotPrint = __library
                 .get(b"cuGraphDebugDotPrint\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuGraphDestroy = __library
-                .get(b"cuGraphDestroy\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuGraphDestroyNode = __library
-                .get(b"cuGraphDestroyNode\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuGraphDestroy = __library.get(b"cuGraphDestroy\0").ok().map(|sym| *sym);
+            let cuGraphDestroyNode = __library.get(b"cuGraphDestroyNode\0").ok().map(|sym| *sym);
             let cuGraphEventRecordNodeGetEvent = __library
                 .get(b"cuGraphEventRecordNodeGetEvent\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuGraphEventRecordNodeSetEvent = __library
                 .get(b"cuGraphEventRecordNodeSetEvent\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuGraphEventWaitNodeGetEvent = __library
                 .get(b"cuGraphEventWaitNodeGetEvent\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuGraphEventWaitNodeSetEvent = __library
                 .get(b"cuGraphEventWaitNodeSetEvent\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11070",
                 feature = "cuda-11080",
@@ -22096,32 +24439,29 @@ mod loaded {
             ))]
             let cuGraphExecBatchMemOpNodeSetParams = __library
                 .get(b"cuGraphExecBatchMemOpNodeSetParams\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuGraphExecChildGraphNodeSetParams = __library
                 .get(b"cuGraphExecChildGraphNodeSetParams\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuGraphExecDestroy = __library
-                .get(b"cuGraphExecDestroy\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuGraphExecDestroy = __library.get(b"cuGraphExecDestroy\0").ok().map(|sym| *sym);
             let cuGraphExecEventRecordNodeSetEvent = __library
                 .get(b"cuGraphExecEventRecordNodeSetEvent\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuGraphExecEventWaitNodeSetEvent = __library
                 .get(b"cuGraphExecEventWaitNodeSetEvent\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuGraphExecExternalSemaphoresSignalNodeSetParams = __library
                 .get(b"cuGraphExecExternalSemaphoresSignalNodeSetParams\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuGraphExecExternalSemaphoresWaitNodeSetParams = __library
                 .get(b"cuGraphExecExternalSemaphoresWaitNodeSetParams\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12000",
                 feature = "cuda-12010",
@@ -22134,14 +24474,11 @@ mod loaded {
                 feature = "cuda-12090",
                 feature = "cuda-13000"
             ))]
-            let cuGraphExecGetFlags = __library
-                .get(b"cuGraphExecGetFlags\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuGraphExecGetFlags = __library.get(b"cuGraphExecGetFlags\0").ok().map(|sym| *sym);
             let cuGraphExecHostNodeSetParams = __library
                 .get(b"cuGraphExecHostNodeSetParams\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11040",
                 feature = "cuda-11050",
@@ -22151,8 +24488,8 @@ mod loaded {
             ))]
             let cuGraphExecKernelNodeSetParams = __library
                 .get(b"cuGraphExecKernelNodeSetParams\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12000",
                 feature = "cuda-12010",
@@ -22167,16 +24504,16 @@ mod loaded {
             ))]
             let cuGraphExecKernelNodeSetParams_v2 = __library
                 .get(b"cuGraphExecKernelNodeSetParams_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuGraphExecMemcpyNodeSetParams = __library
                 .get(b"cuGraphExecMemcpyNodeSetParams\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuGraphExecMemsetNodeSetParams = __library
                 .get(b"cuGraphExecMemsetNodeSetParams\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12020",
                 feature = "cuda-12030",
@@ -22189,8 +24526,8 @@ mod loaded {
             ))]
             let cuGraphExecNodeSetParams = __library
                 .get(b"cuGraphExecNodeSetParams\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11040",
                 feature = "cuda-11050",
@@ -22198,10 +24535,7 @@ mod loaded {
                 feature = "cuda-11070",
                 feature = "cuda-11080"
             ))]
-            let cuGraphExecUpdate = __library
-                .get(b"cuGraphExecUpdate\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuGraphExecUpdate = __library.get(b"cuGraphExecUpdate\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12000",
                 feature = "cuda-12010",
@@ -22216,24 +24550,24 @@ mod loaded {
             ))]
             let cuGraphExecUpdate_v2 = __library
                 .get(b"cuGraphExecUpdate_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuGraphExternalSemaphoresSignalNodeGetParams = __library
                 .get(b"cuGraphExternalSemaphoresSignalNodeGetParams\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuGraphExternalSemaphoresSignalNodeSetParams = __library
                 .get(b"cuGraphExternalSemaphoresSignalNodeSetParams\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuGraphExternalSemaphoresWaitNodeGetParams = __library
                 .get(b"cuGraphExternalSemaphoresWaitNodeGetParams\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuGraphExternalSemaphoresWaitNodeSetParams = __library
                 .get(b"cuGraphExternalSemaphoresWaitNodeSetParams\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11040",
                 feature = "cuda-11050",
@@ -22250,10 +24584,7 @@ mod loaded {
                 feature = "cuda-12080",
                 feature = "cuda-12090"
             ))]
-            let cuGraphGetEdges = __library
-                .get(b"cuGraphGetEdges\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuGraphGetEdges = __library.get(b"cuGraphGetEdges\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12030",
                 feature = "cuda-12040",
@@ -22263,30 +24594,21 @@ mod loaded {
                 feature = "cuda-12090",
                 feature = "cuda-13000"
             ))]
-            let cuGraphGetEdges_v2 = __library
-                .get(b"cuGraphGetEdges_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuGraphGetNodes = __library
-                .get(b"cuGraphGetNodes\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuGraphGetRootNodes = __library
-                .get(b"cuGraphGetRootNodes\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuGraphGetEdges_v2 = __library.get(b"cuGraphGetEdges_v2\0").ok().map(|sym| *sym);
+            let cuGraphGetNodes = __library.get(b"cuGraphGetNodes\0").ok().map(|sym| *sym);
+            let cuGraphGetRootNodes = __library.get(b"cuGraphGetRootNodes\0").ok().map(|sym| *sym);
             let cuGraphHostNodeGetParams = __library
                 .get(b"cuGraphHostNodeGetParams\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuGraphHostNodeSetParams = __library
                 .get(b"cuGraphHostNodeSetParams\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuGraphInstantiateWithFlags = __library
                 .get(b"cuGraphInstantiateWithFlags\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12000",
                 feature = "cuda-12010",
@@ -22301,8 +24623,8 @@ mod loaded {
             ))]
             let cuGraphInstantiateWithParams = __library
                 .get(b"cuGraphInstantiateWithParams\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11040",
                 feature = "cuda-11050",
@@ -22312,16 +24634,16 @@ mod loaded {
             ))]
             let cuGraphInstantiate_v2 = __library
                 .get(b"cuGraphInstantiate_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuGraphKernelNodeCopyAttributes = __library
                 .get(b"cuGraphKernelNodeCopyAttributes\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuGraphKernelNodeGetAttribute = __library
                 .get(b"cuGraphKernelNodeGetAttribute\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11040",
                 feature = "cuda-11050",
@@ -22331,8 +24653,8 @@ mod loaded {
             ))]
             let cuGraphKernelNodeGetParams = __library
                 .get(b"cuGraphKernelNodeGetParams\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12000",
                 feature = "cuda-12010",
@@ -22347,12 +24669,12 @@ mod loaded {
             ))]
             let cuGraphKernelNodeGetParams_v2 = __library
                 .get(b"cuGraphKernelNodeGetParams_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuGraphKernelNodeSetAttribute = __library
                 .get(b"cuGraphKernelNodeSetAttribute\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11040",
                 feature = "cuda-11050",
@@ -22362,8 +24684,8 @@ mod loaded {
             ))]
             let cuGraphKernelNodeSetParams = __library
                 .get(b"cuGraphKernelNodeSetParams\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12000",
                 feature = "cuda-12010",
@@ -22378,40 +24700,37 @@ mod loaded {
             ))]
             let cuGraphKernelNodeSetParams_v2 = __library
                 .get(b"cuGraphKernelNodeSetParams_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuGraphLaunch = __library
-                .get(b"cuGraphLaunch\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuGraphLaunch = __library.get(b"cuGraphLaunch\0").ok().map(|sym| *sym);
             let cuGraphMemAllocNodeGetParams = __library
                 .get(b"cuGraphMemAllocNodeGetParams\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuGraphMemFreeNodeGetParams = __library
                 .get(b"cuGraphMemFreeNodeGetParams\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuGraphMemcpyNodeGetParams = __library
                 .get(b"cuGraphMemcpyNodeGetParams\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuGraphMemcpyNodeSetParams = __library
                 .get(b"cuGraphMemcpyNodeSetParams\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuGraphMemsetNodeGetParams = __library
                 .get(b"cuGraphMemsetNodeGetParams\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuGraphMemsetNodeSetParams = __library
                 .get(b"cuGraphMemsetNodeSetParams\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuGraphNodeFindInClone = __library
                 .get(b"cuGraphNodeFindInClone\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11040",
                 feature = "cuda-11050",
@@ -22430,8 +24749,8 @@ mod loaded {
             ))]
             let cuGraphNodeGetDependencies = __library
                 .get(b"cuGraphNodeGetDependencies\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12030",
                 feature = "cuda-12040",
@@ -22443,8 +24762,8 @@ mod loaded {
             ))]
             let cuGraphNodeGetDependencies_v2 = __library
                 .get(b"cuGraphNodeGetDependencies_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11040",
                 feature = "cuda-11050",
@@ -22463,8 +24782,8 @@ mod loaded {
             ))]
             let cuGraphNodeGetDependentNodes = __library
                 .get(b"cuGraphNodeGetDependentNodes\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12030",
                 feature = "cuda-12040",
@@ -22476,8 +24795,8 @@ mod loaded {
             ))]
             let cuGraphNodeGetDependentNodes_v2 = __library
                 .get(b"cuGraphNodeGetDependentNodes_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11060",
                 feature = "cuda-11070",
@@ -22495,12 +24814,9 @@ mod loaded {
             ))]
             let cuGraphNodeGetEnabled = __library
                 .get(b"cuGraphNodeGetEnabled\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuGraphNodeGetType = __library
-                .get(b"cuGraphNodeGetType\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuGraphNodeGetType = __library.get(b"cuGraphNodeGetType\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11060",
                 feature = "cuda-11070",
@@ -22518,8 +24834,8 @@ mod loaded {
             ))]
             let cuGraphNodeSetEnabled = __library
                 .get(b"cuGraphNodeSetEnabled\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12020",
                 feature = "cuda-12030",
@@ -22532,12 +24848,12 @@ mod loaded {
             ))]
             let cuGraphNodeSetParams = __library
                 .get(b"cuGraphNodeSetParams\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuGraphReleaseUserObject = __library
                 .get(b"cuGraphReleaseUserObject\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11040",
                 feature = "cuda-11050",
@@ -22556,8 +24872,8 @@ mod loaded {
             ))]
             let cuGraphRemoveDependencies = __library
                 .get(b"cuGraphRemoveDependencies\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12030",
                 feature = "cuda-12040",
@@ -22569,44 +24885,41 @@ mod loaded {
             ))]
             let cuGraphRemoveDependencies_v2 = __library
                 .get(b"cuGraphRemoveDependencies_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuGraphRetainUserObject = __library
                 .get(b"cuGraphRetainUserObject\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuGraphUpload = __library
-                .get(b"cuGraphUpload\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuGraphUpload = __library.get(b"cuGraphUpload\0").ok().map(|sym| *sym);
             let cuGraphicsMapResources = __library
                 .get(b"cuGraphicsMapResources\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuGraphicsResourceGetMappedMipmappedArray = __library
                 .get(b"cuGraphicsResourceGetMappedMipmappedArray\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuGraphicsResourceGetMappedPointer_v2 = __library
                 .get(b"cuGraphicsResourceGetMappedPointer_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuGraphicsResourceSetMapFlags_v2 = __library
                 .get(b"cuGraphicsResourceSetMapFlags_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuGraphicsSubResourceGetMappedArray = __library
                 .get(b"cuGraphicsSubResourceGetMappedArray\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuGraphicsUnmapResources = __library
                 .get(b"cuGraphicsUnmapResources\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuGraphicsUnregisterResource = __library
                 .get(b"cuGraphicsUnregisterResource\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12040",
                 feature = "cuda-12050",
@@ -22615,10 +24928,7 @@ mod loaded {
                 feature = "cuda-12090",
                 feature = "cuda-13000"
             ))]
-            let cuGreenCtxCreate = __library
-                .get(b"cuGreenCtxCreate\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuGreenCtxCreate = __library.get(b"cuGreenCtxCreate\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12040",
                 feature = "cuda-12050",
@@ -22627,10 +24937,7 @@ mod loaded {
                 feature = "cuda-12090",
                 feature = "cuda-13000"
             ))]
-            let cuGreenCtxDestroy = __library
-                .get(b"cuGreenCtxDestroy\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuGreenCtxDestroy = __library.get(b"cuGreenCtxDestroy\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12040",
                 feature = "cuda-12050",
@@ -22641,13 +24948,10 @@ mod loaded {
             ))]
             let cuGreenCtxGetDevResource = __library
                 .get(b"cuGreenCtxGetDevResource\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(feature = "cuda-13000"))]
-            let cuGreenCtxGetId = __library
-                .get(b"cuGreenCtxGetId\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuGreenCtxGetId = __library.get(b"cuGreenCtxGetId\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12040",
                 feature = "cuda-12050",
@@ -22658,8 +24962,8 @@ mod loaded {
             ))]
             let cuGreenCtxRecordEvent = __library
                 .get(b"cuGreenCtxRecordEvent\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12050",
                 feature = "cuda-12060",
@@ -22669,8 +24973,8 @@ mod loaded {
             ))]
             let cuGreenCtxStreamCreate = __library
                 .get(b"cuGreenCtxStreamCreate\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12040",
                 feature = "cuda-12050",
@@ -22679,42 +24983,27 @@ mod loaded {
                 feature = "cuda-12090",
                 feature = "cuda-13000"
             ))]
-            let cuGreenCtxWaitEvent = __library
-                .get(b"cuGreenCtxWaitEvent\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuGreenCtxWaitEvent = __library.get(b"cuGreenCtxWaitEvent\0").ok().map(|sym| *sym);
             let cuImportExternalMemory = __library
                 .get(b"cuImportExternalMemory\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuImportExternalSemaphore = __library
                 .get(b"cuImportExternalSemaphore\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuInit = __library
-                .get(b"cuInit\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuIpcCloseMemHandle = __library
-                .get(b"cuIpcCloseMemHandle\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuIpcGetEventHandle = __library
-                .get(b"cuIpcGetEventHandle\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuIpcGetMemHandle = __library
-                .get(b"cuIpcGetMemHandle\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuInit = __library.get(b"cuInit\0").ok().map(|sym| *sym);
+            let cuIpcCloseMemHandle = __library.get(b"cuIpcCloseMemHandle\0").ok().map(|sym| *sym);
+            let cuIpcGetEventHandle = __library.get(b"cuIpcGetEventHandle\0").ok().map(|sym| *sym);
+            let cuIpcGetMemHandle = __library.get(b"cuIpcGetMemHandle\0").ok().map(|sym| *sym);
             let cuIpcOpenEventHandle = __library
                 .get(b"cuIpcOpenEventHandle\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuIpcOpenMemHandle_v2 = __library
                 .get(b"cuIpcOpenMemHandle_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12000",
                 feature = "cuda-12010",
@@ -22729,8 +25018,8 @@ mod loaded {
             ))]
             let cuKernelGetAttribute = __library
                 .get(b"cuKernelGetAttribute\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12000",
                 feature = "cuda-12010",
@@ -22743,10 +25032,7 @@ mod loaded {
                 feature = "cuda-12090",
                 feature = "cuda-13000"
             ))]
-            let cuKernelGetFunction = __library
-                .get(b"cuKernelGetFunction\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuKernelGetFunction = __library.get(b"cuKernelGetFunction\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12050",
                 feature = "cuda-12060",
@@ -22754,10 +25040,7 @@ mod loaded {
                 feature = "cuda-12090",
                 feature = "cuda-13000"
             ))]
-            let cuKernelGetLibrary = __library
-                .get(b"cuKernelGetLibrary\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuKernelGetLibrary = __library.get(b"cuKernelGetLibrary\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12030",
                 feature = "cuda-12040",
@@ -22767,10 +25050,7 @@ mod loaded {
                 feature = "cuda-12090",
                 feature = "cuda-13000"
             ))]
-            let cuKernelGetName = __library
-                .get(b"cuKernelGetName\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuKernelGetName = __library.get(b"cuKernelGetName\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12040",
                 feature = "cuda-12050",
@@ -22781,8 +25061,8 @@ mod loaded {
             ))]
             let cuKernelGetParamInfo = __library
                 .get(b"cuKernelGetParamInfo\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12000",
                 feature = "cuda-12010",
@@ -22797,8 +25077,8 @@ mod loaded {
             ))]
             let cuKernelSetAttribute = __library
                 .get(b"cuKernelSetAttribute\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12000",
                 feature = "cuda-12010",
@@ -22813,36 +25093,21 @@ mod loaded {
             ))]
             let cuKernelSetCacheConfig = __library
                 .get(b"cuKernelSetCacheConfig\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuLaunch = __library
-                .get(b"cuLaunch\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuLaunch = __library.get(b"cuLaunch\0").ok().map(|sym| *sym);
             let cuLaunchCooperativeKernel = __library
                 .get(b"cuLaunchCooperativeKernel\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuLaunchCooperativeKernelMultiDevice = __library
                 .get(b"cuLaunchCooperativeKernelMultiDevice\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuLaunchGrid = __library
-                .get(b"cuLaunchGrid\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuLaunchGridAsync = __library
-                .get(b"cuLaunchGridAsync\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuLaunchHostFunc = __library
-                .get(b"cuLaunchHostFunc\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuLaunchKernel = __library
-                .get(b"cuLaunchKernel\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuLaunchGrid = __library.get(b"cuLaunchGrid\0").ok().map(|sym| *sym);
+            let cuLaunchGridAsync = __library.get(b"cuLaunchGridAsync\0").ok().map(|sym| *sym);
+            let cuLaunchHostFunc = __library.get(b"cuLaunchHostFunc\0").ok().map(|sym| *sym);
+            let cuLaunchKernel = __library.get(b"cuLaunchKernel\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11080",
                 feature = "cuda-12000",
@@ -22856,10 +25121,7 @@ mod loaded {
                 feature = "cuda-12090",
                 feature = "cuda-13000"
             ))]
-            let cuLaunchKernelEx = __library
-                .get(b"cuLaunchKernelEx\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuLaunchKernelEx = __library.get(b"cuLaunchKernelEx\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12040",
                 feature = "cuda-12050",
@@ -22870,8 +25132,8 @@ mod loaded {
             ))]
             let cuLibraryEnumerateKernels = __library
                 .get(b"cuLibraryEnumerateKernels\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12000",
                 feature = "cuda-12010",
@@ -22884,10 +25146,7 @@ mod loaded {
                 feature = "cuda-12090",
                 feature = "cuda-13000"
             ))]
-            let cuLibraryGetGlobal = __library
-                .get(b"cuLibraryGetGlobal\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuLibraryGetGlobal = __library.get(b"cuLibraryGetGlobal\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12000",
                 feature = "cuda-12010",
@@ -22900,10 +25159,7 @@ mod loaded {
                 feature = "cuda-12090",
                 feature = "cuda-13000"
             ))]
-            let cuLibraryGetKernel = __library
-                .get(b"cuLibraryGetKernel\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuLibraryGetKernel = __library.get(b"cuLibraryGetKernel\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12040",
                 feature = "cuda-12050",
@@ -22914,8 +25170,8 @@ mod loaded {
             ))]
             let cuLibraryGetKernelCount = __library
                 .get(b"cuLibraryGetKernelCount\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12000",
                 feature = "cuda-12010",
@@ -22928,10 +25184,7 @@ mod loaded {
                 feature = "cuda-12090",
                 feature = "cuda-13000"
             ))]
-            let cuLibraryGetManaged = __library
-                .get(b"cuLibraryGetManaged\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuLibraryGetManaged = __library.get(b"cuLibraryGetManaged\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12000",
                 feature = "cuda-12010",
@@ -22944,10 +25197,7 @@ mod loaded {
                 feature = "cuda-12090",
                 feature = "cuda-13000"
             ))]
-            let cuLibraryGetModule = __library
-                .get(b"cuLibraryGetModule\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuLibraryGetModule = __library.get(b"cuLibraryGetModule\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12000",
                 feature = "cuda-12010",
@@ -22962,8 +25212,8 @@ mod loaded {
             ))]
             let cuLibraryGetUnifiedFunction = __library
                 .get(b"cuLibraryGetUnifiedFunction\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12000",
                 feature = "cuda-12010",
@@ -22976,10 +25226,7 @@ mod loaded {
                 feature = "cuda-12090",
                 feature = "cuda-13000"
             ))]
-            let cuLibraryLoadData = __library
-                .get(b"cuLibraryLoadData\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuLibraryLoadData = __library.get(b"cuLibraryLoadData\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12000",
                 feature = "cuda-12010",
@@ -22994,8 +25241,8 @@ mod loaded {
             ))]
             let cuLibraryLoadFromFile = __library
                 .get(b"cuLibraryLoadFromFile\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12000",
                 feature = "cuda-12010",
@@ -23008,63 +25255,30 @@ mod loaded {
                 feature = "cuda-12090",
                 feature = "cuda-13000"
             ))]
-            let cuLibraryUnload = __library
-                .get(b"cuLibraryUnload\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuLinkAddData_v2 = __library
-                .get(b"cuLinkAddData_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuLinkAddFile_v2 = __library
-                .get(b"cuLinkAddFile_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuLinkComplete = __library
-                .get(b"cuLinkComplete\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuLinkCreate_v2 = __library
-                .get(b"cuLinkCreate_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuLinkDestroy = __library
-                .get(b"cuLinkDestroy\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuLibraryUnload = __library.get(b"cuLibraryUnload\0").ok().map(|sym| *sym);
+            let cuLinkAddData_v2 = __library.get(b"cuLinkAddData_v2\0").ok().map(|sym| *sym);
+            let cuLinkAddFile_v2 = __library.get(b"cuLinkAddFile_v2\0").ok().map(|sym| *sym);
+            let cuLinkComplete = __library.get(b"cuLinkComplete\0").ok().map(|sym| *sym);
+            let cuLinkCreate_v2 = __library.get(b"cuLinkCreate_v2\0").ok().map(|sym| *sym);
+            let cuLinkDestroy = __library.get(b"cuLinkDestroy\0").ok().map(|sym| *sym);
             #[cfg(any(feature = "cuda-12090", feature = "cuda-13000"))]
-            let cuLogsCurrent = __library
-                .get(b"cuLogsCurrent\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuLogsCurrent = __library.get(b"cuLogsCurrent\0").ok().map(|sym| *sym);
             #[cfg(any(feature = "cuda-12090", feature = "cuda-13000"))]
-            let cuLogsDumpToFile = __library
-                .get(b"cuLogsDumpToFile\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuLogsDumpToFile = __library.get(b"cuLogsDumpToFile\0").ok().map(|sym| *sym);
             #[cfg(any(feature = "cuda-12090", feature = "cuda-13000"))]
-            let cuLogsDumpToMemory = __library
-                .get(b"cuLogsDumpToMemory\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuLogsDumpToMemory = __library.get(b"cuLogsDumpToMemory\0").ok().map(|sym| *sym);
             #[cfg(any(feature = "cuda-12090", feature = "cuda-13000"))]
             let cuLogsRegisterCallback = __library
                 .get(b"cuLogsRegisterCallback\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(feature = "cuda-12090", feature = "cuda-13000"))]
             let cuLogsUnregisterCallback = __library
                 .get(b"cuLogsUnregisterCallback\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemAddressFree = __library
-                .get(b"cuMemAddressFree\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemAddressReserve = __library
-                .get(b"cuMemAddressReserve\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuMemAddressFree = __library.get(b"cuMemAddressFree\0").ok().map(|sym| *sym);
+            let cuMemAddressReserve = __library.get(b"cuMemAddressReserve\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11040",
                 feature = "cuda-11050",
@@ -23081,10 +25295,7 @@ mod loaded {
                 feature = "cuda-12080",
                 feature = "cuda-12090"
             ))]
-            let cuMemAdvise = __library
-                .get(b"cuMemAdvise\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuMemAdvise = __library.get(b"cuMemAdvise\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12020",
                 feature = "cuda-12030",
@@ -23095,90 +25306,57 @@ mod loaded {
                 feature = "cuda-12090",
                 feature = "cuda-13000"
             ))]
-            let cuMemAdvise_v2 = __library
-                .get(b"cuMemAdvise_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemAllocAsync = __library
-                .get(b"cuMemAllocAsync\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuMemAdvise_v2 = __library.get(b"cuMemAdvise_v2\0").ok().map(|sym| *sym);
+            let cuMemAllocAsync = __library.get(b"cuMemAllocAsync\0").ok().map(|sym| *sym);
             let cuMemAllocFromPoolAsync = __library
                 .get(b"cuMemAllocFromPoolAsync\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemAllocHost_v2 = __library
-                .get(b"cuMemAllocHost_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemAllocManaged = __library
-                .get(b"cuMemAllocManaged\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemAllocPitch_v2 = __library
-                .get(b"cuMemAllocPitch_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemAlloc_v2 = __library
-                .get(b"cuMemAlloc_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuMemAllocHost_v2 = __library.get(b"cuMemAllocHost_v2\0").ok().map(|sym| *sym);
+            let cuMemAllocManaged = __library.get(b"cuMemAllocManaged\0").ok().map(|sym| *sym);
+            let cuMemAllocPitch_v2 = __library.get(b"cuMemAllocPitch_v2\0").ok().map(|sym| *sym);
+            let cuMemAlloc_v2 = __library.get(b"cuMemAlloc_v2\0").ok().map(|sym| *sym);
             #[cfg(any(feature = "cuda-12080", feature = "cuda-12090", feature = "cuda-13000"))]
             let cuMemBatchDecompressAsync = __library
                 .get(b"cuMemBatchDecompressAsync\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemCreate = __library
-                .get(b"cuMemCreate\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuMemCreate = __library.get(b"cuMemCreate\0").ok().map(|sym| *sym);
             #[cfg(any(feature = "cuda-13000"))]
             let cuMemDiscardAndPrefetchBatchAsync = __library
                 .get(b"cuMemDiscardAndPrefetchBatchAsync\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(feature = "cuda-13000"))]
             let cuMemDiscardBatchAsync = __library
                 .get(b"cuMemDiscardBatchAsync\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuMemExportToShareableHandle = __library
                 .get(b"cuMemExportToShareableHandle\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemFreeAsync = __library
-                .get(b"cuMemFreeAsync\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemFreeHost = __library
-                .get(b"cuMemFreeHost\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemFree_v2 = __library
-                .get(b"cuMemFree_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemGetAccess = __library
-                .get(b"cuMemGetAccess\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuMemFreeAsync = __library.get(b"cuMemFreeAsync\0").ok().map(|sym| *sym);
+            let cuMemFreeHost = __library.get(b"cuMemFreeHost\0").ok().map(|sym| *sym);
+            let cuMemFree_v2 = __library.get(b"cuMemFree_v2\0").ok().map(|sym| *sym);
+            let cuMemGetAccess = __library.get(b"cuMemGetAccess\0").ok().map(|sym| *sym);
             let cuMemGetAddressRange_v2 = __library
                 .get(b"cuMemGetAddressRange_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuMemGetAllocationGranularity = __library
                 .get(b"cuMemGetAllocationGranularity\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuMemGetAllocationPropertiesFromHandle = __library
                 .get(b"cuMemGetAllocationPropertiesFromHandle\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(feature = "cuda-13000"))]
             let cuMemGetDefaultMemPool = __library
                 .get(b"cuMemGetDefaultMemPool\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11070",
                 feature = "cuda-11080",
@@ -23195,93 +25373,57 @@ mod loaded {
             ))]
             let cuMemGetHandleForAddressRange = __library
                 .get(b"cuMemGetHandleForAddressRange\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemGetInfo_v2 = __library
-                .get(b"cuMemGetInfo_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuMemGetInfo_v2 = __library.get(b"cuMemGetInfo_v2\0").ok().map(|sym| *sym);
             #[cfg(any(feature = "cuda-13000"))]
-            let cuMemGetMemPool = __library
-                .get(b"cuMemGetMemPool\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemHostAlloc = __library
-                .get(b"cuMemHostAlloc\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuMemGetMemPool = __library.get(b"cuMemGetMemPool\0").ok().map(|sym| *sym);
+            let cuMemHostAlloc = __library.get(b"cuMemHostAlloc\0").ok().map(|sym| *sym);
             let cuMemHostGetDevicePointer_v2 = __library
                 .get(b"cuMemHostGetDevicePointer_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemHostGetFlags = __library
-                .get(b"cuMemHostGetFlags\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuMemHostGetFlags = __library.get(b"cuMemHostGetFlags\0").ok().map(|sym| *sym);
             let cuMemHostRegister_v2 = __library
                 .get(b"cuMemHostRegister_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemHostUnregister = __library
-                .get(b"cuMemHostUnregister\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuMemHostUnregister = __library.get(b"cuMemHostUnregister\0").ok().map(|sym| *sym);
             let cuMemImportFromShareableHandle = __library
                 .get(b"cuMemImportFromShareableHandle\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemMap = __library
-                .get(b"cuMemMap\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemMapArrayAsync = __library
-                .get(b"cuMemMapArrayAsync\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemPoolCreate = __library
-                .get(b"cuMemPoolCreate\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemPoolDestroy = __library
-                .get(b"cuMemPoolDestroy\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuMemMap = __library.get(b"cuMemMap\0").ok().map(|sym| *sym);
+            let cuMemMapArrayAsync = __library.get(b"cuMemMapArrayAsync\0").ok().map(|sym| *sym);
+            let cuMemPoolCreate = __library.get(b"cuMemPoolCreate\0").ok().map(|sym| *sym);
+            let cuMemPoolDestroy = __library.get(b"cuMemPoolDestroy\0").ok().map(|sym| *sym);
             let cuMemPoolExportPointer = __library
                 .get(b"cuMemPoolExportPointer\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuMemPoolExportToShareableHandle = __library
                 .get(b"cuMemPoolExportToShareableHandle\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemPoolGetAccess = __library
-                .get(b"cuMemPoolGetAccess\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuMemPoolGetAccess = __library.get(b"cuMemPoolGetAccess\0").ok().map(|sym| *sym);
             let cuMemPoolGetAttribute = __library
                 .get(b"cuMemPoolGetAttribute\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuMemPoolImportFromShareableHandle = __library
                 .get(b"cuMemPoolImportFromShareableHandle\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuMemPoolImportPointer = __library
                 .get(b"cuMemPoolImportPointer\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemPoolSetAccess = __library
-                .get(b"cuMemPoolSetAccess\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuMemPoolSetAccess = __library.get(b"cuMemPoolSetAccess\0").ok().map(|sym| *sym);
             let cuMemPoolSetAttribute = __library
                 .get(b"cuMemPoolSetAttribute\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemPoolTrimTo = __library
-                .get(b"cuMemPoolTrimTo\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuMemPoolTrimTo = __library.get(b"cuMemPoolTrimTo\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11040",
                 feature = "cuda-11050",
@@ -23298,10 +25440,7 @@ mod loaded {
                 feature = "cuda-12080",
                 feature = "cuda-12090"
             ))]
-            let cuMemPrefetchAsync = __library
-                .get(b"cuMemPrefetchAsync\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuMemPrefetchAsync = __library.get(b"cuMemPrefetchAsync\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12020",
                 feature = "cuda-12030",
@@ -23314,218 +25453,113 @@ mod loaded {
             ))]
             let cuMemPrefetchAsync_v2 = __library
                 .get(b"cuMemPrefetchAsync_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(feature = "cuda-13000"))]
             let cuMemPrefetchBatchAsync = __library
                 .get(b"cuMemPrefetchBatchAsync\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuMemRangeGetAttribute = __library
                 .get(b"cuMemRangeGetAttribute\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuMemRangeGetAttributes = __library
                 .get(b"cuMemRangeGetAttributes\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemRelease = __library
-                .get(b"cuMemRelease\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuMemRelease = __library.get(b"cuMemRelease\0").ok().map(|sym| *sym);
             let cuMemRetainAllocationHandle = __library
                 .get(b"cuMemRetainAllocationHandle\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemSetAccess = __library
-                .get(b"cuMemSetAccess\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuMemSetAccess = __library.get(b"cuMemSetAccess\0").ok().map(|sym| *sym);
             #[cfg(any(feature = "cuda-13000"))]
-            let cuMemSetMemPool = __library
-                .get(b"cuMemSetMemPool\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemUnmap = __library
-                .get(b"cuMemUnmap\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemcpy = __library
-                .get(b"cuMemcpy\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemcpy2DAsync_v2 = __library
-                .get(b"cuMemcpy2DAsync_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuMemSetMemPool = __library.get(b"cuMemSetMemPool\0").ok().map(|sym| *sym);
+            let cuMemUnmap = __library.get(b"cuMemUnmap\0").ok().map(|sym| *sym);
+            let cuMemcpy = __library.get(b"cuMemcpy\0").ok().map(|sym| *sym);
+            let cuMemcpy2DAsync_v2 = __library.get(b"cuMemcpy2DAsync_v2\0").ok().map(|sym| *sym);
             let cuMemcpy2DUnaligned_v2 = __library
                 .get(b"cuMemcpy2DUnaligned_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemcpy2D_v2 = __library
-                .get(b"cuMemcpy2D_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemcpy3DAsync_v2 = __library
-                .get(b"cuMemcpy3DAsync_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuMemcpy2D_v2 = __library.get(b"cuMemcpy2D_v2\0").ok().map(|sym| *sym);
+            let cuMemcpy3DAsync_v2 = __library.get(b"cuMemcpy3DAsync_v2\0").ok().map(|sym| *sym);
             #[cfg(any(feature = "cuda-12080", feature = "cuda-12090"))]
             let cuMemcpy3DBatchAsync = __library
                 .get(b"cuMemcpy3DBatchAsync\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(feature = "cuda-13000"))]
             let cuMemcpy3DBatchAsync_v2 = __library
                 .get(b"cuMemcpy3DBatchAsync_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemcpy3DPeer = __library
-                .get(b"cuMemcpy3DPeer\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemcpy3DPeerAsync = __library
-                .get(b"cuMemcpy3DPeerAsync\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemcpy3D_v2 = __library
-                .get(b"cuMemcpy3D_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemcpyAsync = __library
-                .get(b"cuMemcpyAsync\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemcpyAtoA_v2 = __library
-                .get(b"cuMemcpyAtoA_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemcpyAtoD_v2 = __library
-                .get(b"cuMemcpyAtoD_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuMemcpy3DPeer = __library.get(b"cuMemcpy3DPeer\0").ok().map(|sym| *sym);
+            let cuMemcpy3DPeerAsync = __library.get(b"cuMemcpy3DPeerAsync\0").ok().map(|sym| *sym);
+            let cuMemcpy3D_v2 = __library.get(b"cuMemcpy3D_v2\0").ok().map(|sym| *sym);
+            let cuMemcpyAsync = __library.get(b"cuMemcpyAsync\0").ok().map(|sym| *sym);
+            let cuMemcpyAtoA_v2 = __library.get(b"cuMemcpyAtoA_v2\0").ok().map(|sym| *sym);
+            let cuMemcpyAtoD_v2 = __library.get(b"cuMemcpyAtoD_v2\0").ok().map(|sym| *sym);
             let cuMemcpyAtoHAsync_v2 = __library
                 .get(b"cuMemcpyAtoHAsync_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemcpyAtoH_v2 = __library
-                .get(b"cuMemcpyAtoH_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuMemcpyAtoH_v2 = __library.get(b"cuMemcpyAtoH_v2\0").ok().map(|sym| *sym);
             #[cfg(any(feature = "cuda-12080", feature = "cuda-12090"))]
-            let cuMemcpyBatchAsync = __library
-                .get(b"cuMemcpyBatchAsync\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuMemcpyBatchAsync = __library.get(b"cuMemcpyBatchAsync\0").ok().map(|sym| *sym);
             #[cfg(any(feature = "cuda-13000"))]
             let cuMemcpyBatchAsync_v2 = __library
                 .get(b"cuMemcpyBatchAsync_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemcpyDtoA_v2 = __library
-                .get(b"cuMemcpyDtoA_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuMemcpyDtoA_v2 = __library.get(b"cuMemcpyDtoA_v2\0").ok().map(|sym| *sym);
             let cuMemcpyDtoDAsync_v2 = __library
                 .get(b"cuMemcpyDtoDAsync_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemcpyDtoD_v2 = __library
-                .get(b"cuMemcpyDtoD_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuMemcpyDtoD_v2 = __library.get(b"cuMemcpyDtoD_v2\0").ok().map(|sym| *sym);
             let cuMemcpyDtoHAsync_v2 = __library
                 .get(b"cuMemcpyDtoHAsync_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemcpyDtoH_v2 = __library
-                .get(b"cuMemcpyDtoH_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuMemcpyDtoH_v2 = __library.get(b"cuMemcpyDtoH_v2\0").ok().map(|sym| *sym);
             let cuMemcpyHtoAAsync_v2 = __library
                 .get(b"cuMemcpyHtoAAsync_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemcpyHtoA_v2 = __library
-                .get(b"cuMemcpyHtoA_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuMemcpyHtoA_v2 = __library.get(b"cuMemcpyHtoA_v2\0").ok().map(|sym| *sym);
             let cuMemcpyHtoDAsync_v2 = __library
                 .get(b"cuMemcpyHtoDAsync_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemcpyHtoD_v2 = __library
-                .get(b"cuMemcpyHtoD_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemcpyPeer = __library
-                .get(b"cuMemcpyPeer\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemcpyPeerAsync = __library
-                .get(b"cuMemcpyPeerAsync\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemsetD16Async = __library
-                .get(b"cuMemsetD16Async\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemsetD16_v2 = __library
-                .get(b"cuMemsetD16_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemsetD2D16Async = __library
-                .get(b"cuMemsetD2D16Async\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemsetD2D16_v2 = __library
-                .get(b"cuMemsetD2D16_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemsetD2D32Async = __library
-                .get(b"cuMemsetD2D32Async\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemsetD2D32_v2 = __library
-                .get(b"cuMemsetD2D32_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemsetD2D8Async = __library
-                .get(b"cuMemsetD2D8Async\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemsetD2D8_v2 = __library
-                .get(b"cuMemsetD2D8_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemsetD32Async = __library
-                .get(b"cuMemsetD32Async\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemsetD32_v2 = __library
-                .get(b"cuMemsetD32_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemsetD8Async = __library
-                .get(b"cuMemsetD8Async\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuMemsetD8_v2 = __library
-                .get(b"cuMemsetD8_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuMemcpyHtoD_v2 = __library.get(b"cuMemcpyHtoD_v2\0").ok().map(|sym| *sym);
+            let cuMemcpyPeer = __library.get(b"cuMemcpyPeer\0").ok().map(|sym| *sym);
+            let cuMemcpyPeerAsync = __library.get(b"cuMemcpyPeerAsync\0").ok().map(|sym| *sym);
+            let cuMemsetD16Async = __library.get(b"cuMemsetD16Async\0").ok().map(|sym| *sym);
+            let cuMemsetD16_v2 = __library.get(b"cuMemsetD16_v2\0").ok().map(|sym| *sym);
+            let cuMemsetD2D16Async = __library.get(b"cuMemsetD2D16Async\0").ok().map(|sym| *sym);
+            let cuMemsetD2D16_v2 = __library.get(b"cuMemsetD2D16_v2\0").ok().map(|sym| *sym);
+            let cuMemsetD2D32Async = __library.get(b"cuMemsetD2D32Async\0").ok().map(|sym| *sym);
+            let cuMemsetD2D32_v2 = __library.get(b"cuMemsetD2D32_v2\0").ok().map(|sym| *sym);
+            let cuMemsetD2D8Async = __library.get(b"cuMemsetD2D8Async\0").ok().map(|sym| *sym);
+            let cuMemsetD2D8_v2 = __library.get(b"cuMemsetD2D8_v2\0").ok().map(|sym| *sym);
+            let cuMemsetD32Async = __library.get(b"cuMemsetD32Async\0").ok().map(|sym| *sym);
+            let cuMemsetD32_v2 = __library.get(b"cuMemsetD32_v2\0").ok().map(|sym| *sym);
+            let cuMemsetD8Async = __library.get(b"cuMemsetD8Async\0").ok().map(|sym| *sym);
+            let cuMemsetD8_v2 = __library.get(b"cuMemsetD8_v2\0").ok().map(|sym| *sym);
             let cuMipmappedArrayCreate = __library
                 .get(b"cuMipmappedArrayCreate\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuMipmappedArrayDestroy = __library
                 .get(b"cuMipmappedArrayDestroy\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuMipmappedArrayGetLevel = __library
                 .get(b"cuMipmappedArrayGetLevel\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11060",
                 feature = "cuda-11070",
@@ -23543,12 +25577,12 @@ mod loaded {
             ))]
             let cuMipmappedArrayGetMemoryRequirements = __library
                 .get(b"cuMipmappedArrayGetMemoryRequirements\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuMipmappedArrayGetSparseProperties = __library
                 .get(b"cuMipmappedArrayGetSparseProperties\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12040",
                 feature = "cuda-12050",
@@ -23559,12 +25593,9 @@ mod loaded {
             ))]
             let cuModuleEnumerateFunctions = __library
                 .get(b"cuModuleEnumerateFunctions\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuModuleGetFunction = __library
-                .get(b"cuModuleGetFunction\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuModuleGetFunction = __library.get(b"cuModuleGetFunction\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12040",
                 feature = "cuda-12050",
@@ -23575,12 +25606,12 @@ mod loaded {
             ))]
             let cuModuleGetFunctionCount = __library
                 .get(b"cuModuleGetFunctionCount\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuModuleGetGlobal_v2 = __library
                 .get(b"cuModuleGetGlobal_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11070",
                 feature = "cuda-11080",
@@ -23597,36 +25628,18 @@ mod loaded {
             ))]
             let cuModuleGetLoadingMode = __library
                 .get(b"cuModuleGetLoadingMode\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuModuleGetSurfRef = __library
-                .get(b"cuModuleGetSurfRef\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuModuleGetTexRef = __library
-                .get(b"cuModuleGetTexRef\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuModuleLoad = __library
-                .get(b"cuModuleLoad\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuModuleLoadData = __library
-                .get(b"cuModuleLoadData\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuModuleLoadDataEx = __library
-                .get(b"cuModuleLoadDataEx\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuModuleGetSurfRef = __library.get(b"cuModuleGetSurfRef\0").ok().map(|sym| *sym);
+            let cuModuleGetTexRef = __library.get(b"cuModuleGetTexRef\0").ok().map(|sym| *sym);
+            let cuModuleLoad = __library.get(b"cuModuleLoad\0").ok().map(|sym| *sym);
+            let cuModuleLoadData = __library.get(b"cuModuleLoadData\0").ok().map(|sym| *sym);
+            let cuModuleLoadDataEx = __library.get(b"cuModuleLoadDataEx\0").ok().map(|sym| *sym);
             let cuModuleLoadFatBinary = __library
                 .get(b"cuModuleLoadFatBinary\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuModuleUnload = __library
-                .get(b"cuModuleUnload\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuModuleUnload = __library.get(b"cuModuleUnload\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12010",
                 feature = "cuda-12020",
@@ -23640,8 +25653,8 @@ mod loaded {
             ))]
             let cuMulticastAddDevice = __library
                 .get(b"cuMulticastAddDevice\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12010",
                 feature = "cuda-12020",
@@ -23653,10 +25666,7 @@ mod loaded {
                 feature = "cuda-12090",
                 feature = "cuda-13000"
             ))]
-            let cuMulticastBindAddr = __library
-                .get(b"cuMulticastBindAddr\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuMulticastBindAddr = __library.get(b"cuMulticastBindAddr\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12010",
                 feature = "cuda-12020",
@@ -23668,10 +25678,7 @@ mod loaded {
                 feature = "cuda-12090",
                 feature = "cuda-13000"
             ))]
-            let cuMulticastBindMem = __library
-                .get(b"cuMulticastBindMem\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuMulticastBindMem = __library.get(b"cuMulticastBindMem\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12010",
                 feature = "cuda-12020",
@@ -23683,10 +25690,7 @@ mod loaded {
                 feature = "cuda-12090",
                 feature = "cuda-13000"
             ))]
-            let cuMulticastCreate = __library
-                .get(b"cuMulticastCreate\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuMulticastCreate = __library.get(b"cuMulticastCreate\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12010",
                 feature = "cuda-12020",
@@ -23700,8 +25704,8 @@ mod loaded {
             ))]
             let cuMulticastGetGranularity = __library
                 .get(b"cuMulticastGetGranularity\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12010",
                 feature = "cuda-12020",
@@ -23713,22 +25717,19 @@ mod loaded {
                 feature = "cuda-12090",
                 feature = "cuda-13000"
             ))]
-            let cuMulticastUnbind = __library
-                .get(b"cuMulticastUnbind\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuMulticastUnbind = __library.get(b"cuMulticastUnbind\0").ok().map(|sym| *sym);
             let cuOccupancyAvailableDynamicSMemPerBlock = __library
                 .get(b"cuOccupancyAvailableDynamicSMemPerBlock\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuOccupancyMaxActiveBlocksPerMultiprocessor = __library
                 .get(b"cuOccupancyMaxActiveBlocksPerMultiprocessor\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuOccupancyMaxActiveBlocksPerMultiprocessorWithFlags = __library
                 .get(b"cuOccupancyMaxActiveBlocksPerMultiprocessorWithFlags\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11080",
                 feature = "cuda-12000",
@@ -23744,16 +25745,16 @@ mod loaded {
             ))]
             let cuOccupancyMaxActiveClusters = __library
                 .get(b"cuOccupancyMaxActiveClusters\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuOccupancyMaxPotentialBlockSize = __library
                 .get(b"cuOccupancyMaxPotentialBlockSize\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuOccupancyMaxPotentialBlockSizeWithFlags = __library
                 .get(b"cuOccupancyMaxPotentialBlockSizeWithFlags\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11080",
                 feature = "cuda-12000",
@@ -23769,64 +25770,40 @@ mod loaded {
             ))]
             let cuOccupancyMaxPotentialClusterSize = __library
                 .get(b"cuOccupancyMaxPotentialClusterSize\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuParamSetSize = __library
-                .get(b"cuParamSetSize\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuParamSetTexRef = __library
-                .get(b"cuParamSetTexRef\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuParamSetf = __library
-                .get(b"cuParamSetf\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuParamSeti = __library
-                .get(b"cuParamSeti\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuParamSetv = __library
-                .get(b"cuParamSetv\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuParamSetSize = __library.get(b"cuParamSetSize\0").ok().map(|sym| *sym);
+            let cuParamSetTexRef = __library.get(b"cuParamSetTexRef\0").ok().map(|sym| *sym);
+            let cuParamSetf = __library.get(b"cuParamSetf\0").ok().map(|sym| *sym);
+            let cuParamSeti = __library.get(b"cuParamSeti\0").ok().map(|sym| *sym);
+            let cuParamSetv = __library.get(b"cuParamSetv\0").ok().map(|sym| *sym);
             let cuPointerGetAttribute = __library
                 .get(b"cuPointerGetAttribute\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuPointerGetAttributes = __library
                 .get(b"cuPointerGetAttributes\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuPointerSetAttribute = __library
                 .get(b"cuPointerSetAttribute\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuProfilerInitialize = __library
                 .get(b"cuProfilerInitialize\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuProfilerStart = __library
-                .get(b"cuProfilerStart\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuProfilerStop = __library
-                .get(b"cuProfilerStop\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuProfilerStart = __library.get(b"cuProfilerStart\0").ok().map(|sym| *sym);
+            let cuProfilerStop = __library.get(b"cuProfilerStop\0").ok().map(|sym| *sym);
             let cuSignalExternalSemaphoresAsync = __library
                 .get(b"cuSignalExternalSemaphoresAsync\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuStreamAddCallback = __library
-                .get(b"cuStreamAddCallback\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuStreamAddCallback = __library.get(b"cuStreamAddCallback\0").ok().map(|sym| *sym);
             let cuStreamAttachMemAsync = __library
                 .get(b"cuStreamAttachMemAsync\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11040",
                 feature = "cuda-11050",
@@ -23834,10 +25811,7 @@ mod loaded {
                 feature = "cuda-11070",
                 feature = "cuda-11080"
             ))]
-            let cuStreamBatchMemOp = __library
-                .get(b"cuStreamBatchMemOp\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuStreamBatchMemOp = __library.get(b"cuStreamBatchMemOp\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11070",
                 feature = "cuda-11080",
@@ -23854,8 +25828,8 @@ mod loaded {
             ))]
             let cuStreamBatchMemOp_v2 = __library
                 .get(b"cuStreamBatchMemOp_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12030",
                 feature = "cuda-12040",
@@ -23867,36 +25841,27 @@ mod loaded {
             ))]
             let cuStreamBeginCaptureToGraph = __library
                 .get(b"cuStreamBeginCaptureToGraph\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuStreamBeginCapture_v2 = __library
                 .get(b"cuStreamBeginCapture_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuStreamCopyAttributes = __library
                 .get(b"cuStreamCopyAttributes\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuStreamCreate = __library
-                .get(b"cuStreamCreate\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuStreamCreate = __library.get(b"cuStreamCreate\0").ok().map(|sym| *sym);
             let cuStreamCreateWithPriority = __library
                 .get(b"cuStreamCreateWithPriority\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuStreamDestroy_v2 = __library
-                .get(b"cuStreamDestroy_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuStreamEndCapture = __library
-                .get(b"cuStreamEndCapture\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuStreamDestroy_v2 = __library.get(b"cuStreamDestroy_v2\0").ok().map(|sym| *sym);
+            let cuStreamEndCapture = __library.get(b"cuStreamEndCapture\0").ok().map(|sym| *sym);
             let cuStreamGetAttribute = __library
                 .get(b"cuStreamGetAttribute\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11040",
                 feature = "cuda-11050",
@@ -23906,8 +25871,8 @@ mod loaded {
             ))]
             let cuStreamGetCaptureInfo = __library
                 .get(b"cuStreamGetCaptureInfo\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11040",
                 feature = "cuda-11050",
@@ -23926,8 +25891,8 @@ mod loaded {
             ))]
             let cuStreamGetCaptureInfo_v2 = __library
                 .get(b"cuStreamGetCaptureInfo_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12030",
                 feature = "cuda-12040",
@@ -23939,12 +25904,9 @@ mod loaded {
             ))]
             let cuStreamGetCaptureInfo_v3 = __library
                 .get(b"cuStreamGetCaptureInfo_v3\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuStreamGetCtx = __library
-                .get(b"cuStreamGetCtx\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuStreamGetCtx = __library.get(b"cuStreamGetCtx\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12050",
                 feature = "cuda-12060",
@@ -23952,19 +25914,10 @@ mod loaded {
                 feature = "cuda-12090",
                 feature = "cuda-13000"
             ))]
-            let cuStreamGetCtx_v2 = __library
-                .get(b"cuStreamGetCtx_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuStreamGetCtx_v2 = __library.get(b"cuStreamGetCtx_v2\0").ok().map(|sym| *sym);
             #[cfg(any(feature = "cuda-12080", feature = "cuda-12090", feature = "cuda-13000"))]
-            let cuStreamGetDevice = __library
-                .get(b"cuStreamGetDevice\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuStreamGetFlags = __library
-                .get(b"cuStreamGetFlags\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuStreamGetDevice = __library.get(b"cuStreamGetDevice\0").ok().map(|sym| *sym);
+            let cuStreamGetFlags = __library.get(b"cuStreamGetFlags\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12040",
                 feature = "cuda-12050",
@@ -23973,10 +25926,7 @@ mod loaded {
                 feature = "cuda-12090",
                 feature = "cuda-13000"
             ))]
-            let cuStreamGetGreenCtx = __library
-                .get(b"cuStreamGetGreenCtx\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuStreamGetGreenCtx = __library.get(b"cuStreamGetGreenCtx\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12000",
                 feature = "cuda-12010",
@@ -23989,30 +25939,15 @@ mod loaded {
                 feature = "cuda-12090",
                 feature = "cuda-13000"
             ))]
-            let cuStreamGetId = __library
-                .get(b"cuStreamGetId\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuStreamGetPriority = __library
-                .get(b"cuStreamGetPriority\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuStreamIsCapturing = __library
-                .get(b"cuStreamIsCapturing\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuStreamQuery = __library
-                .get(b"cuStreamQuery\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuStreamGetId = __library.get(b"cuStreamGetId\0").ok().map(|sym| *sym);
+            let cuStreamGetPriority = __library.get(b"cuStreamGetPriority\0").ok().map(|sym| *sym);
+            let cuStreamIsCapturing = __library.get(b"cuStreamIsCapturing\0").ok().map(|sym| *sym);
+            let cuStreamQuery = __library.get(b"cuStreamQuery\0").ok().map(|sym| *sym);
             let cuStreamSetAttribute = __library
                 .get(b"cuStreamSetAttribute\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuStreamSynchronize = __library
-                .get(b"cuStreamSynchronize\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuStreamSynchronize = __library.get(b"cuStreamSynchronize\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11040",
                 feature = "cuda-11050",
@@ -24031,8 +25966,8 @@ mod loaded {
             ))]
             let cuStreamUpdateCaptureDependencies = __library
                 .get(b"cuStreamUpdateCaptureDependencies\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12030",
                 feature = "cuda-12040",
@@ -24044,12 +25979,9 @@ mod loaded {
             ))]
             let cuStreamUpdateCaptureDependencies_v2 = __library
                 .get(b"cuStreamUpdateCaptureDependencies_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuStreamWaitEvent = __library
-                .get(b"cuStreamWaitEvent\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuStreamWaitEvent = __library.get(b"cuStreamWaitEvent\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11040",
                 feature = "cuda-11050",
@@ -24057,10 +25989,7 @@ mod loaded {
                 feature = "cuda-11070",
                 feature = "cuda-11080"
             ))]
-            let cuStreamWaitValue32 = __library
-                .get(b"cuStreamWaitValue32\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuStreamWaitValue32 = __library.get(b"cuStreamWaitValue32\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11070",
                 feature = "cuda-11080",
@@ -24077,8 +26006,8 @@ mod loaded {
             ))]
             let cuStreamWaitValue32_v2 = __library
                 .get(b"cuStreamWaitValue32_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11040",
                 feature = "cuda-11050",
@@ -24086,10 +26015,7 @@ mod loaded {
                 feature = "cuda-11070",
                 feature = "cuda-11080"
             ))]
-            let cuStreamWaitValue64 = __library
-                .get(b"cuStreamWaitValue64\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuStreamWaitValue64 = __library.get(b"cuStreamWaitValue64\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11070",
                 feature = "cuda-11080",
@@ -24106,8 +26032,8 @@ mod loaded {
             ))]
             let cuStreamWaitValue64_v2 = __library
                 .get(b"cuStreamWaitValue64_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11040",
                 feature = "cuda-11050",
@@ -24117,8 +26043,8 @@ mod loaded {
             ))]
             let cuStreamWriteValue32 = __library
                 .get(b"cuStreamWriteValue32\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11070",
                 feature = "cuda-11080",
@@ -24135,8 +26061,8 @@ mod loaded {
             ))]
             let cuStreamWriteValue32_v2 = __library
                 .get(b"cuStreamWriteValue32_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11040",
                 feature = "cuda-11050",
@@ -24146,8 +26072,8 @@ mod loaded {
             ))]
             let cuStreamWriteValue64 = __library
                 .get(b"cuStreamWriteValue64\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11070",
                 feature = "cuda-11080",
@@ -24164,28 +26090,16 @@ mod loaded {
             ))]
             let cuStreamWriteValue64_v2 = __library
                 .get(b"cuStreamWriteValue64_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuSurfObjectCreate = __library
-                .get(b"cuSurfObjectCreate\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuSurfObjectDestroy = __library
-                .get(b"cuSurfObjectDestroy\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuSurfObjectCreate = __library.get(b"cuSurfObjectCreate\0").ok().map(|sym| *sym);
+            let cuSurfObjectDestroy = __library.get(b"cuSurfObjectDestroy\0").ok().map(|sym| *sym);
             let cuSurfObjectGetResourceDesc = __library
                 .get(b"cuSurfObjectGetResourceDesc\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuSurfRefGetArray = __library
-                .get(b"cuSurfRefGetArray\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuSurfRefSetArray = __library
-                .get(b"cuSurfRefSetArray\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuSurfRefGetArray = __library.get(b"cuSurfRefGetArray\0").ok().map(|sym| *sym);
+            let cuSurfRefSetArray = __library.get(b"cuSurfRefSetArray\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12000",
                 feature = "cuda-12010",
@@ -24200,13 +26114,13 @@ mod loaded {
             ))]
             let cuTensorMapEncodeIm2col = __library
                 .get(b"cuTensorMapEncodeIm2col\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(feature = "cuda-12080", feature = "cuda-12090", feature = "cuda-13000"))]
             let cuTensorMapEncodeIm2colWide = __library
                 .get(b"cuTensorMapEncodeIm2colWide\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12000",
                 feature = "cuda-12010",
@@ -24221,8 +26135,8 @@ mod loaded {
             ))]
             let cuTensorMapEncodeTiled = __library
                 .get(b"cuTensorMapEncodeTiled\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12000",
                 feature = "cuda-12010",
@@ -24237,156 +26151,117 @@ mod loaded {
             ))]
             let cuTensorMapReplaceAddress = __library
                 .get(b"cuTensorMapReplaceAddress\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuTexObjectCreate = __library
-                .get(b"cuTexObjectCreate\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuTexObjectDestroy = __library
-                .get(b"cuTexObjectDestroy\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuTexObjectCreate = __library.get(b"cuTexObjectCreate\0").ok().map(|sym| *sym);
+            let cuTexObjectDestroy = __library.get(b"cuTexObjectDestroy\0").ok().map(|sym| *sym);
             let cuTexObjectGetResourceDesc = __library
                 .get(b"cuTexObjectGetResourceDesc\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuTexObjectGetResourceViewDesc = __library
                 .get(b"cuTexObjectGetResourceViewDesc\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuTexObjectGetTextureDesc = __library
                 .get(b"cuTexObjectGetTextureDesc\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuTexRefCreate = __library
-                .get(b"cuTexRefCreate\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuTexRefDestroy = __library
-                .get(b"cuTexRefDestroy\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuTexRefCreate = __library.get(b"cuTexRefCreate\0").ok().map(|sym| *sym);
+            let cuTexRefDestroy = __library.get(b"cuTexRefDestroy\0").ok().map(|sym| *sym);
             let cuTexRefGetAddressMode = __library
                 .get(b"cuTexRefGetAddressMode\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuTexRefGetAddress_v2 = __library
                 .get(b"cuTexRefGetAddress_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuTexRefGetArray = __library
-                .get(b"cuTexRefGetArray\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuTexRefGetArray = __library.get(b"cuTexRefGetArray\0").ok().map(|sym| *sym);
             let cuTexRefGetBorderColor = __library
                 .get(b"cuTexRefGetBorderColor\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuTexRefGetFilterMode = __library
                 .get(b"cuTexRefGetFilterMode\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuTexRefGetFlags = __library
-                .get(b"cuTexRefGetFlags\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuTexRefGetFormat = __library
-                .get(b"cuTexRefGetFormat\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuTexRefGetFlags = __library.get(b"cuTexRefGetFlags\0").ok().map(|sym| *sym);
+            let cuTexRefGetFormat = __library.get(b"cuTexRefGetFormat\0").ok().map(|sym| *sym);
             let cuTexRefGetMaxAnisotropy = __library
                 .get(b"cuTexRefGetMaxAnisotropy\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuTexRefGetMipmapFilterMode = __library
                 .get(b"cuTexRefGetMipmapFilterMode\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuTexRefGetMipmapLevelBias = __library
                 .get(b"cuTexRefGetMipmapLevelBias\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuTexRefGetMipmapLevelClamp = __library
                 .get(b"cuTexRefGetMipmapLevelClamp\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuTexRefGetMipmappedArray = __library
                 .get(b"cuTexRefGetMipmappedArray\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuTexRefSetAddress2D_v3 = __library
                 .get(b"cuTexRefSetAddress2D_v3\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuTexRefSetAddressMode = __library
                 .get(b"cuTexRefSetAddressMode\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuTexRefSetAddress_v2 = __library
                 .get(b"cuTexRefSetAddress_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuTexRefSetArray = __library
-                .get(b"cuTexRefSetArray\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuTexRefSetArray = __library.get(b"cuTexRefSetArray\0").ok().map(|sym| *sym);
             let cuTexRefSetBorderColor = __library
                 .get(b"cuTexRefSetBorderColor\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuTexRefSetFilterMode = __library
                 .get(b"cuTexRefSetFilterMode\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuTexRefSetFlags = __library
-                .get(b"cuTexRefSetFlags\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuTexRefSetFormat = __library
-                .get(b"cuTexRefSetFormat\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuTexRefSetFlags = __library.get(b"cuTexRefSetFlags\0").ok().map(|sym| *sym);
+            let cuTexRefSetFormat = __library.get(b"cuTexRefSetFormat\0").ok().map(|sym| *sym);
             let cuTexRefSetMaxAnisotropy = __library
                 .get(b"cuTexRefSetMaxAnisotropy\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuTexRefSetMipmapFilterMode = __library
                 .get(b"cuTexRefSetMipmapFilterMode\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuTexRefSetMipmapLevelBias = __library
                 .get(b"cuTexRefSetMipmapLevelBias\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuTexRefSetMipmapLevelClamp = __library
                 .get(b"cuTexRefSetMipmapLevelClamp\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuTexRefSetMipmappedArray = __library
                 .get(b"cuTexRefSetMipmappedArray\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuThreadExchangeStreamCaptureMode = __library
                 .get(b"cuThreadExchangeStreamCaptureMode\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuUserObjectCreate = __library
-                .get(b"cuUserObjectCreate\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuUserObjectRelease = __library
-                .get(b"cuUserObjectRelease\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuUserObjectRetain = __library
-                .get(b"cuUserObjectRetain\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuUserObjectCreate = __library.get(b"cuUserObjectCreate\0").ok().map(|sym| *sym);
+            let cuUserObjectRelease = __library.get(b"cuUserObjectRelease\0").ok().map(|sym| *sym);
+            let cuUserObjectRetain = __library.get(b"cuUserObjectRetain\0").ok().map(|sym| *sym);
             let cuWaitExternalSemaphoresAsync = __library
                 .get(b"cuWaitExternalSemaphoresAsync\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             Ok(Self {
                 __library,
                 cuArray3DCreate_v2,
