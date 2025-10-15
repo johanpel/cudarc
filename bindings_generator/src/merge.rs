@@ -3,11 +3,10 @@ use proc_macro2::TokenStream;
 use quote::{ToTokens, quote};
 use std::collections::BTreeMap;
 use std::fs;
-use std::path::Path;
 use syn::parse::Parser;
 use syn::{
     Expr, Field, FnArg, ForeignItemFn, Item, ItemConst, ItemEnum, ItemFn, ItemImpl, ItemStruct,
-    ItemType, ItemUnion, ItemUse, Pat, Stmt,
+    ItemType, ItemUnion, ItemUse, Pat, Path, Stmt,
 };
 
 use crate::ModuleConfig;
@@ -35,6 +34,7 @@ struct LibItem {
     member: Field,
     init_member: Stmt,
     init_decl: Expr,
+    not_supported: Path,
 }
 struct LibItems {
     adapter_functions: Vec<ItemFn>,
@@ -43,7 +43,12 @@ struct LibItems {
     init_fields: Vec<Expr>,
 }
 impl LibItem {
-    fn new(func: &ForeignItemFn, versions: &[&Version], n_versions: usize) -> Self {
+    fn new(
+        func: &ForeignItemFn,
+        not_supported: Path,
+        versions: &[&Version],
+        n_versions: usize,
+    ) -> Self {
         let parser = Field::parse_named;
         let features = versions
             .iter()
@@ -65,6 +70,7 @@ impl LibItem {
         let fn_name = &sig.ident;
         let inputs = &func.sig.inputs;
         let output = &func.sig.output;
+
         // Extract only argument names (without types)
         let arg_names = inputs.iter().filter_map(|arg| {
             if let FnArg::Typed(pat_type) = arg {
@@ -79,7 +85,11 @@ impl LibItem {
         let c = quote! {
             #feature_tok
             pub unsafe fn #fn_name(#inputs) #output{
-                (culib().#fn_name)(#(#args),*)
+                if let Some(func) = (culib().#fn_name) {
+                    func(#(#args),*)
+                } else {
+                    #not_supported
+                }
             }
         };
         let adapter_function: ItemFn = syn::parse2(c.clone()).unwrap();
@@ -88,7 +98,8 @@ impl LibItem {
             #feature_tok
             let #fn_name = __library
                 .get(#symbol_cstr)
-                .map(|sym| *sym).expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
         })
         .unwrap();
         let init_decl = syn::parse2(quote! {
@@ -98,11 +109,12 @@ impl LibItem {
         .unwrap();
         let c = quote! {
             #feature_tok
-            pub #fn_name: unsafe extern "C" fn(#inputs) #output
+            pub #fn_name: Option<unsafe extern "C" fn(#inputs) #output>
         };
         let member = parser.parse2(c).unwrap();
         Self {
             adapter_function,
+            not_supported,
             init_member,
             init_decl,
             member,
@@ -152,7 +164,6 @@ impl<T> FunctionInfo<T> {
     }
 }
 
-#[derive(Default)]
 struct BindingMerger {
     functions: BTreeMap<String, FunctionInfo<ForeignItemFn>>,
     enums: BTreeMap<String, FunctionInfo<ItemEnum>>,
@@ -164,19 +175,28 @@ struct BindingMerger {
     consts: BTreeMap<String, FunctionInfo<ItemConst>>,
 
     lib_names: Vec<String>,
+    not_supported: String,
     n_versions: usize,
 }
 
 impl BindingMerger {
-    pub fn new(lib_names: Vec<String>) -> Self {
+    pub fn new(lib_names: Vec<String>, not_supported: String) -> Self {
         Self {
+            functions: Default::default(),
+            enums: Default::default(),
+            impls: Default::default(),
+            structs: Default::default(),
+            types: Default::default(),
+            uses: Default::default(),
+            unions: Default::default(),
+            consts: Default::default(),
             lib_names,
+            not_supported,
             n_versions: 0,
-            ..Default::default()
         }
     }
 
-    pub fn process_file(&mut self, path: &Path, version: &Version) -> Result<()> {
+    pub fn process_file(&mut self, path: &std::path::Path, version: &Version) -> Result<()> {
         self.n_versions += 1;
         let content = std::fs::read_to_string(path)?;
         let file = syn::parse_file(&content)?;
@@ -386,6 +406,7 @@ impl BindingMerger {
         info: &BTreeMap<String, FunctionInfo<ForeignItemFn>>,
     ) -> Result<TokenStream> {
         let mut elements = vec![];
+        let not_supported: Path = syn::parse_str(self.not_supported.as_str())?;
         for (_name, info) in info {
             // Function with version-specific declarations
             let mut prev_decl: Option<&ForeignItemFn> = None;
@@ -393,7 +414,12 @@ impl BindingMerger {
             for (version, decl) in &info.declarations {
                 if let Some(prev_decl) = prev_decl {
                     if prev_decl != decl {
-                        let element = LibItem::new(prev_decl, &versions, self.n_versions);
+                        let element = LibItem::new(
+                            prev_decl,
+                            not_supported.clone(),
+                            &versions,
+                            self.n_versions,
+                        );
                         elements.push(element);
                         versions.clear();
                     }
@@ -403,7 +429,8 @@ impl BindingMerger {
             }
             if !versions.is_empty() {
                 if let Some(decl) = prev_decl {
-                    let element = LibItem::new(decl, &versions, self.n_versions);
+                    let element =
+                        LibItem::new(decl, not_supported.clone(), &versions, self.n_versions);
                     elements.push(element);
                 }
             }
@@ -459,13 +486,14 @@ fn version_to_feature(version: &Version) -> String {
     )
 }
 
-pub fn merge<P: AsRef<Path>>(
+pub fn merge<P: AsRef<std::path::Path>>(
     binding_dir: P,
     output_filename: P,
     lib_names: Vec<String>,
+    not_supported: impl Into<String>,
 ) -> Result<()> {
     let binding_dir = binding_dir.as_ref();
-    let mut merger = BindingMerger::new(lib_names);
+    let mut merger = BindingMerger::new(lib_names, not_supported.into());
 
     let entries = fs::read_dir(binding_dir)?;
     for entry in entries {
@@ -518,6 +546,7 @@ pub fn merge_bindings(modules: &[ModuleConfig]) -> Result<()> {
             format!("out/{}/sys/linked", config.cudarc_name),
             format!("../src/{}/sys/mod.rs", config.cudarc_name),
             config.libs.clone(),
+            config.not_supported,
         )?;
     }
     Ok(())

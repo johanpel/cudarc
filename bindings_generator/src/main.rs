@@ -316,6 +316,7 @@ fn create_modules() -> Vec<ModuleConfig> {
                 "use crate::runtime::sys::*;".into(),
             ],
             use_cpp: true,
+            not_supported: "CUptiResult::CUPTI_ERROR_NOT_SUPPORTED",
         },
     ]
 }
@@ -343,6 +344,11 @@ struct ModuleConfig {
     /// Parse headers with Clang in C++ mode. This is useful to work around some likely erroneous
     /// C++ header includes in public CUDA headers that are meant to be pure C headers.
     use_cpp: bool,
+    /// The path string of the enum variant returned when dynamic loading didn't
+    /// succeed for a specific function. This is useful when dynamically loading
+    /// an older driver. Typically something like:
+    /// <ResultEnum>::<RESULT_ENUM>_NOT_SUPPORTED.
+    not_supported: &'static str,
 }
 
 impl ModuleConfig {

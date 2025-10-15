@@ -49840,29 +49840,53 @@ mod loaded {
         ctx: CUcontext,
         config: *mut CUpti_ActivityPCSamplingConfig,
     ) -> CUptiResult {
-        (culib().cuptiActivityConfigurePCSampling)(ctx, config)
+        if let Some(func) = (culib().cuptiActivityConfigurePCSampling) {
+            func(ctx, config)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiActivityConfigureUnifiedMemoryCounter(
         config: *mut CUpti_ActivityUnifiedMemoryCounterConfig,
         count: u32,
     ) -> CUptiResult {
-        (culib().cuptiActivityConfigureUnifiedMemoryCounter)(config, count)
+        if let Some(func) = (culib().cuptiActivityConfigureUnifiedMemoryCounter) {
+            func(config, count)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiActivityDisable(kind: CUpti_ActivityKind) -> CUptiResult {
-        (culib().cuptiActivityDisable)(kind)
+        if let Some(func) = (culib().cuptiActivityDisable) {
+            func(kind)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiActivityDisableContext(
         context: CUcontext,
         kind: CUpti_ActivityKind,
     ) -> CUptiResult {
-        (culib().cuptiActivityDisableContext)(context, kind)
+        if let Some(func) = (culib().cuptiActivityDisableContext) {
+            func(context, kind)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiActivityEnable(kind: CUpti_ActivityKind) -> CUptiResult {
-        (culib().cuptiActivityEnable)(kind)
+        if let Some(func) = (culib().cuptiActivityEnable) {
+            func(kind)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     #[cfg(any(feature = "cuda-12080", feature = "cuda-12090", feature = "cuda-13000"))]
     pub unsafe fn cuptiActivityEnableAllSyncRecords(enable: u8) -> CUptiResult {
-        (culib().cuptiActivityEnableAllSyncRecords)(enable)
+        if let Some(func) = (culib().cuptiActivityEnableAllSyncRecords) {
+            func(enable)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     #[cfg(any(
         feature = "cuda-12060",
@@ -49871,7 +49895,11 @@ mod loaded {
         feature = "cuda-13000"
     ))]
     pub unsafe fn cuptiActivityEnableAllocationSource(enable: u8) -> CUptiResult {
-        (culib().cuptiActivityEnableAllocationSource)(enable)
+        if let Some(func) = (culib().cuptiActivityEnableAllocationSource) {
+            func(enable)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     #[cfg(any(
         feature = "cuda-11070",
@@ -49888,17 +49916,29 @@ mod loaded {
         feature = "cuda-13000"
     ))]
     pub unsafe fn cuptiActivityEnableAndDump(kind: CUpti_ActivityKind) -> CUptiResult {
-        (culib().cuptiActivityEnableAndDump)(kind)
+        if let Some(func) = (culib().cuptiActivityEnableAndDump) {
+            func(kind)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiActivityEnableContext(
         context: CUcontext,
         kind: CUpti_ActivityKind,
     ) -> CUptiResult {
-        (culib().cuptiActivityEnableContext)(context, kind)
+        if let Some(func) = (culib().cuptiActivityEnableContext) {
+            func(context, kind)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     #[cfg(any(feature = "cuda-13000"))]
     pub unsafe fn cuptiActivityEnableCudaEventDeviceTimestamps(enable: u8) -> CUptiResult {
-        (culib().cuptiActivityEnableCudaEventDeviceTimestamps)(enable)
+        if let Some(func) = (culib().cuptiActivityEnableCudaEventDeviceTimestamps) {
+            func(enable)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     #[cfg(any(
         feature = "cuda-12030",
@@ -49910,7 +49950,11 @@ mod loaded {
         feature = "cuda-13000"
     ))]
     pub unsafe fn cuptiActivityEnableDeviceGraph(enable: u8) -> CUptiResult {
-        (culib().cuptiActivityEnableDeviceGraph)(enable)
+        if let Some(func) = (culib().cuptiActivityEnableDeviceGraph) {
+            func(enable)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     #[cfg(any(
         feature = "cuda-12050",
@@ -49920,17 +49964,33 @@ mod loaded {
         feature = "cuda-13000"
     ))]
     pub unsafe fn cuptiActivityEnableDriverApi(cbid: CUpti_CallbackId, enable: u8) -> CUptiResult {
-        (culib().cuptiActivityEnableDriverApi)(cbid, enable)
+        if let Some(func) = (culib().cuptiActivityEnableDriverApi) {
+            func(cbid, enable)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     #[cfg(any(feature = "cuda-12080", feature = "cuda-12090", feature = "cuda-13000"))]
     pub unsafe fn cuptiActivityEnableHWTrace(enable: u8) -> CUptiResult {
-        (culib().cuptiActivityEnableHWTrace)(enable)
+        if let Some(func) = (culib().cuptiActivityEnableHWTrace) {
+            func(enable)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiActivityEnableLatencyTimestamps(enable: u8) -> CUptiResult {
-        (culib().cuptiActivityEnableLatencyTimestamps)(enable)
+        if let Some(func) = (culib().cuptiActivityEnableLatencyTimestamps) {
+            func(enable)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiActivityEnableLaunchAttributes(enable: u8) -> CUptiResult {
-        (culib().cuptiActivityEnableLaunchAttributes)(enable)
+        if let Some(func) = (culib().cuptiActivityEnableLaunchAttributes) {
+            func(enable)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     #[cfg(any(
         feature = "cuda-12050",
@@ -49940,55 +50000,95 @@ mod loaded {
         feature = "cuda-13000"
     ))]
     pub unsafe fn cuptiActivityEnableRuntimeApi(cbid: CUpti_CallbackId, enable: u8) -> CUptiResult {
-        (culib().cuptiActivityEnableRuntimeApi)(cbid, enable)
+        if let Some(func) = (culib().cuptiActivityEnableRuntimeApi) {
+            func(cbid, enable)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiActivityFlush(context: CUcontext, streamId: u32, flag: u32) -> CUptiResult {
-        (culib().cuptiActivityFlush)(context, streamId, flag)
+        if let Some(func) = (culib().cuptiActivityFlush) {
+            func(context, streamId, flag)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiActivityFlushAll(flag: u32) -> CUptiResult {
-        (culib().cuptiActivityFlushAll)(flag)
+        if let Some(func) = (culib().cuptiActivityFlushAll) {
+            func(flag)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiActivityFlushPeriod(time: u32) -> CUptiResult {
-        (culib().cuptiActivityFlushPeriod)(time)
+        if let Some(func) = (culib().cuptiActivityFlushPeriod) {
+            func(time)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiActivityGetAttribute(
         attr: CUpti_ActivityAttribute,
         valueSize: *mut usize,
         value: *mut ::core::ffi::c_void,
     ) -> CUptiResult {
-        (culib().cuptiActivityGetAttribute)(attr, valueSize, value)
+        if let Some(func) = (culib().cuptiActivityGetAttribute) {
+            func(attr, valueSize, value)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiActivityGetNextRecord(
         buffer: *mut u8,
         validBufferSizeBytes: usize,
         record: *mut *mut CUpti_Activity,
     ) -> CUptiResult {
-        (culib().cuptiActivityGetNextRecord)(buffer, validBufferSizeBytes, record)
+        if let Some(func) = (culib().cuptiActivityGetNextRecord) {
+            func(buffer, validBufferSizeBytes, record)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiActivityGetNumDroppedRecords(
         context: CUcontext,
         streamId: u32,
         dropped: *mut usize,
     ) -> CUptiResult {
-        (culib().cuptiActivityGetNumDroppedRecords)(context, streamId, dropped)
+        if let Some(func) = (culib().cuptiActivityGetNumDroppedRecords) {
+            func(context, streamId, dropped)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiActivityPopExternalCorrelationId(
         kind: CUpti_ExternalCorrelationKind,
         lastId: *mut u64,
     ) -> CUptiResult {
-        (culib().cuptiActivityPopExternalCorrelationId)(kind, lastId)
+        if let Some(func) = (culib().cuptiActivityPopExternalCorrelationId) {
+            func(kind, lastId)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiActivityPushExternalCorrelationId(
         kind: CUpti_ExternalCorrelationKind,
         id: u64,
     ) -> CUptiResult {
-        (culib().cuptiActivityPushExternalCorrelationId)(kind, id)
+        if let Some(func) = (culib().cuptiActivityPushExternalCorrelationId) {
+            func(kind, id)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiActivityRegisterCallbacks(
         funcBufferRequested: CUpti_BuffersCallbackRequestFunc,
         funcBufferCompleted: CUpti_BuffersCallbackCompleteFunc,
     ) -> CUptiResult {
-        (culib().cuptiActivityRegisterCallbacks)(funcBufferRequested, funcBufferCompleted)
+        if let Some(func) = (culib().cuptiActivityRegisterCallbacks) {
+            func(funcBufferRequested, funcBufferCompleted)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     #[cfg(any(
         feature = "cuda-11060",
@@ -50008,35 +50108,55 @@ mod loaded {
     pub unsafe fn cuptiActivityRegisterTimestampCallback(
         funcTimestamp: CUpti_TimestampCallbackFunc,
     ) -> CUptiResult {
-        (culib().cuptiActivityRegisterTimestampCallback)(funcTimestamp)
+        if let Some(func) = (culib().cuptiActivityRegisterTimestampCallback) {
+            func(funcTimestamp)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiActivitySetAttribute(
         attr: CUpti_ActivityAttribute,
         valueSize: *mut usize,
         value: *mut ::core::ffi::c_void,
     ) -> CUptiResult {
-        (culib().cuptiActivitySetAttribute)(attr, valueSize, value)
+        if let Some(func) = (culib().cuptiActivitySetAttribute) {
+            func(attr, valueSize, value)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiComputeCapabilitySupported(
         major: ::core::ffi::c_int,
         minor: ::core::ffi::c_int,
         support: *mut ::core::ffi::c_int,
     ) -> CUptiResult {
-        (culib().cuptiComputeCapabilitySupported)(major, minor, support)
+        if let Some(func) = (culib().cuptiComputeCapabilitySupported) {
+            func(major, minor, support)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiDeviceEnumEventDomains(
         device: CUdevice,
         arraySizeBytes: *mut usize,
         domainArray: *mut CUpti_EventDomainID,
     ) -> CUptiResult {
-        (culib().cuptiDeviceEnumEventDomains)(device, arraySizeBytes, domainArray)
+        if let Some(func) = (culib().cuptiDeviceEnumEventDomains) {
+            func(device, arraySizeBytes, domainArray)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiDeviceEnumMetrics(
         device: CUdevice,
         arraySizeBytes: *mut usize,
         metricArray: *mut CUpti_MetricID,
     ) -> CUptiResult {
-        (culib().cuptiDeviceEnumMetrics)(device, arraySizeBytes, metricArray)
+        if let Some(func) = (culib().cuptiDeviceEnumMetrics) {
+            func(device, arraySizeBytes, metricArray)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiDeviceGetAttribute(
         device: CUdevice,
@@ -50044,12 +50164,20 @@ mod loaded {
         valueSize: *mut usize,
         value: *mut ::core::ffi::c_void,
     ) -> CUptiResult {
-        (culib().cuptiDeviceGetAttribute)(device, attrib, valueSize, value)
+        if let Some(func) = (culib().cuptiDeviceGetAttribute) {
+            func(device, attrib, valueSize, value)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiDeviceGetChipName(
         pParams: *mut CUpti_Device_GetChipName_Params,
     ) -> CUptiResult {
-        (culib().cuptiDeviceGetChipName)(pParams)
+        if let Some(func) = (culib().cuptiDeviceGetChipName) {
+            func(pParams)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiDeviceGetEventDomainAttribute(
         device: CUdevice,
@@ -50058,16 +50186,28 @@ mod loaded {
         valueSize: *mut usize,
         value: *mut ::core::ffi::c_void,
     ) -> CUptiResult {
-        (culib().cuptiDeviceGetEventDomainAttribute)(device, eventDomain, attrib, valueSize, value)
+        if let Some(func) = (culib().cuptiDeviceGetEventDomainAttribute) {
+            func(device, eventDomain, attrib, valueSize, value)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiDeviceGetNumEventDomains(
         device: CUdevice,
         numDomains: *mut u32,
     ) -> CUptiResult {
-        (culib().cuptiDeviceGetNumEventDomains)(device, numDomains)
+        if let Some(func) = (culib().cuptiDeviceGetNumEventDomains) {
+            func(device, numDomains)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiDeviceGetNumMetrics(device: CUdevice, numMetrics: *mut u32) -> CUptiResult {
-        (culib().cuptiDeviceGetNumMetrics)(device, numMetrics)
+        if let Some(func) = (culib().cuptiDeviceGetNumMetrics) {
+            func(device, numMetrics)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     #[cfg(any(
         feature = "cuda-11040",
@@ -50079,28 +50219,48 @@ mod loaded {
         feature = "cuda-12010"
     ))]
     pub unsafe fn cuptiDeviceGetTimestamp(context: CUcontext, timestamp: *mut u64) -> CUptiResult {
-        (culib().cuptiDeviceGetTimestamp)(context, timestamp)
+        if let Some(func) = (culib().cuptiDeviceGetTimestamp) {
+            func(context, timestamp)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiDeviceSupported(
         dev: CUdevice,
         support: *mut ::core::ffi::c_int,
     ) -> CUptiResult {
-        (culib().cuptiDeviceSupported)(dev, support)
+        if let Some(func) = (culib().cuptiDeviceSupported) {
+            func(dev, support)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiDeviceVirtualizationMode(
         dev: CUdevice,
         mode: *mut CUpti_DeviceVirtualizationMode,
     ) -> CUptiResult {
-        (culib().cuptiDeviceVirtualizationMode)(dev, mode)
+        if let Some(func) = (culib().cuptiDeviceVirtualizationMode) {
+            func(dev, mode)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiDisableKernelReplayMode(context: CUcontext) -> CUptiResult {
-        (culib().cuptiDisableKernelReplayMode)(context)
+        if let Some(func) = (culib().cuptiDisableKernelReplayMode) {
+            func(context)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiEnableAllDomains(
         enable: u32,
         subscriber: CUpti_SubscriberHandle,
     ) -> CUptiResult {
-        (culib().cuptiEnableAllDomains)(enable, subscriber)
+        if let Some(func) = (culib().cuptiEnableAllDomains) {
+            func(enable, subscriber)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiEnableCallback(
         enable: u32,
@@ -50108,36 +50268,60 @@ mod loaded {
         domain: CUpti_CallbackDomain,
         cbid: CUpti_CallbackId,
     ) -> CUptiResult {
-        (culib().cuptiEnableCallback)(enable, subscriber, domain, cbid)
+        if let Some(func) = (culib().cuptiEnableCallback) {
+            func(enable, subscriber, domain, cbid)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiEnableDomain(
         enable: u32,
         subscriber: CUpti_SubscriberHandle,
         domain: CUpti_CallbackDomain,
     ) -> CUptiResult {
-        (culib().cuptiEnableDomain)(enable, subscriber, domain)
+        if let Some(func) = (culib().cuptiEnableDomain) {
+            func(enable, subscriber, domain)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiEnableKernelReplayMode(context: CUcontext) -> CUptiResult {
-        (culib().cuptiEnableKernelReplayMode)(context)
+        if let Some(func) = (culib().cuptiEnableKernelReplayMode) {
+            func(context)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiEnumEventDomains(
         arraySizeBytes: *mut usize,
         domainArray: *mut CUpti_EventDomainID,
     ) -> CUptiResult {
-        (culib().cuptiEnumEventDomains)(arraySizeBytes, domainArray)
+        if let Some(func) = (culib().cuptiEnumEventDomains) {
+            func(arraySizeBytes, domainArray)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiEnumMetrics(
         arraySizeBytes: *mut usize,
         metricArray: *mut CUpti_MetricID,
     ) -> CUptiResult {
-        (culib().cuptiEnumMetrics)(arraySizeBytes, metricArray)
+        if let Some(func) = (culib().cuptiEnumMetrics) {
+            func(arraySizeBytes, metricArray)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiEventDomainEnumEvents(
         eventDomain: CUpti_EventDomainID,
         arraySizeBytes: *mut usize,
         eventArray: *mut CUpti_EventID,
     ) -> CUptiResult {
-        (culib().cuptiEventDomainEnumEvents)(eventDomain, arraySizeBytes, eventArray)
+        if let Some(func) = (culib().cuptiEventDomainEnumEvents) {
+            func(eventDomain, arraySizeBytes, eventArray)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiEventDomainGetAttribute(
         eventDomain: CUpti_EventDomainID,
@@ -50145,13 +50329,21 @@ mod loaded {
         valueSize: *mut usize,
         value: *mut ::core::ffi::c_void,
     ) -> CUptiResult {
-        (culib().cuptiEventDomainGetAttribute)(eventDomain, attrib, valueSize, value)
+        if let Some(func) = (culib().cuptiEventDomainGetAttribute) {
+            func(eventDomain, attrib, valueSize, value)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiEventDomainGetNumEvents(
         eventDomain: CUpti_EventDomainID,
         numEvents: *mut u32,
     ) -> CUptiResult {
-        (culib().cuptiEventDomainGetNumEvents)(eventDomain, numEvents)
+        if let Some(func) = (culib().cuptiEventDomainGetNumEvents) {
+            func(eventDomain, numEvents)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiEventGetAttribute(
         event: CUpti_EventID,
@@ -50159,36 +50351,64 @@ mod loaded {
         valueSize: *mut usize,
         value: *mut ::core::ffi::c_void,
     ) -> CUptiResult {
-        (culib().cuptiEventGetAttribute)(event, attrib, valueSize, value)
+        if let Some(func) = (culib().cuptiEventGetAttribute) {
+            func(event, attrib, valueSize, value)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiEventGetIdFromName(
         device: CUdevice,
         eventName: *const ::core::ffi::c_char,
         event: *mut CUpti_EventID,
     ) -> CUptiResult {
-        (culib().cuptiEventGetIdFromName)(device, eventName, event)
+        if let Some(func) = (culib().cuptiEventGetIdFromName) {
+            func(device, eventName, event)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiEventGroupAddEvent(
         eventGroup: CUpti_EventGroup,
         event: CUpti_EventID,
     ) -> CUptiResult {
-        (culib().cuptiEventGroupAddEvent)(eventGroup, event)
+        if let Some(func) = (culib().cuptiEventGroupAddEvent) {
+            func(eventGroup, event)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiEventGroupCreate(
         context: CUcontext,
         eventGroup: *mut CUpti_EventGroup,
         flags: u32,
     ) -> CUptiResult {
-        (culib().cuptiEventGroupCreate)(context, eventGroup, flags)
+        if let Some(func) = (culib().cuptiEventGroupCreate) {
+            func(context, eventGroup, flags)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiEventGroupDestroy(eventGroup: CUpti_EventGroup) -> CUptiResult {
-        (culib().cuptiEventGroupDestroy)(eventGroup)
+        if let Some(func) = (culib().cuptiEventGroupDestroy) {
+            func(eventGroup)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiEventGroupDisable(eventGroup: CUpti_EventGroup) -> CUptiResult {
-        (culib().cuptiEventGroupDisable)(eventGroup)
+        if let Some(func) = (culib().cuptiEventGroupDisable) {
+            func(eventGroup)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiEventGroupEnable(eventGroup: CUpti_EventGroup) -> CUptiResult {
-        (culib().cuptiEventGroupEnable)(eventGroup)
+        if let Some(func) = (culib().cuptiEventGroupEnable) {
+            func(eventGroup)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiEventGroupGetAttribute(
         eventGroup: CUpti_EventGroup,
@@ -50196,7 +50416,11 @@ mod loaded {
         valueSize: *mut usize,
         value: *mut ::core::ffi::c_void,
     ) -> CUptiResult {
-        (culib().cuptiEventGroupGetAttribute)(eventGroup, attrib, valueSize, value)
+        if let Some(func) = (culib().cuptiEventGroupGetAttribute) {
+            func(eventGroup, attrib, valueSize, value)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiEventGroupReadAllEvents(
         eventGroup: CUpti_EventGroup,
@@ -50207,15 +50431,19 @@ mod loaded {
         eventIdArray: *mut CUpti_EventID,
         numEventIdsRead: *mut usize,
     ) -> CUptiResult {
-        (culib().cuptiEventGroupReadAllEvents)(
-            eventGroup,
-            flags,
-            eventValueBufferSizeBytes,
-            eventValueBuffer,
-            eventIdArraySizeBytes,
-            eventIdArray,
-            numEventIdsRead,
-        )
+        if let Some(func) = (culib().cuptiEventGroupReadAllEvents) {
+            func(
+                eventGroup,
+                flags,
+                eventValueBufferSizeBytes,
+                eventValueBuffer,
+                eventIdArraySizeBytes,
+                eventIdArray,
+                numEventIdsRead,
+            )
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiEventGroupReadEvent(
         eventGroup: CUpti_EventGroup,
@@ -50224,25 +50452,41 @@ mod loaded {
         eventValueBufferSizeBytes: *mut usize,
         eventValueBuffer: *mut u64,
     ) -> CUptiResult {
-        (culib().cuptiEventGroupReadEvent)(
-            eventGroup,
-            flags,
-            event,
-            eventValueBufferSizeBytes,
-            eventValueBuffer,
-        )
+        if let Some(func) = (culib().cuptiEventGroupReadEvent) {
+            func(
+                eventGroup,
+                flags,
+                event,
+                eventValueBufferSizeBytes,
+                eventValueBuffer,
+            )
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiEventGroupRemoveAllEvents(eventGroup: CUpti_EventGroup) -> CUptiResult {
-        (culib().cuptiEventGroupRemoveAllEvents)(eventGroup)
+        if let Some(func) = (culib().cuptiEventGroupRemoveAllEvents) {
+            func(eventGroup)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiEventGroupRemoveEvent(
         eventGroup: CUpti_EventGroup,
         event: CUpti_EventID,
     ) -> CUptiResult {
-        (culib().cuptiEventGroupRemoveEvent)(eventGroup, event)
+        if let Some(func) = (culib().cuptiEventGroupRemoveEvent) {
+            func(eventGroup, event)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiEventGroupResetAllEvents(eventGroup: CUpti_EventGroup) -> CUptiResult {
-        (culib().cuptiEventGroupResetAllEvents)(eventGroup)
+        if let Some(func) = (culib().cuptiEventGroupResetAllEvents) {
+            func(eventGroup)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiEventGroupSetAttribute(
         eventGroup: CUpti_EventGroup,
@@ -50250,15 +50494,27 @@ mod loaded {
         valueSize: usize,
         value: *mut ::core::ffi::c_void,
     ) -> CUptiResult {
-        (culib().cuptiEventGroupSetAttribute)(eventGroup, attrib, valueSize, value)
+        if let Some(func) = (culib().cuptiEventGroupSetAttribute) {
+            func(eventGroup, attrib, valueSize, value)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiEventGroupSetDisable(
         eventGroupSet: *mut CUpti_EventGroupSet,
     ) -> CUptiResult {
-        (culib().cuptiEventGroupSetDisable)(eventGroupSet)
+        if let Some(func) = (culib().cuptiEventGroupSetDisable) {
+            func(eventGroupSet)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiEventGroupSetEnable(eventGroupSet: *mut CUpti_EventGroupSet) -> CUptiResult {
-        (culib().cuptiEventGroupSetEnable)(eventGroupSet)
+        if let Some(func) = (culib().cuptiEventGroupSetEnable) {
+            func(eventGroupSet)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiEventGroupSetsCreate(
         context: CUcontext,
@@ -50266,33 +50522,53 @@ mod loaded {
         eventIdArray: *mut CUpti_EventID,
         eventGroupPasses: *mut *mut CUpti_EventGroupSets,
     ) -> CUptiResult {
-        (culib().cuptiEventGroupSetsCreate)(
-            context,
-            eventIdArraySizeBytes,
-            eventIdArray,
-            eventGroupPasses,
-        )
+        if let Some(func) = (culib().cuptiEventGroupSetsCreate) {
+            func(
+                context,
+                eventIdArraySizeBytes,
+                eventIdArray,
+                eventGroupPasses,
+            )
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiEventGroupSetsDestroy(
         eventGroupSets: *mut CUpti_EventGroupSets,
     ) -> CUptiResult {
-        (culib().cuptiEventGroupSetsDestroy)(eventGroupSets)
+        if let Some(func) = (culib().cuptiEventGroupSetsDestroy) {
+            func(eventGroupSets)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiFinalize() -> CUptiResult {
-        (culib().cuptiFinalize)()
+        if let Some(func) = (culib().cuptiFinalize) {
+            func()
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiGetAutoBoostState(
         context: CUcontext,
         state: *mut CUpti_ActivityAutoBoostState,
     ) -> CUptiResult {
-        (culib().cuptiGetAutoBoostState)(context, state)
+        if let Some(func) = (culib().cuptiGetAutoBoostState) {
+            func(context, state)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiGetCallbackName(
         domain: CUpti_CallbackDomain,
         cbid: u32,
         name: *mut *const ::core::ffi::c_char,
     ) -> CUptiResult {
-        (culib().cuptiGetCallbackName)(domain, cbid, name)
+        if let Some(func) = (culib().cuptiGetCallbackName) {
+            func(domain, cbid, name)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiGetCallbackState(
         enable: *mut u32,
@@ -50300,13 +50576,25 @@ mod loaded {
         domain: CUpti_CallbackDomain,
         cbid: CUpti_CallbackId,
     ) -> CUptiResult {
-        (culib().cuptiGetCallbackState)(enable, subscriber, domain, cbid)
+        if let Some(func) = (culib().cuptiGetCallbackState) {
+            func(enable, subscriber, domain, cbid)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiGetContextId(context: CUcontext, contextId: *mut u32) -> CUptiResult {
-        (culib().cuptiGetContextId)(context, contextId)
+        if let Some(func) = (culib().cuptiGetContextId) {
+            func(context, contextId)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiGetDeviceId(context: CUcontext, deviceId: *mut u32) -> CUptiResult {
-        (culib().cuptiGetDeviceId)(context, deviceId)
+        if let Some(func) = (culib().cuptiGetDeviceId) {
+            func(context, deviceId)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     #[cfg(any(
         feature = "cuda-12020",
@@ -50322,7 +50610,11 @@ mod loaded {
         result: CUptiResult,
         str_: *mut *const ::core::ffi::c_char,
     ) -> CUptiResult {
-        (culib().cuptiGetErrorMessage)(result, str_)
+        if let Some(func) = (culib().cuptiGetErrorMessage) {
+            func(result, str_)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     #[cfg(any(
         feature = "cuda-12030",
@@ -50334,35 +50626,67 @@ mod loaded {
         feature = "cuda-13000"
     ))]
     pub unsafe fn cuptiGetGraphExecId(graphExec: CUgraphExec, pId: *mut u32) -> CUptiResult {
-        (culib().cuptiGetGraphExecId)(graphExec, pId)
+        if let Some(func) = (culib().cuptiGetGraphExecId) {
+            func(graphExec, pId)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiGetGraphId(graph: CUgraph, pId: *mut u32) -> CUptiResult {
-        (culib().cuptiGetGraphId)(graph, pId)
+        if let Some(func) = (culib().cuptiGetGraphId) {
+            func(graph, pId)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiGetGraphNodeId(node: CUgraphNode, nodeId: *mut u64) -> CUptiResult {
-        (culib().cuptiGetGraphNodeId)(node, nodeId)
+        if let Some(func) = (culib().cuptiGetGraphNodeId) {
+            func(node, nodeId)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiGetLastError() -> CUptiResult {
-        (culib().cuptiGetLastError)()
+        if let Some(func) = (culib().cuptiGetLastError) {
+            func()
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiGetNumEventDomains(numDomains: *mut u32) -> CUptiResult {
-        (culib().cuptiGetNumEventDomains)(numDomains)
+        if let Some(func) = (culib().cuptiGetNumEventDomains) {
+            func(numDomains)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiGetNumMetrics(numMetrics: *mut u32) -> CUptiResult {
-        (culib().cuptiGetNumMetrics)(numMetrics)
+        if let Some(func) = (culib().cuptiGetNumMetrics) {
+            func(numMetrics)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiGetResultString(
         result: CUptiResult,
         str_: *mut *const ::core::ffi::c_char,
     ) -> CUptiResult {
-        (culib().cuptiGetResultString)(result, str_)
+        if let Some(func) = (culib().cuptiGetResultString) {
+            func(result, str_)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiGetStreamId(
         context: CUcontext,
         stream: CUstream,
         streamId: *mut u32,
     ) -> CUptiResult {
-        (culib().cuptiGetStreamId)(context, stream, streamId)
+        if let Some(func) = (culib().cuptiGetStreamId) {
+            func(context, stream, streamId)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiGetStreamIdEx(
         context: CUcontext,
@@ -50370,22 +50694,42 @@ mod loaded {
         perThreadStream: u8,
         streamId: *mut u32,
     ) -> CUptiResult {
-        (culib().cuptiGetStreamIdEx)(context, stream, perThreadStream, streamId)
+        if let Some(func) = (culib().cuptiGetStreamIdEx) {
+            func(context, stream, perThreadStream, streamId)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiGetThreadIdType(type_: *mut CUpti_ActivityThreadIdType) -> CUptiResult {
-        (culib().cuptiGetThreadIdType)(type_)
+        if let Some(func) = (culib().cuptiGetThreadIdType) {
+            func(type_)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiGetTimestamp(timestamp: *mut u64) -> CUptiResult {
-        (culib().cuptiGetTimestamp)(timestamp)
+        if let Some(func) = (culib().cuptiGetTimestamp) {
+            func(timestamp)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiGetVersion(version: *mut u32) -> CUptiResult {
-        (culib().cuptiGetVersion)(version)
+        if let Some(func) = (culib().cuptiGetVersion) {
+            func(version)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiKernelReplaySubscribeUpdate(
         updateFunc: CUpti_KernelReplayUpdateFunc,
         customData: *mut ::core::ffi::c_void,
     ) -> CUptiResult {
-        (culib().cuptiKernelReplaySubscribeUpdate)(updateFunc, customData)
+        if let Some(func) = (culib().cuptiKernelReplaySubscribeUpdate) {
+            func(updateFunc, customData)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiMetricCreateEventGroupSets(
         context: CUcontext,
@@ -50393,26 +50737,38 @@ mod loaded {
         metricIdArray: *mut CUpti_MetricID,
         eventGroupPasses: *mut *mut CUpti_EventGroupSets,
     ) -> CUptiResult {
-        (culib().cuptiMetricCreateEventGroupSets)(
-            context,
-            metricIdArraySizeBytes,
-            metricIdArray,
-            eventGroupPasses,
-        )
+        if let Some(func) = (culib().cuptiMetricCreateEventGroupSets) {
+            func(
+                context,
+                metricIdArraySizeBytes,
+                metricIdArray,
+                eventGroupPasses,
+            )
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiMetricEnumEvents(
         metric: CUpti_MetricID,
         eventIdArraySizeBytes: *mut usize,
         eventIdArray: *mut CUpti_EventID,
     ) -> CUptiResult {
-        (culib().cuptiMetricEnumEvents)(metric, eventIdArraySizeBytes, eventIdArray)
+        if let Some(func) = (culib().cuptiMetricEnumEvents) {
+            func(metric, eventIdArraySizeBytes, eventIdArray)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiMetricEnumProperties(
         metric: CUpti_MetricID,
         propIdArraySizeBytes: *mut usize,
         propIdArray: *mut CUpti_MetricPropertyID,
     ) -> CUptiResult {
-        (culib().cuptiMetricEnumProperties)(metric, propIdArraySizeBytes, propIdArray)
+        if let Some(func) = (culib().cuptiMetricEnumProperties) {
+            func(metric, propIdArraySizeBytes, propIdArray)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiMetricGetAttribute(
         metric: CUpti_MetricID,
@@ -50420,33 +50776,53 @@ mod loaded {
         valueSize: *mut usize,
         value: *mut ::core::ffi::c_void,
     ) -> CUptiResult {
-        (culib().cuptiMetricGetAttribute)(metric, attrib, valueSize, value)
+        if let Some(func) = (culib().cuptiMetricGetAttribute) {
+            func(metric, attrib, valueSize, value)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiMetricGetIdFromName(
         device: CUdevice,
         metricName: *const ::core::ffi::c_char,
         metric: *mut CUpti_MetricID,
     ) -> CUptiResult {
-        (culib().cuptiMetricGetIdFromName)(device, metricName, metric)
+        if let Some(func) = (culib().cuptiMetricGetIdFromName) {
+            func(device, metricName, metric)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiMetricGetNumEvents(
         metric: CUpti_MetricID,
         numEvents: *mut u32,
     ) -> CUptiResult {
-        (culib().cuptiMetricGetNumEvents)(metric, numEvents)
+        if let Some(func) = (culib().cuptiMetricGetNumEvents) {
+            func(metric, numEvents)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiMetricGetNumProperties(
         metric: CUpti_MetricID,
         numProp: *mut u32,
     ) -> CUptiResult {
-        (culib().cuptiMetricGetNumProperties)(metric, numProp)
+        if let Some(func) = (culib().cuptiMetricGetNumProperties) {
+            func(metric, numProp)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiMetricGetRequiredEventGroupSets(
         context: CUcontext,
         metric: CUpti_MetricID,
         eventGroupSets: *mut *mut CUpti_EventGroupSets,
     ) -> CUptiResult {
-        (culib().cuptiMetricGetRequiredEventGroupSets)(context, metric, eventGroupSets)
+        if let Some(func) = (culib().cuptiMetricGetRequiredEventGroupSets) {
+            func(context, metric, eventGroupSets)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiMetricGetValue(
         device: CUdevice,
@@ -50458,16 +50834,20 @@ mod loaded {
         timeDuration: u64,
         metricValue: *mut CUpti_MetricValue,
     ) -> CUptiResult {
-        (culib().cuptiMetricGetValue)(
-            device,
-            metric,
-            eventIdArraySizeBytes,
-            eventIdArray,
-            eventValueArraySizeBytes,
-            eventValueArray,
-            timeDuration,
-            metricValue,
-        )
+        if let Some(func) = (culib().cuptiMetricGetValue) {
+            func(
+                device,
+                metric,
+                eventIdArraySizeBytes,
+                eventIdArray,
+                eventValueArraySizeBytes,
+                eventValueArray,
+                timeDuration,
+                metricValue,
+            )
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiMetricGetValue2(
         metric: CUpti_MetricID,
@@ -50481,18 +50861,22 @@ mod loaded {
         propValueArray: *mut u64,
         metricValue: *mut CUpti_MetricValue,
     ) -> CUptiResult {
-        (culib().cuptiMetricGetValue2)(
-            metric,
-            eventIdArraySizeBytes,
-            eventIdArray,
-            eventValueArraySizeBytes,
-            eventValueArray,
-            propIdArraySizeBytes,
-            propIdArray,
-            propValueArraySizeBytes,
-            propValueArray,
-            metricValue,
-        )
+        if let Some(func) = (culib().cuptiMetricGetValue2) {
+            func(
+                metric,
+                eventIdArraySizeBytes,
+                eventIdArray,
+                eventValueArraySizeBytes,
+                eventValueArray,
+                propIdArraySizeBytes,
+                propIdArray,
+                propValueArraySizeBytes,
+                propValueArray,
+                metricValue,
+            )
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     #[cfg(any(
         feature = "cuda-12060",
@@ -50503,7 +50887,11 @@ mod loaded {
     pub unsafe fn cuptiPmSamplingCounterDataGetSampleInfo(
         pParams: *mut CUpti_PmSampling_CounterData_GetSampleInfo_Params,
     ) -> CUptiResult {
-        (culib().cuptiPmSamplingCounterDataGetSampleInfo)(pParams)
+        if let Some(func) = (culib().cuptiPmSamplingCounterDataGetSampleInfo) {
+            func(pParams)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     #[cfg(any(
         feature = "cuda-12060",
@@ -50514,7 +50902,11 @@ mod loaded {
     pub unsafe fn cuptiPmSamplingCounterDataImageInitialize(
         pParams: *mut CUpti_PmSampling_CounterDataImage_Initialize_Params,
     ) -> CUptiResult {
-        (culib().cuptiPmSamplingCounterDataImageInitialize)(pParams)
+        if let Some(func) = (culib().cuptiPmSamplingCounterDataImageInitialize) {
+            func(pParams)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     #[cfg(any(
         feature = "cuda-12060",
@@ -50525,7 +50917,11 @@ mod loaded {
     pub unsafe fn cuptiPmSamplingDecodeData(
         pParams: *mut CUpti_PmSampling_DecodeData_Params,
     ) -> CUptiResult {
-        (culib().cuptiPmSamplingDecodeData)(pParams)
+        if let Some(func) = (culib().cuptiPmSamplingDecodeData) {
+            func(pParams)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     #[cfg(any(
         feature = "cuda-12060",
@@ -50536,7 +50932,11 @@ mod loaded {
     pub unsafe fn cuptiPmSamplingDisable(
         pParams: *mut CUpti_PmSampling_Disable_Params,
     ) -> CUptiResult {
-        (culib().cuptiPmSamplingDisable)(pParams)
+        if let Some(func) = (culib().cuptiPmSamplingDisable) {
+            func(pParams)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     #[cfg(any(
         feature = "cuda-12060",
@@ -50547,7 +50947,11 @@ mod loaded {
     pub unsafe fn cuptiPmSamplingEnable(
         pParams: *mut CUpti_PmSampling_Enable_Params,
     ) -> CUptiResult {
-        (culib().cuptiPmSamplingEnable)(pParams)
+        if let Some(func) = (culib().cuptiPmSamplingEnable) {
+            func(pParams)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     #[cfg(any(
         feature = "cuda-12060",
@@ -50558,7 +50962,11 @@ mod loaded {
     pub unsafe fn cuptiPmSamplingGetCounterAvailability(
         pParams: *mut CUpti_PmSampling_GetCounterAvailability_Params,
     ) -> CUptiResult {
-        (culib().cuptiPmSamplingGetCounterAvailability)(pParams)
+        if let Some(func) = (culib().cuptiPmSamplingGetCounterAvailability) {
+            func(pParams)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     #[cfg(any(
         feature = "cuda-12060",
@@ -50569,7 +50977,11 @@ mod loaded {
     pub unsafe fn cuptiPmSamplingGetCounterDataInfo(
         pParams: *mut CUpti_PmSampling_GetCounterDataInfo_Params,
     ) -> CUptiResult {
-        (culib().cuptiPmSamplingGetCounterDataInfo)(pParams)
+        if let Some(func) = (culib().cuptiPmSamplingGetCounterDataInfo) {
+            func(pParams)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     #[cfg(any(
         feature = "cuda-12060",
@@ -50580,7 +50992,11 @@ mod loaded {
     pub unsafe fn cuptiPmSamplingGetCounterDataSize(
         pParams: *mut CUpti_PmSampling_GetCounterDataSize_Params,
     ) -> CUptiResult {
-        (culib().cuptiPmSamplingGetCounterDataSize)(pParams)
+        if let Some(func) = (culib().cuptiPmSamplingGetCounterDataSize) {
+            func(pParams)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     #[cfg(any(
         feature = "cuda-12060",
@@ -50591,7 +51007,11 @@ mod loaded {
     pub unsafe fn cuptiPmSamplingSetConfig(
         pParams: *mut CUpti_PmSampling_SetConfig_Params,
     ) -> CUptiResult {
-        (culib().cuptiPmSamplingSetConfig)(pParams)
+        if let Some(func) = (culib().cuptiPmSamplingSetConfig) {
+            func(pParams)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     #[cfg(any(
         feature = "cuda-12060",
@@ -50600,7 +51020,11 @@ mod loaded {
         feature = "cuda-13000"
     ))]
     pub unsafe fn cuptiPmSamplingStart(pParams: *mut CUpti_PmSampling_Start_Params) -> CUptiResult {
-        (culib().cuptiPmSamplingStart)(pParams)
+        if let Some(func) = (culib().cuptiPmSamplingStart) {
+            func(pParams)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     #[cfg(any(
         feature = "cuda-12060",
@@ -50609,42 +51033,74 @@ mod loaded {
         feature = "cuda-13000"
     ))]
     pub unsafe fn cuptiPmSamplingStop(pParams: *mut CUpti_PmSampling_Stop_Params) -> CUptiResult {
-        (culib().cuptiPmSamplingStop)(pParams)
+        if let Some(func) = (culib().cuptiPmSamplingStop) {
+            func(pParams)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiProfilerBeginPass(
         pParams: *mut CUpti_Profiler_BeginPass_Params,
     ) -> CUptiResult {
-        (culib().cuptiProfilerBeginPass)(pParams)
+        if let Some(func) = (culib().cuptiProfilerBeginPass) {
+            func(pParams)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiProfilerBeginSession(
         pParams: *mut CUpti_Profiler_BeginSession_Params,
     ) -> CUptiResult {
-        (culib().cuptiProfilerBeginSession)(pParams)
+        if let Some(func) = (culib().cuptiProfilerBeginSession) {
+            func(pParams)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiProfilerCounterDataImageCalculateScratchBufferSize(
         pParams: *mut CUpti_Profiler_CounterDataImage_CalculateScratchBufferSize_Params,
     ) -> CUptiResult {
-        (culib().cuptiProfilerCounterDataImageCalculateScratchBufferSize)(pParams)
+        if let Some(func) = (culib().cuptiProfilerCounterDataImageCalculateScratchBufferSize) {
+            func(pParams)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiProfilerCounterDataImageCalculateSize(
         pParams: *mut CUpti_Profiler_CounterDataImage_CalculateSize_Params,
     ) -> CUptiResult {
-        (culib().cuptiProfilerCounterDataImageCalculateSize)(pParams)
+        if let Some(func) = (culib().cuptiProfilerCounterDataImageCalculateSize) {
+            func(pParams)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiProfilerCounterDataImageInitialize(
         pParams: *mut CUpti_Profiler_CounterDataImage_Initialize_Params,
     ) -> CUptiResult {
-        (culib().cuptiProfilerCounterDataImageInitialize)(pParams)
+        if let Some(func) = (culib().cuptiProfilerCounterDataImageInitialize) {
+            func(pParams)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiProfilerCounterDataImageInitializeScratchBuffer(
         pParams: *mut CUpti_Profiler_CounterDataImage_InitializeScratchBuffer_Params,
     ) -> CUptiResult {
-        (culib().cuptiProfilerCounterDataImageInitializeScratchBuffer)(pParams)
+        if let Some(func) = (culib().cuptiProfilerCounterDataImageInitializeScratchBuffer) {
+            func(pParams)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiProfilerDeInitialize(
         pParams: *mut CUpti_Profiler_DeInitialize_Params,
     ) -> CUptiResult {
-        (culib().cuptiProfilerDeInitialize)(pParams)
+        if let Some(func) = (culib().cuptiProfilerDeInitialize) {
+            func(pParams)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     #[cfg(any(
         feature = "cuda-11050",
@@ -50665,35 +51121,63 @@ mod loaded {
     pub unsafe fn cuptiProfilerDeviceSupported(
         pParams: *mut CUpti_Profiler_DeviceSupported_Params,
     ) -> CUptiResult {
-        (culib().cuptiProfilerDeviceSupported)(pParams)
+        if let Some(func) = (culib().cuptiProfilerDeviceSupported) {
+            func(pParams)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiProfilerDisableProfiling(
         pParams: *mut CUpti_Profiler_DisableProfiling_Params,
     ) -> CUptiResult {
-        (culib().cuptiProfilerDisableProfiling)(pParams)
+        if let Some(func) = (culib().cuptiProfilerDisableProfiling) {
+            func(pParams)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiProfilerEnableProfiling(
         pParams: *mut CUpti_Profiler_EnableProfiling_Params,
     ) -> CUptiResult {
-        (culib().cuptiProfilerEnableProfiling)(pParams)
+        if let Some(func) = (culib().cuptiProfilerEnableProfiling) {
+            func(pParams)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiProfilerEndPass(pParams: *mut CUpti_Profiler_EndPass_Params) -> CUptiResult {
-        (culib().cuptiProfilerEndPass)(pParams)
+        if let Some(func) = (culib().cuptiProfilerEndPass) {
+            func(pParams)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiProfilerEndSession(
         pParams: *mut CUpti_Profiler_EndSession_Params,
     ) -> CUptiResult {
-        (culib().cuptiProfilerEndSession)(pParams)
+        if let Some(func) = (culib().cuptiProfilerEndSession) {
+            func(pParams)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiProfilerFlushCounterData(
         pParams: *mut CUpti_Profiler_FlushCounterData_Params,
     ) -> CUptiResult {
-        (culib().cuptiProfilerFlushCounterData)(pParams)
+        if let Some(func) = (culib().cuptiProfilerFlushCounterData) {
+            func(pParams)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiProfilerGetCounterAvailability(
         pParams: *mut CUpti_Profiler_GetCounterAvailability_Params,
     ) -> CUptiResult {
-        (culib().cuptiProfilerGetCounterAvailability)(pParams)
+        if let Some(func) = (culib().cuptiProfilerGetCounterAvailability) {
+            func(pParams)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     #[cfg(any(
         feature = "cuda-12060",
@@ -50704,7 +51188,11 @@ mod loaded {
     pub unsafe fn cuptiProfilerHostConfigAddMetrics(
         pParams: *mut CUpti_Profiler_Host_ConfigAddMetrics_Params,
     ) -> CUptiResult {
-        (culib().cuptiProfilerHostConfigAddMetrics)(pParams)
+        if let Some(func) = (culib().cuptiProfilerHostConfigAddMetrics) {
+            func(pParams)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     #[cfg(any(
         feature = "cuda-12060",
@@ -50715,7 +51203,11 @@ mod loaded {
     pub unsafe fn cuptiProfilerHostDeinitialize(
         pParams: *mut CUpti_Profiler_Host_Deinitialize_Params,
     ) -> CUptiResult {
-        (culib().cuptiProfilerHostDeinitialize)(pParams)
+        if let Some(func) = (culib().cuptiProfilerHostDeinitialize) {
+            func(pParams)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     #[cfg(any(
         feature = "cuda-12060",
@@ -50726,7 +51218,11 @@ mod loaded {
     pub unsafe fn cuptiProfilerHostEvaluateToGpuValues(
         pParams: *mut CUpti_Profiler_Host_EvaluateToGpuValues_Params,
     ) -> CUptiResult {
-        (culib().cuptiProfilerHostEvaluateToGpuValues)(pParams)
+        if let Some(func) = (culib().cuptiProfilerHostEvaluateToGpuValues) {
+            func(pParams)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     #[cfg(any(
         feature = "cuda-12060",
@@ -50737,7 +51233,11 @@ mod loaded {
     pub unsafe fn cuptiProfilerHostGetBaseMetrics(
         pParams: *mut CUpti_Profiler_Host_GetBaseMetrics_Params,
     ) -> CUptiResult {
-        (culib().cuptiProfilerHostGetBaseMetrics)(pParams)
+        if let Some(func) = (culib().cuptiProfilerHostGetBaseMetrics) {
+            func(pParams)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     #[cfg(any(
         feature = "cuda-12060",
@@ -50748,7 +51248,11 @@ mod loaded {
     pub unsafe fn cuptiProfilerHostGetConfigImage(
         pParams: *mut CUpti_Profiler_Host_GetConfigImage_Params,
     ) -> CUptiResult {
-        (culib().cuptiProfilerHostGetConfigImage)(pParams)
+        if let Some(func) = (culib().cuptiProfilerHostGetConfigImage) {
+            func(pParams)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     #[cfg(any(
         feature = "cuda-12060",
@@ -50759,7 +51263,11 @@ mod loaded {
     pub unsafe fn cuptiProfilerHostGetConfigImageSize(
         pParams: *mut CUpti_Profiler_Host_GetConfigImageSize_Params,
     ) -> CUptiResult {
-        (culib().cuptiProfilerHostGetConfigImageSize)(pParams)
+        if let Some(func) = (culib().cuptiProfilerHostGetConfigImageSize) {
+            func(pParams)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     #[cfg(any(
         feature = "cuda-12060",
@@ -50770,7 +51278,11 @@ mod loaded {
     pub unsafe fn cuptiProfilerHostGetMaxNumHardwareMetricsPerPass(
         pParams: *mut CUpti_Profiler_Host_GetMaxNumHardwareMetricsPerPass_Params,
     ) -> CUptiResult {
-        (culib().cuptiProfilerHostGetMaxNumHardwareMetricsPerPass)(pParams)
+        if let Some(func) = (culib().cuptiProfilerHostGetMaxNumHardwareMetricsPerPass) {
+            func(pParams)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     #[cfg(any(
         feature = "cuda-12060",
@@ -50781,7 +51293,11 @@ mod loaded {
     pub unsafe fn cuptiProfilerHostGetMetricProperties(
         pParams: *mut CUpti_Profiler_Host_GetMetricProperties_Params,
     ) -> CUptiResult {
-        (culib().cuptiProfilerHostGetMetricProperties)(pParams)
+        if let Some(func) = (culib().cuptiProfilerHostGetMetricProperties) {
+            func(pParams)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     #[cfg(any(
         feature = "cuda-12060",
@@ -50792,7 +51308,11 @@ mod loaded {
     pub unsafe fn cuptiProfilerHostGetNumOfPasses(
         pParams: *mut CUpti_Profiler_Host_GetNumOfPasses_Params,
     ) -> CUptiResult {
-        (culib().cuptiProfilerHostGetNumOfPasses)(pParams)
+        if let Some(func) = (culib().cuptiProfilerHostGetNumOfPasses) {
+            func(pParams)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     #[cfg(any(
         feature = "cuda-12060",
@@ -50803,7 +51323,11 @@ mod loaded {
     pub unsafe fn cuptiProfilerHostGetRangeName(
         pParams: *mut CUpti_Profiler_Host_GetRangeName_Params,
     ) -> CUptiResult {
-        (culib().cuptiProfilerHostGetRangeName)(pParams)
+        if let Some(func) = (culib().cuptiProfilerHostGetRangeName) {
+            func(pParams)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     #[cfg(any(
         feature = "cuda-12060",
@@ -50814,7 +51338,11 @@ mod loaded {
     pub unsafe fn cuptiProfilerHostGetSubMetrics(
         pParams: *mut CUpti_Profiler_Host_GetSubMetrics_Params,
     ) -> CUptiResult {
-        (culib().cuptiProfilerHostGetSubMetrics)(pParams)
+        if let Some(func) = (culib().cuptiProfilerHostGetSubMetrics) {
+            func(pParams)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     #[cfg(any(
         feature = "cuda-12060",
@@ -50825,7 +51353,11 @@ mod loaded {
     pub unsafe fn cuptiProfilerHostGetSupportedChips(
         pParams: *mut CUpti_Profiler_Host_GetSupportedChips_Params,
     ) -> CUptiResult {
-        (culib().cuptiProfilerHostGetSupportedChips)(pParams)
+        if let Some(func) = (culib().cuptiProfilerHostGetSupportedChips) {
+            func(pParams)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     #[cfg(any(
         feature = "cuda-12060",
@@ -50836,53 +51368,93 @@ mod loaded {
     pub unsafe fn cuptiProfilerHostInitialize(
         pParams: *mut CUpti_Profiler_Host_Initialize_Params,
     ) -> CUptiResult {
-        (culib().cuptiProfilerHostInitialize)(pParams)
+        if let Some(func) = (culib().cuptiProfilerHostInitialize) {
+            func(pParams)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiProfilerInitialize(
         pParams: *mut CUpti_Profiler_Initialize_Params,
     ) -> CUptiResult {
-        (culib().cuptiProfilerInitialize)(pParams)
+        if let Some(func) = (culib().cuptiProfilerInitialize) {
+            func(pParams)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiProfilerIsPassCollected(
         pParams: *mut CUpti_Profiler_IsPassCollected_Params,
     ) -> CUptiResult {
-        (culib().cuptiProfilerIsPassCollected)(pParams)
+        if let Some(func) = (culib().cuptiProfilerIsPassCollected) {
+            func(pParams)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiProfilerPopRange(
         pParams: *mut CUpti_Profiler_PopRange_Params,
     ) -> CUptiResult {
-        (culib().cuptiProfilerPopRange)(pParams)
+        if let Some(func) = (culib().cuptiProfilerPopRange) {
+            func(pParams)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiProfilerPushRange(
         pParams: *mut CUpti_Profiler_PushRange_Params,
     ) -> CUptiResult {
-        (culib().cuptiProfilerPushRange)(pParams)
+        if let Some(func) = (culib().cuptiProfilerPushRange) {
+            func(pParams)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiProfilerSetConfig(
         pParams: *mut CUpti_Profiler_SetConfig_Params,
     ) -> CUptiResult {
-        (culib().cuptiProfilerSetConfig)(pParams)
+        if let Some(func) = (culib().cuptiProfilerSetConfig) {
+            func(pParams)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiProfilerUnsetConfig(
         pParams: *mut CUpti_Profiler_UnsetConfig_Params,
     ) -> CUptiResult {
-        (culib().cuptiProfilerUnsetConfig)(pParams)
+        if let Some(func) = (culib().cuptiProfilerUnsetConfig) {
+            func(pParams)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiSetEventCollectionMode(
         context: CUcontext,
         mode: CUpti_EventCollectionMode,
     ) -> CUptiResult {
-        (culib().cuptiSetEventCollectionMode)(context, mode)
+        if let Some(func) = (culib().cuptiSetEventCollectionMode) {
+            func(context, mode)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiSetThreadIdType(type_: CUpti_ActivityThreadIdType) -> CUptiResult {
-        (culib().cuptiSetThreadIdType)(type_)
+        if let Some(func) = (culib().cuptiSetThreadIdType) {
+            func(type_)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiSubscribe(
         subscriber: *mut CUpti_SubscriberHandle,
         callback: CUpti_CallbackFunc,
         userdata: *mut ::core::ffi::c_void,
     ) -> CUptiResult {
-        (culib().cuptiSubscribe)(subscriber, callback, userdata)
+        if let Some(func) = (culib().cuptiSubscribe) {
+            func(subscriber, callback, userdata)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     #[cfg(any(feature = "cuda-13000"))]
     pub unsafe fn cuptiSubscribe_v2(
@@ -50891,41 +51463,61 @@ mod loaded {
         userdata: *mut ::core::ffi::c_void,
         pParams: *mut CUpti_SubscriberParams,
     ) -> CUptiResult {
-        (culib().cuptiSubscribe_v2)(subscriber, callback, userdata, pParams)
+        if let Some(func) = (culib().cuptiSubscribe_v2) {
+            func(subscriber, callback, userdata, pParams)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiSupportedDomains(
         domainCount: *mut usize,
         domainTable: *mut CUpti_DomainTable,
     ) -> CUptiResult {
-        (culib().cuptiSupportedDomains)(domainCount, domainTable)
+        if let Some(func) = (culib().cuptiSupportedDomains) {
+            func(domainCount, domainTable)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub unsafe fn cuptiUnsubscribe(subscriber: CUpti_SubscriberHandle) -> CUptiResult {
-        (culib().cuptiUnsubscribe)(subscriber)
+        if let Some(func) = (culib().cuptiUnsubscribe) {
+            func(subscriber)
+        } else {
+            CUptiResult::CUPTI_ERROR_NOT_SUPPORTED
+        }
     }
     pub struct Lib {
         __library: ::libloading::Library,
-        pub cuptiActivityConfigurePCSampling: unsafe extern "C" fn(
-            ctx: CUcontext,
-            config: *mut CUpti_ActivityPCSamplingConfig,
-        ) -> CUptiResult,
-        pub cuptiActivityConfigureUnifiedMemoryCounter: unsafe extern "C" fn(
-            config: *mut CUpti_ActivityUnifiedMemoryCounterConfig,
-            count: u32,
-        )
-            -> CUptiResult,
-        pub cuptiActivityDisable: unsafe extern "C" fn(kind: CUpti_ActivityKind) -> CUptiResult,
-        pub cuptiActivityDisableContext:
+        pub cuptiActivityConfigurePCSampling: Option<
+            unsafe extern "C" fn(
+                ctx: CUcontext,
+                config: *mut CUpti_ActivityPCSamplingConfig,
+            ) -> CUptiResult,
+        >,
+        pub cuptiActivityConfigureUnifiedMemoryCounter: Option<
+            unsafe extern "C" fn(
+                config: *mut CUpti_ActivityUnifiedMemoryCounterConfig,
+                count: u32,
+            ) -> CUptiResult,
+        >,
+        pub cuptiActivityDisable:
+            Option<unsafe extern "C" fn(kind: CUpti_ActivityKind) -> CUptiResult>,
+        pub cuptiActivityDisableContext: Option<
             unsafe extern "C" fn(context: CUcontext, kind: CUpti_ActivityKind) -> CUptiResult,
-        pub cuptiActivityEnable: unsafe extern "C" fn(kind: CUpti_ActivityKind) -> CUptiResult,
+        >,
+        pub cuptiActivityEnable:
+            Option<unsafe extern "C" fn(kind: CUpti_ActivityKind) -> CUptiResult>,
         #[cfg(any(feature = "cuda-12080", feature = "cuda-12090", feature = "cuda-13000"))]
-        pub cuptiActivityEnableAllSyncRecords: unsafe extern "C" fn(enable: u8) -> CUptiResult,
+        pub cuptiActivityEnableAllSyncRecords:
+            Option<unsafe extern "C" fn(enable: u8) -> CUptiResult>,
         #[cfg(any(
             feature = "cuda-12060",
             feature = "cuda-12080",
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuptiActivityEnableAllocationSource: unsafe extern "C" fn(enable: u8) -> CUptiResult,
+        pub cuptiActivityEnableAllocationSource:
+            Option<unsafe extern "C" fn(enable: u8) -> CUptiResult>,
         #[cfg(any(
             feature = "cuda-11070",
             feature = "cuda-11080",
@@ -50941,12 +51533,13 @@ mod loaded {
             feature = "cuda-13000"
         ))]
         pub cuptiActivityEnableAndDump:
-            unsafe extern "C" fn(kind: CUpti_ActivityKind) -> CUptiResult,
-        pub cuptiActivityEnableContext:
+            Option<unsafe extern "C" fn(kind: CUpti_ActivityKind) -> CUptiResult>,
+        pub cuptiActivityEnableContext: Option<
             unsafe extern "C" fn(context: CUcontext, kind: CUpti_ActivityKind) -> CUptiResult,
+        >,
         #[cfg(any(feature = "cuda-13000"))]
         pub cuptiActivityEnableCudaEventDeviceTimestamps:
-            unsafe extern "C" fn(enable: u8) -> CUptiResult,
+            Option<unsafe extern "C" fn(enable: u8) -> CUptiResult>,
         #[cfg(any(
             feature = "cuda-12030",
             feature = "cuda-12040",
@@ -50956,7 +51549,7 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuptiActivityEnableDeviceGraph: unsafe extern "C" fn(enable: u8) -> CUptiResult,
+        pub cuptiActivityEnableDeviceGraph: Option<unsafe extern "C" fn(enable: u8) -> CUptiResult>,
         #[cfg(any(
             feature = "cuda-12050",
             feature = "cuda-12060",
@@ -50965,11 +51558,13 @@ mod loaded {
             feature = "cuda-13000"
         ))]
         pub cuptiActivityEnableDriverApi:
-            unsafe extern "C" fn(cbid: CUpti_CallbackId, enable: u8) -> CUptiResult,
+            Option<unsafe extern "C" fn(cbid: CUpti_CallbackId, enable: u8) -> CUptiResult>,
         #[cfg(any(feature = "cuda-12080", feature = "cuda-12090", feature = "cuda-13000"))]
-        pub cuptiActivityEnableHWTrace: unsafe extern "C" fn(enable: u8) -> CUptiResult,
-        pub cuptiActivityEnableLatencyTimestamps: unsafe extern "C" fn(enable: u8) -> CUptiResult,
-        pub cuptiActivityEnableLaunchAttributes: unsafe extern "C" fn(enable: u8) -> CUptiResult,
+        pub cuptiActivityEnableHWTrace: Option<unsafe extern "C" fn(enable: u8) -> CUptiResult>,
+        pub cuptiActivityEnableLatencyTimestamps:
+            Option<unsafe extern "C" fn(enable: u8) -> CUptiResult>,
+        pub cuptiActivityEnableLaunchAttributes:
+            Option<unsafe extern "C" fn(enable: u8) -> CUptiResult>,
         #[cfg(any(
             feature = "cuda-12050",
             feature = "cuda-12060",
@@ -50978,36 +51573,48 @@ mod loaded {
             feature = "cuda-13000"
         ))]
         pub cuptiActivityEnableRuntimeApi:
-            unsafe extern "C" fn(cbid: CUpti_CallbackId, enable: u8) -> CUptiResult,
-        pub cuptiActivityFlush:
+            Option<unsafe extern "C" fn(cbid: CUpti_CallbackId, enable: u8) -> CUptiResult>,
+        pub cuptiActivityFlush: Option<
             unsafe extern "C" fn(context: CUcontext, streamId: u32, flag: u32) -> CUptiResult,
-        pub cuptiActivityFlushAll: unsafe extern "C" fn(flag: u32) -> CUptiResult,
-        pub cuptiActivityFlushPeriod: unsafe extern "C" fn(time: u32) -> CUptiResult,
-        pub cuptiActivityGetAttribute: unsafe extern "C" fn(
-            attr: CUpti_ActivityAttribute,
-            valueSize: *mut usize,
-            value: *mut ::core::ffi::c_void,
-        ) -> CUptiResult,
-        pub cuptiActivityGetNextRecord: unsafe extern "C" fn(
-            buffer: *mut u8,
-            validBufferSizeBytes: usize,
-            record: *mut *mut CUpti_Activity,
-        ) -> CUptiResult,
-        pub cuptiActivityGetNumDroppedRecords: unsafe extern "C" fn(
-            context: CUcontext,
-            streamId: u32,
-            dropped: *mut usize,
-        ) -> CUptiResult,
-        pub cuptiActivityPopExternalCorrelationId: unsafe extern "C" fn(
-            kind: CUpti_ExternalCorrelationKind,
-            lastId: *mut u64,
-        ) -> CUptiResult,
-        pub cuptiActivityPushExternalCorrelationId:
+        >,
+        pub cuptiActivityFlushAll: Option<unsafe extern "C" fn(flag: u32) -> CUptiResult>,
+        pub cuptiActivityFlushPeriod: Option<unsafe extern "C" fn(time: u32) -> CUptiResult>,
+        pub cuptiActivityGetAttribute: Option<
+            unsafe extern "C" fn(
+                attr: CUpti_ActivityAttribute,
+                valueSize: *mut usize,
+                value: *mut ::core::ffi::c_void,
+            ) -> CUptiResult,
+        >,
+        pub cuptiActivityGetNextRecord: Option<
+            unsafe extern "C" fn(
+                buffer: *mut u8,
+                validBufferSizeBytes: usize,
+                record: *mut *mut CUpti_Activity,
+            ) -> CUptiResult,
+        >,
+        pub cuptiActivityGetNumDroppedRecords: Option<
+            unsafe extern "C" fn(
+                context: CUcontext,
+                streamId: u32,
+                dropped: *mut usize,
+            ) -> CUptiResult,
+        >,
+        pub cuptiActivityPopExternalCorrelationId: Option<
+            unsafe extern "C" fn(
+                kind: CUpti_ExternalCorrelationKind,
+                lastId: *mut u64,
+            ) -> CUptiResult,
+        >,
+        pub cuptiActivityPushExternalCorrelationId: Option<
             unsafe extern "C" fn(kind: CUpti_ExternalCorrelationKind, id: u64) -> CUptiResult,
-        pub cuptiActivityRegisterCallbacks: unsafe extern "C" fn(
-            funcBufferRequested: CUpti_BuffersCallbackRequestFunc,
-            funcBufferCompleted: CUpti_BuffersCallbackCompleteFunc,
-        ) -> CUptiResult,
+        >,
+        pub cuptiActivityRegisterCallbacks: Option<
+            unsafe extern "C" fn(
+                funcBufferRequested: CUpti_BuffersCallbackRequestFunc,
+                funcBufferCompleted: CUpti_BuffersCallbackCompleteFunc,
+            ) -> CUptiResult,
+        >,
         #[cfg(any(
             feature = "cuda-11060",
             feature = "cuda-11070",
@@ -51024,46 +51631,59 @@ mod loaded {
             feature = "cuda-13000"
         ))]
         pub cuptiActivityRegisterTimestampCallback:
-            unsafe extern "C" fn(funcTimestamp: CUpti_TimestampCallbackFunc) -> CUptiResult,
-        pub cuptiActivitySetAttribute: unsafe extern "C" fn(
-            attr: CUpti_ActivityAttribute,
-            valueSize: *mut usize,
-            value: *mut ::core::ffi::c_void,
-        ) -> CUptiResult,
-        pub cuptiComputeCapabilitySupported: unsafe extern "C" fn(
-            major: ::core::ffi::c_int,
-            minor: ::core::ffi::c_int,
-            support: *mut ::core::ffi::c_int,
-        ) -> CUptiResult,
-        pub cuptiDeviceEnumEventDomains: unsafe extern "C" fn(
-            device: CUdevice,
-            arraySizeBytes: *mut usize,
-            domainArray: *mut CUpti_EventDomainID,
-        ) -> CUptiResult,
-        pub cuptiDeviceEnumMetrics: unsafe extern "C" fn(
-            device: CUdevice,
-            arraySizeBytes: *mut usize,
-            metricArray: *mut CUpti_MetricID,
-        ) -> CUptiResult,
-        pub cuptiDeviceGetAttribute: unsafe extern "C" fn(
-            device: CUdevice,
-            attrib: CUpti_DeviceAttribute,
-            valueSize: *mut usize,
-            value: *mut ::core::ffi::c_void,
-        ) -> CUptiResult,
-        pub cuptiDeviceGetChipName:
+            Option<unsafe extern "C" fn(funcTimestamp: CUpti_TimestampCallbackFunc) -> CUptiResult>,
+        pub cuptiActivitySetAttribute: Option<
+            unsafe extern "C" fn(
+                attr: CUpti_ActivityAttribute,
+                valueSize: *mut usize,
+                value: *mut ::core::ffi::c_void,
+            ) -> CUptiResult,
+        >,
+        pub cuptiComputeCapabilitySupported: Option<
+            unsafe extern "C" fn(
+                major: ::core::ffi::c_int,
+                minor: ::core::ffi::c_int,
+                support: *mut ::core::ffi::c_int,
+            ) -> CUptiResult,
+        >,
+        pub cuptiDeviceEnumEventDomains: Option<
+            unsafe extern "C" fn(
+                device: CUdevice,
+                arraySizeBytes: *mut usize,
+                domainArray: *mut CUpti_EventDomainID,
+            ) -> CUptiResult,
+        >,
+        pub cuptiDeviceEnumMetrics: Option<
+            unsafe extern "C" fn(
+                device: CUdevice,
+                arraySizeBytes: *mut usize,
+                metricArray: *mut CUpti_MetricID,
+            ) -> CUptiResult,
+        >,
+        pub cuptiDeviceGetAttribute: Option<
+            unsafe extern "C" fn(
+                device: CUdevice,
+                attrib: CUpti_DeviceAttribute,
+                valueSize: *mut usize,
+                value: *mut ::core::ffi::c_void,
+            ) -> CUptiResult,
+        >,
+        pub cuptiDeviceGetChipName: Option<
             unsafe extern "C" fn(pParams: *mut CUpti_Device_GetChipName_Params) -> CUptiResult,
-        pub cuptiDeviceGetEventDomainAttribute: unsafe extern "C" fn(
-            device: CUdevice,
-            eventDomain: CUpti_EventDomainID,
-            attrib: CUpti_EventDomainAttribute,
-            valueSize: *mut usize,
-            value: *mut ::core::ffi::c_void,
-        ) -> CUptiResult,
+        >,
+        pub cuptiDeviceGetEventDomainAttribute: Option<
+            unsafe extern "C" fn(
+                device: CUdevice,
+                eventDomain: CUpti_EventDomainID,
+                attrib: CUpti_EventDomainAttribute,
+                valueSize: *mut usize,
+                value: *mut ::core::ffi::c_void,
+            ) -> CUptiResult,
+        >,
         pub cuptiDeviceGetNumEventDomains:
-            unsafe extern "C" fn(device: CUdevice, numDomains: *mut u32) -> CUptiResult,
+            Option<unsafe extern "C" fn(device: CUdevice, numDomains: *mut u32) -> CUptiResult>,
         pub cuptiDeviceGetNumMetrics:
-            unsafe extern "C" fn(device: CUdevice, numMetrics: *mut u32) -> CUptiResult,
+            Option<unsafe extern "C" fn(device: CUdevice, numMetrics: *mut u32) -> CUptiResult>,
         #[cfg(any(
             feature = "cuda-11040",
             feature = "cuda-11050",
@@ -51074,141 +51694,185 @@ mod loaded {
             feature = "cuda-12010"
         ))]
         pub cuptiDeviceGetTimestamp:
-            unsafe extern "C" fn(context: CUcontext, timestamp: *mut u64) -> CUptiResult,
-        pub cuptiDeviceSupported:
+            Option<unsafe extern "C" fn(context: CUcontext, timestamp: *mut u64) -> CUptiResult>,
+        pub cuptiDeviceSupported: Option<
             unsafe extern "C" fn(dev: CUdevice, support: *mut ::core::ffi::c_int) -> CUptiResult,
-        pub cuptiDeviceVirtualizationMode: unsafe extern "C" fn(
-            dev: CUdevice,
-            mode: *mut CUpti_DeviceVirtualizationMode,
-        ) -> CUptiResult,
-        pub cuptiDisableKernelReplayMode: unsafe extern "C" fn(context: CUcontext) -> CUptiResult,
-        pub cuptiEnableAllDomains:
+        >,
+        pub cuptiDeviceVirtualizationMode: Option<
+            unsafe extern "C" fn(
+                dev: CUdevice,
+                mode: *mut CUpti_DeviceVirtualizationMode,
+            ) -> CUptiResult,
+        >,
+        pub cuptiDisableKernelReplayMode:
+            Option<unsafe extern "C" fn(context: CUcontext) -> CUptiResult>,
+        pub cuptiEnableAllDomains: Option<
             unsafe extern "C" fn(enable: u32, subscriber: CUpti_SubscriberHandle) -> CUptiResult,
-        pub cuptiEnableCallback: unsafe extern "C" fn(
-            enable: u32,
-            subscriber: CUpti_SubscriberHandle,
-            domain: CUpti_CallbackDomain,
-            cbid: CUpti_CallbackId,
-        ) -> CUptiResult,
-        pub cuptiEnableDomain: unsafe extern "C" fn(
-            enable: u32,
-            subscriber: CUpti_SubscriberHandle,
-            domain: CUpti_CallbackDomain,
-        ) -> CUptiResult,
-        pub cuptiEnableKernelReplayMode: unsafe extern "C" fn(context: CUcontext) -> CUptiResult,
-        pub cuptiEnumEventDomains: unsafe extern "C" fn(
-            arraySizeBytes: *mut usize,
-            domainArray: *mut CUpti_EventDomainID,
-        ) -> CUptiResult,
-        pub cuptiEnumMetrics: unsafe extern "C" fn(
-            arraySizeBytes: *mut usize,
-            metricArray: *mut CUpti_MetricID,
-        ) -> CUptiResult,
-        pub cuptiEventDomainEnumEvents: unsafe extern "C" fn(
-            eventDomain: CUpti_EventDomainID,
-            arraySizeBytes: *mut usize,
-            eventArray: *mut CUpti_EventID,
-        ) -> CUptiResult,
-        pub cuptiEventDomainGetAttribute: unsafe extern "C" fn(
-            eventDomain: CUpti_EventDomainID,
-            attrib: CUpti_EventDomainAttribute,
-            valueSize: *mut usize,
-            value: *mut ::core::ffi::c_void,
-        ) -> CUptiResult,
-        pub cuptiEventDomainGetNumEvents: unsafe extern "C" fn(
-            eventDomain: CUpti_EventDomainID,
-            numEvents: *mut u32,
-        ) -> CUptiResult,
-        pub cuptiEventGetAttribute: unsafe extern "C" fn(
-            event: CUpti_EventID,
-            attrib: CUpti_EventAttribute,
-            valueSize: *mut usize,
-            value: *mut ::core::ffi::c_void,
-        ) -> CUptiResult,
-        pub cuptiEventGetIdFromName: unsafe extern "C" fn(
-            device: CUdevice,
-            eventName: *const ::core::ffi::c_char,
-            event: *mut CUpti_EventID,
-        ) -> CUptiResult,
-        pub cuptiEventGroupAddEvent:
+        >,
+        pub cuptiEnableCallback: Option<
+            unsafe extern "C" fn(
+                enable: u32,
+                subscriber: CUpti_SubscriberHandle,
+                domain: CUpti_CallbackDomain,
+                cbid: CUpti_CallbackId,
+            ) -> CUptiResult,
+        >,
+        pub cuptiEnableDomain: Option<
+            unsafe extern "C" fn(
+                enable: u32,
+                subscriber: CUpti_SubscriberHandle,
+                domain: CUpti_CallbackDomain,
+            ) -> CUptiResult,
+        >,
+        pub cuptiEnableKernelReplayMode:
+            Option<unsafe extern "C" fn(context: CUcontext) -> CUptiResult>,
+        pub cuptiEnumEventDomains: Option<
+            unsafe extern "C" fn(
+                arraySizeBytes: *mut usize,
+                domainArray: *mut CUpti_EventDomainID,
+            ) -> CUptiResult,
+        >,
+        pub cuptiEnumMetrics: Option<
+            unsafe extern "C" fn(
+                arraySizeBytes: *mut usize,
+                metricArray: *mut CUpti_MetricID,
+            ) -> CUptiResult,
+        >,
+        pub cuptiEventDomainEnumEvents: Option<
+            unsafe extern "C" fn(
+                eventDomain: CUpti_EventDomainID,
+                arraySizeBytes: *mut usize,
+                eventArray: *mut CUpti_EventID,
+            ) -> CUptiResult,
+        >,
+        pub cuptiEventDomainGetAttribute: Option<
+            unsafe extern "C" fn(
+                eventDomain: CUpti_EventDomainID,
+                attrib: CUpti_EventDomainAttribute,
+                valueSize: *mut usize,
+                value: *mut ::core::ffi::c_void,
+            ) -> CUptiResult,
+        >,
+        pub cuptiEventDomainGetNumEvents: Option<
+            unsafe extern "C" fn(
+                eventDomain: CUpti_EventDomainID,
+                numEvents: *mut u32,
+            ) -> CUptiResult,
+        >,
+        pub cuptiEventGetAttribute: Option<
+            unsafe extern "C" fn(
+                event: CUpti_EventID,
+                attrib: CUpti_EventAttribute,
+                valueSize: *mut usize,
+                value: *mut ::core::ffi::c_void,
+            ) -> CUptiResult,
+        >,
+        pub cuptiEventGetIdFromName: Option<
+            unsafe extern "C" fn(
+                device: CUdevice,
+                eventName: *const ::core::ffi::c_char,
+                event: *mut CUpti_EventID,
+            ) -> CUptiResult,
+        >,
+        pub cuptiEventGroupAddEvent: Option<
             unsafe extern "C" fn(eventGroup: CUpti_EventGroup, event: CUpti_EventID) -> CUptiResult,
-        pub cuptiEventGroupCreate: unsafe extern "C" fn(
-            context: CUcontext,
-            eventGroup: *mut CUpti_EventGroup,
-            flags: u32,
-        ) -> CUptiResult,
+        >,
+        pub cuptiEventGroupCreate: Option<
+            unsafe extern "C" fn(
+                context: CUcontext,
+                eventGroup: *mut CUpti_EventGroup,
+                flags: u32,
+            ) -> CUptiResult,
+        >,
         pub cuptiEventGroupDestroy:
-            unsafe extern "C" fn(eventGroup: CUpti_EventGroup) -> CUptiResult,
+            Option<unsafe extern "C" fn(eventGroup: CUpti_EventGroup) -> CUptiResult>,
         pub cuptiEventGroupDisable:
-            unsafe extern "C" fn(eventGroup: CUpti_EventGroup) -> CUptiResult,
+            Option<unsafe extern "C" fn(eventGroup: CUpti_EventGroup) -> CUptiResult>,
         pub cuptiEventGroupEnable:
-            unsafe extern "C" fn(eventGroup: CUpti_EventGroup) -> CUptiResult,
-        pub cuptiEventGroupGetAttribute: unsafe extern "C" fn(
-            eventGroup: CUpti_EventGroup,
-            attrib: CUpti_EventGroupAttribute,
-            valueSize: *mut usize,
-            value: *mut ::core::ffi::c_void,
-        ) -> CUptiResult,
-        pub cuptiEventGroupReadAllEvents: unsafe extern "C" fn(
-            eventGroup: CUpti_EventGroup,
-            flags: CUpti_ReadEventFlags,
-            eventValueBufferSizeBytes: *mut usize,
-            eventValueBuffer: *mut u64,
-            eventIdArraySizeBytes: *mut usize,
-            eventIdArray: *mut CUpti_EventID,
-            numEventIdsRead: *mut usize,
-        ) -> CUptiResult,
-        pub cuptiEventGroupReadEvent: unsafe extern "C" fn(
-            eventGroup: CUpti_EventGroup,
-            flags: CUpti_ReadEventFlags,
-            event: CUpti_EventID,
-            eventValueBufferSizeBytes: *mut usize,
-            eventValueBuffer: *mut u64,
-        ) -> CUptiResult,
+            Option<unsafe extern "C" fn(eventGroup: CUpti_EventGroup) -> CUptiResult>,
+        pub cuptiEventGroupGetAttribute: Option<
+            unsafe extern "C" fn(
+                eventGroup: CUpti_EventGroup,
+                attrib: CUpti_EventGroupAttribute,
+                valueSize: *mut usize,
+                value: *mut ::core::ffi::c_void,
+            ) -> CUptiResult,
+        >,
+        pub cuptiEventGroupReadAllEvents: Option<
+            unsafe extern "C" fn(
+                eventGroup: CUpti_EventGroup,
+                flags: CUpti_ReadEventFlags,
+                eventValueBufferSizeBytes: *mut usize,
+                eventValueBuffer: *mut u64,
+                eventIdArraySizeBytes: *mut usize,
+                eventIdArray: *mut CUpti_EventID,
+                numEventIdsRead: *mut usize,
+            ) -> CUptiResult,
+        >,
+        pub cuptiEventGroupReadEvent: Option<
+            unsafe extern "C" fn(
+                eventGroup: CUpti_EventGroup,
+                flags: CUpti_ReadEventFlags,
+                event: CUpti_EventID,
+                eventValueBufferSizeBytes: *mut usize,
+                eventValueBuffer: *mut u64,
+            ) -> CUptiResult,
+        >,
         pub cuptiEventGroupRemoveAllEvents:
-            unsafe extern "C" fn(eventGroup: CUpti_EventGroup) -> CUptiResult,
-        pub cuptiEventGroupRemoveEvent:
+            Option<unsafe extern "C" fn(eventGroup: CUpti_EventGroup) -> CUptiResult>,
+        pub cuptiEventGroupRemoveEvent: Option<
             unsafe extern "C" fn(eventGroup: CUpti_EventGroup, event: CUpti_EventID) -> CUptiResult,
+        >,
         pub cuptiEventGroupResetAllEvents:
-            unsafe extern "C" fn(eventGroup: CUpti_EventGroup) -> CUptiResult,
-        pub cuptiEventGroupSetAttribute: unsafe extern "C" fn(
-            eventGroup: CUpti_EventGroup,
-            attrib: CUpti_EventGroupAttribute,
-            valueSize: usize,
-            value: *mut ::core::ffi::c_void,
-        ) -> CUptiResult,
+            Option<unsafe extern "C" fn(eventGroup: CUpti_EventGroup) -> CUptiResult>,
+        pub cuptiEventGroupSetAttribute: Option<
+            unsafe extern "C" fn(
+                eventGroup: CUpti_EventGroup,
+                attrib: CUpti_EventGroupAttribute,
+                valueSize: usize,
+                value: *mut ::core::ffi::c_void,
+            ) -> CUptiResult,
+        >,
         pub cuptiEventGroupSetDisable:
-            unsafe extern "C" fn(eventGroupSet: *mut CUpti_EventGroupSet) -> CUptiResult,
+            Option<unsafe extern "C" fn(eventGroupSet: *mut CUpti_EventGroupSet) -> CUptiResult>,
         pub cuptiEventGroupSetEnable:
-            unsafe extern "C" fn(eventGroupSet: *mut CUpti_EventGroupSet) -> CUptiResult,
-        pub cuptiEventGroupSetsCreate: unsafe extern "C" fn(
-            context: CUcontext,
-            eventIdArraySizeBytes: usize,
-            eventIdArray: *mut CUpti_EventID,
-            eventGroupPasses: *mut *mut CUpti_EventGroupSets,
-        ) -> CUptiResult,
+            Option<unsafe extern "C" fn(eventGroupSet: *mut CUpti_EventGroupSet) -> CUptiResult>,
+        pub cuptiEventGroupSetsCreate: Option<
+            unsafe extern "C" fn(
+                context: CUcontext,
+                eventIdArraySizeBytes: usize,
+                eventIdArray: *mut CUpti_EventID,
+                eventGroupPasses: *mut *mut CUpti_EventGroupSets,
+            ) -> CUptiResult,
+        >,
         pub cuptiEventGroupSetsDestroy:
-            unsafe extern "C" fn(eventGroupSets: *mut CUpti_EventGroupSets) -> CUptiResult,
-        pub cuptiFinalize: unsafe extern "C" fn() -> CUptiResult,
-        pub cuptiGetAutoBoostState: unsafe extern "C" fn(
-            context: CUcontext,
-            state: *mut CUpti_ActivityAutoBoostState,
-        ) -> CUptiResult,
-        pub cuptiGetCallbackName: unsafe extern "C" fn(
-            domain: CUpti_CallbackDomain,
-            cbid: u32,
-            name: *mut *const ::core::ffi::c_char,
-        ) -> CUptiResult,
-        pub cuptiGetCallbackState: unsafe extern "C" fn(
-            enable: *mut u32,
-            subscriber: CUpti_SubscriberHandle,
-            domain: CUpti_CallbackDomain,
-            cbid: CUpti_CallbackId,
-        ) -> CUptiResult,
+            Option<unsafe extern "C" fn(eventGroupSets: *mut CUpti_EventGroupSets) -> CUptiResult>,
+        pub cuptiFinalize: Option<unsafe extern "C" fn() -> CUptiResult>,
+        pub cuptiGetAutoBoostState: Option<
+            unsafe extern "C" fn(
+                context: CUcontext,
+                state: *mut CUpti_ActivityAutoBoostState,
+            ) -> CUptiResult,
+        >,
+        pub cuptiGetCallbackName: Option<
+            unsafe extern "C" fn(
+                domain: CUpti_CallbackDomain,
+                cbid: u32,
+                name: *mut *const ::core::ffi::c_char,
+            ) -> CUptiResult,
+        >,
+        pub cuptiGetCallbackState: Option<
+            unsafe extern "C" fn(
+                enable: *mut u32,
+                subscriber: CUpti_SubscriberHandle,
+                domain: CUpti_CallbackDomain,
+                cbid: CUpti_CallbackId,
+            ) -> CUptiResult,
+        >,
         pub cuptiGetContextId:
-            unsafe extern "C" fn(context: CUcontext, contextId: *mut u32) -> CUptiResult,
+            Option<unsafe extern "C" fn(context: CUcontext, contextId: *mut u32) -> CUptiResult>,
         pub cuptiGetDeviceId:
-            unsafe extern "C" fn(context: CUcontext, deviceId: *mut u32) -> CUptiResult,
+            Option<unsafe extern "C" fn(context: CUcontext, deviceId: *mut u32) -> CUptiResult>,
         #[cfg(any(
             feature = "cuda-12020",
             feature = "cuda-12030",
@@ -51219,10 +51883,12 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuptiGetErrorMessage: unsafe extern "C" fn(
-            result: CUptiResult,
-            str_: *mut *const ::core::ffi::c_char,
-        ) -> CUptiResult,
+        pub cuptiGetErrorMessage: Option<
+            unsafe extern "C" fn(
+                result: CUptiResult,
+                str_: *mut *const ::core::ffi::c_char,
+            ) -> CUptiResult,
+        >,
         #[cfg(any(
             feature = "cuda-12030",
             feature = "cuda-12040",
@@ -51233,179 +51899,221 @@ mod loaded {
             feature = "cuda-13000"
         ))]
         pub cuptiGetGraphExecId:
-            unsafe extern "C" fn(graphExec: CUgraphExec, pId: *mut u32) -> CUptiResult,
-        pub cuptiGetGraphId: unsafe extern "C" fn(graph: CUgraph, pId: *mut u32) -> CUptiResult,
+            Option<unsafe extern "C" fn(graphExec: CUgraphExec, pId: *mut u32) -> CUptiResult>,
+        pub cuptiGetGraphId:
+            Option<unsafe extern "C" fn(graph: CUgraph, pId: *mut u32) -> CUptiResult>,
         pub cuptiGetGraphNodeId:
-            unsafe extern "C" fn(node: CUgraphNode, nodeId: *mut u64) -> CUptiResult,
-        pub cuptiGetLastError: unsafe extern "C" fn() -> CUptiResult,
-        pub cuptiGetNumEventDomains: unsafe extern "C" fn(numDomains: *mut u32) -> CUptiResult,
-        pub cuptiGetNumMetrics: unsafe extern "C" fn(numMetrics: *mut u32) -> CUptiResult,
-        pub cuptiGetResultString: unsafe extern "C" fn(
-            result: CUptiResult,
-            str_: *mut *const ::core::ffi::c_char,
-        ) -> CUptiResult,
-        pub cuptiGetStreamId: unsafe extern "C" fn(
-            context: CUcontext,
-            stream: CUstream,
-            streamId: *mut u32,
-        ) -> CUptiResult,
-        pub cuptiGetStreamIdEx: unsafe extern "C" fn(
-            context: CUcontext,
-            stream: CUstream,
-            perThreadStream: u8,
-            streamId: *mut u32,
-        ) -> CUptiResult,
+            Option<unsafe extern "C" fn(node: CUgraphNode, nodeId: *mut u64) -> CUptiResult>,
+        pub cuptiGetLastError: Option<unsafe extern "C" fn() -> CUptiResult>,
+        pub cuptiGetNumEventDomains:
+            Option<unsafe extern "C" fn(numDomains: *mut u32) -> CUptiResult>,
+        pub cuptiGetNumMetrics: Option<unsafe extern "C" fn(numMetrics: *mut u32) -> CUptiResult>,
+        pub cuptiGetResultString: Option<
+            unsafe extern "C" fn(
+                result: CUptiResult,
+                str_: *mut *const ::core::ffi::c_char,
+            ) -> CUptiResult,
+        >,
+        pub cuptiGetStreamId: Option<
+            unsafe extern "C" fn(
+                context: CUcontext,
+                stream: CUstream,
+                streamId: *mut u32,
+            ) -> CUptiResult,
+        >,
+        pub cuptiGetStreamIdEx: Option<
+            unsafe extern "C" fn(
+                context: CUcontext,
+                stream: CUstream,
+                perThreadStream: u8,
+                streamId: *mut u32,
+            ) -> CUptiResult,
+        >,
         pub cuptiGetThreadIdType:
-            unsafe extern "C" fn(type_: *mut CUpti_ActivityThreadIdType) -> CUptiResult,
-        pub cuptiGetTimestamp: unsafe extern "C" fn(timestamp: *mut u64) -> CUptiResult,
-        pub cuptiGetVersion: unsafe extern "C" fn(version: *mut u32) -> CUptiResult,
-        pub cuptiKernelReplaySubscribeUpdate: unsafe extern "C" fn(
-            updateFunc: CUpti_KernelReplayUpdateFunc,
-            customData: *mut ::core::ffi::c_void,
-        ) -> CUptiResult,
-        pub cuptiMetricCreateEventGroupSets: unsafe extern "C" fn(
-            context: CUcontext,
-            metricIdArraySizeBytes: usize,
-            metricIdArray: *mut CUpti_MetricID,
-            eventGroupPasses: *mut *mut CUpti_EventGroupSets,
-        ) -> CUptiResult,
-        pub cuptiMetricEnumEvents: unsafe extern "C" fn(
-            metric: CUpti_MetricID,
-            eventIdArraySizeBytes: *mut usize,
-            eventIdArray: *mut CUpti_EventID,
-        ) -> CUptiResult,
-        pub cuptiMetricEnumProperties: unsafe extern "C" fn(
-            metric: CUpti_MetricID,
-            propIdArraySizeBytes: *mut usize,
-            propIdArray: *mut CUpti_MetricPropertyID,
-        ) -> CUptiResult,
-        pub cuptiMetricGetAttribute: unsafe extern "C" fn(
-            metric: CUpti_MetricID,
-            attrib: CUpti_MetricAttribute,
-            valueSize: *mut usize,
-            value: *mut ::core::ffi::c_void,
-        ) -> CUptiResult,
-        pub cuptiMetricGetIdFromName: unsafe extern "C" fn(
-            device: CUdevice,
-            metricName: *const ::core::ffi::c_char,
-            metric: *mut CUpti_MetricID,
-        ) -> CUptiResult,
-        pub cuptiMetricGetNumEvents:
+            Option<unsafe extern "C" fn(type_: *mut CUpti_ActivityThreadIdType) -> CUptiResult>,
+        pub cuptiGetTimestamp: Option<unsafe extern "C" fn(timestamp: *mut u64) -> CUptiResult>,
+        pub cuptiGetVersion: Option<unsafe extern "C" fn(version: *mut u32) -> CUptiResult>,
+        pub cuptiKernelReplaySubscribeUpdate: Option<
+            unsafe extern "C" fn(
+                updateFunc: CUpti_KernelReplayUpdateFunc,
+                customData: *mut ::core::ffi::c_void,
+            ) -> CUptiResult,
+        >,
+        pub cuptiMetricCreateEventGroupSets: Option<
+            unsafe extern "C" fn(
+                context: CUcontext,
+                metricIdArraySizeBytes: usize,
+                metricIdArray: *mut CUpti_MetricID,
+                eventGroupPasses: *mut *mut CUpti_EventGroupSets,
+            ) -> CUptiResult,
+        >,
+        pub cuptiMetricEnumEvents: Option<
+            unsafe extern "C" fn(
+                metric: CUpti_MetricID,
+                eventIdArraySizeBytes: *mut usize,
+                eventIdArray: *mut CUpti_EventID,
+            ) -> CUptiResult,
+        >,
+        pub cuptiMetricEnumProperties: Option<
+            unsafe extern "C" fn(
+                metric: CUpti_MetricID,
+                propIdArraySizeBytes: *mut usize,
+                propIdArray: *mut CUpti_MetricPropertyID,
+            ) -> CUptiResult,
+        >,
+        pub cuptiMetricGetAttribute: Option<
+            unsafe extern "C" fn(
+                metric: CUpti_MetricID,
+                attrib: CUpti_MetricAttribute,
+                valueSize: *mut usize,
+                value: *mut ::core::ffi::c_void,
+            ) -> CUptiResult,
+        >,
+        pub cuptiMetricGetIdFromName: Option<
+            unsafe extern "C" fn(
+                device: CUdevice,
+                metricName: *const ::core::ffi::c_char,
+                metric: *mut CUpti_MetricID,
+            ) -> CUptiResult,
+        >,
+        pub cuptiMetricGetNumEvents: Option<
             unsafe extern "C" fn(metric: CUpti_MetricID, numEvents: *mut u32) -> CUptiResult,
+        >,
         pub cuptiMetricGetNumProperties:
-            unsafe extern "C" fn(metric: CUpti_MetricID, numProp: *mut u32) -> CUptiResult,
-        pub cuptiMetricGetRequiredEventGroupSets: unsafe extern "C" fn(
-            context: CUcontext,
-            metric: CUpti_MetricID,
-            eventGroupSets: *mut *mut CUpti_EventGroupSets,
-        ) -> CUptiResult,
-        pub cuptiMetricGetValue: unsafe extern "C" fn(
-            device: CUdevice,
-            metric: CUpti_MetricID,
-            eventIdArraySizeBytes: usize,
-            eventIdArray: *mut CUpti_EventID,
-            eventValueArraySizeBytes: usize,
-            eventValueArray: *mut u64,
-            timeDuration: u64,
-            metricValue: *mut CUpti_MetricValue,
-        ) -> CUptiResult,
-        pub cuptiMetricGetValue2: unsafe extern "C" fn(
-            metric: CUpti_MetricID,
-            eventIdArraySizeBytes: usize,
-            eventIdArray: *mut CUpti_EventID,
-            eventValueArraySizeBytes: usize,
-            eventValueArray: *mut u64,
-            propIdArraySizeBytes: usize,
-            propIdArray: *mut CUpti_MetricPropertyID,
-            propValueArraySizeBytes: usize,
-            propValueArray: *mut u64,
-            metricValue: *mut CUpti_MetricValue,
-        ) -> CUptiResult,
+            Option<unsafe extern "C" fn(metric: CUpti_MetricID, numProp: *mut u32) -> CUptiResult>,
+        pub cuptiMetricGetRequiredEventGroupSets: Option<
+            unsafe extern "C" fn(
+                context: CUcontext,
+                metric: CUpti_MetricID,
+                eventGroupSets: *mut *mut CUpti_EventGroupSets,
+            ) -> CUptiResult,
+        >,
+        pub cuptiMetricGetValue: Option<
+            unsafe extern "C" fn(
+                device: CUdevice,
+                metric: CUpti_MetricID,
+                eventIdArraySizeBytes: usize,
+                eventIdArray: *mut CUpti_EventID,
+                eventValueArraySizeBytes: usize,
+                eventValueArray: *mut u64,
+                timeDuration: u64,
+                metricValue: *mut CUpti_MetricValue,
+            ) -> CUptiResult,
+        >,
+        pub cuptiMetricGetValue2: Option<
+            unsafe extern "C" fn(
+                metric: CUpti_MetricID,
+                eventIdArraySizeBytes: usize,
+                eventIdArray: *mut CUpti_EventID,
+                eventValueArraySizeBytes: usize,
+                eventValueArray: *mut u64,
+                propIdArraySizeBytes: usize,
+                propIdArray: *mut CUpti_MetricPropertyID,
+                propValueArraySizeBytes: usize,
+                propValueArray: *mut u64,
+                metricValue: *mut CUpti_MetricValue,
+            ) -> CUptiResult,
+        >,
         #[cfg(any(
             feature = "cuda-12060",
             feature = "cuda-12080",
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuptiPmSamplingCounterDataGetSampleInfo: unsafe extern "C" fn(
-            pParams: *mut CUpti_PmSampling_CounterData_GetSampleInfo_Params,
-        ) -> CUptiResult,
+        pub cuptiPmSamplingCounterDataGetSampleInfo: Option<
+            unsafe extern "C" fn(
+                pParams: *mut CUpti_PmSampling_CounterData_GetSampleInfo_Params,
+            ) -> CUptiResult,
+        >,
         #[cfg(any(
             feature = "cuda-12060",
             feature = "cuda-12080",
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuptiPmSamplingCounterDataImageInitialize: unsafe extern "C" fn(
-            pParams: *mut CUpti_PmSampling_CounterDataImage_Initialize_Params,
-        ) -> CUptiResult,
+        pub cuptiPmSamplingCounterDataImageInitialize: Option<
+            unsafe extern "C" fn(
+                pParams: *mut CUpti_PmSampling_CounterDataImage_Initialize_Params,
+            ) -> CUptiResult,
+        >,
         #[cfg(any(
             feature = "cuda-12060",
             feature = "cuda-12080",
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuptiPmSamplingDecodeData:
+        pub cuptiPmSamplingDecodeData: Option<
             unsafe extern "C" fn(pParams: *mut CUpti_PmSampling_DecodeData_Params) -> CUptiResult,
+        >,
         #[cfg(any(
             feature = "cuda-12060",
             feature = "cuda-12080",
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuptiPmSamplingDisable:
+        pub cuptiPmSamplingDisable: Option<
             unsafe extern "C" fn(pParams: *mut CUpti_PmSampling_Disable_Params) -> CUptiResult,
+        >,
         #[cfg(any(
             feature = "cuda-12060",
             feature = "cuda-12080",
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuptiPmSamplingEnable:
+        pub cuptiPmSamplingEnable: Option<
             unsafe extern "C" fn(pParams: *mut CUpti_PmSampling_Enable_Params) -> CUptiResult,
+        >,
         #[cfg(any(
             feature = "cuda-12060",
             feature = "cuda-12080",
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuptiPmSamplingGetCounterAvailability: unsafe extern "C" fn(
-            pParams: *mut CUpti_PmSampling_GetCounterAvailability_Params,
-        ) -> CUptiResult,
+        pub cuptiPmSamplingGetCounterAvailability: Option<
+            unsafe extern "C" fn(
+                pParams: *mut CUpti_PmSampling_GetCounterAvailability_Params,
+            ) -> CUptiResult,
+        >,
         #[cfg(any(
             feature = "cuda-12060",
             feature = "cuda-12080",
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuptiPmSamplingGetCounterDataInfo: unsafe extern "C" fn(
-            pParams: *mut CUpti_PmSampling_GetCounterDataInfo_Params,
-        ) -> CUptiResult,
+        pub cuptiPmSamplingGetCounterDataInfo: Option<
+            unsafe extern "C" fn(
+                pParams: *mut CUpti_PmSampling_GetCounterDataInfo_Params,
+            ) -> CUptiResult,
+        >,
         #[cfg(any(
             feature = "cuda-12060",
             feature = "cuda-12080",
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuptiPmSamplingGetCounterDataSize: unsafe extern "C" fn(
-            pParams: *mut CUpti_PmSampling_GetCounterDataSize_Params,
-        ) -> CUptiResult,
+        pub cuptiPmSamplingGetCounterDataSize: Option<
+            unsafe extern "C" fn(
+                pParams: *mut CUpti_PmSampling_GetCounterDataSize_Params,
+            ) -> CUptiResult,
+        >,
         #[cfg(any(
             feature = "cuda-12060",
             feature = "cuda-12080",
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuptiPmSamplingSetConfig:
+        pub cuptiPmSamplingSetConfig: Option<
             unsafe extern "C" fn(pParams: *mut CUpti_PmSampling_SetConfig_Params) -> CUptiResult,
+        >,
         #[cfg(any(
             feature = "cuda-12060",
             feature = "cuda-12080",
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuptiPmSamplingStart:
+        pub cuptiPmSamplingStart: Option<
             unsafe extern "C" fn(pParams: *mut CUpti_PmSampling_Start_Params) -> CUptiResult,
+        >,
         #[cfg(any(
             feature = "cuda-12060",
             feature = "cuda-12080",
@@ -51413,28 +52121,36 @@ mod loaded {
             feature = "cuda-13000"
         ))]
         pub cuptiPmSamplingStop:
-            unsafe extern "C" fn(pParams: *mut CUpti_PmSampling_Stop_Params) -> CUptiResult,
-        pub cuptiProfilerBeginPass:
+            Option<unsafe extern "C" fn(pParams: *mut CUpti_PmSampling_Stop_Params) -> CUptiResult>,
+        pub cuptiProfilerBeginPass: Option<
             unsafe extern "C" fn(pParams: *mut CUpti_Profiler_BeginPass_Params) -> CUptiResult,
-        pub cuptiProfilerBeginSession:
+        >,
+        pub cuptiProfilerBeginSession: Option<
             unsafe extern "C" fn(pParams: *mut CUpti_Profiler_BeginSession_Params) -> CUptiResult,
-        pub cuptiProfilerCounterDataImageCalculateScratchBufferSize:
+        >,
+        pub cuptiProfilerCounterDataImageCalculateScratchBufferSize: Option<
             unsafe extern "C" fn(
                 pParams: *mut CUpti_Profiler_CounterDataImage_CalculateScratchBufferSize_Params,
             ) -> CUptiResult,
-        pub cuptiProfilerCounterDataImageCalculateSize: unsafe extern "C" fn(
-            pParams: *mut CUpti_Profiler_CounterDataImage_CalculateSize_Params,
-        )
-            -> CUptiResult,
-        pub cuptiProfilerCounterDataImageInitialize: unsafe extern "C" fn(
-            pParams: *mut CUpti_Profiler_CounterDataImage_Initialize_Params,
-        ) -> CUptiResult,
-        pub cuptiProfilerCounterDataImageInitializeScratchBuffer:
+        >,
+        pub cuptiProfilerCounterDataImageCalculateSize: Option<
+            unsafe extern "C" fn(
+                pParams: *mut CUpti_Profiler_CounterDataImage_CalculateSize_Params,
+            ) -> CUptiResult,
+        >,
+        pub cuptiProfilerCounterDataImageInitialize: Option<
+            unsafe extern "C" fn(
+                pParams: *mut CUpti_Profiler_CounterDataImage_Initialize_Params,
+            ) -> CUptiResult,
+        >,
+        pub cuptiProfilerCounterDataImageInitializeScratchBuffer: Option<
             unsafe extern "C" fn(
                 pParams: *mut CUpti_Profiler_CounterDataImage_InitializeScratchBuffer_Params,
             ) -> CUptiResult,
-        pub cuptiProfilerDeInitialize:
+        >,
+        pub cuptiProfilerDeInitialize: Option<
             unsafe extern "C" fn(pParams: *mut CUpti_Profiler_DeInitialize_Params) -> CUptiResult,
+        >,
         #[cfg(any(
             feature = "cuda-11050",
             feature = "cuda-11060",
@@ -51451,180 +52167,232 @@ mod loaded {
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuptiProfilerDeviceSupported: unsafe extern "C" fn(
-            pParams: *mut CUpti_Profiler_DeviceSupported_Params,
-        ) -> CUptiResult,
-        pub cuptiProfilerDisableProfiling: unsafe extern "C" fn(
-            pParams: *mut CUpti_Profiler_DisableProfiling_Params,
-        ) -> CUptiResult,
-        pub cuptiProfilerEnableProfiling: unsafe extern "C" fn(
-            pParams: *mut CUpti_Profiler_EnableProfiling_Params,
-        ) -> CUptiResult,
-        pub cuptiProfilerEndPass:
+        pub cuptiProfilerDeviceSupported: Option<
+            unsafe extern "C" fn(
+                pParams: *mut CUpti_Profiler_DeviceSupported_Params,
+            ) -> CUptiResult,
+        >,
+        pub cuptiProfilerDisableProfiling: Option<
+            unsafe extern "C" fn(
+                pParams: *mut CUpti_Profiler_DisableProfiling_Params,
+            ) -> CUptiResult,
+        >,
+        pub cuptiProfilerEnableProfiling: Option<
+            unsafe extern "C" fn(
+                pParams: *mut CUpti_Profiler_EnableProfiling_Params,
+            ) -> CUptiResult,
+        >,
+        pub cuptiProfilerEndPass: Option<
             unsafe extern "C" fn(pParams: *mut CUpti_Profiler_EndPass_Params) -> CUptiResult,
-        pub cuptiProfilerEndSession:
+        >,
+        pub cuptiProfilerEndSession: Option<
             unsafe extern "C" fn(pParams: *mut CUpti_Profiler_EndSession_Params) -> CUptiResult,
-        pub cuptiProfilerFlushCounterData: unsafe extern "C" fn(
-            pParams: *mut CUpti_Profiler_FlushCounterData_Params,
-        ) -> CUptiResult,
-        pub cuptiProfilerGetCounterAvailability: unsafe extern "C" fn(
-            pParams: *mut CUpti_Profiler_GetCounterAvailability_Params,
-        ) -> CUptiResult,
+        >,
+        pub cuptiProfilerFlushCounterData: Option<
+            unsafe extern "C" fn(
+                pParams: *mut CUpti_Profiler_FlushCounterData_Params,
+            ) -> CUptiResult,
+        >,
+        pub cuptiProfilerGetCounterAvailability: Option<
+            unsafe extern "C" fn(
+                pParams: *mut CUpti_Profiler_GetCounterAvailability_Params,
+            ) -> CUptiResult,
+        >,
         #[cfg(any(
             feature = "cuda-12060",
             feature = "cuda-12080",
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuptiProfilerHostConfigAddMetrics: unsafe extern "C" fn(
-            pParams: *mut CUpti_Profiler_Host_ConfigAddMetrics_Params,
-        ) -> CUptiResult,
+        pub cuptiProfilerHostConfigAddMetrics: Option<
+            unsafe extern "C" fn(
+                pParams: *mut CUpti_Profiler_Host_ConfigAddMetrics_Params,
+            ) -> CUptiResult,
+        >,
         #[cfg(any(
             feature = "cuda-12060",
             feature = "cuda-12080",
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuptiProfilerHostDeinitialize: unsafe extern "C" fn(
-            pParams: *mut CUpti_Profiler_Host_Deinitialize_Params,
-        ) -> CUptiResult,
+        pub cuptiProfilerHostDeinitialize: Option<
+            unsafe extern "C" fn(
+                pParams: *mut CUpti_Profiler_Host_Deinitialize_Params,
+            ) -> CUptiResult,
+        >,
         #[cfg(any(
             feature = "cuda-12060",
             feature = "cuda-12080",
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuptiProfilerHostEvaluateToGpuValues: unsafe extern "C" fn(
-            pParams: *mut CUpti_Profiler_Host_EvaluateToGpuValues_Params,
-        ) -> CUptiResult,
+        pub cuptiProfilerHostEvaluateToGpuValues: Option<
+            unsafe extern "C" fn(
+                pParams: *mut CUpti_Profiler_Host_EvaluateToGpuValues_Params,
+            ) -> CUptiResult,
+        >,
         #[cfg(any(
             feature = "cuda-12060",
             feature = "cuda-12080",
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuptiProfilerHostGetBaseMetrics: unsafe extern "C" fn(
-            pParams: *mut CUpti_Profiler_Host_GetBaseMetrics_Params,
-        ) -> CUptiResult,
+        pub cuptiProfilerHostGetBaseMetrics: Option<
+            unsafe extern "C" fn(
+                pParams: *mut CUpti_Profiler_Host_GetBaseMetrics_Params,
+            ) -> CUptiResult,
+        >,
         #[cfg(any(
             feature = "cuda-12060",
             feature = "cuda-12080",
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuptiProfilerHostGetConfigImage: unsafe extern "C" fn(
-            pParams: *mut CUpti_Profiler_Host_GetConfigImage_Params,
-        ) -> CUptiResult,
+        pub cuptiProfilerHostGetConfigImage: Option<
+            unsafe extern "C" fn(
+                pParams: *mut CUpti_Profiler_Host_GetConfigImage_Params,
+            ) -> CUptiResult,
+        >,
         #[cfg(any(
             feature = "cuda-12060",
             feature = "cuda-12080",
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuptiProfilerHostGetConfigImageSize: unsafe extern "C" fn(
-            pParams: *mut CUpti_Profiler_Host_GetConfigImageSize_Params,
-        ) -> CUptiResult,
+        pub cuptiProfilerHostGetConfigImageSize: Option<
+            unsafe extern "C" fn(
+                pParams: *mut CUpti_Profiler_Host_GetConfigImageSize_Params,
+            ) -> CUptiResult,
+        >,
         #[cfg(any(
             feature = "cuda-12060",
             feature = "cuda-12080",
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuptiProfilerHostGetMaxNumHardwareMetricsPerPass: unsafe extern "C" fn(
-            pParams: *mut CUpti_Profiler_Host_GetMaxNumHardwareMetricsPerPass_Params,
-        )
-            -> CUptiResult,
+        pub cuptiProfilerHostGetMaxNumHardwareMetricsPerPass: Option<
+            unsafe extern "C" fn(
+                pParams: *mut CUpti_Profiler_Host_GetMaxNumHardwareMetricsPerPass_Params,
+            ) -> CUptiResult,
+        >,
         #[cfg(any(
             feature = "cuda-12060",
             feature = "cuda-12080",
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuptiProfilerHostGetMetricProperties: unsafe extern "C" fn(
-            pParams: *mut CUpti_Profiler_Host_GetMetricProperties_Params,
-        ) -> CUptiResult,
+        pub cuptiProfilerHostGetMetricProperties: Option<
+            unsafe extern "C" fn(
+                pParams: *mut CUpti_Profiler_Host_GetMetricProperties_Params,
+            ) -> CUptiResult,
+        >,
         #[cfg(any(
             feature = "cuda-12060",
             feature = "cuda-12080",
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuptiProfilerHostGetNumOfPasses: unsafe extern "C" fn(
-            pParams: *mut CUpti_Profiler_Host_GetNumOfPasses_Params,
-        ) -> CUptiResult,
+        pub cuptiProfilerHostGetNumOfPasses: Option<
+            unsafe extern "C" fn(
+                pParams: *mut CUpti_Profiler_Host_GetNumOfPasses_Params,
+            ) -> CUptiResult,
+        >,
         #[cfg(any(
             feature = "cuda-12060",
             feature = "cuda-12080",
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuptiProfilerHostGetRangeName: unsafe extern "C" fn(
-            pParams: *mut CUpti_Profiler_Host_GetRangeName_Params,
-        ) -> CUptiResult,
+        pub cuptiProfilerHostGetRangeName: Option<
+            unsafe extern "C" fn(
+                pParams: *mut CUpti_Profiler_Host_GetRangeName_Params,
+            ) -> CUptiResult,
+        >,
         #[cfg(any(
             feature = "cuda-12060",
             feature = "cuda-12080",
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuptiProfilerHostGetSubMetrics: unsafe extern "C" fn(
-            pParams: *mut CUpti_Profiler_Host_GetSubMetrics_Params,
-        ) -> CUptiResult,
+        pub cuptiProfilerHostGetSubMetrics: Option<
+            unsafe extern "C" fn(
+                pParams: *mut CUpti_Profiler_Host_GetSubMetrics_Params,
+            ) -> CUptiResult,
+        >,
         #[cfg(any(
             feature = "cuda-12060",
             feature = "cuda-12080",
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuptiProfilerHostGetSupportedChips: unsafe extern "C" fn(
-            pParams: *mut CUpti_Profiler_Host_GetSupportedChips_Params,
-        ) -> CUptiResult,
+        pub cuptiProfilerHostGetSupportedChips: Option<
+            unsafe extern "C" fn(
+                pParams: *mut CUpti_Profiler_Host_GetSupportedChips_Params,
+            ) -> CUptiResult,
+        >,
         #[cfg(any(
             feature = "cuda-12060",
             feature = "cuda-12080",
             feature = "cuda-12090",
             feature = "cuda-13000"
         ))]
-        pub cuptiProfilerHostInitialize: unsafe extern "C" fn(
-            pParams: *mut CUpti_Profiler_Host_Initialize_Params,
-        ) -> CUptiResult,
-        pub cuptiProfilerInitialize:
+        pub cuptiProfilerHostInitialize: Option<
+            unsafe extern "C" fn(
+                pParams: *mut CUpti_Profiler_Host_Initialize_Params,
+            ) -> CUptiResult,
+        >,
+        pub cuptiProfilerInitialize: Option<
             unsafe extern "C" fn(pParams: *mut CUpti_Profiler_Initialize_Params) -> CUptiResult,
-        pub cuptiProfilerIsPassCollected: unsafe extern "C" fn(
-            pParams: *mut CUpti_Profiler_IsPassCollected_Params,
-        ) -> CUptiResult,
-        pub cuptiProfilerPopRange:
+        >,
+        pub cuptiProfilerIsPassCollected: Option<
+            unsafe extern "C" fn(
+                pParams: *mut CUpti_Profiler_IsPassCollected_Params,
+            ) -> CUptiResult,
+        >,
+        pub cuptiProfilerPopRange: Option<
             unsafe extern "C" fn(pParams: *mut CUpti_Profiler_PopRange_Params) -> CUptiResult,
-        pub cuptiProfilerPushRange:
+        >,
+        pub cuptiProfilerPushRange: Option<
             unsafe extern "C" fn(pParams: *mut CUpti_Profiler_PushRange_Params) -> CUptiResult,
-        pub cuptiProfilerSetConfig:
+        >,
+        pub cuptiProfilerSetConfig: Option<
             unsafe extern "C" fn(pParams: *mut CUpti_Profiler_SetConfig_Params) -> CUptiResult,
-        pub cuptiProfilerUnsetConfig:
+        >,
+        pub cuptiProfilerUnsetConfig: Option<
             unsafe extern "C" fn(pParams: *mut CUpti_Profiler_UnsetConfig_Params) -> CUptiResult,
-        pub cuptiSetEventCollectionMode: unsafe extern "C" fn(
-            context: CUcontext,
-            mode: CUpti_EventCollectionMode,
-        ) -> CUptiResult,
+        >,
+        pub cuptiSetEventCollectionMode: Option<
+            unsafe extern "C" fn(
+                context: CUcontext,
+                mode: CUpti_EventCollectionMode,
+            ) -> CUptiResult,
+        >,
         pub cuptiSetThreadIdType:
-            unsafe extern "C" fn(type_: CUpti_ActivityThreadIdType) -> CUptiResult,
-        pub cuptiSubscribe: unsafe extern "C" fn(
-            subscriber: *mut CUpti_SubscriberHandle,
-            callback: CUpti_CallbackFunc,
-            userdata: *mut ::core::ffi::c_void,
-        ) -> CUptiResult,
+            Option<unsafe extern "C" fn(type_: CUpti_ActivityThreadIdType) -> CUptiResult>,
+        pub cuptiSubscribe: Option<
+            unsafe extern "C" fn(
+                subscriber: *mut CUpti_SubscriberHandle,
+                callback: CUpti_CallbackFunc,
+                userdata: *mut ::core::ffi::c_void,
+            ) -> CUptiResult,
+        >,
         #[cfg(any(feature = "cuda-13000"))]
-        pub cuptiSubscribe_v2: unsafe extern "C" fn(
-            subscriber: *mut CUpti_SubscriberHandle,
-            callback: CUpti_CallbackFunc,
-            userdata: *mut ::core::ffi::c_void,
-            pParams: *mut CUpti_SubscriberParams,
-        ) -> CUptiResult,
-        pub cuptiSupportedDomains: unsafe extern "C" fn(
-            domainCount: *mut usize,
-            domainTable: *mut CUpti_DomainTable,
-        ) -> CUptiResult,
+        pub cuptiSubscribe_v2: Option<
+            unsafe extern "C" fn(
+                subscriber: *mut CUpti_SubscriberHandle,
+                callback: CUpti_CallbackFunc,
+                userdata: *mut ::core::ffi::c_void,
+                pParams: *mut CUpti_SubscriberParams,
+            ) -> CUptiResult,
+        >,
+        pub cuptiSupportedDomains: Option<
+            unsafe extern "C" fn(
+                domainCount: *mut usize,
+                domainTable: *mut CUpti_DomainTable,
+            ) -> CUptiResult,
+        >,
         pub cuptiUnsubscribe:
-            unsafe extern "C" fn(subscriber: CUpti_SubscriberHandle) -> CUptiResult,
+            Option<unsafe extern "C" fn(subscriber: CUpti_SubscriberHandle) -> CUptiResult>,
     }
     impl Lib {
         pub unsafe fn new<P>(path: P) -> Result<Self, ::libloading::Error>
@@ -51641,29 +52409,26 @@ mod loaded {
             let __library = library.into();
             let cuptiActivityConfigurePCSampling = __library
                 .get(b"cuptiActivityConfigurePCSampling\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiActivityConfigureUnifiedMemoryCounter = __library
                 .get(b"cuptiActivityConfigureUnifiedMemoryCounter\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiActivityDisable = __library
                 .get(b"cuptiActivityDisable\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiActivityDisableContext = __library
                 .get(b"cuptiActivityDisableContext\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuptiActivityEnable = __library
-                .get(b"cuptiActivityEnable\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuptiActivityEnable = __library.get(b"cuptiActivityEnable\0").ok().map(|sym| *sym);
             #[cfg(any(feature = "cuda-12080", feature = "cuda-12090", feature = "cuda-13000"))]
             let cuptiActivityEnableAllSyncRecords = __library
                 .get(b"cuptiActivityEnableAllSyncRecords\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12060",
                 feature = "cuda-12080",
@@ -51672,8 +52437,8 @@ mod loaded {
             ))]
             let cuptiActivityEnableAllocationSource = __library
                 .get(b"cuptiActivityEnableAllocationSource\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11070",
                 feature = "cuda-11080",
@@ -51690,17 +52455,17 @@ mod loaded {
             ))]
             let cuptiActivityEnableAndDump = __library
                 .get(b"cuptiActivityEnableAndDump\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiActivityEnableContext = __library
                 .get(b"cuptiActivityEnableContext\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(feature = "cuda-13000"))]
             let cuptiActivityEnableCudaEventDeviceTimestamps = __library
                 .get(b"cuptiActivityEnableCudaEventDeviceTimestamps\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12030",
                 feature = "cuda-12040",
@@ -51712,8 +52477,8 @@ mod loaded {
             ))]
             let cuptiActivityEnableDeviceGraph = __library
                 .get(b"cuptiActivityEnableDeviceGraph\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12050",
                 feature = "cuda-12060",
@@ -51723,21 +52488,21 @@ mod loaded {
             ))]
             let cuptiActivityEnableDriverApi = __library
                 .get(b"cuptiActivityEnableDriverApi\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(feature = "cuda-12080", feature = "cuda-12090", feature = "cuda-13000"))]
             let cuptiActivityEnableHWTrace = __library
                 .get(b"cuptiActivityEnableHWTrace\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiActivityEnableLatencyTimestamps = __library
                 .get(b"cuptiActivityEnableLatencyTimestamps\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiActivityEnableLaunchAttributes = __library
                 .get(b"cuptiActivityEnableLaunchAttributes\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12050",
                 feature = "cuda-12060",
@@ -51747,44 +52512,41 @@ mod loaded {
             ))]
             let cuptiActivityEnableRuntimeApi = __library
                 .get(b"cuptiActivityEnableRuntimeApi\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuptiActivityFlush = __library
-                .get(b"cuptiActivityFlush\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuptiActivityFlush = __library.get(b"cuptiActivityFlush\0").ok().map(|sym| *sym);
             let cuptiActivityFlushAll = __library
                 .get(b"cuptiActivityFlushAll\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiActivityFlushPeriod = __library
                 .get(b"cuptiActivityFlushPeriod\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiActivityGetAttribute = __library
                 .get(b"cuptiActivityGetAttribute\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiActivityGetNextRecord = __library
                 .get(b"cuptiActivityGetNextRecord\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiActivityGetNumDroppedRecords = __library
                 .get(b"cuptiActivityGetNumDroppedRecords\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiActivityPopExternalCorrelationId = __library
                 .get(b"cuptiActivityPopExternalCorrelationId\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiActivityPushExternalCorrelationId = __library
                 .get(b"cuptiActivityPushExternalCorrelationId\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiActivityRegisterCallbacks = __library
                 .get(b"cuptiActivityRegisterCallbacks\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11060",
                 feature = "cuda-11070",
@@ -51802,44 +52564,44 @@ mod loaded {
             ))]
             let cuptiActivityRegisterTimestampCallback = __library
                 .get(b"cuptiActivityRegisterTimestampCallback\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiActivitySetAttribute = __library
                 .get(b"cuptiActivitySetAttribute\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiComputeCapabilitySupported = __library
                 .get(b"cuptiComputeCapabilitySupported\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiDeviceEnumEventDomains = __library
                 .get(b"cuptiDeviceEnumEventDomains\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiDeviceEnumMetrics = __library
                 .get(b"cuptiDeviceEnumMetrics\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiDeviceGetAttribute = __library
                 .get(b"cuptiDeviceGetAttribute\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiDeviceGetChipName = __library
                 .get(b"cuptiDeviceGetChipName\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiDeviceGetEventDomainAttribute = __library
                 .get(b"cuptiDeviceGetEventDomainAttribute\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiDeviceGetNumEventDomains = __library
                 .get(b"cuptiDeviceGetNumEventDomains\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiDeviceGetNumMetrics = __library
                 .get(b"cuptiDeviceGetNumMetrics\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11040",
                 feature = "cuda-11050",
@@ -51851,152 +52613,134 @@ mod loaded {
             ))]
             let cuptiDeviceGetTimestamp = __library
                 .get(b"cuptiDeviceGetTimestamp\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiDeviceSupported = __library
                 .get(b"cuptiDeviceSupported\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiDeviceVirtualizationMode = __library
                 .get(b"cuptiDeviceVirtualizationMode\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiDisableKernelReplayMode = __library
                 .get(b"cuptiDisableKernelReplayMode\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiEnableAllDomains = __library
                 .get(b"cuptiEnableAllDomains\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuptiEnableCallback = __library
-                .get(b"cuptiEnableCallback\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuptiEnableDomain = __library
-                .get(b"cuptiEnableDomain\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuptiEnableCallback = __library.get(b"cuptiEnableCallback\0").ok().map(|sym| *sym);
+            let cuptiEnableDomain = __library.get(b"cuptiEnableDomain\0").ok().map(|sym| *sym);
             let cuptiEnableKernelReplayMode = __library
                 .get(b"cuptiEnableKernelReplayMode\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiEnumEventDomains = __library
                 .get(b"cuptiEnumEventDomains\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuptiEnumMetrics = __library
-                .get(b"cuptiEnumMetrics\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuptiEnumMetrics = __library.get(b"cuptiEnumMetrics\0").ok().map(|sym| *sym);
             let cuptiEventDomainEnumEvents = __library
                 .get(b"cuptiEventDomainEnumEvents\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiEventDomainGetAttribute = __library
                 .get(b"cuptiEventDomainGetAttribute\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiEventDomainGetNumEvents = __library
                 .get(b"cuptiEventDomainGetNumEvents\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiEventGetAttribute = __library
                 .get(b"cuptiEventGetAttribute\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiEventGetIdFromName = __library
                 .get(b"cuptiEventGetIdFromName\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiEventGroupAddEvent = __library
                 .get(b"cuptiEventGroupAddEvent\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiEventGroupCreate = __library
                 .get(b"cuptiEventGroupCreate\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiEventGroupDestroy = __library
                 .get(b"cuptiEventGroupDestroy\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiEventGroupDisable = __library
                 .get(b"cuptiEventGroupDisable\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiEventGroupEnable = __library
                 .get(b"cuptiEventGroupEnable\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiEventGroupGetAttribute = __library
                 .get(b"cuptiEventGroupGetAttribute\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiEventGroupReadAllEvents = __library
                 .get(b"cuptiEventGroupReadAllEvents\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiEventGroupReadEvent = __library
                 .get(b"cuptiEventGroupReadEvent\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiEventGroupRemoveAllEvents = __library
                 .get(b"cuptiEventGroupRemoveAllEvents\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiEventGroupRemoveEvent = __library
                 .get(b"cuptiEventGroupRemoveEvent\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiEventGroupResetAllEvents = __library
                 .get(b"cuptiEventGroupResetAllEvents\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiEventGroupSetAttribute = __library
                 .get(b"cuptiEventGroupSetAttribute\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiEventGroupSetDisable = __library
                 .get(b"cuptiEventGroupSetDisable\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiEventGroupSetEnable = __library
                 .get(b"cuptiEventGroupSetEnable\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiEventGroupSetsCreate = __library
                 .get(b"cuptiEventGroupSetsCreate\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiEventGroupSetsDestroy = __library
                 .get(b"cuptiEventGroupSetsDestroy\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuptiFinalize = __library
-                .get(b"cuptiFinalize\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuptiFinalize = __library.get(b"cuptiFinalize\0").ok().map(|sym| *sym);
             let cuptiGetAutoBoostState = __library
                 .get(b"cuptiGetAutoBoostState\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiGetCallbackName = __library
                 .get(b"cuptiGetCallbackName\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiGetCallbackState = __library
                 .get(b"cuptiGetCallbackState\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuptiGetContextId = __library
-                .get(b"cuptiGetContextId\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuptiGetDeviceId = __library
-                .get(b"cuptiGetDeviceId\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuptiGetContextId = __library.get(b"cuptiGetContextId\0").ok().map(|sym| *sym);
+            let cuptiGetDeviceId = __library.get(b"cuptiGetDeviceId\0").ok().map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12020",
                 feature = "cuda-12030",
@@ -52009,8 +52753,8 @@ mod loaded {
             ))]
             let cuptiGetErrorMessage = __library
                 .get(b"cuptiGetErrorMessage\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12030",
                 feature = "cuda-12040",
@@ -52020,98 +52764,68 @@ mod loaded {
                 feature = "cuda-12090",
                 feature = "cuda-13000"
             ))]
-            let cuptiGetGraphExecId = __library
-                .get(b"cuptiGetGraphExecId\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuptiGetGraphId = __library
-                .get(b"cuptiGetGraphId\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuptiGetGraphNodeId = __library
-                .get(b"cuptiGetGraphNodeId\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuptiGetLastError = __library
-                .get(b"cuptiGetLastError\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuptiGetGraphExecId = __library.get(b"cuptiGetGraphExecId\0").ok().map(|sym| *sym);
+            let cuptiGetGraphId = __library.get(b"cuptiGetGraphId\0").ok().map(|sym| *sym);
+            let cuptiGetGraphNodeId = __library.get(b"cuptiGetGraphNodeId\0").ok().map(|sym| *sym);
+            let cuptiGetLastError = __library.get(b"cuptiGetLastError\0").ok().map(|sym| *sym);
             let cuptiGetNumEventDomains = __library
                 .get(b"cuptiGetNumEventDomains\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuptiGetNumMetrics = __library
-                .get(b"cuptiGetNumMetrics\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuptiGetNumMetrics = __library.get(b"cuptiGetNumMetrics\0").ok().map(|sym| *sym);
             let cuptiGetResultString = __library
                 .get(b"cuptiGetResultString\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuptiGetStreamId = __library
-                .get(b"cuptiGetStreamId\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuptiGetStreamIdEx = __library
-                .get(b"cuptiGetStreamIdEx\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuptiGetStreamId = __library.get(b"cuptiGetStreamId\0").ok().map(|sym| *sym);
+            let cuptiGetStreamIdEx = __library.get(b"cuptiGetStreamIdEx\0").ok().map(|sym| *sym);
             let cuptiGetThreadIdType = __library
                 .get(b"cuptiGetThreadIdType\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuptiGetTimestamp = __library
-                .get(b"cuptiGetTimestamp\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuptiGetVersion = __library
-                .get(b"cuptiGetVersion\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuptiGetTimestamp = __library.get(b"cuptiGetTimestamp\0").ok().map(|sym| *sym);
+            let cuptiGetVersion = __library.get(b"cuptiGetVersion\0").ok().map(|sym| *sym);
             let cuptiKernelReplaySubscribeUpdate = __library
                 .get(b"cuptiKernelReplaySubscribeUpdate\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiMetricCreateEventGroupSets = __library
                 .get(b"cuptiMetricCreateEventGroupSets\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiMetricEnumEvents = __library
                 .get(b"cuptiMetricEnumEvents\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiMetricEnumProperties = __library
                 .get(b"cuptiMetricEnumProperties\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiMetricGetAttribute = __library
                 .get(b"cuptiMetricGetAttribute\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiMetricGetIdFromName = __library
                 .get(b"cuptiMetricGetIdFromName\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiMetricGetNumEvents = __library
                 .get(b"cuptiMetricGetNumEvents\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiMetricGetNumProperties = __library
                 .get(b"cuptiMetricGetNumProperties\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiMetricGetRequiredEventGroupSets = __library
                 .get(b"cuptiMetricGetRequiredEventGroupSets\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuptiMetricGetValue = __library
-                .get(b"cuptiMetricGetValue\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuptiMetricGetValue = __library.get(b"cuptiMetricGetValue\0").ok().map(|sym| *sym);
             let cuptiMetricGetValue2 = __library
                 .get(b"cuptiMetricGetValue2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12060",
                 feature = "cuda-12080",
@@ -52120,8 +52834,8 @@ mod loaded {
             ))]
             let cuptiPmSamplingCounterDataGetSampleInfo = __library
                 .get(b"cuptiPmSamplingCounterDataGetSampleInfo\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12060",
                 feature = "cuda-12080",
@@ -52130,8 +52844,8 @@ mod loaded {
             ))]
             let cuptiPmSamplingCounterDataImageInitialize = __library
                 .get(b"cuptiPmSamplingCounterDataImageInitialize\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12060",
                 feature = "cuda-12080",
@@ -52140,8 +52854,8 @@ mod loaded {
             ))]
             let cuptiPmSamplingDecodeData = __library
                 .get(b"cuptiPmSamplingDecodeData\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12060",
                 feature = "cuda-12080",
@@ -52150,8 +52864,8 @@ mod loaded {
             ))]
             let cuptiPmSamplingDisable = __library
                 .get(b"cuptiPmSamplingDisable\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12060",
                 feature = "cuda-12080",
@@ -52160,8 +52874,8 @@ mod loaded {
             ))]
             let cuptiPmSamplingEnable = __library
                 .get(b"cuptiPmSamplingEnable\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12060",
                 feature = "cuda-12080",
@@ -52170,8 +52884,8 @@ mod loaded {
             ))]
             let cuptiPmSamplingGetCounterAvailability = __library
                 .get(b"cuptiPmSamplingGetCounterAvailability\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12060",
                 feature = "cuda-12080",
@@ -52180,8 +52894,8 @@ mod loaded {
             ))]
             let cuptiPmSamplingGetCounterDataInfo = __library
                 .get(b"cuptiPmSamplingGetCounterDataInfo\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12060",
                 feature = "cuda-12080",
@@ -52190,8 +52904,8 @@ mod loaded {
             ))]
             let cuptiPmSamplingGetCounterDataSize = __library
                 .get(b"cuptiPmSamplingGetCounterDataSize\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12060",
                 feature = "cuda-12080",
@@ -52200,8 +52914,8 @@ mod loaded {
             ))]
             let cuptiPmSamplingSetConfig = __library
                 .get(b"cuptiPmSamplingSetConfig\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12060",
                 feature = "cuda-12080",
@@ -52210,46 +52924,43 @@ mod loaded {
             ))]
             let cuptiPmSamplingStart = __library
                 .get(b"cuptiPmSamplingStart\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12060",
                 feature = "cuda-12080",
                 feature = "cuda-12090",
                 feature = "cuda-13000"
             ))]
-            let cuptiPmSamplingStop = __library
-                .get(b"cuptiPmSamplingStop\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuptiPmSamplingStop = __library.get(b"cuptiPmSamplingStop\0").ok().map(|sym| *sym);
             let cuptiProfilerBeginPass = __library
                 .get(b"cuptiProfilerBeginPass\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiProfilerBeginSession = __library
                 .get(b"cuptiProfilerBeginSession\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiProfilerCounterDataImageCalculateScratchBufferSize = __library
                 .get(b"cuptiProfilerCounterDataImageCalculateScratchBufferSize\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiProfilerCounterDataImageCalculateSize = __library
                 .get(b"cuptiProfilerCounterDataImageCalculateSize\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiProfilerCounterDataImageInitialize = __library
                 .get(b"cuptiProfilerCounterDataImageInitialize\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiProfilerCounterDataImageInitializeScratchBuffer = __library
                 .get(b"cuptiProfilerCounterDataImageInitializeScratchBuffer\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiProfilerDeInitialize = __library
                 .get(b"cuptiProfilerDeInitialize\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-11050",
                 feature = "cuda-11060",
@@ -52268,32 +52979,32 @@ mod loaded {
             ))]
             let cuptiProfilerDeviceSupported = __library
                 .get(b"cuptiProfilerDeviceSupported\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiProfilerDisableProfiling = __library
                 .get(b"cuptiProfilerDisableProfiling\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiProfilerEnableProfiling = __library
                 .get(b"cuptiProfilerEnableProfiling\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiProfilerEndPass = __library
                 .get(b"cuptiProfilerEndPass\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiProfilerEndSession = __library
                 .get(b"cuptiProfilerEndSession\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiProfilerFlushCounterData = __library
                 .get(b"cuptiProfilerFlushCounterData\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiProfilerGetCounterAvailability = __library
                 .get(b"cuptiProfilerGetCounterAvailability\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12060",
                 feature = "cuda-12080",
@@ -52302,8 +53013,8 @@ mod loaded {
             ))]
             let cuptiProfilerHostConfigAddMetrics = __library
                 .get(b"cuptiProfilerHostConfigAddMetrics\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12060",
                 feature = "cuda-12080",
@@ -52312,8 +53023,8 @@ mod loaded {
             ))]
             let cuptiProfilerHostDeinitialize = __library
                 .get(b"cuptiProfilerHostDeinitialize\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12060",
                 feature = "cuda-12080",
@@ -52322,8 +53033,8 @@ mod loaded {
             ))]
             let cuptiProfilerHostEvaluateToGpuValues = __library
                 .get(b"cuptiProfilerHostEvaluateToGpuValues\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12060",
                 feature = "cuda-12080",
@@ -52332,8 +53043,8 @@ mod loaded {
             ))]
             let cuptiProfilerHostGetBaseMetrics = __library
                 .get(b"cuptiProfilerHostGetBaseMetrics\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12060",
                 feature = "cuda-12080",
@@ -52342,8 +53053,8 @@ mod loaded {
             ))]
             let cuptiProfilerHostGetConfigImage = __library
                 .get(b"cuptiProfilerHostGetConfigImage\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12060",
                 feature = "cuda-12080",
@@ -52352,8 +53063,8 @@ mod loaded {
             ))]
             let cuptiProfilerHostGetConfigImageSize = __library
                 .get(b"cuptiProfilerHostGetConfigImageSize\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12060",
                 feature = "cuda-12080",
@@ -52362,8 +53073,8 @@ mod loaded {
             ))]
             let cuptiProfilerHostGetMaxNumHardwareMetricsPerPass = __library
                 .get(b"cuptiProfilerHostGetMaxNumHardwareMetricsPerPass\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12060",
                 feature = "cuda-12080",
@@ -52372,8 +53083,8 @@ mod loaded {
             ))]
             let cuptiProfilerHostGetMetricProperties = __library
                 .get(b"cuptiProfilerHostGetMetricProperties\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12060",
                 feature = "cuda-12080",
@@ -52382,8 +53093,8 @@ mod loaded {
             ))]
             let cuptiProfilerHostGetNumOfPasses = __library
                 .get(b"cuptiProfilerHostGetNumOfPasses\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12060",
                 feature = "cuda-12080",
@@ -52392,8 +53103,8 @@ mod loaded {
             ))]
             let cuptiProfilerHostGetRangeName = __library
                 .get(b"cuptiProfilerHostGetRangeName\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12060",
                 feature = "cuda-12080",
@@ -52402,8 +53113,8 @@ mod loaded {
             ))]
             let cuptiProfilerHostGetSubMetrics = __library
                 .get(b"cuptiProfilerHostGetSubMetrics\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12060",
                 feature = "cuda-12080",
@@ -52412,8 +53123,8 @@ mod loaded {
             ))]
             let cuptiProfilerHostGetSupportedChips = __library
                 .get(b"cuptiProfilerHostGetSupportedChips\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             #[cfg(any(
                 feature = "cuda-12060",
                 feature = "cuda-12080",
@@ -52422,57 +53133,48 @@ mod loaded {
             ))]
             let cuptiProfilerHostInitialize = __library
                 .get(b"cuptiProfilerHostInitialize\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiProfilerInitialize = __library
                 .get(b"cuptiProfilerInitialize\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiProfilerIsPassCollected = __library
                 .get(b"cuptiProfilerIsPassCollected\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiProfilerPopRange = __library
                 .get(b"cuptiProfilerPopRange\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiProfilerPushRange = __library
                 .get(b"cuptiProfilerPushRange\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiProfilerSetConfig = __library
                 .get(b"cuptiProfilerSetConfig\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiProfilerUnsetConfig = __library
                 .get(b"cuptiProfilerUnsetConfig\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiSetEventCollectionMode = __library
                 .get(b"cuptiSetEventCollectionMode\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
             let cuptiSetThreadIdType = __library
                 .get(b"cuptiSetThreadIdType\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuptiSubscribe = __library
-                .get(b"cuptiSubscribe\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuptiSubscribe = __library.get(b"cuptiSubscribe\0").ok().map(|sym| *sym);
             #[cfg(any(feature = "cuda-13000"))]
-            let cuptiSubscribe_v2 = __library
-                .get(b"cuptiSubscribe_v2\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+            let cuptiSubscribe_v2 = __library.get(b"cuptiSubscribe_v2\0").ok().map(|sym| *sym);
             let cuptiSupportedDomains = __library
                 .get(b"cuptiSupportedDomains\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
-            let cuptiUnsubscribe = __library
-                .get(b"cuptiUnsubscribe\0")
-                .map(|sym| *sym)
-                .expect("Expected symbol in library");
+                .ok()
+                .map(|sym| *sym);
+            let cuptiUnsubscribe = __library.get(b"cuptiUnsubscribe\0").ok().map(|sym| *sym);
             Ok(Self {
                 __library,
                 cuptiActivityConfigurePCSampling,

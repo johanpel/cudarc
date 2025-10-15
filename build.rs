@@ -244,7 +244,7 @@ fn link_searches(major: usize, minor: usize) -> Vec<PathBuf> {
     // Emit a warning when it appears we're building within a conda-like environment and no env vars
     // were set:
     if env_vars.is_empty() && std::env::var("CONDA_PREFIX").is_ok() {
-        println!("cargo::warn=Detected CONDA_PREFIX in the environment, but no CUDA_HOME was set. If linker errors occur, please consider setting CUDA_HOME=$CONDA_PREFIX.")
+        println!("cargo::warning=Detected CONDA_PREFIX in the environment, but no CUDA_HOME was set. If linker errors occur, please consider setting CUDA_HOME=$CONDA_PREFIX.")
     }
 
     let typical_locations = [
